@@ -1,0 +1,277 @@
+
+@font-face {
+    font-family: Quicksand;
+    src: url(../fonts/Quicksand-Regular.ttf);
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: Quicksand;
+    src: url(../fonts/Quicksand-Medium.ttf);
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: Quicksand;
+    src: url(../fonts/Quicksand-SemiBold.ttf);
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: Quicksand;
+    src: url(../fonts/Quicksand-Bold.ttf);
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: Roboto;
+    src: url(../fonts/Roboto-Regular.ttf);
+    font-weight: 400;
+}
+
+
+@font-face {
+    font-family: Roboto;
+    src: url(../fonts/Roboto-Italic.ttf);
+    font-weight: 400;
+    font-style: italic;
+}
+
+
+
+html,body{
+    font-size: 18px;
+    margin:0;
+    padding:0
+}
+
+.container{
+    background: rgb(18, 11, 92);
+    display: flex;
+    flex: 1;
+    height: 100%;
+}
+
+/*logo scene*/
+.logo-scene{
+    align-items: center;
+    align-self: center;
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    position: absolute;
+}
+
+.logo-scene.show{
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.logo-scene > img{
+    width: 50%;
+}
+
+/*intro scene*/
+.intro-scene{
+    align-items: center;
+    align-self: center;
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    overflow: hidden;
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+    position: absolute;
+}
+
+.intro-scene.hide{
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.intro-scene > img:nth-child(1){
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    width: 123%;
+}
+
+.intro-scene > img:nth-child(2){
+    opacity: 0;
+    position: absolute;
+    transform: translateY(-230%);
+    transition: opacity 0.5s ease-in-out;
+    width: 62%;
+}
+
+.intro-scene > img:nth-child(3){
+    opacity: 0;
+    position: absolute;
+    transform: translate(-1.5%,58%);
+    transition: opacity 0.5s ease-in-out;
+    width: 48.2%;
+}
+
+.intro-scene > img.show{
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* direction scene */
+.direction-scene{
+    align-items: center;
+    align-self: center;
+    box-sizing: border-box;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+    opacity: 0;
+    padding: 0 12.5%;
+    position: absolute;
+    transition: opacity 0.5s ease-in-out;
+    width: 100%;
+}
+
+.direction-scene.show{
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+    z-index: 10;
+}
+
+.direction-scene > * {
+    color: white;
+}
+
+.direction-scene > h1, .direction-scene > h2, .direction-scene > h3{
+    flex: 1;
+    font-family: Quicksand;
+    margin:0;
+    padding: 0;
+    text-align: left;
+    width: 100%;
+}
+
+.direction-scene > h1{
+    color: #E8B930;
+    font-size: 3.5em;
+    font-weight: 700;
+    margin-top: -0.08em;
+}
+
+.direction-scene > h2{
+    border-bottom: 1px dashed rgba(255,255,255,0.2);
+    color: white;
+    font-size: 1.1em;
+    font-weight: 600;
+    padding-bottom: 1.2em;
+}
+
+.direction-scene > h3{
+    color: white;
+    font-size: 1em;
+    font-weight: 500;
+}
+
+.button{
+    border-radius: 100px;
+    background: #E8B930;
+    color: #130B5C;
+    flex:1;
+    font-family: Quicksand;
+    font-size: 1em;
+    font-weight: 600;
+    height: 3.33em;
+    line-height: 3.33em;
+    margin-top: 0.7em;
+    margin-bottom:0;
+    text-align: center;
+    width: 100%;
+}
+
+.button.small{
+    width: 50%;
+}
+
+.button.secondary-button{
+    background: #D2E4FA;
+    margin-top: 1.2em;
+}
+
+
+/*menu scene*/
+.menu-scene{
+    align-items: center;
+    align-self: center;
+    box-sizing: border-box;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    overflow: hidden;
+    opacity: 0;
+    position: absolute;
+    padding: 0 5%;
+    transition: opacity 0.5s ease-in-out;
+    width: 100%;
+}
+
+.menu-scene.show{
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+    z-index: 10;
+}
+
+.menu-scene .owl-carousel{
+    height: 100%;
+}
+
+.menu-scene .owl-carousel .wrapper{
+    text-align: center;
+}
+
+.menu-scene .button{
+    margin: 2em auto;
+}
+
+.menu-scene  img {
+    display: inline-block !important;
+    height: 55%;
+    margin-top: -8%;
+    width: auto !important;
+}
+
+.menu-scene h1, .menu-scene h2, .menu-scene p {
+    color:white;
+    font-family: Quicksand;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.menu-scene h1{
+    font-size: 2.2em;
+    margin-top: -4%;
+}
+
+.menu-scene h2{
+    font-size: 1.1em;
+}
+
+.menu-scene p{
+    font-family: Roboto;
+    font-weight: 400;
+    font-size: 1em;
+    font-style: italic;
+    line-height: 1.6;
+    margin: 1.2em 0;
+}
+
+.menu-scene .decor{
+    border-bottom: 1px solid rgba(2555,255,255,0.1);
+    margin: 0.25em auto;
+    width: 25%;
+}
