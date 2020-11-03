@@ -155,7 +155,7 @@ html,body{
 }
 
 .direction-scene > h1{
-    color: #E8B930;
+    color: #FFBD00;
     font-size: 3.5em;
     font-weight: 700;
     margin-top: -0.08em;
@@ -184,14 +184,14 @@ html,body{
 
 .button{
     border-radius: 100px;
-    background: #E8B930;
+    background: #FFBD00;
     color: #130B5C;
     flex:1;
     font-family: 'Quicksand';
     font-size: 1em;
-    font-weight: 600;
-    height: 3.33em;
-    line-height: 3.33em;
+    font-weight: 700;
+    height: 2.8em;
+    line-height: 2.8em;
     margin-top: 0.7em;
     margin-bottom:0;
     text-align: center;
@@ -199,7 +199,7 @@ html,body{
 }
 
 .button.small{
-    width: 50%;
+    width: 60%;
 }
 
 .button.secondary-button{
@@ -232,7 +232,7 @@ html,body{
     z-index: 10;
 }
 
-.menu-scene .backToDirectionButton{
+.menu-scene .backToDirectionButton, .menu-scene .openCartButton{
     color: white;
     height: 1.5em;
     left: 6%;
@@ -243,11 +243,32 @@ html,body{
     z-index: 101;
 }
 
-.menu-scene .backToDirectionButton img{
+.menu-scene .backToDirectionButton img, .menu-scene .openCartButton img{
     height: 100%;
     position: relative;
     width: 100%;
 } 
+
+.menu-scene .openCartButton{
+    left: unset;
+    opacity: 1;
+    right: 6%;
+}
+
+.menu-scene .openCartButton .cartCounter{
+    background: #FFBD00;
+    border-radius: 5.5em;
+    bottom: -0.44em;
+    color: #130B5C;
+    font-family: 'Quicksand';
+    font-size: 0.77em;
+    font-weight: 700;
+    height: 1.38em;
+    position: absolute;
+    right: -0.27em;
+    text-align: center;
+    width: 1.38em;
+}
 
 .menu-scene .carousel{
     align-self: start;
