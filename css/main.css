@@ -232,8 +232,8 @@ html,body{
     display: flex;
     flex-direction: row;
     height: 100%;
-    margin-left: -5%;
-    position: relative;
+    left: 0;
+    position: absolute;
 }
 
 .menu-scene .wrapper{
