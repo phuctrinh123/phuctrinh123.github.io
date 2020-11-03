@@ -147,7 +147,7 @@ html,body{
 
 .direction-scene > h1, .direction-scene > h2, .direction-scene > h3{
     flex: 1;
-    font-family: Quicksand;
+    font-family: 'Quicksand';
     margin:0;
     padding: 0;
     text-align: left;
@@ -175,12 +175,19 @@ html,body{
     font-weight: 500;
 }
 
+.direction-scene > p{
+    font-family: 'Roboto';
+    font-weight: 400;
+    line-height: 1.6;
+    opacity: 0.7;
+}
+
 .button{
     border-radius: 100px;
     background: #E8B930;
     color: #130B5C;
     flex:1;
-    font-family: Quicksand;
+    font-family: 'Quicksand';
     font-size: 1em;
     font-weight: 600;
     height: 3.33em;
@@ -307,7 +314,7 @@ html,body{
 
 .menu-scene h1, .menu-scene h2, .menu-scene p {
     color:white;
-    font-family: Quicksand;
+    font-family: 'Quicksand';
     text-align: center;
     margin: 0;
     padding: 0;
@@ -323,7 +330,7 @@ html,body{
 }
 
 .menu-scene p{
-    font-family: Roboto;
+    font-family: 'Roboto';
     font-weight: 400;
     font-size: 1em;
     font-style: italic;
