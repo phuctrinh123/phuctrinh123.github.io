@@ -203,16 +203,16 @@ html,body{
 
 /*menu scene*/
 .menu-scene{
-    /* align-items: center;
-    align-self: center; */
+    align-items: center;
+    align-self: center;
     box-sizing: border-box;
     display: flex;
     flex: 1;
     flex-direction: column;
     justify-content: center;
     height: 100%;
-    /* overflow: hidden;
-    overflow-x: scroll; */
+    overflow: hidden;
+    overflow-x: scroll;
     opacity: 0;
     position: absolute;
     padding: 0 5%;
