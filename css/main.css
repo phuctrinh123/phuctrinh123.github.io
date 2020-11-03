@@ -300,8 +300,8 @@ html,body{
 }
 
 .menu-scene  .wrapper  img {
+    height: 55%;
     margin-top: -8%;
-    width: 91%;
 }
 
 .menu-scene h1, .menu-scene h2, .menu-scene p {
