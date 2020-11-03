@@ -233,10 +233,12 @@ html,body{
 }
 
 .menu-scene .backToDirectionButton{
+    color: white;
     height: 1.5em;
     left: 6%;
-    top: 4%;
+    opacity: 0.3;
     position: absolute;
+    top: 4%;
     width: 1.5em;
     z-index: 101;
 }
