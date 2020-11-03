@@ -18,6 +18,7 @@ let carousel = document.getElementById('carousel');
 let carouselItemsList = document.getElementsByClassName("carousel-item");
 let prevButton = document.getElementById('left-nav');
 let nextButton = document.getElementById('right-nav');
+let backToDirectionButton = document.getElementById('backToDirectionButton');
 
 document.addEventListener('DOMContentLoaded', function(event) {
     setTimeout(()=>{
@@ -50,7 +51,7 @@ letMeOrderButton.addEventListener("click",()=>{
     direction.classList.remove("show");
     setTimeout(()=>{
         menu.classList.add("show");
-    },500);
+    },400);
 });
 
 /*carousel init */
@@ -84,4 +85,11 @@ prevButton.addEventListener("click",()=>{
     carousel.style.transform = "translateX("+ (-(window_Width*activeSlide)) +"px)";
     if(activeSlide == 0) prevButton.style.display = "none";
     if(activeSlide < carouselItemsList.length) nextButton.style.display = "flex";
+});
+
+backToDirectionButton.addEventListener("click",()=>{
+    menu.classList.remove("show");
+    setTimeout(()=>{
+        direction.classList.add("show");
+    },400);
 });

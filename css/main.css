@@ -225,6 +225,15 @@ html,body{
     z-index: 10;
 }
 
+.menu-scene .backToDirectionButton{
+    height: 3em;
+    left: 6%;
+    top: 4%;
+    position: absolute;
+    width: 3em;
+    z-index: 101;
+}
+
 .menu-scene .carousel{
     align-self: start;
     align-items: flex-start;
