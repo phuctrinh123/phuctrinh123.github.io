@@ -53,3 +53,6 @@ letMeOrderButton.addEventListener("click",()=>{
 
 /*carousel init */
 carousel.style.width = window_Width*carouselItemsList.length + "px";
+for(let i = 0 ; i < carouselItemsList.length;i++){
+    carouselItemsList[i].style.width = window_Width +"px";
+}
