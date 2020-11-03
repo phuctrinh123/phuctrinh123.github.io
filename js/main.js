@@ -102,8 +102,9 @@ backToDirectionButton.addEventListener("click",()=>{
 
 
 for(let i = 0; i < selectProductButtons.length; i++ ){
+   
     selectProductButtons[i].addEventListener("click",()=>{
-        window.confirmOptIn();
+       console.log(selectProductButtons[i].attributes[1].value); 
     });
 }
 
