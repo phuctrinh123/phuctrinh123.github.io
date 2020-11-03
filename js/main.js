@@ -61,16 +61,26 @@ for(let i = 0 ; i < carouselItemsList.length;i++){
 }
 
 nextButton.addEventListener("click",()=>{
+    let currentSlide = document.getElementById("slide"+activeSlide);
     nextButton.style.display = "flex";
     activeSlide ++;
+    currentSlide.classList.add("dim");
+    setTimeout(()=>{
+        currentSlide.classList.remove("dim");
+    },200);
     carousel.style.transform = "translateX("+  (-(window_Width*activeSlide)) +"px)";
     if(activeSlide == (carouselItemsList.length-1)) nextButton.style.display = "none";
     if(activeSlide > 0) prevButton.style.display = "flex";
 });
 
 prevButton.addEventListener("click",()=>{
+    let currentSlide = document.getElementById("slide"+activeSlide);
      prevButton.style.display = "flex";
     activeSlide --;
+    currentSlide.classList.add("dim");
+    setTimeout(()=>{
+        currentSlide.classList.remove("dim");
+    },200);
     carousel.style.transform = "translateX("+ (-(window_Width*activeSlide)) +"px)";
     if(activeSlide == 0) prevButton.style.display = "none";
     if(activeSlide < carouselItemsList.length) nextButton.style.display = "flex";

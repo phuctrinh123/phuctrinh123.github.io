@@ -264,7 +264,14 @@ html,body{
 .menu-scene .wrapper{
     height: 100%;
     text-align: center;
+    opacity: 1;
     padding: 0 1.38em;
+    transition: opacity 0.1s ease-in-out;
+}
+
+.menu-scene .wrapper.carousel-item.dim{
+    opacity: 0.15;
+    transition: opacity 0.1s ease-in-out;
 }
 
 .menu-scene .button{
