@@ -20,6 +20,7 @@ let prevButton = document.getElementById('left-nav');
 let nextButton = document.getElementById('right-nav');
 let backToDirectionButton = document.getElementById('backToDirectionButton');
 let productImage = document.getElementsByClassName('product-image');
+let selectProductButtons = document.getElementsByClassName('selectProduct');
 
 document.addEventListener('DOMContentLoaded', function(event) {
     setTimeout(()=>{
@@ -98,3 +99,12 @@ backToDirectionButton.addEventListener("click",()=>{
         direction.classList.add("show");
     },400);
 });
+
+
+for(let i = 0; i < selectProductButtons.length; i++ ){
+    selectProductButtons[i].addEventListener("click",()=>{
+        window.confirmOptIn();
+    });
+}
+
+
