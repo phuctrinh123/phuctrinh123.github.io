@@ -212,6 +212,7 @@ html,body{
     justify-content: center;
     height: 100%;
     overflow: hidden;
+    overflow-x: scroll;
     opacity: 0;
     position: absolute;
     padding: 0 5%;
@@ -225,12 +226,20 @@ html,body{
     z-index: 10;
 }
 
-.menu-scene .owl-carousel{
+.menu-scene .carousel{
+    align-self: start;
+    align-items: flex-start;
+    display: flex;
+    flex-direction: row;
     height: 100%;
+    left: 0;
+    position: absolute;
 }
 
-.menu-scene .owl-carousel .wrapper{
+.menu-scene .wrapper{
+    height: 100%;
     text-align: center;
+    padding: 0 1.38em;
 }
 
 .menu-scene .button{

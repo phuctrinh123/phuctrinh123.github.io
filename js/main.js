@@ -14,6 +14,8 @@ let cup = document.getElementById('cup');
 let question = document.getElementById('question');
 let slogan = document.getElementById('slogan');
 let letMeOrderButton = document.getElementById('letMeOrderButton');
+let carousel = document.getElementById('carousel');
+let carouselItemsList = document.getElementsByClassName("carousel-item");
 
 document.addEventListener('DOMContentLoaded', function(event) {
     setTimeout(()=>{
@@ -46,11 +48,8 @@ letMeOrderButton.addEventListener("click",()=>{
     direction.classList.remove("show");
     setTimeout(()=>{
         menu.classList.add("show");
-    },1000);
+    },500);
 });
 
-$(document).ready(function(){
-    $(".owl-carousel").owlCarousel({
-        autoWidth: true
-    });
-});
+/*carousel init */
+carousel.style.width = window_Width*carouselItemsList.length + "px";
