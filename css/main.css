@@ -203,8 +203,8 @@ html,body{
 
 /*menu scene*/
 .menu-scene{
-    align-items: center;
-    align-self: center;
+    /* align-items: center;
+    align-self: center; */
     box-sizing: border-box;
     display: flex;
     flex: 1;
@@ -232,7 +232,7 @@ html,body{
     display: flex;
     flex-direction: row;
     height: 100%;
-    left: 0;
+    margin-left: -5%;
     position: relative;
 }
 
