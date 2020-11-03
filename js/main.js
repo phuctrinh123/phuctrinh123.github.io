@@ -16,6 +16,8 @@ let slogan = document.getElementById('slogan');
 let letMeOrderButton = document.getElementById('letMeOrderButton');
 let carousel = document.getElementById('carousel');
 let carouselItemsList = document.getElementsByClassName("carousel-item");
+let prevButton = document.getElementById('left-nav');
+let nextButton = document.getElementById('right-nav');
 
 document.addEventListener('DOMContentLoaded', function(event) {
     setTimeout(()=>{
@@ -35,12 +37,12 @@ document.addEventListener('DOMContentLoaded', function(event) {
                                 logo.style.display = "none";
                                 intro.style.display = "none";
                                 direction.classList.add("show");
-                            },500);
-                        },2000);
+                            },400);
+                        },1200);
                     },200);
                 },200);
             },500);
-        },1500);
+        },700);
     },200);
 });
 
@@ -52,7 +54,24 @@ letMeOrderButton.addEventListener("click",()=>{
 });
 
 /*carousel init */
+let activeSlide = 0;
 carousel.style.width = window_Width*carouselItemsList.length + "px";
 for(let i = 0 ; i < carouselItemsList.length;i++){
     carouselItemsList[i].style.width = window_Width +"px";
 }
+
+nextButton.addEventListener("click",()=>{
+    nextButton.style.display = "flex";
+    activeSlide ++;
+    carousel.style.transform = "translateX("+  (-(window_Width*activeSlide)) +"px)";
+    if(activeSlide == (carouselItemsList.length-1)) nextButton.style.display = "none";
+    if(activeSlide > 0) prevButton.style.display = "flex";
+});
+
+prevButton.addEventListener("click",()=>{
+     prevButton.style.display = "flex";
+    activeSlide --;
+    carousel.style.transform = "translateX("+ (-(window_Width*activeSlide)) +"px)";
+    if(activeSlide == 0) prevButton.style.display = "none";
+    if(activeSlide < carouselItemsList.length) nextButton.style.display = "flex";
+});

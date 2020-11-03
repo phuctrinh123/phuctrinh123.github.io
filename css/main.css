@@ -212,7 +212,6 @@ html,body{
     justify-content: center;
     height: 100%;
     overflow: hidden;
-    overflow-x: scroll;
     opacity: 0;
     position: absolute;
     padding: 0 5%;
@@ -234,7 +233,33 @@ html,body{
     height: 100%;
     left: 0;
     position: absolute;
+    transform: translateX(0);
+    transition: transform 0.2s ease-in-out;
 }
+
+.menu-scene .nav{
+    align-items: center;
+    /* background: rgba(255,255,255,0.25); */
+    border-radius: 2em;
+    display: flex;
+    height: 3em;
+    justify-content: center;
+    opacity: 0.3;
+    position: absolute;
+    transform: translateY(-50%);
+    top: 54.5%;
+    width: 3em;
+    z-index: 100;
+}
+
+.menu-scene .nav#left-nav{
+    left: 0;
+}
+
+.menu-scene .nav#right-nav{
+    right: 0;
+}
+
 
 .menu-scene .wrapper{
     height: 100%;
