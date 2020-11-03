@@ -286,7 +286,7 @@ html,body{
     height: 100%;
     text-align: center;
     opacity: 1;
-    padding: 0 1.38em;
+    /* padding: 0 1.38em; */
     transition: opacity 0.1s ease-in-out;
 }
 
@@ -300,7 +300,7 @@ html,body{
 }
 
 .menu-scene  .wrapper  img {
-    height: 50%;
+    /* height: 50%; */
     margin-top: -8%;
 }
 

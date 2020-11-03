@@ -4,7 +4,7 @@ let window_Height = window.innerHeight;
 document.body.style.width = window_Width + "px";
 document.body.style.height = window_Height + "px";
 
-document.body.style.fontSize = Math.round(window_Width*18/375);
+document.body.style.fontSize = Math.round(window_Width*18/375) +"px";
 
 let logo = document.getElementById('logo-scene');
 let intro = document.getElementById('intro-scene');
@@ -19,6 +19,7 @@ let carouselItemsList = document.getElementsByClassName("carousel-item");
 let prevButton = document.getElementById('left-nav');
 let nextButton = document.getElementById('right-nav');
 let backToDirectionButton = document.getElementById('backToDirectionButton');
+let productImage = document.getElementsByClassName('product-image');
 
 document.addEventListener('DOMContentLoaded', function(event) {
     setTimeout(()=>{
@@ -59,6 +60,10 @@ let activeSlide = 0;
 carousel.style.width = window_Width*carouselItemsList.length + "px";
 for(let i = 0 ; i < carouselItemsList.length;i++){
     carouselItemsList[i].style.width = window_Width +"px";
+}
+
+for(let i = 0 ; i < productImage.length;i++){
+    productImage[i].style.height = Math.round((window_Height*455)/812) +"px";
 }
 
 nextButton.addEventListener("click",()=>{
