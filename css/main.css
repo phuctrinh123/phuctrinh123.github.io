@@ -367,3 +367,169 @@ html,body{
     margin: 0.25em auto;
     width: 25%;
 }
+
+/*cart*/
+.cart{
+    display: none;
+    height: 88%;
+    position: absolute;
+    top: 12%;
+    left: 0;   
+    width: 100%;
+    z-index: 1000;
+}
+
+.cart.show{
+    display: block;
+}
+
+.cart .wrapper{
+    color: white;
+    font-family: 'Quicksand';
+    height: 100%;
+    position: relative;
+    width: 100%;
+}
+
+.cart .background{
+    background: #002e7f;
+    height: 100%;
+    position: absolute;
+    width: 100%;
+}
+.cart .arrow{
+    background: #002e7f;
+    height: 1.11em;
+    position: absolute;
+    right: 1.45em;
+    transform: rotate(45deg);
+    top: -0.5em;
+    width: 1.11em;
+}
+
+.cart .content{
+    box-sizing: border-box;
+    height: 100%;
+    position: absolute;
+    padding: 1.45em;
+    width: 100%;
+}
+
+.cart .content h2, .cart .content p{
+    margin: 0;
+}
+
+.cart .content p {
+    font-family: 'Roboto';
+    font-size: 1em;
+    font-style: italic;
+    line-height: 1.6;
+}
+
+.cart .line{
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    margin: 1.45em 0;
+    width: 100%;
+}
+
+.cart .selectedItemList{
+    /* height: 46.5%; */
+    margin-bottom: 2em;
+    -ms-overflow-style: none;  /* IE and Edge */
+    overflow-Y: auto;
+    scrollbar-width: none;  /* Firefox */
+    width: 100%;
+}
+
+.cart .selectedItemList::-webkit-scrollbar{
+    display: none;
+}
+
+.cart .selectedItemList .selectedItem{
+    display: flex;
+    margin: 2em 0;
+}
+
+.cart .selectedItemList .selectedItem .left p:nth-child(1){
+    font-family: 'Quicksand';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.11em;
+}
+
+.cart .selectedItemList .selectedItem .left p:nth-child(2){
+    font-style: normal;
+    font-size: 0.77em;
+}
+
+
+.cart .button{
+    margin: 0 auto;
+    margin-top: 3em;
+}
+
+.cart .button:last-child{
+    margin-top: 1em;
+}
+
+.cart .guide{
+    display: flex;
+}
+
+.cart .guide .icon{
+    flex:1;
+}
+
+.cart .guide .icon > div{
+    background: #0088FF;
+    border-radius: 5.55em;
+    color: white;
+    font-family: 'Quicksand';
+    font-weight: 700;
+    font-size: 1.11em;
+    height: 1.38em;
+    text-align: center;
+    width: 1.38em;
+}
+
+.cart .guide .text{
+    flex:4;
+    opacity: 0.4;
+}
+
+.cart .selectedItem:first-child{
+    margin-top: 0;
+}
+
+.cart .selectedItem .left{
+    flex:12;
+}
+
+.cart .selectedItem .right{
+    flex:1;
+}
+
+.cart .right .checkbox{
+    align-items: center;
+    border: 1px solid #6C8FAE;
+    border-radius: 5.55em;
+    display: flex;
+    height: 1.2em;
+    justify-content: center;
+    margin-top: 0.3em;
+    width: 1.2em;
+}
+
+.cart .right .checkbox img{
+    display: none;
+}
+
+.cart .selectedItem.selected  .right .checkbox{
+    background: #FFBD00;
+    border: none;
+
+}
+
+.cart .selectedItem.selected  .right .checkbox img{
+    display: block;
+}

@@ -28,7 +28,10 @@
             </div>
             <div id= "menu-scene" class="menu-scene">
                 <div id="backToDirectionButton" class="backToDirectionButton"><img src="assets/list.svg" alt="Cà phê LUPU"/></div>
-                <div id="openCartButton" class="openCartButton"><img src="assets/cart.svg" alt="Cà phê LUPU"/><div class="cartCounter">0</div></div>
+                <div id="openCartButton" class="openCartButton">
+                    <img src="assets/cart.svg" alt="Cà phê LUPU"/>
+                    <div class="cartCounter">0</div>
+                </div>
                 <div id="left-nav" class="nav"><img src="assets/prev.svg" alt="Cà phê LUPU"/></div>
                 <div id="right-nav" class="nav"><img src="assets/next.svg" alt="Cà phê LUPU"/></div>
                 <div id = "carousel" class="carousel">
@@ -38,7 +41,7 @@
                         <div class="decor"></div>
                         <h2>29.000</h2>
                         <p>100% từ cà phê nguyên chất, được pha theo quy trình chuẩn bằng phin nhôm để cho ra chất lượng tốt nhất.</p>
-                        <div class="button small selectProduct" data-product="sữa">CHỌN</div>
+                        <div class="button small selectProduct" data-productName="Phin Sữa" data-productPrize="29.000">CHỌN</div>
                     </div>
                     <div id="slide1" class="wrapper carousel-item">
                         <img class="product-image" src="assets/lupu-cup-1.webp" alt="Cà phê sữa LUPU"/>
@@ -46,7 +49,47 @@
                         <div class="decor"></div>
                         <h2>25.000</h2>
                         <p>100% từ cà phê nguyên chất, được pha theo quy trình chuẩn bằng phin nhôm để cho ra chất lượng tốt nhất.</p>
-                        <div class="button small selectProduct" data-product="đen">CHỌN</div>
+                        <div class="button small selectProduct" data-productName="Phin Đen" data-productPrize="25.000">CHỌN</div>
+                    </div>
+                </div>
+            </div>
+            <div id="cart" class="cart">
+                <div class="wrapper">
+                    <div class="background"></div>
+                    <div class="arrow"></div>
+                    <div class="content">
+                        <h2>BẠN MUỐN ĐẶT</h2>
+                        <div class="line"></div>
+                        <div id="selectedItemList" class="selectedItemList">
+                            <div class="selectedItem">
+                                <div class="left">
+                                    <p>Phin Sữa</p>
+                                    <p>29.000</p>
+                                </div>
+                                <div class="right">
+                                    <div class="checkbox"><img src="assets/check.svg"/></div>
+                                </div>
+                            </div>
+                            <div class="selectedItem">
+                                <div class="left">
+                                    <p>Phin Đen</p>
+                                    <p>25.000</p>
+                                </div>
+                                <div class="right">
+                                    <div class="checkbox"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="guide">
+                            <div class="icon">
+                                <div>i</div>
+                            </div>
+                            <div class="text">
+                                <p>Sau khi nhận được yêu cầu đặt hàng của bạn. Nhân viên LUPU sẽ liên hệ ngay qua inbox nhé.</p>
+                            </div>
+                        </div> 
+                        <div class="button small">ĐẶT HÀNG</div>
+                        <div id="closeCartButton" class="button secondary-button small">QUAY LẠI</div>    
                     </div>
                 </div>
             </div>

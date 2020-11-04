@@ -21,6 +21,29 @@ let nextButton = document.getElementById('right-nav');
 let backToDirectionButton = document.getElementById('backToDirectionButton');
 let productImage = document.getElementsByClassName('product-image');
 let selectProductButtons = document.getElementsByClassName('selectProduct');
+let selectedItemList = document.getElementById('selectedItemList');
+let openCartButton = document.getElementById('openCartButton');
+let closeCartButton = document.getElementById('closeCartButton');
+let cart = document.getElementById('cart');
+
+
+addToCart=(productName, productPrice)=>{
+    let template = ` 
+        <div class="selectedItem">
+            <div class="left">
+                <p>${productName}</p>
+                <p>${productPrice}</p>
+            </div>
+            <div class="right">
+                <div class="checkbox"></div>
+            </div>
+        </div>`;
+    let list = selectedItemList.innerHTML;
+    selectedItemList.innerHTML = list + template;
+}
+
+
+selectedItemList.style.height = Math.round((window_Height * 250)/823) +"px"; 
 
 document.addEventListener('DOMContentLoaded', function(event) {
     setTimeout(()=>{
@@ -104,8 +127,15 @@ backToDirectionButton.addEventListener("click",()=>{
 for(let i = 0; i < selectProductButtons.length; i++ ){
    
     selectProductButtons[i].addEventListener("click",()=>{
-       console.log(selectProductButtons[i].attributes[1].value); 
+        addToCart(selectProductButtons[i].attributes[1].value, selectProductButtons[i].attributes[2].value);
+       //    console.log(selectProductButtons[i].attributes[1].value); 
     });
 }
 
+openCartButton.addEventListener("click",()=>{
+    cart.classList.add("show");
+});
 
+closeCartButton.addEventListener("click",()=>{
+    cart.classList.remove("show");
+});
