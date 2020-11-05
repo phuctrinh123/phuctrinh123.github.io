@@ -268,14 +268,14 @@ html,body{
     position: absolute;
     right: -0.27em;
     text-align: center;
-    transition: width 0.1s ease-in-out, height 0.1s ease-in-out;
+    transition: width 0.1s ease-in-out, height 0.1s ease-in-out, line-height 0.1s ease-in-out;
     width: 1.38em;
 }
 
 .menu-scene .openCartButton .cartCounter.onAddItem{
     height: 1.8em;
     line-height: 1.8em;
-    transition: width 0.1s ease-in-out, height 0.1s ease-in-out;
+    transition: width 0.1s ease-in-out, height 0.1s ease-in-out, line-height 0.1s ease-in-out;
     width: 1.8em;
 }
 
