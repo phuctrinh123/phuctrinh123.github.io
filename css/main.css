@@ -186,7 +186,7 @@ html,body{
     border-radius: 100px;
     background: #FFBD00;
     color: #130B5C;
-    flex:1;
+    /* flex:1; */
     font-family: 'Quicksand';
     font-size: 1em;
     font-weight: 700;
@@ -526,27 +526,30 @@ html,body{
     flex:1;
 }
 
-.cart .right .checkbox{
+.cart .right .remove{
     align-items: center;
-    border: 1px solid #6C8FAE;
+    /* border: 1px solid #6C8FAE; */
     border-radius: 5.55em;
     display: flex;
-    height: 1.2em;
+    height: 1em;
     justify-content: center;
     margin-top: 0.3em;
-    width: 1.2em;
+    opacity: 0.3;
+    width: 1em;
 }
 
-.cart .right .checkbox img{
-    display: none;
+.cart .right .remove img{
+    height: 100%;
+    display: block;
+    width: 100%;
 }
 
-.cart .selectedItem.selected  .right .checkbox{
+/* .cart .selectedItem.selected  .right .remove{
     background: #FFBD00;
     border: none;
 
 }
 
-.cart .selectedItem.selected  .right .checkbox img{
+.cart .selectedItem.selected  .right .remove img{
     display: block;
-}
+} */

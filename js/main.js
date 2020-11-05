@@ -26,6 +26,7 @@ let openCartButton = document.getElementById('openCartButton');
 let closeCartButton = document.getElementById('closeCartButton');
 let cart = document.getElementById('cart');
 let cartCounterDisplayer = document.getElementById('cartCounter');
+let removeButtons = document.getElementsByClassName('remove');
 
 /* init variable */
 let activeSlide = 0;
@@ -33,13 +34,15 @@ let cartCounter = 0;
 
 addToCart=(productName, productPrice)=>{
     let template = ` 
-        <div class="selectedItem">
+        <div id="item${cartCounter}" class="selectedItem">
             <div class="left">
                 <p>${productName}</p>
                 <p>${productPrice}</p>
             </div>
             <div class="right">
-                <div class="checkbox"></div>
+                <div class="remove">
+                    <img src="assets/cancel.svg" alt="Cà Phê LUPU"/>
+                </div>
             </div>
         </div>`;
     let list = selectedItemList.innerHTML;
@@ -49,9 +52,20 @@ addToCart=(productName, productPrice)=>{
     selectedItemList.innerHTML = list + template;
     setTimeout(()=>{
         cartCounterDisplayer.classList.remove("onAddItem");
+        for(let i = 0; i < removeButtons.length; i++ ){
+            removeButtons[i].addEventListener("click",()=>{
+                let removeItem = document.getElementById('item'+i);
+                removeItem.remove();
+                cartCounter--;
+                cartCounterDisplayer.innerHTML = cartCounter;
+                cartCounterDisplayer.classList.add("onAddItem");
+                setTimeout(()=>{
+                    cartCounterDisplayer.classList.remove("onAddItem");
+                },200);
+            });
+        }
     },200)
 }
-
 
 selectedItemList.style.height = Math.round((window_Height * 250)/823) +"px"; 
 
@@ -135,7 +149,6 @@ backToDirectionButton.addEventListener("click",()=>{
 
 
 for(let i = 0; i < selectProductButtons.length; i++ ){
-   
     selectProductButtons[i].addEventListener("click",()=>{
         addToCart(selectProductButtons[i].attributes[1].value, selectProductButtons[i].attributes[2].value);
        //    console.log(selectProductButtons[i].attributes[1].value); 
@@ -151,3 +164,5 @@ openCartButton.addEventListener("click",()=>{
 closeCartButton.addEventListener("click",()=>{
     cart.classList.remove("show");
 });
+
+
