@@ -26,6 +26,7 @@ let openCartButton = document.getElementById('openCartButton');
 let closeCartButton = document.getElementById('closeCartButton');
 let closeCartButton1 = document.getElementById('closeCartButton1');
 let cart = document.getElementById('cart');
+let emptyCart = document.getElementById('emptyCart');
 let cartCounterDisplayer = document.getElementById('cartCounter');
 let removeButtons = document.getElementsByClassName('remove');
 
@@ -63,6 +64,11 @@ addToCart=(productName, productPrice)=>{
                 setTimeout(()=>{
                     cartCounterDisplayer.classList.remove("onAddItem");
                 },200);
+                if(cartCounter > 0){
+                    emptyCart.style.display = "none";
+                }else{
+                    emptyCart.style.display = "flex";
+                }
             });
         }
     },200)
@@ -160,6 +166,11 @@ for(let i = 0; i < selectProductButtons.length; i++ ){
 
 openCartButton.addEventListener("click",()=>{
     cart.style.zIndex = 1000;
+    if(cartCounter > 0){
+        emptyCart.style.display = "none";
+    }else{
+        emptyCart.style.display = "flex";
+    }
     cart.classList.add("show");
 });
 
