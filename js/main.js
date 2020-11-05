@@ -67,7 +67,7 @@ addToCart=(productName, productPrice)=>{
     },200)
 }
 
-selectedItemList.style.height = Math.round((window_Height * 250)/823) +"px"; 
+selectedItemList.style.height = Math.round((window_Height * 350)/823) +"px"; 
 
 document.addEventListener('DOMContentLoaded', function(event) {
     setTimeout(()=>{
