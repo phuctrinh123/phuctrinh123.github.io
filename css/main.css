@@ -264,10 +264,19 @@ html,body{
     font-size: 0.77em;
     font-weight: 700;
     height: 1.38em;
+    line-height: 1.38em;
     position: absolute;
     right: -0.27em;
     text-align: center;
+    transition: width 0.1s ease-in-out, height 0.1s ease-in-out;
     width: 1.38em;
+}
+
+.menu-scene .openCartButton .cartCounter.onAddItem{
+    height: 1.8em;
+    line-height: 1.8em;
+    transition: width 0.1s ease-in-out, height 0.1s ease-in-out;
+    width: 1.8em;
 }
 
 .menu-scene .carousel{
@@ -486,15 +495,21 @@ html,body{
     color: white;
     font-family: 'Quicksand';
     font-weight: 700;
-    font-size: 1.11em;
+    font-size: 0.77em;
     height: 1.38em;
     text-align: center;
     width: 1.38em;
 }
 
 .cart .guide .text{
-    flex:4;
+    align-items: center;
+    flex:9;
+    display: flex;
     opacity: 0.4;
+}
+
+.cart .guide .text p{
+    font-size: 0.77em;
 }
 
 .cart .selectedItem:first-child{

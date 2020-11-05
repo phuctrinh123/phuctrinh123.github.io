@@ -25,7 +25,11 @@ let selectedItemList = document.getElementById('selectedItemList');
 let openCartButton = document.getElementById('openCartButton');
 let closeCartButton = document.getElementById('closeCartButton');
 let cart = document.getElementById('cart');
+let cartCounterDisplayer = document.getElementById('cartCounter');
 
+/* init variable */
+let activeSlide = 0;
+let cartCounter = 0;
 
 addToCart=(productName, productPrice)=>{
     let template = ` 
@@ -39,7 +43,13 @@ addToCart=(productName, productPrice)=>{
             </div>
         </div>`;
     let list = selectedItemList.innerHTML;
+    cartCounter++;
+    cartCounterDisplayer.innerHTML = cartCounter;
+    cartCounterDisplayer.classList.add("onAddItem");
     selectedItemList.innerHTML = list + template;
+    setTimeout(()=>{
+        cartCounterDisplayer.classList.remove("onAddItem");
+    },200)
 }
 
 
@@ -80,7 +90,7 @@ letMeOrderButton.addEventListener("click",()=>{
 });
 
 /*carousel init */
-let activeSlide = 0;
+
 carousel.style.width = window_Width*carouselItemsList.length + "px";
 for(let i = 0 ; i < carouselItemsList.length;i++){
     carouselItemsList[i].style.width = window_Width +"px";
@@ -131,6 +141,8 @@ for(let i = 0; i < selectProductButtons.length; i++ ){
        //    console.log(selectProductButtons[i].attributes[1].value); 
     });
 }
+
+/* cart init */
 
 openCartButton.addEventListener("click",()=>{
     cart.classList.add("show");
