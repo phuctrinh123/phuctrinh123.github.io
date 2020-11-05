@@ -379,17 +379,20 @@ html,body{
 
 /*cart*/
 .cart{
-    display: none;
+    /* display: none; */
     height: 88%;
+    opacity: 0;
     position: absolute;
+    transition: opacity 0.2s ease-in-out;
     top: 12%;
     left: 0;   
     width: 100%;
-    z-index: 1000;
 }
 
 .cart.show{
-    display: block;
+    /* display: block; */
+    opacity: 1;
+    transition: opacity 0.2s ease-in-out;
 }
 
 .cart .wrapper{
@@ -554,13 +557,37 @@ html,body{
     color: rgba(255,255,255,0.5);
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
-    margin-top: 2em;
+    margin-top: 1em;
 }
 
 .cart .buttons .button:last-child{
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
-    margin-top: 2em;
+    margin-top: 1em;
+}
+
+.cart .decor{
+    border-bottom: 1px solid rgba(2555,255,255,0.1);
+    margin: 1em auto;
+    width: 100%;
+}
+
+.cart .emptyState{
+    align-items: center;
+    background: #002e7f;
+    justify-content: center;
+}
+
+.cart .emptyState p{
+    text-align: center;
+    line-height: 1.6em;
+    margin: 2em 0;
+}
+
+.cart .emptyState .icon{
+    align-items: center;
+    display: flex;
+    justify-content: center;
 }
 
 /* .cart .selectedItem.selected  .right .remove{
