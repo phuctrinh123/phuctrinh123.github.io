@@ -418,6 +418,8 @@ html,body{
 
 .cart .content{
     box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
     height: 100%;
     position: absolute;
     padding: 1.45em;
