@@ -70,7 +70,7 @@ addToCart=(productName, productPrice)=>{
                     setTimeout(()=>{emptyCart.style.display = "none";},200);
                 }else{
                     emptyCart.style.display = "flex";
-                    setTimeout(()=>{emptyCart.classList.add("show");},200);
+                    setTimeout(()=>{emptyCart.classList.add("show");},50);
                     
                 }
             });
@@ -173,7 +173,7 @@ openCartButton.addEventListener("click",()=>{
     cart.style.zIndex = 1000;
     if(cartCounter > 0){
         emptyCart.classList.remove("show");
-        setTimeout(()=>{emptyCart.style.display = "none";},200);
+        emptyCart.style.display = "none";
     }else{
         emptyCart.style.display = "flex";
         emptyCart.classList.add("show");
