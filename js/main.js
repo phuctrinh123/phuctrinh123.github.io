@@ -22,6 +22,7 @@ let backToDirectionButton = document.getElementById('backToDirectionButton');
 let productImage = document.getElementsByClassName('product-image');
 let selectProductButtons = document.getElementsByClassName('selectProduct');
 let selectedItemList = document.getElementById('selectedItemList');
+let notifyContent = document.getElementById('notifyContent');
 let openCartButton = document.getElementById('openCartButton');
 let closeCartButton = document.getElementById('closeCartButton');
 let closeCartButton1 = document.getElementById('closeCartButton1');
@@ -65,9 +66,12 @@ addToCart=(productName, productPrice)=>{
                     cartCounterDisplayer.classList.remove("onAddItem");
                 },200);
                 if(cartCounter > 0){
-                    emptyCart.style.display = "none";
+                    emptyCart.classList.remove("show");
+                    setTimeout(()=>{emptyCart.style.display = "none";},200);
                 }else{
                     emptyCart.style.display = "flex";
+                    setTimeout(()=>{emptyCart.classList.add("show");},200);
+                    
                 }
             });
         }
@@ -75,6 +79,7 @@ addToCart=(productName, productPrice)=>{
 }
 
 selectedItemList.style.height = Math.round((window_Height * 350)/823) +"px"; 
+notifyContent.style.height = Math.round((window_Height * 460)/823) +"px"; 
 
 document.addEventListener('DOMContentLoaded', function(event) {
     setTimeout(()=>{
@@ -167,9 +172,11 @@ for(let i = 0; i < selectProductButtons.length; i++ ){
 openCartButton.addEventListener("click",()=>{
     cart.style.zIndex = 1000;
     if(cartCounter > 0){
-        emptyCart.style.display = "none";
+        emptyCart.classList.remove("show");
+        setTimeout(()=>{emptyCart.style.display = "none";},200);
     }else{
         emptyCart.style.display = "flex";
+        emptyCart.classList.add("show");
     }
     cart.classList.add("show");
 });

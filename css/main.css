@@ -433,6 +433,10 @@ html,body{
     margin: 0;
 }
 
+.cart .content h2{
+    text-align: center;
+}
+
 .cart .content p {
     font-family: 'Roboto';
     font-size: 1em;
@@ -573,8 +577,22 @@ html,body{
 }
 
 .cart .emptyState{
-    align-items: center;
+    /* align-items: center; */
     background: #002e7f;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+    /* justify-content: center; */
+}
+
+.cart .emptyState.show{
+    opacity: 1;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.cart .emptyState .notifyContent{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
 }
 
@@ -588,6 +606,11 @@ html,body{
     align-items: center;
     display: flex;
     justify-content: center;
+}
+
+.cart .emptyState .button{
+    margin-left:  auto;
+    margin-right: auto;
 }
 
 /* .cart .selectedItem.selected  .right .remove{
