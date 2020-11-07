@@ -1,4 +1,12 @@
 
+@keyframes shake{
+    0% {transform: rotate(0deg);}
+    25% {transform: rotate(15deg);}
+    50% {transform: rotate(0deg);}
+    75% {transform: rotate(-15deg);}
+    100% {transform: rotate(0deg);}
+}
+
 @font-face {
     font-family: Quicksand;
     src: url(../fonts/Quicksand-Regular.ttf);
@@ -606,10 +614,11 @@ html,body{
     align-items: center;
     display: flex;
     justify-content: center;
-    width: 50%;
+    width: 45%;
 }
 
 .cart .emptyState .icon img{
+    animation: shake 1s ease-in-out 0s infinite alternate;
     width: 100%;
 }
 
