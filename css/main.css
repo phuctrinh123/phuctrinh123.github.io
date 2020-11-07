@@ -580,13 +580,13 @@ html,body{
     /* align-items: center; */
     background: #002e7f;
     opacity: 0;
-    transition: opacity 0.3s ease-in-out;
+    transition: opacity 0.2s ease-in-out;
     /* justify-content: center; */
 }
 
 .cart .emptyState.show{
     opacity: 1;
-    transition: opacity 0.3s ease-in-out;
+    transition: opacity 0.2s ease-in-out;
 }
 
 .cart .emptyState .notifyContent{
@@ -606,6 +606,10 @@ html,body{
     align-items: center;
     display: flex;
     justify-content: center;
+}
+
+.cart .emptyState .icon img{
+    width: 80%;
 }
 
 .cart .emptyState .button{
