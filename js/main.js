@@ -70,7 +70,7 @@ addToCart=(productName, productPrice)=>{
                     setTimeout(()=>{emptyCart.style.display = "none";},200);
                 }else{
                     emptyCart.style.display = "flex";
-                    setTimeout(()=>{emptyCart.classList.add("show");},50);
+                    setTimeout(()=>{emptyCart.classList.add("show");},100);
                     
                 }
             });
