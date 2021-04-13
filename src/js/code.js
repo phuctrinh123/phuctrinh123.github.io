@@ -25,7 +25,7 @@ function boardInit (){
                     margin-top: ${rowCount > 0 ? "11px" : 0};
                     margin-left: ${(i - (rowCount*3))%2 == 0 || i%3 == 0 ? "11px" : "0px"};
                 " 
-                onClick="blockTap(event)"
+                ontouchstart="blockTap(event)"
             > \n
                 <image src="src/images/block-${i}.png" />
                 <image src="src/images/block-${i}-right.png"/>
