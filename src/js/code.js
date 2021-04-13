@@ -1,7 +1,6 @@
 var viewportWidth = window.screen.width;
 
 function blockTap(event){
-    event.stopPropagation();
     event.path[1].className = "block";
 }
 
