@@ -4,136 +4,43 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <div class="image-holder">
-            <img src="src/images/banner.png"/>
+        <div class="board" id="board">
         </div>
-        <p>Đúng số bạn chọn, nhận ngay</p>
-        <h3 class="current-prize">100.000đ</h3>
-        <p>Phần thưởng còn lại: <span class="total-prize">10.000.000đ</span></p>
-        <div class="number-input-block">
-            <div class="inputer">
-                <input type="text" placeholder="?"/>
-            </div>
-            <div class="inputer">
-                <input type="text" placeholder="?"/>
-            </div>
-        </div>
-        <div class="submit-button">Gửi kết quả</div>
-        <p class="tips">Đặt thức uống bất kì của LUPU bằng cách inbox trực tiếp qua page để chọn số bạn nhé</p>
         <style>
-
-            @font-face {
-            font-family: 'anton';
-            src:  url('/src/fonts/Anton-Regular.ttf') format('ttf')
-            }
-
-            html,body{
-                font-family: 'anton', Fallback, sans-serif;
-                font-size: 5vw;
-                margin: 0;
-                padding:0;
-                width: 100%;
-            }
-
-            body{
-                background-image: url('src/images/background.png');
-            }
-
-            h1,h2,h3,h4,h5,h6{
-                margin: 0;
-                padding: 0;
-            }
-
-            p{
-                color: #463677;
-                text-align: center;
-                margin: 0;
-                padding: 0;
-            }
-
-            h3.current-prize{
-                font-size: 12vw;
-                text-align: center;
-                margin: 1pt 0;
-            }
-
-            span.total-prize{
-                color: #FF5B00;
-            }
-
-            img{
-                max-height: 100%;
-            }
-
-            div.image-holder{
+            .board{
                 box-sizing: border-box;
-                height: 25vh;
-                position: relative;
+                background-image: url('src/images/board.png');
+                background-size: cover;
+                padding: 4.5%;
                 width: 100%;
             }
 
-            div.image-holder > img{
-                left: 50%;
-                position: absolute;
-                transform: translate(-50%, -50%);
-                top:50%;
+            .row{
+                display: flex;
+                width: 100%;
             }
-
-            .submit-button{
-                box-shadow: 0 3px 12px rgba(0,0,0,0.12);
-                background: rgb(45,88,143);
-                background: linear-gradient(0deg, rgba(45,88,143,1) 0%, rgba(29,131,231,1) 100%);
-                border-radius: 18vw;
-                color: white;
-                height: 16vw;
-                line-height: 16vw;
-                margin: 10pt auto;
-                margin-bottom: 5vh;
-                text-align: center;
-                width: 50vw ;
-
-            }
-
-            .tips{
-                font-size: 4vw;
-                margin: 0 auto;
-                text-align: center;
-                width: 60vw;
-            }
-
-            .number-input-block{
+            
+            .block{
                 align-items: center;
                 display: flex;
                 justify-content: center;
-                height: 22vh;
+                position: relative;
+            }
+
+            .block > img{
                 width: 100%;
             }
 
-            .inputer{
-                box-shadow: 0 3px 12px rgba(0,0,0,0.12);
-                background: rgb(104,45,142);
-                background: linear-gradient(0deg, rgba(104,45,142,1) 0%, rgba(234,29,121,1) 100%);
-                border-radius: 7vw;
-                margin: 4vh  3vw;
-                padding: 2.5vw;
-                height: 30vw;
-                width: 30vw;
+            .block > img:last-child{
+                position: absolute;
             }
 
-            .inputer > input[type=text]{
-                font-size: 20vw;
-                font-family:'anton', Fallback, sans-serif;
-                border-radius: 5vw;
-                border: none;
-                height: 100%;
-                text-align: center;
-                width: 100%;
-            }
-
-            .inputer > input[type=text]:focus{
-                border: none;
+            .block.normal > img:last-child{
+                position: absolute;
+                display: none;
             }
 
         </style>
+        <script src="src/js/code.js"></script>
     </body>
 </html>
