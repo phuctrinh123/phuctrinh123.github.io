@@ -1,8 +1,9 @@
 var viewportWidth = window.screen.width;
 
-function blockTap(event){
+function blockTap(index){
     alert("clicked");
-    event.path[1].className = "block";
+    var block = document.getElementById(`block-${index}`);
+    block.className = "block";
 }
 
 function boardInit (){
@@ -25,7 +26,7 @@ function boardInit (){
                     margin-top: ${rowCount > 0 ? "11px" : 0};
                     margin-left: ${(i - (rowCount*3))%2 == 0 || i%3 == 0 ? "11px" : "0px"};
                 " 
-                onClick="blockTap(event)"
+                onClick="blockTap(${i})"
             > \n
                 <image src="src/images/block-${i}.png" />
                 <image src="src/images/block-${i}-right.png"/>
