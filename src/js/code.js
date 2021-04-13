@@ -3,7 +3,6 @@ var viewportWidth = window.screen.width;
 function blockTap(index){
     var block = document.getElementById(`block-${index}`);
     block.className = "block";
-    alert("clicked on block-" + index);
 }
 
 function boardInit (){
