@@ -16,8 +16,8 @@
             <div id="confirm-select-popup" class="popup">
                 <div class="wrapper">
                     <div class="content" id="confirm-open-block-text"></div>
-                    <div id="cancel-button" class="popup-button"></div>
-                    <div id="confirm-button" class="popup-button"></div>
+                    <div id="cancel-button" class="popup-button" onclick="hidePopup()"></div>
+                    <div id="confirm-button" class="popup-button" onclick="userConfirm()"></div>
                 </div>
             </div>
         </div>
@@ -259,12 +259,13 @@
                 top: 50%;
                 transform: translateY(-50%);
                 transition: opacity 0.2s ease-in-out;
-                z-index: 10;
+                z-index: -10;
             }
 
             #loading-bar.show{
                 opacity: 1;
                 transition: opacity 0.2s ease-in-out;
+                z-index: 10;
             }
 
             #progress-bar{

@@ -13,6 +13,19 @@ function blockTap(index){
     // setTimeout(()=>{block.className = "block";},400)
 }
 
+function hidePopup(){
+    var confirmPopup = document.getElementById("confirm-select-popup");
+    confirmPopup.className = "popup";
+    setTimeout(()=>{ selectingBlock.className = "block normal show";},300)
+    
+}
+
+function userConfirm(){
+    var confirmPopup = document.getElementById("confirm-select-popup");
+    confirmPopup.className = "popup";
+    setTimeout(()=>{ selectingBlock.className = "block hide";},200)
+}
+
 function boardInit (){
     var loadingBar = document.getElementById("loading-bar");
     var progressBar = document.getElementById("progress-bar");
