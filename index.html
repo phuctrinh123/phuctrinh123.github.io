@@ -23,7 +23,10 @@
                 </div>
             </div>
         </div>
-        
+        <div class="play-times-indicator">
+            <div class="play-times-text"></div>
+            <div class="play-times" id="play-times">1</div>
+        </div>
 
        
 
@@ -375,6 +378,37 @@
                 top: 50%;
                 transform: translateY(-50%);
                 z-index: 10;
+            }
+
+            .play-times-indicator{
+                background: rgba(255,255,255,0.5);
+                border-radius: 35px;
+                height: 12vw;
+                margin: 0 auto;
+                margin-top: 5%;
+                position: relative;
+                width: 60%;
+            }
+
+            .play-times-text{
+                background-image: url('src/images/play-time-indicator.png');
+                background-size: cover;
+                background-position: center;
+                height: 100%;
+                margin-left: -15%;
+                margin-top: 5%;
+                width: 130%;
+            }
+
+            .play-times{
+                color:#FF7600;
+                font-family: "anton";
+                font-size: 5vw;
+                margin-top: -1%;
+                position: absolute;
+                right: 36.5%;
+                top: 50%;
+                transform: translateY(-50%);
             }
 
         </style>

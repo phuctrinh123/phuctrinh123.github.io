@@ -2,6 +2,7 @@ var viewportWidth = window.screen.width;
 let image = document.getElementsByTagName('img');
 var allLoaded =  false;
 var selectingBlock = null;
+var playTimes = 1;
 
 function blockTap(index){
     var block = document.getElementById(`block-${index}`);
@@ -21,8 +22,12 @@ function hidePopup(){
 
 function userConfirm(){
     var confirmPopup = document.getElementById("confirm-select-popup");
+    var playTimeIndicator = document.getElementById("play-times");
+
+    playTimeIndicator.innerHTML = playTimes - 1;
     confirmPopup.className = "popup";
     setTimeout(()=>{ selectingBlock.className = "block hide";},200)
+
 }
 
 function boardInit (){
