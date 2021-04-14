@@ -23,8 +23,10 @@ function hidePopup(){
 function userConfirm(){
     var confirmPopup = document.getElementById("confirm-select-popup");
     var playTimeIndicator = document.getElementById("play-times");
+    var guideText = document.getElementById("guide-text");
 
     playTimeIndicator.innerHTML = playTimes - 1;
+    if(playTimes - 1 == 0) {guideText.style.backgroundImage = "url('src/images/sorry-text.png')";}
     confirmPopup.className = "popup";
     setTimeout(()=>{ selectingBlock.className = "block hide";},200)
 
