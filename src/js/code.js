@@ -8,9 +8,11 @@ function blockTap(index){
     var block = document.getElementById(`block-${index}`);
     var confirmPopup = document.getElementById("confirm-select-popup");
 
-    selectingBlock = block;
-    block.className = "block show selected";
-    confirmPopup.className += " show";
+    if(playTimes > 0){
+        selectingBlock = block;
+        block.className = "block show selected";
+        confirmPopup.className += " show";
+    }
 }
 
 function hidePopup(){
@@ -25,8 +27,16 @@ function userConfirm(){
     var playTimeIndicator = document.getElementById("play-times");
     var guideText = document.getElementById("guide-text");
 
-    playTimeIndicator.innerHTML = playTimes - 1;
-    if(playTimes - 1 == 0) {guideText.style.backgroundImage = "url('src/images/sorry-text.png')";}
+   
+    if(playTimes - 1 == 0) {
+        playTimeIndicator.innerHTML = playTimes - 1;
+        playTimes -= 1;
+        guideText.style.backgroundImage = "url('src/images/sorry-text.png')";   
+    }else{
+        playTimeIndicator.innerHTML = playTimes - 1;
+        playTimes -= 1;
+    }
+
     confirmPopup.className = "popup";
     setTimeout(()=>{ selectingBlock.className = "block hide";},200)
 
