@@ -1,4 +1,5 @@
 var viewportWidth = window.screen.width;
+let image = document.getElementsByTagName('img');
 var allLoaded =  false;
 var selectingBlock = null;
 
@@ -77,16 +78,32 @@ function boardInit (){
 
 boardInit();
 
+ //         
+
+// bind event to each image to realtime check loaded or not
+
+var realtimeCheck = setInterval(()=>{
+    let board = document.getElementById("board");
+    let boardWidth = board.offsetWidth;
+    let progressBar = document.getElementById("progress-bar");
+    for(let i = 0; i < image.length; i++){
+        if(image[i].complete && image[i].naturalHeight !== 0){
+            progressBar.style.width =  boardWidth*0.872*(i/image.length);
+            allLoaded = true;
+        }else{
+            allLoaded = false;
+        }
+    } 
+    if(allLoaded == true) clearInterval(realtimeCheck);
+},60)
+
+// check if all assets loaded
 window.addEventListener("load", event => {
     var board = document.getElementById("board");
-    let boardWidth = board.offsetWidth;
-    let image = document.getElementsByTagName('img');
-    var progressBar = document.getElementById("progress-bar");
-    
+  
     for(let i = 0; i < image.length; i++){
         if(image[i].complete && image[i].naturalHeight !== 0){
             allLoaded = true;
-            progressBar.style.width =  boardWidth*0.9*(i/image.length);
         }
         else{
             allLoaded = false;
