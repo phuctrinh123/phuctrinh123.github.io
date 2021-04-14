@@ -10,7 +10,6 @@ function blockTap(index){
     selectingBlock = block;
     block.className = "block show selected";
     confirmPopup.className += " show";
-    // setTimeout(()=>{block.className = "block";},400)
 }
 
 function hidePopup(){
