@@ -9,7 +9,11 @@
             <div class="board" id="board">
             </div>
             <div id="confirm-select-popup" class="popup">
-
+                <div class="wrapper">
+                    <div class="content" id="confirm-open-block-text"></div>
+                    <div id="cancel-button" class="popup-button"></div>
+                    <div id="confirm-button" class="popup-button"></div>
+                </div>
             </div>
         </div>
         
@@ -178,6 +182,60 @@
             .block.normal > img:last-child{
                 position: absolute;
                 display: none;
+            }
+
+            .popup{
+                border-radius: 5%;
+                background: rgba(0,0,0,0);
+                background-image: url('src/images/popup-base.png');
+                background-size: cover;
+                left:  50%;
+                position: absolute;
+                top: 50%;
+                transform: translate(-50%,-50%) scale(0);
+                transition: background 0.2s ease-in-out, transform 0.2s ease-in-out;
+            }
+
+            .popup.show{
+                background: rgba(0,0,0,0.3);
+                background-image: url('src/images/popup-base.png');
+                background-size: cover;
+                transform: translate(-50%,-50%) scale(1);
+                transition: background 0.5s ease-in-out, transform 0.2s ease-in-out; 
+            }
+
+            .wrapper{
+                height: 100%;
+                position: relative;
+                width: 100%;
+            }
+
+            .popup-button{
+                position: absolute;
+                bottom: 10%;
+            }
+
+            #cancel-button{
+                background-image: url('src/images/cancel-button.png');
+                background-size: cover;
+                left: 10%;
+            }
+            #confirm-button{
+                background-image: url('src/images/confirm-button.png');
+                background-size: cover;
+                right: 10%;
+            }
+
+            .content{
+                position: absolute;
+            }
+
+            #confirm-open-block-text{
+                background-image: url('src/images/confirm-open-block-text.png');
+                background-size: cover;
+                bottom: 27%;
+                left: 18%;
+                
             }
 
         </style>
