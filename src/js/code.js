@@ -4,6 +4,10 @@ var allLoaded =  false;
 var selectingBlock = null;
 var playTimes = 1;
 
+function redirectToFacebook(){
+    window.location.href = "https://www.facebook.com/lupucoffee";
+}
+
 function blockTap(index){
     var block = document.getElementById(`block-${index}`);
     var confirmPopup = document.getElementById("confirm-select-popup");
@@ -45,6 +49,7 @@ function userConfirm(){
 function boardInit (){
     var loadingBar = document.getElementById("loading-bar");
     var progressBar = document.getElementById("progress-bar");
+    var orderButton = document.getElementById("order-button");
     var gameBoardShadow =  document.getElementById("game-board-shadow");
     var board = document.getElementById("board");
     var confirmPopup = document.getElementById("confirm-select-popup");
@@ -61,6 +66,10 @@ function boardInit (){
 
     progressBar.style.width =  0;
     progressBar.style.height = (boardWidth*0.75)*0.115;
+
+    orderButton.style.width = boardWidth*0.6;
+    orderButton.style.height = (boardWidth*0.5)*0.25;
+    orderButton.style.lineHeight = (boardWidth*0.03)*0.25;
 
     gameBoardShadow.style.width = viewportWidth - Math.floor(boardWidth*75/375);
     gameBoardShadow.style.height = viewportWidth - Math.floor(boardWidth*75/375);
