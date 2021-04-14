@@ -4,9 +4,66 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <div class="board" id="board">
+        <div class="game-board">
+            <div class="board-shadow" id="game-board-shadow"></div>
+            <div class="board" id="board">
+            </div>
+            <div id="confirm-select-popup" class="popup">
+
+            </div>
         </div>
+        
+
+       
+
         <style>
+
+            @keyframes shake {
+                0%{
+                    transform: rotate(-5deg);
+                }
+                25%{
+                    transform: rotate(5deg);
+                }
+                50%{
+                    transform: rotate(-5deg);
+                }
+                75%{
+                    transform: rotate(5deg);
+                }
+                100%{
+                    transform: rotate(-5deg);
+                }
+            }
+
+            @keyframes popOut{
+                0%{
+                    transform: scale(1);
+                }
+
+                20%{
+                    transform: scale(1.2);
+                }
+
+                90%{
+                    opacity: 0.5;
+                }
+
+                100%{
+                    opacity: 0;
+                    transform: scale(0) rotate(180deg);
+                }
+
+            }
+
+            body{
+                background: #FF7600;
+            }
+
+            .game-board{
+                position: relative;
+            }
+
             .board{
                 box-sizing: border-box;
                 background-image: url('src/images/board.png');
@@ -23,6 +80,17 @@
                transition: opacity 0.2s ease-in-out;
             }
 
+            .board-shadow{
+                box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.6);
+                height: 100%;
+                left: 50%;
+                position: absolute;
+                transform: translate(-50%, -50%);
+                top: 50%;
+                width: 100%;
+                z-index: -10;
+            }
+
             .row{
                 display: flex;
                 width: 100%;
@@ -37,49 +105,66 @@
                 transition: transform 0.2s ease-in-out;
             }
 
+            .block.selected{
+                animation:  shake 0.5s ease-in-out infinite !important;
+            }
+
+            .block.hide{
+                animation:  popOut 0.5s ease-in-out !important;
+            }
+
             .row:nth-child(1) > .block:nth-child(1).show{
                 transform: scale(1);
                 transition: transform 0.2s ease-in-out;
+                animation:  shake 0.5s ease-in-out 0.2s;
             }
 
             .row:nth-child(1) > .block:nth-child(2).show{
                 transform: scale(1);
                 transition: transform 0.2s 0.1s ease-in-out;
+                animation:  shake 0.5s ease-in-out 0.3s;
             }
 
             .row:nth-child(1) > .block:nth-child(3).show{
                 transform: scale(1);
                 transition: transform 0.2s 0.2s ease-in-out;
+                animation:  shake 0.5s ease-in-out 0.4s;
             }
 
             .row:nth-child(2) >.block:nth-child(1).show{
                 transform: scale(1);
                 transition: transform 0.2s 0.3s ease-in-out;
+                animation:  shake 0.5s ease-in-out 0.5s;
             }
 
             .row:nth-child(2) > .block:nth-child(2).show{
                 transform: scale(1);
                 transition: transform 0.2s 0.4s ease-in-out;
+                animation:  shake 0.5s ease-in-out 0.6s;
             }
 
             .row:nth-child(2) > .block:nth-child(3).show{
                 transform: scale(1);
                 transition: transform 0.2s 0.5s ease-in-out;
+                animation:  shake 0.5s ease-in-out 0.7s;
             }
 
             .row:nth-child(3) > .block:nth-child(1).show{
                 transform: scale(1);
                 transition: transform 0.2s 0.6s ease-in-out;
+                animation:  shake 0.5s ease-in-out 0.8s;
             }
 
             .row:nth-child(3) > .block:nth-child(2).show{
                 transform: scale(1);
                 transition: transform 0.2s 0.7s ease-in-out;
+                animation:  shake 0.5s ease-in-out 0.9s;
             }
 
             .row:nth-child(3) > .block:nth-child(3).show{
                 transform: scale(1);
                 transition: transform 0.2s 0.8s ease-in-out;
+                animation:  shake 0.5s ease-in-out 1s;
             }
 
             .block > img{

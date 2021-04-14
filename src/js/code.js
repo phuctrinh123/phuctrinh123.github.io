@@ -1,18 +1,25 @@
 var viewportWidth = window.screen.width;
 var allLoaded =  false;
+var selectingBlock = null;
 
 function blockTap(index){
     var block = document.getElementById(`block-${index}`);
-    block.className = "block";
+
+    selectingBlock = block;
+    block.className = "block show selected";
+    // setTimeout(()=>{block.className = "block";},400)
 }
 
 function boardInit (){
+    var gameBoardShadow =  document.getElementById("game-board-shadow");
     var board = document.getElementById("board");
     let boardWidth = board.offsetWidth;
     let total =  9;
     var htmlString = ""
     var rowCount = 0;
 
+    gameBoardShadow.style.width = viewportWidth - Math.floor(boardWidth*75/375);
+    gameBoardShadow.style.height = viewportWidth - Math.floor(boardWidth*75/375);
     board.style.width = viewportWidth - Math.floor(boardWidth*50/375);
     board.style.height = viewportWidth - Math.floor(boardWidth*50/375);
 
