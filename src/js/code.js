@@ -11,10 +11,14 @@ function redirectToFacebook(){
 function blockTap(index){
     var block = document.getElementById(`block-${index}`);
     var confirmPopup = document.getElementById("confirm-select-popup");
+    var confirmText = document.getElementById('confirm-open-block-text');
 
     if(playTimes > 0){
         selectingBlock = block;
         block.className = "block show selected";
+        confirmPopup.className += " show";
+    }else{
+        confirmText.style.backgroundImage = "url('src/images/confirm-order-text.png')"
         confirmPopup.className += " show";
     }
 }
@@ -36,7 +40,11 @@ function userConfirm(){
         playTimeIndicator.innerHTML = playTimes - 1;
         playTimes -= 1;
         guideText.style.backgroundImage = "url('src/images/sorry-text.png')";   
-    }else{
+    }
+    else if (playTimes == 0){
+        window.location.href = " http://m.me/lupucoffee";
+    }
+    else{
         playTimeIndicator.innerHTML = playTimes - 1;
         playTimes -= 1;
     }
@@ -49,7 +57,7 @@ function userConfirm(){
 function boardInit (){
     var loadingBar = document.getElementById("loading-bar");
     var progressBar = document.getElementById("progress-bar");
-    var orderButton = document.getElementById("order-button");
+    // var orderButton = document.getElementById("order-button");
     var gameBoardShadow =  document.getElementById("game-board-shadow");
     var board = document.getElementById("board");
     var confirmPopup = document.getElementById("confirm-select-popup");
@@ -67,9 +75,9 @@ function boardInit (){
     progressBar.style.width =  0;
     progressBar.style.height = (boardWidth*0.75)*0.115;
 
-    orderButton.style.width = boardWidth*0.6;
-    orderButton.style.height = (boardWidth*0.5)*0.25;
-    orderButton.style.lineHeight = (boardWidth*0.03)*0.25;
+    // orderButton.style.width = boardWidth*0.6;
+    // orderButton.style.height = (boardWidth*0.5)*0.25;
+    // orderButton.style.lineHeight = (boardWidth*0.03)*0.25;
 
     gameBoardShadow.style.width = viewportWidth - Math.floor(boardWidth*75/375);
     gameBoardShadow.style.height = viewportWidth - Math.floor(boardWidth*75/375);
