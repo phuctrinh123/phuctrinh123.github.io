@@ -13,6 +13,8 @@ function blockTap(index){
 }
 
 function boardInit (){
+    var loadingBar = document.getElementById("loading-bar");
+    var progressBar = document.getElementById("progress-bar");
     var gameBoardShadow =  document.getElementById("game-board-shadow");
     var board = document.getElementById("board");
     var confirmPopup = document.getElementById("confirm-select-popup");
@@ -23,6 +25,12 @@ function boardInit (){
     let total =  9;
     var htmlString = ""
     var rowCount = 0;
+
+    loadingBar.style.width =  boardWidth*0.9;
+    loadingBar.style.height = (boardWidth*0.9)*0.25;
+
+    progressBar.style.width =  0;
+    progressBar.style.height = (boardWidth*0.75)*0.115;
 
     gameBoardShadow.style.width = viewportWidth - Math.floor(boardWidth*75/375);
     gameBoardShadow.style.height = viewportWidth - Math.floor(boardWidth*75/375);
@@ -70,10 +78,15 @@ function boardInit (){
 boardInit();
 
 window.addEventListener("load", event => {
-    var image = document.getElementsByTagName('img');
+    var board = document.getElementById("board");
+    let boardWidth = board.offsetWidth;
+    let image = document.getElementsByTagName('img');
+    var progressBar = document.getElementById("progress-bar");
+    
     for(let i = 0; i < image.length; i++){
         if(image[i].complete && image[i].naturalHeight !== 0){
             allLoaded = true;
+            progressBar.style.width =  boardWidth*0.9*(i/image.length);
         }
         else{
             allLoaded = false;
@@ -81,8 +94,12 @@ window.addEventListener("load", event => {
     } 
 
     if(allLoaded){
-        var board = document.getElementById("board");
-        board.className += " show"
+        var boardShadow = document.getElementById("game-board-shadow");
+        var loadingBar = document.getElementById("loading-bar");
+
+        loadingBar.className = "loading-bar"
+        board.className += " show";
+        boardShadow.className += " show";
         for(let i = 1; i <= image.length/2; i++){
             var block = document.getElementById(`block-${i}`);
             block.className += " show";
