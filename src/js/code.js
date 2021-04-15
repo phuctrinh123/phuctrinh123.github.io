@@ -25,7 +25,7 @@ function redirectToFacebook(){
 function blockTap(index,blockWidth = 0, blockHeight = 0){
     var block = document.getElementById(`block-${index}`);
     var confirmPopup = document.getElementById("confirm-select-popup");
-    var confirmText = document.getElementById('confirm-open-block-text');
+    var popupContent = document.getElementById('content');
     var selectedBlockDisplayer = document.getElementById("selected-block");
     var displayBlockOnPopup = null;
 
@@ -48,7 +48,7 @@ function blockTap(index,blockWidth = 0, blockHeight = 0){
         selectedBlockDisplayer.style.height = blockHeight;
         selectedBlockDisplayer.innerHTML = "";
         selectedBlockDisplayer.appendChild(displayBlockOnPopup);
-        confirmText.style.backgroundImage = "url('src/images/optimized/confirm-order-text.png')"
+        popupContent.innerHTML = "Bạn có muốn đặt ngay một ly trà mật rừng hoặc phin sữa để mở viên kẹo này không?"
         confirmPopup.className += " show";
     }
 }
@@ -70,7 +70,7 @@ function userConfirm(){
     if(playTimes - 1 == 0) {
         playTimeIndicator.innerHTML = playTimes - 1;
         playTimes -= 1;
-        guideText.style.backgroundImage = "url('src/images/optimized/sorry-text.png')";   
+        guideText.innerHTML = "Tiếc quá! Hết lượt mất rồi. Những viên kẹo còn lại biết cách giúp bạn có thêm lượt đấy"
     }
     else if (playTimes == 0){
         window.location.href = " http://m.me/lupucoffee";
@@ -88,15 +88,13 @@ function userConfirm(){
 function boardInit (){
     var loadingBar = document.getElementById("loading-bar");
     var progressBar = document.getElementById("progress-bar");
-    var gameLogo = document.getElementById("game-logo");
-    // var orderButton = document.getElementById("order-button");
     var gameBoard = document.getElementById("game-board");
     var gameBoardShadow =  document.getElementById("game-board-shadow");
     var board = document.getElementById("board");
     var confirmPopup = document.getElementById("confirm-select-popup");
     var cancelButton = document.getElementById("cancel-button");
     var confirmButton = document.getElementById("confirm-button");
-    var confirmText = document.getElementById('confirm-open-block-text');
+    var content = document.getElementById('content');
     let boardWidth = /*board.offsetWidth;*/ viewportWidth;
     let total =  9;
     var htmlString = ""
@@ -126,12 +124,12 @@ function boardInit (){
     
     confirmPopup.style.width = viewportWidth - Math.floor(boardWidth*50/375);
     confirmPopup.style.height = viewportWidth - Math.floor(boardWidth*50/375);
-    confirmText.style.width = boardWidth*0.6;
-    confirmText.style.height = (boardWidth*0.6)*0.5;
-    cancelButton.style.width = boardWidth*0.38;
-    cancelButton.style.height = (boardWidth*0.38)*0.5;
-    confirmButton.style.width = boardWidth*0.38;
-    confirmButton.style.height = (boardWidth*0.38)*0.5;
+    content.style.width = boardWidth*0.6;
+    content.style.height = (boardWidth*0.6)*0.5;
+    cancelButton.style.width = boardWidth*0.35;
+    cancelButton.style.height = (boardWidth*0.35)*0.5;
+    confirmButton.style.width = boardWidth*0.35;
+    confirmButton.style.height = (boardWidth*0.35)*0.5;
 
     for (let i = 1; i <= total; i++) {
         htmlString += `

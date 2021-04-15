@@ -20,17 +20,19 @@
                 <div id="confirm-select-popup" class="popup">
                     <div class="wrapper">
                         <div class="selected-block" id="selected-block"></div>
-                        <div class="content" id="confirm-open-block-text"></div>
+                        <div class="content" id="content">Bạn có chắc chắn muốn mở viên kẹo này chứ? Bạn sẽ không thể hồi lại đâu nhé.</div>
                         <div id="cancel-button" class="popup-button" onclick="hidePopup()"></div>
                         <div id="confirm-button" class="popup-button" onclick="userConfirm()"></div>
                     </div>
                 </div>
             </div>
-            <div class="guide-text" id="guide-text"></div>
+            <div class="guide-text" id="guide-text">
+                Ẩn dưới những viên kẹo này là <span>100k</span> <br>
+                Nhấn vào một viên bất kì để mở
+            </div>
             <div class="play-times-indicator">
                 <div class="wrapper">
-                    <div class="play-times-text"></div>
-                    <div class="play-times" id="play-times">1</div>
+                    Bạn hiện có <span class="play-times" id="play-times">1</span> lượt
                 </div>
             </div>
         </div>
@@ -149,13 +151,20 @@
             }
 
             .guide-text{
-                background-image: url('src/images/optimized/guide-text.png');
+                /* background-image: url('src/images/optimized/guide-text.png');
                 background-size: cover;
-                background-position: center;
-                height: 80px;
-                margin: 0 auto;
+                background-position: center; */
+                color: #772c00;
+                font-size: 4vw;
+                margin: 5vw auto;
                 position: relative;
+                text-align: center;
+                vertical-align: middle;
                 width: 80%;
+            }
+
+            .guide-text > span{
+                color:#FF7600;
             }
 
             .game-board{
@@ -371,10 +380,10 @@
                 position: absolute;
             }
 
-            #confirm-open-block-text{
-                background-image: url('src/images/optimized/confirm-open-block-text.png');
-                background-size: cover;
-                bottom: 27%;
+            #content{
+                color: white;
+                font-size: 4.5vw;
+                bottom: 22%;
                 left: 18%;
                 
             }
@@ -410,31 +419,18 @@
             .play-times-indicator{
                 background: rgba(255,233,188,1);
                 border-radius: 3vw;
+                color: #772c00;
+                font-size: 4vw;
                 height: 10vw;
+                line-height:  10vw;
                 margin: 0 auto;
                 position: relative;
+                text-align: center;
                 width: 40%;
-            }
-
-            .play-times-text{
-                background-image: url('src/images/optimized/play-time-indicator.png');
-                background-size: cover;
-                background-position: center;
-                height: 100%;
-                margin-left: -33%;
-                margin-top: 1%;
-                width: 168%;
             }
 
             .play-times{
                 color:#FF7600;
-                font-family: "anton";
-                font-size: 4vw;
-                margin-top: -1%;
-                position: absolute;
-                right: 31.5%;
-                top: 50%;
-                transform: translateY(-50%);
             }
 
             .order-button{
