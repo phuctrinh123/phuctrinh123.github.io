@@ -70,7 +70,7 @@ function userConfirm(){
     if(playTimes - 1 == 0) {
         playTimeIndicator.innerHTML = playTimes - 1;
         playTimes -= 1;
-        guideText.innerHTML = "Tiếc quá! Hết lượt mất rồi. Những viên kẹo còn lại biết cách giúp bạn có thêm lượt đấy"
+        guideText.innerHTML = "Những viên kẹo còn lại biết cách giúp bạn có thêm lượt đấy"
     }
     else if (playTimes == 0){
         window.location.href = " http://m.me/lupucoffee";
