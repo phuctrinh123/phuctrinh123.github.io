@@ -3,7 +3,7 @@ let viewportHeight = window.screen.height;
 let image = document.getElementsByTagName('img');
 var allLoaded =  false;
 var selectingBlock = null;
-var playTimes = 1;
+var playTimes = 3;
 
 let blockDescription = [
     "",
@@ -88,9 +88,9 @@ function userConfirm(){
 function boardInit (){
     var loadingBar = document.getElementById("loading-bar");
     var progressBar = document.getElementById("progress-bar");
-    var gameBoard = document.getElementById("game-board");
     var gameBoardShadow =  document.getElementById("game-board-shadow");
     var board = document.getElementById("board");
+    var playTimeIndicator = document.getElementById("play-times");
     var confirmPopup = document.getElementById("confirm-select-popup");
     var cancelButton = document.getElementById("cancel-button");
     var confirmButton = document.getElementById("confirm-button");
@@ -106,16 +106,6 @@ function boardInit (){
     progressBar.style.width =  0;
     progressBar.style.height = (boardWidth*0.75)*0.115;
 
-    // gameLogo.style.width = viewportWidth*0.9;
-    // gameLogo.style.height =  viewportHeight*0.2;
-    // gameLogo.style.marginTop =  (viewportHeight*36/705);
-  
-    // orderButton.style.width = boardWidth*0.6;
-    // orderButton.style.height = (boardWidth*0.5)*0.25;
-    // orderButton.style.lineHeight = (boardWidth*0.03)*0.25;
-
-    // gameBoard.style.marginTop = (viewportHeight/2) - (((viewportWidth - Math.floor(boardWidth*50/375))/2) + gameBoard.offsetTop + 20);
-
     gameBoardShadow.style.width = viewportWidth - Math.floor(boardWidth*75/375);
     gameBoardShadow.style.height = viewportWidth - Math.floor(boardWidth*75/375);
     board.style.width = viewportWidth - Math.floor(boardWidth*50/375);
@@ -130,6 +120,8 @@ function boardInit (){
     cancelButton.style.height = (boardWidth*0.35)*0.5;
     confirmButton.style.width = boardWidth*0.35;
     confirmButton.style.height = (boardWidth*0.35)*0.5;
+
+    playTimeIndicator.innerHTML = playTimes;
 
     for (let i = 1; i <= total; i++) {
         htmlString += `
