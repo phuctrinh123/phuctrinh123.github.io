@@ -1,4 +1,5 @@
-var viewportWidth = window.screen.width;
+let viewportWidth = window.screen.width;
+let viewportHeight = window.screen.height;
 let image = document.getElementsByTagName('img');
 var allLoaded =  false;
 var selectingBlock = null;
@@ -87,7 +88,9 @@ function userConfirm(){
 function boardInit (){
     var loadingBar = document.getElementById("loading-bar");
     var progressBar = document.getElementById("progress-bar");
+    var gameLogo = document.getElementById("game-logo");
     // var orderButton = document.getElementById("order-button");
+    var gameBoard = document.getElementById("game-board");
     var gameBoardShadow =  document.getElementById("game-board-shadow");
     var board = document.getElementById("board");
     var confirmPopup = document.getElementById("confirm-select-popup");
@@ -105,9 +108,15 @@ function boardInit (){
     progressBar.style.width =  0;
     progressBar.style.height = (boardWidth*0.75)*0.115;
 
+    gameLogo.style.width = viewportWidth*0.9;
+    gameLogo.style.height =  viewportHeight*0.2;
+    gameLogo.style.marginTop = viewportHeight*0.02;
+
     // orderButton.style.width = boardWidth*0.6;
     // orderButton.style.height = (boardWidth*0.5)*0.25;
     // orderButton.style.lineHeight = (boardWidth*0.03)*0.25;
+
+    gameBoard.style.marginTop = (viewportHeight/2) - (((viewportWidth - Math.floor(boardWidth*50/375))/2) + gameBoard.offsetTop + 20);
 
     gameBoardShadow.style.width = viewportWidth - Math.floor(boardWidth*75/375);
     gameBoardShadow.style.height = viewportWidth - Math.floor(boardWidth*75/375);
