@@ -4,6 +4,19 @@ var allLoaded =  false;
 var selectingBlock = null;
 var playTimes = 1;
 
+let blockDescription = [
+    "",
+    "Lupu coffee kẹo dẻo dưa hấu",
+    "Lupu coffee kẹo đào",
+    "Lupu coffee kẹo dẻo chanh",
+    "Lupu coffee kẹo chanh",
+    "Lupu coffee kẹo sữa dâu",
+    "Lupu coffee kẹo bạc hà",
+    "Lupu coffee kẹo keo sữa dưa lưới",
+    "Lupu coffee kẹo dẻo cam",
+    "Lupu coffee kẹo sữa việt quất",
+]
+
 function redirectToFacebook(){
     window.location.href = "https://www.facebook.com/lupucoffee";
 }
@@ -107,8 +120,8 @@ function boardInit (){
                 "
                 onClick= "blockTap(${i})"
             > \n
-                <img src="src/images/block-${i}.png" />
-                <img src="src/images/block-${i}-right.png"/>
+                <img src="src/images/block-${i}.png" alt="${blockDescription[i]}" />
+                <img src="src/images/block-${i}-right.png" alt="${blockDescription[i]}"/>
             </div> \n
         `;  
 
