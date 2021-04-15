@@ -21,14 +21,23 @@ function redirectToFacebook(){
     window.location.href = "https://www.facebook.com/lupucoffee";
 }
 
-function blockTap(index){
+function blockTap(index,blockWidth = 0, blockHeight = 0){
     var block = document.getElementById(`block-${index}`);
     var confirmPopup = document.getElementById("confirm-select-popup");
     var confirmText = document.getElementById('confirm-open-block-text');
+    var selectedBlockDisplayer = document.getElementById("selected-block");
+    var displayBlockOnPopup = null;
 
     if(playTimes > 0){
         selectingBlock = block;
+        displayBlockOnPopup = block.cloneNode(true);
+        displayBlockOnPopup.style.transform = "scale(1)";
+        displayBlockOnPopup.style.margin = "0";
         block.className = "block show selected";
+        selectedBlockDisplayer.style.width = blockWidth;
+        selectedBlockDisplayer.style.height = blockHeight;
+        selectedBlockDisplayer.innerHTML = "";
+        selectedBlockDisplayer.appendChild(displayBlockOnPopup);
         confirmPopup.className += " show";
     }else{
         confirmText.style.backgroundImage = "url('src/images/optimized/confirm-order-text.png')"
@@ -118,7 +127,7 @@ function boardInit (){
                     margin-top: ${rowCount > 0 ? Math.floor(boardWidth*10/375) + "px" : 0};
                     margin-left: ${(i - (rowCount*3))%2 == 0 ? Math.floor(boardWidth*10/375) + "px" : i%3 == 0 ? Math.floor(boardWidth*10/375) +"px" : "0px"};
                 "
-                onClick= "blockTap(${i})"
+                onClick= "blockTap(${i},${Math.floor(boardWidth/3) - Math.floor(boardWidth*25/375)}, ${Math.floor(boardWidth/3) - Math.floor(boardWidth*25/375)} )"
             > \n
                 <img src="src/images/optimized/block-${i}.png" alt="${blockDescription[i]}" />
                 <img src="src/images/optimized/block-${i}-right.png" alt="${blockDescription[i]}"/>

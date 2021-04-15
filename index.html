@@ -19,6 +19,7 @@
             </div>
             <div id="confirm-select-popup" class="popup">
                 <div class="wrapper">
+                    <div class="selected-block" id="selected-block"></div>
                     <div class="content" id="confirm-open-block-text"></div>
                     <div id="cancel-button" class="popup-button" onclick="hidePopup()"></div>
                     <div id="confirm-button" class="popup-button" onclick="userConfirm()"></div>
@@ -319,7 +320,7 @@
             }
 
             .popup.show{
-                background: rgba(68, 24, 4, 0.5);
+                background: rgba(68, 24, 4, 0.7);
                 background-image: url('src/images/optimized/popup-base.png');
                 background-size: cover;
                 transform: translate(-50%,-50%) scale(1);
@@ -428,6 +429,13 @@
                 font-family:  anton;
                 margin: 5% auto;
                 text-align: center;
+            }
+
+            .selected-block{
+                left: 50%;
+                position: absolute;
+                transform: translateX(-50%);
+                top: 3.5%;
             }
 
         </style>
