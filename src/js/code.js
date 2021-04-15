@@ -26,8 +26,9 @@ function blockTap(index){
 function hidePopup(){
     var confirmPopup = document.getElementById("confirm-select-popup");
     confirmPopup.className = "popup";
-    setTimeout(()=>{ selectingBlock.className = "block normal show";},300)
-    
+    if(playTimes > 0){
+        setTimeout(()=>{ selectingBlock.className = "block normal show";},300)
+    }
 }
 
 function userConfirm(){
