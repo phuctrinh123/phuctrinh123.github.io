@@ -40,6 +40,13 @@ function blockTap(index,blockWidth = 0, blockHeight = 0){
         selectedBlockDisplayer.appendChild(displayBlockOnPopup);
         confirmPopup.className += " show";
     }else{
+        displayBlockOnPopup = block.cloneNode(true);
+        displayBlockOnPopup.style.transform = "scale(1)";
+        displayBlockOnPopup.style.margin = "0";
+        selectedBlockDisplayer.style.width = blockWidth;
+        selectedBlockDisplayer.style.height = blockHeight;
+        selectedBlockDisplayer.innerHTML = "";
+        selectedBlockDisplayer.appendChild(displayBlockOnPopup);
         confirmText.style.backgroundImage = "url('src/images/optimized/confirm-order-text.png')"
         confirmPopup.className += " show";
     }
