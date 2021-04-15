@@ -116,7 +116,7 @@ function boardInit (){
     // orderButton.style.height = (boardWidth*0.5)*0.25;
     // orderButton.style.lineHeight = (boardWidth*0.03)*0.25;
 
-    gameBoard.style.marginTop = (viewportHeight/2) - (((viewportWidth - Math.floor(boardWidth*50/375))/2) + gameBoard.offsetTop + 20);
+    // gameBoard.style.marginTop = (viewportHeight/2) - (((viewportWidth - Math.floor(boardWidth*50/375))/2) + gameBoard.offsetTop + 20);
 
     gameBoardShadow.style.width = viewportWidth - Math.floor(boardWidth*75/375);
     gameBoardShadow.style.height = viewportWidth - Math.floor(boardWidth*75/375);
