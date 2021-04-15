@@ -108,9 +108,9 @@ function boardInit (){
     progressBar.style.width =  0;
     progressBar.style.height = (boardWidth*0.75)*0.115;
 
-    gameLogo.style.width = viewportWidth*0.9;
-    gameLogo.style.height =  viewportHeight*0.2;
-    gameLogo.style.marginTop = viewportHeight*0.02;
+    // gameLogo.style.width = viewportWidth*0.9;
+    // gameLogo.style.height =  viewportHeight*0.2;
+    // gameLogo.style.marginTop = viewportHeight*0.02;
 
     // orderButton.style.width = boardWidth*0.6;
     // orderButton.style.height = (boardWidth*0.5)*0.25;
