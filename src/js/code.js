@@ -31,7 +31,7 @@ function blockTap(index){
         block.className = "block show selected";
         confirmPopup.className += " show";
     }else{
-        confirmText.style.backgroundImage = "url('src/images/confirm-order-text.png')"
+        confirmText.style.backgroundImage = "url('src/images/optimized/confirm-order-text.png')"
         confirmPopup.className += " show";
     }
 }
@@ -53,7 +53,7 @@ function userConfirm(){
     if(playTimes - 1 == 0) {
         playTimeIndicator.innerHTML = playTimes - 1;
         playTimes -= 1;
-        guideText.style.backgroundImage = "url('src/images/sorry-text.png')";   
+        guideText.style.backgroundImage = "url('src/images/optimized/sorry-text.png')";   
     }
     else if (playTimes == 0){
         window.location.href = " http://m.me/lupucoffee";
@@ -120,8 +120,8 @@ function boardInit (){
                 "
                 onClick= "blockTap(${i})"
             > \n
-                <img src="src/images/block-${i}.png" alt="${blockDescription[i]}" />
-                <img src="src/images/block-${i}-right.png" alt="${blockDescription[i]}"/>
+                <img src="src/images/optimized/block-${i}.png" alt="${blockDescription[i]}" />
+                <img src="src/images/optimized/block-${i}-right.png" alt="${blockDescription[i]}"/>
             </div> \n
         `;  
 
