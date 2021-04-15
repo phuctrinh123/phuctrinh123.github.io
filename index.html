@@ -6,35 +6,35 @@
         <meta name="description" content="Lupu Coffee, cà phê ngon, phin sữa, trà mật rừng, giao tận nơi">
     </head>
     <body>
-        <div class="game-logo" id="game-logo"></div>
-        <div class="game-board" id="game-board">
-            <div class="loading-bar show" id="loading-bar">
-                <div class="wrapper">
-                    <div class="progress-bar" id="progress-bar"></div>
+        <div class="app-container">
+            <div class="game-logo" id="game-logo"></div>
+            <div class="game-board" id="game-board">
+                <div class="loading-bar show" id="loading-bar">
+                    <div class="wrapper">
+                        <div class="progress-bar" id="progress-bar"></div>
+                    </div>
+                </div>
+                <div class="board-shadow" id="game-board-shadow"></div>
+                <div class="board" id="board">
+                </div>
+                <div id="confirm-select-popup" class="popup">
+                    <div class="wrapper">
+                        <div class="selected-block" id="selected-block"></div>
+                        <div class="content" id="confirm-open-block-text"></div>
+                        <div id="cancel-button" class="popup-button" onclick="hidePopup()"></div>
+                        <div id="confirm-button" class="popup-button" onclick="userConfirm()"></div>
+                    </div>
                 </div>
             </div>
-            <div class="board-shadow" id="game-board-shadow"></div>
-            <div class="board" id="board">
-            </div>
-            <div id="confirm-select-popup" class="popup">
+            <div class="guide-text" id="guide-text"></div>
+            <div class="play-times-indicator">
                 <div class="wrapper">
-                    <div class="selected-block" id="selected-block"></div>
-                    <div class="content" id="confirm-open-block-text"></div>
-                    <div id="cancel-button" class="popup-button" onclick="hidePopup()"></div>
-                    <div id="confirm-button" class="popup-button" onclick="userConfirm()"></div>
+                    <div class="play-times-text"></div>
+                    <div class="play-times" id="play-times">1</div>
                 </div>
             </div>
         </div>
-        <div class="guide-text" id="guide-text"></div>
-        <div class="play-times-indicator">
-            <div class="wrapper">
-                <div class="play-times-text"></div>
-                <div class="play-times" id="play-times">1</div>
-            </div>
-        </div>
-
        <!-- <div class="order-button" id="order-button" onClick="redirectToFacebook()">Thêm lượt</div> -->
-
         <style>
 
             @keyframes shake {
@@ -125,6 +125,17 @@
                 background-size: contain;
                 background-repeat: no-repeat;
                 font-family: anton;
+                position: relative;
+            }
+
+            .app-container{
+                align-items: center;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                position: relative;
+                width: 100%;
             }
 
             .game-logo{
@@ -133,6 +144,7 @@
                 background-position: center;
                 height: 100px;
                 margin: 0 auto;
+                /* margin-top: 20%; */
                 width: 60%;
             }
 
@@ -140,13 +152,9 @@
                 background-image: url('src/images/optimized/guide-text.png');
                 background-size: cover;
                 background-position: center;
-                bottom: 15%;
                 height: 80px;
-                left: 50%;
-                /* margin: 0 auto;
-                margin-top: 10%; */
-                position: absolute;
-                transform: translateX(-50%);
+                margin: 0 auto;
+                position: relative;
                 width: 80%;
             }
 
@@ -402,13 +410,9 @@
             .play-times-indicator{
                 background: rgba(255,233,188,1);
                 border-radius: 3vw;
-                bottom: 10%;
                 height: 10vw;
-                /* margin: 0 auto;
-                margin-top: 5%; */
-                left: 50%;
-                position: absolute;
-                transform: translateX(-50%);
+                margin: 0 auto;
+                position: relative;
                 width: 40%;
             }
 

@@ -97,7 +97,7 @@ function boardInit (){
     var cancelButton = document.getElementById("cancel-button");
     var confirmButton = document.getElementById("confirm-button");
     var confirmText = document.getElementById('confirm-open-block-text');
-    let boardWidth = board.offsetWidth;
+    let boardWidth = /*board.offsetWidth;*/ viewportWidth;
     let total =  9;
     var htmlString = ""
     var rowCount = 0;
@@ -110,8 +110,8 @@ function boardInit (){
 
     // gameLogo.style.width = viewportWidth*0.9;
     // gameLogo.style.height =  viewportHeight*0.2;
-    // gameLogo.style.marginTop = viewportHeight*0.02;
-
+    // gameLogo.style.marginTop =  (viewportHeight*36/705);
+  
     // orderButton.style.width = boardWidth*0.6;
     // orderButton.style.height = (boardWidth*0.5)*0.25;
     // orderButton.style.lineHeight = (boardWidth*0.03)*0.25;
