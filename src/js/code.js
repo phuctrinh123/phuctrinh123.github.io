@@ -1,6 +1,7 @@
 let viewportWidth = window.screen.width;
 let viewportHeight = window.screen.height;
 let image = document.getElementsByTagName('img');
+let totalBlock =  9;
 var allLoaded =  false;
 var selectingBlock = null;
 var playTimes = 3;
@@ -16,7 +17,12 @@ let blockDescription = [
     "Lupu coffee kẹo keo sữa dưa lưới",
     "Lupu coffee kẹo dẻo cam",
     "Lupu coffee kẹo sữa việt quất",
-]
+];
+
+function randomNumber(max) {
+    return Math.floor(Math.random() * max);
+}
+  
 
 function redirectToFacebook(){
     window.location.href = "https://www.facebook.com/lupucoffee";
@@ -81,6 +87,7 @@ function userConfirm(){
     }
 
     confirmPopup.className = "popup";
+    console.log(selectingBlock);
     setTimeout(()=>{ selectingBlock.className = "block hide";},200)
 
 }
@@ -96,7 +103,6 @@ function boardInit (){
     var confirmButton = document.getElementById("confirm-button");
     var content = document.getElementById('content');
     let boardWidth = /*board.offsetWidth;*/ viewportWidth;
-    let total =  9;
     var htmlString = ""
     var rowCount = 0;
 
@@ -123,21 +129,28 @@ function boardInit (){
 
     playTimeIndicator.innerHTML = playTimes;
 
-    for (let i = 1; i <= total; i++) {
+    for (let i = 1; i <= totalBlock; i++) {
+        let randomPrize = randomNumber(5);
+        var prize = (randomPrize != 0) ? `<img src="src/images/optimized/prize-${randomPrize}.png" alt="${blockDescription[i]}"/>` : "";
         htmlString += `
+        <div
+            class="block-wrapper"
+            style="
+                width:${Math.floor(boardWidth/3) - Math.floor(boardWidth*25/375)}px;
+                margin-top: ${rowCount > 0 ? Math.floor(boardWidth*10/375) + "px" : 0};
+                margin-left: ${(i - (rowCount*3))%2 == 0 ? Math.floor(boardWidth*10/375) + "px" : i%3 == 0 ? Math.floor(boardWidth*10/375) +"px" : "0px"};
+            "
+            onClick= "blockTap(${i},${Math.floor(boardWidth/3) - Math.floor(boardWidth*25/375)}, ${Math.floor(boardWidth/3) - Math.floor(boardWidth*25/375)} )"
+        >\n    
+            ${prize}
             <div 
                 class="block normal" 
                 id="block-${i}" 
-                style="
-                    width:${Math.floor(boardWidth/3) - Math.floor(boardWidth*25/375)}px;
-                    margin-top: ${rowCount > 0 ? Math.floor(boardWidth*10/375) + "px" : 0};
-                    margin-left: ${(i - (rowCount*3))%2 == 0 ? Math.floor(boardWidth*10/375) + "px" : i%3 == 0 ? Math.floor(boardWidth*10/375) +"px" : "0px"};
-                "
-                onClick= "blockTap(${i},${Math.floor(boardWidth/3) - Math.floor(boardWidth*25/375)}, ${Math.floor(boardWidth/3) - Math.floor(boardWidth*25/375)} )"
             > \n
                 <img src="src/images/optimized/block-${i}.png" alt="${blockDescription[i]}" />
                 <img src="src/images/optimized/block-${i}-right.png" alt="${blockDescription[i]}"/>
             </div> \n
+        </div>    
         `;  
 
         if (i%3 == 0){
@@ -192,13 +205,13 @@ window.addEventListener("load", event => {
         loadingBar.className = "loading-bar"
         board.className += " show";
         boardShadow.className += " show";
-        for(let i = 1; i <= image.length/2; i++){
+        for(let i = 1; i <= totalBlock; i++){
             var block = document.getElementById(`block-${i}`);
             block.className += " show shake";
         }
 
         setTimeout(()=>{
-            for(let i = 1; i <= image.length/2; i++){
+            for(let i = 1; i <= totalBlock; i++){
                 var block = document.getElementById(`block-${i}`);
                 block.className = "block normal show";
             }
