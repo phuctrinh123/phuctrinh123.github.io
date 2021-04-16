@@ -141,7 +141,7 @@ function boardInit (){
             style="
                 width:${Math.floor(boardWidth/3) - Math.floor(boardWidth*25/375)}px;
                 height: ${Math.floor(boardWidth/3) - Math.floor(boardWidth*25/375)}px;
-                margin-top: ${rowCount > 0 ? Math.floor(boardWidth*10/375) + "px" : 0};
+                margin-top: ${/*rowCount > 0 ? Math.floor(boardWidth*10/375) + "px" : 0*/ ""};
                 margin-left: ${(i - (rowCount*3))%2 == 0 ? Math.floor(boardWidth*10/375) + "px" : i%3 == 0 ? Math.floor(boardWidth*10/375) +"px" : "0px"};
             "
             onClick= "blockTap(${i},${Math.floor(boardWidth/3) - Math.floor(boardWidth*25/375)}, ${Math.floor(boardWidth/3) - Math.floor(boardWidth*25/375)} )"
@@ -161,6 +161,7 @@ function boardInit (){
             var row = document.createElement("div");
             row.innerHTML = htmlString;    
             row.className = "row";
+            row.style.height = Math.floor(boardWidth/3) - Math.floor(boardWidth*25/375);
             board.append(row);  
             htmlString = "";
             rowCount += 1;
