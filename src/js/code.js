@@ -160,7 +160,7 @@ function boardInit (){
             var row = document.createElement("div");
             row.innerHTML = htmlString;    
             row.className = "row";
-            row.style.height = `${Math.floor(boardWidth/3) - Math.floor(boardWidth*25/375)}px`;
+            row.style.height = `${Math.floor(boardWidth/3) - (Math.floor(boardWidth*25/375)+2)}px`;
             board.append(row);  
             htmlString = "";
             rowCount += 1;
