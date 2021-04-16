@@ -2,10 +2,16 @@ let viewportWidth = window.screen.width;
 let viewportHeight = window.screen.height;
 let image = document.getElementsByTagName('img');
 let totalBlock =  9;
+let prizes = {
+    1 : "src/images/optimized/prize-1.png",
+    2 : "src/images/optimized/prize-2.png",
+    3 : "src/images/optimized/prize-3.png",
+    4 : "src/images/optimized/prize-4.png",
+}
 var allLoaded =  false;
 var selectingBlock = null;
 var selectingBlockIndex = 0;
-var playTimes = 3;
+var playTimes = 9;
 
 let blockDescription = [
     "",
@@ -43,6 +49,7 @@ function blockTap(index,blockWidth = 0, blockHeight = 0){
         displayBlockOnPopup.style.transform = "scale(1)";
         displayBlockOnPopup.style.margin = "0";
         block.className = "block show selected";
+        displayBlockOnPopup.className = " block show selected";
         selectedBlockDisplayer.style.width = blockWidth;
         selectedBlockDisplayer.style.height = blockHeight;
         selectedBlockDisplayer.innerHTML = "";
@@ -52,9 +59,10 @@ function blockTap(index,blockWidth = 0, blockHeight = 0){
         displayBlockOnPopup = block.cloneNode(true);
         displayBlockOnPopup.style.transform = "scale(1)";
         displayBlockOnPopup.style.margin = "0";
+        displayBlockOnPopup.className = "block show selected";
         selectedBlockDisplayer.style.width = blockWidth;
         selectedBlockDisplayer.style.height = blockHeight;
-        selectedBlockDisplayer.innerHTML = "";
+        selectedBlockDisplayer.innerHTML = ""; 
         selectedBlockDisplayer.appendChild(displayBlockOnPopup);
         popupContent.innerHTML = "Bạn có muốn đặt ngay một ly trà mật rừng hoặc phin sữa để mở viên kẹo này không?"
         confirmPopup.className += " show";
@@ -108,6 +116,7 @@ function boardInit (){
     let boardWidth = /*board.offsetWidth;*/ viewportWidth;
     var htmlString = ""
     var rowCount = 0;
+    var prizeChecker = [];
 
     loadingBar.style.width =  boardWidth*0.9;
     loadingBar.style.height = (boardWidth*0.9)*0.25;
@@ -133,8 +142,14 @@ function boardInit (){
     playTimeIndicator.innerHTML = playTimes;
 
     for (let i = 1; i <= totalBlock; i++) {
-        let randomPrize = randomNumber(5);
-        var prize = (randomPrize != 0) ? `<img  id="prize-${i}" src="src/images/optimized/prize-${randomPrize}.png" alt="${blockDescription[i]}"/>` : "";
+        let randomPrize = randomNumber(18);
+        var prize =  "";
+
+        if((typeof (prizes[randomPrize]) != "undefined") && (!prizeChecker.includes(randomPrize))){
+            prize = `<img  id="prize-${i}" src="${prizes[randomPrize]}" alt="${blockDescription[i]}"/>`;
+            prizeChecker.push(randomPrize);
+        }
+
         htmlString += `
         <div
             class="block-wrapper"
