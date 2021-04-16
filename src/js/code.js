@@ -161,7 +161,8 @@ function boardInit (){
             var row = document.createElement("div");
             row.innerHTML = htmlString;    
             row.className = "row";
-            row.style.height = Math.floor(boardWidth/3) - (Math.floor(boardWidth*25/375) +5);
+            // row.style.height = Math.floor(boardWidth/3) - (Math.floor(boardWidth*25/375) +5);
+            if(rowCount == 0){row.style.marginTop = (boardWidth*(-3))/375; }
             board.append(row);  
             htmlString = "";
             rowCount += 1;

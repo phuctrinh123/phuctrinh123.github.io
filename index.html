@@ -175,6 +175,7 @@
                 box-sizing: border-box;
                 background-image: url('src/images/optimized/board.png');
                 background-size: cover;
+                display: flex;
                 margin: 0 auto;
                 opacity: 0;
                 padding: 4.5%;
@@ -185,6 +186,12 @@
             .board.show{
                opacity: 1;
                transition: opacity 0.2s ease-in-out;
+            }
+
+            .row{
+                display: flex;
+                flex: 1;
+                width: 100%;
             }
 
             .board-shadow{
@@ -203,11 +210,6 @@
             .board-shadow.show{
                 opacity: 1;
                 transition: opacity 0.2s ease-in-out;
-            }
-
-            .row{
-                display: flex;
-                width: 100%;
             }
 
             .block-wrapper{
