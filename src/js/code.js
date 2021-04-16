@@ -142,7 +142,7 @@ function boardInit (){
     playTimeIndicator.innerHTML = playTimes;
 
     for (let i = 1; i <= totalBlock; i++) {
-        let randomPrize = randomNumber(27);
+        let randomPrize = randomNumber(3);
         var prize =  "";
 
         if((typeof (prizes[randomPrize]) != "undefined") && (!prizeChecker.includes(randomPrize))){
