@@ -11,7 +11,7 @@ let prizes = {
 var allLoaded =  false;
 var selectingBlock = null;
 var selectingBlockIndex = 0;
-var playTimes = 9;
+var playTimes = 3;
 
 let blockDescription = [
     "",
@@ -142,7 +142,7 @@ function boardInit (){
     playTimeIndicator.innerHTML = playTimes;
 
     for (let i = 1; i <= totalBlock; i++) {
-        let randomPrize = randomNumber(3);
+        let randomPrize = randomNumber(27);
         var prize =  "";
 
         if((typeof (prizes[randomPrize]) != "undefined") && (!prizeChecker.includes(randomPrize))){
