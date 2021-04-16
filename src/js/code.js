@@ -166,8 +166,8 @@ function boardInit (){
                 class="block normal" 
                 id="block-${i}" 
             > \n
-                <img src="src/images/optimized/block-${i}.png" alt="${blockDescription[i]}" />
-                <img src="src/images/optimized/block-${i}-right.png" alt="${blockDescription[i]}"/>
+                <img src="src/images/optimized/tinified/block-${i}.png" alt="${blockDescription[i]}" />
+                <img src="src/images/optimized/tinified/block-${i}-right.png" alt="${blockDescription[i]}"/>
             </div> \n
         </div>    
         `;  
