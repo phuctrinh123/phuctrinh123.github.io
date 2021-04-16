@@ -4,6 +4,7 @@ let image = document.getElementsByTagName('img');
 let totalBlock =  9;
 var allLoaded =  false;
 var selectingBlock = null;
+var selectingBlockIndex = 0;
 var playTimes = 3;
 
 let blockDescription = [
@@ -37,6 +38,7 @@ function blockTap(index,blockWidth = 0, blockHeight = 0){
 
     if(playTimes > 0){
         selectingBlock = block;
+        selectingBlockIndex = index;
         displayBlockOnPopup = block.cloneNode(true);
         displayBlockOnPopup.style.transform = "scale(1)";
         displayBlockOnPopup.style.margin = "0";
@@ -71,6 +73,7 @@ function userConfirm(){
     var confirmPopup = document.getElementById("confirm-select-popup");
     var playTimeIndicator = document.getElementById("play-times");
     var guideText = document.getElementById("guide-text");
+    let prize = document.getElementById(`prize-${selectingBlockIndex}`);
 
    
     if(playTimes - 1 == 0) {
@@ -87,7 +90,7 @@ function userConfirm(){
     }
 
     confirmPopup.className = "popup";
-    console.log(selectingBlock);
+    prize? prize.className += " show" : "";
     setTimeout(()=>{ selectingBlock.className = "block hide";},200)
 
 }
@@ -131,7 +134,7 @@ function boardInit (){
 
     for (let i = 1; i <= totalBlock; i++) {
         let randomPrize = randomNumber(5);
-        var prize = (randomPrize != 0) ? `<img src="src/images/optimized/prize-${randomPrize}.png" alt="${blockDescription[i]}"/>` : "";
+        var prize = (randomPrize != 0) ? `<img  id="prize-${i}" src="src/images/optimized/prize-${randomPrize}.png" alt="${blockDescription[i]}"/>` : "";
         htmlString += `
         <div
             class="block-wrapper"
