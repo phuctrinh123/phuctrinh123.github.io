@@ -300,6 +300,7 @@ function boardInit (){
             var row = document.createElement("div");
             row.innerHTML = htmlString;    
             row.className = "row";
+            // row.style.height = Math.floor(boardWidth/3) - (Math.floor(boardWidth*25/375) +5);
             if(rowCount == 0){row.style.marginTop = (boardWidth*(-3))/375; }
             board.append(row);  
             htmlString = "";
@@ -335,20 +336,36 @@ var realtimeCheck = setInterval(()=>{
 window.addEventListener("load", event => {
     var board = document.getElementById("board");
     var loadingScreen = document.getElementById("loading-screen");
-    var boardShadow = document.getElementById("game-board-shadow");
-    loadingScreen.className = "loading-screen";
-    board.className += " show";
-    boardShadow.className += " show";
-    for(let i = 1; i <= totalBlock; i++){
-        var block = document.getElementById(`block-${i}`);
-        block.className += " show shake";
-    }
-    setTimeout(()=>{
+    // var imageLoader = document.getElementById("image-loader");
+    // for(let i = 0; i < res.length; i++){
+    //     imageLoader.setAttribute("src",res[i]);
+    //     if(imageLoader.complete && imageLoader.naturalHeight !== 0){
+    //         allLoaded = true;
+    //     }
+    //     else{
+    //         allLoaded = false;
+    //     }   
+    // } 
+
+    // if(allLoaded){
+        var boardShadow = document.getElementById("game-board-shadow");
+        // var loadingBar = document.getElementById("loading-bar");
+
+        // loadingBar.className = "loading-bar"
+        loadingScreen.className = "loading-screen";
+        board.className += " show";
+        boardShadow.className += " show";
         for(let i = 1; i <= totalBlock; i++){
             var block = document.getElementById(`block-${i}`);
-            block.className = "block normal show";
+            block.className += " show shake";
         }
-        loadingScreen.style.display = "none";
-    },1300)
 
+        setTimeout(()=>{
+            for(let i = 1; i <= totalBlock; i++){
+                var block = document.getElementById(`block-${i}`);
+                block.className = "block normal show";
+            }
+            loadingScreen.style.display = "none";
+        },1300)
+    // }
 });
