@@ -6,6 +6,7 @@
         <meta name="description" content="Lupu Coffee, cà phê ngon, phin sữa, trà mật rừng, giao tận nơi">
     </head>
     <body>
+        <div class="background-header" id="background-header"></div>
         <div class="app-container">
             <div class="game-logo" id="game-logo"></div>
             <div class="game-board" id="game-board">
@@ -134,12 +135,25 @@
 
             body{
                 background: #FF7600;
-                background-image: url('src/images/optimized/background.png');
+                background-image: url('src/images/optimized/tinified/background.png');
                 background-position: bottom;
                 background-size: contain;
                 background-repeat: no-repeat;
                 font-family: anton;
+                margin: 0;
                 position: relative;
+            }
+
+            .background-header{
+                background-image: url('src/images/optimized/tinified/background-header.png');
+                background-position: top;
+                background-size: contain;
+                background-repeat: no-repeat;
+                height: 56.5%;
+                left: -1%;
+                position: absolute;
+                top:0;
+                width: 101%;
             }
 
             .app-container{
