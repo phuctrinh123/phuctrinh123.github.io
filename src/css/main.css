@@ -1,0 +1,185 @@
+@keyframes rotate {
+    0%{ transform: rotate(0deg);}
+    50%{ transform: rotate(180deg);}
+    100%{ transform: rotate(360deg);}
+}
+
+@-webkit-keyframes rotate {
+    0%{ -webkit-transform: rotate(0deg);}
+    50%{ -webkit-transform: rotate(180deg);}
+    100%{ -webkit-transform: rotate(360deg);}
+}
+
+@keyframes shake {
+    0%{
+        transform: rotate(-5deg);
+    }
+    25%{
+        transform: rotate(5deg);
+    }
+    50%{
+        transform: rotate(-5deg);
+    }
+    75%{
+        transform: rotate(5deg);
+    }
+    100%{
+        transform: rotate(-5deg);
+    }
+}
+
+@keyframes popOut{
+    0%{
+        transform: scale(1);
+    }
+
+    20%{
+        transform: scale(1.2);
+    }
+
+    90%{
+        opacity: 0.5;
+    }
+
+    100%{
+        opacity: 0;
+        transform: scale(0);
+    }
+
+}
+
+@-webkit-keyframes shake {
+    0%{
+        -webkit-transform: rotate(-5deg);
+    }
+    25%{
+        -webkit-transform: rotate(5deg);
+    }
+    50%{
+        -webkit-transform: rotate(-5deg);
+    }
+    75%{
+        -webkit-transform: rotate(5deg);
+    }
+    100%{
+        -webkit-transform: rotate(-5deg);
+    }
+}
+
+@-webkit-keyframes popOut{
+    0%{
+        transform: scale(1);
+    }
+
+    20%{
+        transform: scale(1.2);
+    }
+
+    90%{
+        opacity: 0.5;
+    }
+
+    100%{
+        opacity: 0;
+        -webkit-transform: scale(0);
+    }
+
+}
+
+@font-face {
+    font-family: anton;
+    src: url(../../src/fonts/Anton-Regular.ttf);
+}
+
+body{
+    font-family: anton;
+    margin: 0;
+    position: relative;
+}
+
+.app{
+    height: 100%;
+    position: relative;
+    width: 100%;
+}
+
+.background-header{
+    height: 56.5%;
+    left: -1%;
+    position: absolute;
+    top:0;
+    width: 101%;
+}
+
+.background-header > img{
+    height: 100%;
+    width: 100%;
+}
+
+.app-container{
+    align-items: center;
+    background: #FF7600;
+    background-image: url('../../src/images/optimized/tinified/background.png');
+    background-position: bottom;
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+}
+
+.game-logo{
+    background-image: url('../../src/images/optimized/tinified/game-logo.png');
+    background-size: cover;
+    background-position: center;
+    height: 120px;
+    margin: 0 auto;
+    margin-bottom: 5%;
+    width: 60%;
+    z-index: 1;
+}
+
+.guide-text{
+    color: #772c00;
+    font-size: 4vw;
+    margin: 5vw auto;
+    position: relative;
+    text-align: center;
+    vertical-align: middle;
+    width: 65%;
+}
+
+.guide-text > span{
+    color:#FF7600;
+}
+
+.play-times-indicator{
+    background: rgba(255,233,188,1);
+    border-radius: 3vw;
+    color: #772c00;
+    font-size: 4vw;
+    height: 10vw;
+    line-height:  10vw;
+    margin: 0 auto;
+    position: relative;
+    text-align: center;
+    width: 40%;
+}
+
+.play-times{
+    color:#FF7600;
+}
+
+.order-button{
+    border: 2px solid white;
+    border-radius: 100px;
+    background: rgb(241,105,1);
+    background: linear-gradient(0deg, rgba(241,105,1,1) 0%, rgba(246,166,5,1) 100%);
+    color: white;
+    font-family:  anton;
+    margin: 5% auto;
+    text-align: center;
+}
