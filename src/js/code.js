@@ -118,26 +118,33 @@ function boardInit (){
     var rowCount = 0;
     var prizeChecker = [];
 
+    //optimize for calculating
+    let boardShadowSize = boardWidth - Math.floor(boardWidth*75/375);
+    let boardSize = boardWidth - Math.floor(boardWidth*50/375);
+    let blockSize = Math.floor(boardWidth/3) - Math.floor(boardWidth*25/375);
+    let popupButtonSizeW = boardWidth*0.35;
+    let popupButtonSizeH = (boardWidth*0.35)*0.5;
+
     loadingBar.style.width =  boardWidth*0.9;
     loadingBar.style.height = (boardWidth*0.9)*0.25;
 
     progressBar.style.width =  0;
     progressBar.style.height = (boardWidth*0.75)*0.115;
 
-    gameBoardShadow.style.width = viewportWidth - Math.floor(boardWidth*75/375);
-    gameBoardShadow.style.height = viewportWidth - Math.floor(boardWidth*75/375);
-    board.style.width = viewportWidth - Math.floor(boardWidth*50/375);
-    board.style.height = viewportWidth - Math.floor(boardWidth*50/375);
+    gameBoardShadow.style.width = boardShadowSize;
+    gameBoardShadow.style.height = boardShadowSize;
+    board.style.width = boardSize;
+    board.style.height = boardSize;
 
     
-    confirmPopup.style.width = viewportWidth - Math.floor(boardWidth*50/375);
-    confirmPopup.style.height = viewportWidth - Math.floor(boardWidth*50/375);
+    confirmPopup.style.width = boardSize;
+    confirmPopup.style.height = boardSize;
     content.style.width = boardWidth*0.6;
     content.style.height = (boardWidth*0.6)*0.5;
-    cancelButton.style.width = boardWidth*0.35;
-    cancelButton.style.height = (boardWidth*0.35)*0.5;
-    confirmButton.style.width = boardWidth*0.35;
-    confirmButton.style.height = (boardWidth*0.35)*0.5;
+    cancelButton.style.width = popupButtonSizeW;
+    cancelButton.style.height = popupButtonSizeH;
+    confirmButton.style.width = popupButtonSizeW;
+    confirmButton.style.height = popupButtonSizeH;
 
     playTimeIndicator.innerHTML = playTimes;
 
@@ -150,8 +157,8 @@ function boardInit (){
                 id="prize-${i}"
                 src="${prizes[randomPrize]}" 
                 alt="${blockDescription[i]}"
-                width= "${Math.floor(boardWidth/3) - Math.floor(boardWidth*25/375)}px"
-                height= "${Math.floor(boardWidth/3) - Math.floor(boardWidth*25/375)}px"
+                width= "${blockSize}px"
+                height= "${blockSize}px"
             />`;
             prizeChecker.push(randomPrize);
         }
@@ -160,12 +167,12 @@ function boardInit (){
         <div
             class="block-wrapper"
             style="
-                width:${Math.floor(boardWidth/3) - Math.floor(boardWidth*25/375)}px;
-                height: ${Math.floor(boardWidth/3) - Math.floor(boardWidth*25/375)}px;
+                width:${blockSize}px;
+                height: ${blockSize}px;
                 margin-top: ${/*rowCount > 0 ? Math.floor(boardWidth*10/375) + "px" : 0*/ ""};
                 margin-left: ${(i - (rowCount*3))%2 == 0 ? Math.floor(boardWidth*10/375) + "px" : i%3 == 0 ? Math.floor(boardWidth*10/375) +"px" : "0px"};
             "
-            onClick= "blockTap(${i},${Math.floor(boardWidth/3) - Math.floor(boardWidth*25/375)}, ${Math.floor(boardWidth/3) - Math.floor(boardWidth*25/375)} )"
+            onClick= "blockTap(${i},${blockSize}, ${blockSize} )"
         >\n    
             ${prize}
             <div 
@@ -175,14 +182,14 @@ function boardInit (){
                 <img 
                     src="src/images/optimized/tinified/block-${i}.png" 
                     alt="${blockDescription[i]}"
-                    width= "${Math.floor(boardWidth/3) - Math.floor(boardWidth*25/375)}px"
-                    height= "${Math.floor(boardWidth/3) - Math.floor(boardWidth*25/375)}px"
+                    width= "${blockSize}px"
+                    height= "${blockSize}px"
                  />
                 <img 
                     src="src/images/optimized/tinified/block-${i}-right.png" 
                     alt="${blockDescription[i]}"
-                    width= "${Math.floor(boardWidth/3) - Math.floor(boardWidth*25/375)}px"
-                    height= "${Math.floor(boardWidth/3) - Math.floor(boardWidth*25/375)}px"
+                    width= "${blockSize}px"
+                    height= "${blockSize}px"
                 />
             </div> \n
         </div>    
