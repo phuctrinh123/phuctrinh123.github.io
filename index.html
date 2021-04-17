@@ -4,6 +4,7 @@
         <title>Sinh nhật Lupu Coffee</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="Lupu Coffee, cà phê ngon, phin sữa, trà mật rừng, giao tận nơi">
+        <link rel="stylesheet" href="src/css/loading-screen.css">
     </head>
     <body>
         <div class="app">
@@ -11,6 +12,7 @@
                 <div class="loading-bar show" id="loading-bar">
                     <div class="wrapper">
                         <div class="progress-bar" id="progress-bar"></div>
+                        <img id="imag-loader" src="" width="1px" height="1px" alt="lupu coffee"/>
                     </div>
                 </div>
             </div>
@@ -150,14 +152,6 @@
                 height: 100%;
                 position: relative;
                 width: 100%;
-            }
-
-            .loading-screen{
-                background: white;
-                height: 100%;
-                position: absolute;
-                width: 100%;
-                z-index: 2;
             }
 
             .background-header{
@@ -488,34 +482,6 @@
                 bottom: 22%;
                 left: 18%;
                 
-            }
-
-            #loading-bar{
-                background-image: url('src/images/optimized/tinified/loading-bar.png');
-                background-size: cover;
-                left: 50%;
-                opacity: 0;
-                position: absolute;
-                top: 50%;
-                transform: translate(-50%,-50%);
-                transition: opacity 0.2s ease-in-out;
-                z-index: -10;
-            }
-
-            #loading-bar.show{
-                opacity: 1;
-                transition: opacity 0.2s ease-in-out;
-                z-index: 10;
-            }
-
-            #progress-bar{
-                background-image: url('src/images/optimized/tinified/progress-bar.png');
-                background-size: cover;
-                left: 8%;
-                position: absolute;
-                top: 50%;
-                transform: translateY(-50%);
-                z-index: 10;
             }
 
             .play-times-indicator{

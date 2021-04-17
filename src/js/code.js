@@ -1,3 +1,49 @@
+//resource defining
+let res = [
+    "src/images/optimized/tinified/background.png",
+    "src/images/optimized/tinified/background-header.png",
+    "src/images/optimized/tinified/game-logo.png",
+    "src/images/optimized/tinified/board.png",
+    "src/images/optimizedtinified//block-1.png",
+    "src/images/optimized/tinified/block-1-right.png",
+    "src/images/optimized/tinified/block-1-wrong.png",
+    "src/images/optimized/tinified/block-2.png",
+    "src/images/optimized/tinified/block-2-right.png",
+    "src/images/optimized/tinified/block-2-wrong.png",
+    "src/images/optimized/tinified/block-3.png",
+    "src/images/optimized/tinified/block-3-right.png",
+    "src/images/optimized/tinified/block-3-wrong.png",
+    "src/images/optimized/tinified/block-4.png",
+    "src/images/optimized/tinified/block-4-right.png",
+    "src/images/optimized/tinified/block-4-wrong.png",
+    "src/images/optimized/tinified/block-5.png",
+    "src/images/optimized/tinified/block-5-right.png",
+    "src/images/optimized/tinified/block-5-wrong.png",
+    "src/images/optimized/tinified/block-6.png",
+    "src/images/optimized/tinified/block-6-right.png",
+    "src/images/optimized/tinified/block-6-wrong.png",
+    "src/images/optimized/tinified/block-7.png",
+    "src/images/optimized/tinified/block-7-right.png",
+    "src/images/optimized/tinified/block-7-wrong.png",
+    "src/images/optimized/tinified/block-8.png",
+    "src/images/optimized/tinified/block-8-right.png",
+    "src/images/optimized/tinified/block-8-wrong.png",
+    "src/images/optimized/tinified/block-9.png",
+    "src/images/optimized/tinified/block-9-right.png",
+    "src/images/optimized/tinified/block-9-wrong.png",
+    "src/images/optimized/tinified/prize-1.png",
+    "src/images/optimized/tinified/prize-2.png",
+    "src/images/optimized/tinified/prize-3.png",
+    "src/images/optimized/tinified/prize-4.png",
+    "src/images/optimized/tinified/popup-base.png",
+    "src/images/optimized/tinified/glow-effect.png",
+    "src/images/optimized/tinified/cancel-button.png",
+    "src/images/optimized/tinified/confirm-button.png",
+
+
+]
+// end
+
 let viewportWidth = window.screen.width;
 let viewportHeight = window.screen.height;
 let image = document.getElementsByTagName('img');
@@ -273,9 +319,11 @@ var realtimeCheck = setInterval(()=>{
     let board = document.getElementById("board");
     let boardWidth = board.offsetWidth;
     let progressBar = document.getElementById("progress-bar");
-    for(let i = 0; i < image.length; i++){
-        if(image[i].complete && image[i].naturalHeight !== 0){
-            progressBar.style.width =  boardWidth*0.872*(i/image.length);
+    var imageLoader = document.getElementById("image-loader");
+    for(let i = 0; i < res.length; i++){
+        imageLoader.setAttribute("src",res[i]);
+        if(imageLoader.complete && imageLoader.naturalHeight !== 0){
+            progressBar.style.width =  boardWidth*0.872*(i/res.length);
             allLoaded = true;
         }else{
             allLoaded = false;
@@ -287,9 +335,10 @@ var realtimeCheck = setInterval(()=>{
 // check if all assets loaded
 window.addEventListener("load", event => {
     var board = document.getElementById("board");
-  
-    for(let i = 0; i < image.length; i++){
-        if(image[i].complete && image[i].naturalHeight !== 0){
+    var imageLoader = document.getElementById("image-loader");
+    for(let i = 0; i < res.length; i++){
+        imageLoader.setAttribute("src",res[i]);
+        if(imageLoader.complete && imageLoader.naturalHeight !== 0){
             allLoaded = true;
         }
         else{
