@@ -3,15 +3,18 @@ let viewportHeight = window.screen.height;
 let image = document.getElementsByTagName('img');
 let totalBlock =  9;
 let prizes = {
-    1 : "src/images/optimized/prize-1.png",
-    2 : "src/images/optimized/prize-2.png",
-    3 : "src/images/optimized/prize-3.png",
-    4 : "src/images/optimized/prize-4.png",
+    1 : {img: "src/images/optimized/prize-1.png", name: "5k"},
+    2 : {img: "src/images/optimized/prize-2.png", name: "25k"},
+    3 : {img: "src/images/optimized/prize-3.png", name: "50k"},
+    4 : {img: "src/images/optimized/prize-4.png", name: "100k"},
 }
+let prizeMapWithBlock = [];
+var prizeChecker = [];
 var allLoaded =  false;
 var selectingBlock = null;
 var selectingBlockIndex = 0;
 var playTimes = 3;
+var notifyUserState = 0;
 
 let blockDescription = [
     "",
@@ -48,12 +51,14 @@ function blockTap(index,blockWidth = 0, blockHeight = 0){
         displayBlockOnPopup = block.cloneNode(true);
         displayBlockOnPopup.style.transform = "scale(1)";
         displayBlockOnPopup.style.margin = "0";
+        displayBlockOnPopup.setAttribute("id", "_selectedBlock");
         block.className = "block show selected";
         displayBlockOnPopup.className = " block show selected";
         selectedBlockDisplayer.style.width = blockWidth;
         selectedBlockDisplayer.style.height = blockHeight;
-        selectedBlockDisplayer.innerHTML = "";
+        selectedBlockDisplayer.innerHTML = `<div class="glow-effect" id="glow-effect"></div>`;
         selectedBlockDisplayer.appendChild(displayBlockOnPopup);
+        popupContent.innerHTML = "Bạn có chắc chắn muốn mở viên kẹo này chứ? Bạn sẽ không thể hồi lại đâu nhé."
         confirmPopup.className += " show";
     }else{
         displayBlockOnPopup = block.cloneNode(true);
@@ -72,34 +77,82 @@ function blockTap(index,blockWidth = 0, blockHeight = 0){
 function hidePopup(){
     var confirmPopup = document.getElementById("confirm-select-popup");
     confirmPopup.className = "popup";
-    if(playTimes > 0){
-        setTimeout(()=>{ selectingBlock.className = "block normal show";},300)
+    if(notifyUserState == 0){
+        if(playTimes > 0){
+            setTimeout(()=>{ selectingBlock.className = "block normal show";},300)
+        }
+    }else{
+        notifyUserState = 0;
     }
+   
 }
 
 function userConfirm(){
     var confirmPopup = document.getElementById("confirm-select-popup");
     var playTimeIndicator = document.getElementById("play-times");
     var guideText = document.getElementById("guide-text");
+    var popupContent = document.getElementById('content');
+    var glowEffect = document.getElementById('glow-effect');
     let prize = document.getElementById(`prize-${selectingBlockIndex}`);
 
+    if(notifyUserState == 0){
+        if(playTimes - 1 == 0) {
+            playTimeIndicator.innerHTML = playTimes - 1;
+            playTimes -= 1;
+            guideText.innerHTML = "Những viên kẹo còn lại biết cách giúp bạn có thêm lượt đấy"
+        }
+        else if (playTimes == 0){
+            window.location.href = " http://m.me/lupucoffee";
+        }
+        else{
+            playTimeIndicator.innerHTML = playTimes - 1;
+            playTimes -= 1;
+        }
+    
+        confirmPopup.className = "popup";
+        prize? prize.className += " show" : "";
+        setTimeout(()=>{ 
+            selectingBlock.className = "block hide";
+            if(prizeMapWithBlock[selectingBlockIndex] != 0){
+                var selectedBlockDisplayer = document.getElementById("selected-block");
+                var _selectedBlock = document.getElementById("_selectedBlock");
+                var tmpDiv = document.createElement("div");
+    
+                tmpDiv.innerHTML = `<img 
+                    src="${prizes[prizeMapWithBlock[selectingBlockIndex]].img}" 
+                    alt="lupu giải thưởng"
+                    width= "100%"
+                    height= "100%"
+                />`;
+                selectedBlockDisplayer.append(tmpDiv);
+                _selectedBlock.style.display = "none";
+                glowEffect.className += " show";
+                popupContent.innerHTML = `Chúc mừng, bạn đã nhận được ${prizes[prizeMapWithBlock[selectingBlockIndex]].name}. Bạn có muốn nhận phần quà này không?`;
+                confirmPopup.className += " show";
+                notifyUserState = 1;
+            }else{
+                var selectedBlockDisplayer = document.getElementById("selected-block");
+                var _selectedBlock = document.getElementById("_selectedBlock");
+                var tmpDiv = document.createElement("div");
+    
+                tmpDiv.innerHTML = `<img 
+                    src="src/images/optimized/tinified/block-${selectingBlockIndex}-wrong.png" 
+                    alt="lupu giải thưởng"
+                    width= "100%"
+                    height= "100%"
+                />`;
+                selectedBlockDisplayer.append(tmpDiv);
+                _selectedBlock.style.display = "none";
+                popupContent.innerHTML = `Tiếc quá, dưới viên kẹo này chẳng có gì cả. Bạn có muốn tiếp tục không?`;
+                confirmPopup.className += " show";
+                notifyUserState = 1;
+            }
+        },200)
+    }else{
+        hidePopup();
+    }
    
-    if(playTimes - 1 == 0) {
-        playTimeIndicator.innerHTML = playTimes - 1;
-        playTimes -= 1;
-        guideText.innerHTML = "Những viên kẹo còn lại biết cách giúp bạn có thêm lượt đấy"
-    }
-    else if (playTimes == 0){
-        window.location.href = " http://m.me/lupucoffee";
-    }
-    else{
-        playTimeIndicator.innerHTML = playTimes - 1;
-        playTimes -= 1;
-    }
-
-    confirmPopup.className = "popup";
-    prize? prize.className += " show" : "";
-    setTimeout(()=>{ selectingBlock.className = "block hide";},200)
+    
 
 }
 
@@ -116,7 +169,7 @@ function boardInit (){
     let boardWidth = /*board.offsetWidth;*/ viewportWidth;
     var htmlString = ""
     var rowCount = 0;
-    var prizeChecker = [];
+  
 
     //optimize for calculating
     let boardShadowSize = boardWidth - Math.floor(boardWidth*75/375);
@@ -151,16 +204,18 @@ function boardInit (){
     for (let i = 1; i <= totalBlock; i++) {
         let randomPrize = randomNumber(27);
         var prize =  "";
-
-        if((typeof (prizes[randomPrize]) != "undefined") && (!prizeChecker.includes(randomPrize))){
+        console.log(randomPrize);
+        if((typeof (prizes[randomPrize]) != "undefined") && (!prizeMapWithBlock.includes(randomPrize))){
             prize = `<img 
                 id="prize-${i}"
-                src="${prizes[randomPrize]}" 
+                src="${prizes[randomPrize].img}" 
                 alt="${blockDescription[i]}"
                 width= "${blockSize}px"
                 height= "${blockSize}px"
             />`;
-            prizeChecker.push(randomPrize);
+            prizeMapWithBlock[i] = randomPrize;
+        }else{
+            prizeMapWithBlock[i] = 0;
         }
 
         htmlString += `
