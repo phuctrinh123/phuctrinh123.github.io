@@ -335,22 +335,24 @@ var realtimeCheck = setInterval(()=>{
 // check if all assets loaded
 window.addEventListener("load", event => {
     var board = document.getElementById("board");
-    var imageLoader = document.getElementById("image-loader");
-    for(let i = 0; i < res.length; i++){
-        imageLoader.setAttribute("src",res[i]);
-        if(imageLoader.complete && imageLoader.naturalHeight !== 0){
-            allLoaded = true;
-        }
-        else{
-            allLoaded = false;
-        }   
-    } 
+    var loadingScreen = document.getElementById("loading-screen");
+    // var imageLoader = document.getElementById("image-loader");
+    // for(let i = 0; i < res.length; i++){
+    //     imageLoader.setAttribute("src",res[i]);
+    //     if(imageLoader.complete && imageLoader.naturalHeight !== 0){
+    //         allLoaded = true;
+    //     }
+    //     else{
+    //         allLoaded = false;
+    //     }   
+    // } 
 
-    if(allLoaded){
+    // if(allLoaded){
         var boardShadow = document.getElementById("game-board-shadow");
-        var loadingBar = document.getElementById("loading-bar");
+        // var loadingBar = document.getElementById("loading-bar");
 
-        loadingBar.className = "loading-bar"
+        // loadingBar.className = "loading-bar"
+        loadingScreen.className = "loading-screen";
         board.className += " show";
         boardShadow.className += " show";
         for(let i = 1; i <= totalBlock; i++){
@@ -363,6 +365,7 @@ window.addEventListener("load", event => {
                 var block = document.getElementById(`block-${i}`);
                 block.className = "block normal show";
             }
+            loadingScreen.style.display = "none";
         },1300)
-    }
+    // }
 });
