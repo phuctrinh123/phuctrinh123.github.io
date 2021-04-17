@@ -146,7 +146,13 @@ function boardInit (){
         var prize =  "";
 
         if((typeof (prizes[randomPrize]) != "undefined") && (!prizeChecker.includes(randomPrize))){
-            prize = `<img  id="prize-${i}" src="${prizes[randomPrize]}" alt="${blockDescription[i]}"/>`;
+            prize = `<img 
+                id="prize-${i}"
+                src="${prizes[randomPrize]}" 
+                alt="${blockDescription[i]}"
+                width= "${Math.floor(boardWidth/3) - Math.floor(boardWidth*25/375)}px"
+                height= "${Math.floor(boardWidth/3) - Math.floor(boardWidth*25/375)}px"
+            />`;
             prizeChecker.push(randomPrize);
         }
 
@@ -166,8 +172,18 @@ function boardInit (){
                 class="block normal" 
                 id="block-${i}" 
             > \n
-                <img src="src/images/optimized/tinified/block-${i}.png" alt="${blockDescription[i]}" />
-                <img src="src/images/optimized/tinified/block-${i}-right.png" alt="${blockDescription[i]}"/>
+                <img 
+                    src="src/images/optimized/tinified/block-${i}.png" 
+                    alt="${blockDescription[i]}"
+                    width= "${Math.floor(boardWidth/3) - Math.floor(boardWidth*25/375)}px"
+                    height= "${Math.floor(boardWidth/3) - Math.floor(boardWidth*25/375)}px"
+                 />
+                <img 
+                    src="src/images/optimized/tinified/block-${i}-right.png" 
+                    alt="${blockDescription[i]}"
+                    width= "${Math.floor(boardWidth/3) - Math.floor(boardWidth*25/375)}px"
+                    height= "${Math.floor(boardWidth/3) - Math.floor(boardWidth*25/375)}px"
+                />
             </div> \n
         </div>    
         `;  
