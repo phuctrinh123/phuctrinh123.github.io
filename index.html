@@ -6,39 +6,44 @@
         <meta name="description" content="Lupu Coffee, cà phê ngon, phin sữa, trà mật rừng, giao tận nơi">
     </head>
     <body>
-        <div class="background-header" id="background-header">
-            <img src="src/images/optimized/tinified/background-header.png" alt="sinh nhật lupu coffee"/>
-        </div>
-        <div class="app-container">
-            <div class="game-logo" id="game-logo"></div>
-            <div class="game-board" id="game-board">
+        <div class="app">
+            <div class="loading-screen" id="loading-screen">
                 <div class="loading-bar show" id="loading-bar">
                     <div class="wrapper">
                         <div class="progress-bar" id="progress-bar"></div>
                     </div>
                 </div>
-                <div class="board-shadow" id="game-board-shadow"></div>
-                <div class="board" id="board">
+            </div>
+            <div class="app-container">
+                <div class="background-header" id="background-header">
+                    <img src="src/images/optimized/tinified/background-header.png" alt="sinh nhật lupu coffee"/>
                 </div>
-                <div id="confirm-select-popup" class="popup">
+                <div class="game-logo" id="game-logo"></div>
+                <div class="game-board" id="game-board">
+                    <div class="board-shadow" id="game-board-shadow"></div>
+                    <div class="board" id="board">
+                    </div>
+                    <div id="confirm-select-popup" class="popup">
+                        <div class="wrapper">
+                            <div class="selected-block" id="selected-block"></div>
+                            <div class="content" id="content">Bạn có chắc chắn muốn mở viên kẹo này chứ? Bạn sẽ không thể hồi lại đâu nhé.</div>
+                            <div id="cancel-button" class="popup-button" onclick="hidePopup()"></div>
+                            <div id="confirm-button" class="popup-button" onclick="userConfirm()"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="guide-text" id="guide-text">
+                    Ẩn dưới những viên kẹo này là <span>100k</span> <br>
+                    Nhấn vào một viên bất kì để mở
+                </div>
+                <div class="play-times-indicator">
                     <div class="wrapper">
-                        <div class="selected-block" id="selected-block"></div>
-                        <div class="content" id="content">Bạn có chắc chắn muốn mở viên kẹo này chứ? Bạn sẽ không thể hồi lại đâu nhé.</div>
-                        <div id="cancel-button" class="popup-button" onclick="hidePopup()"></div>
-                        <div id="confirm-button" class="popup-button" onclick="userConfirm()"></div>
+                        Bạn hiện có <span class="play-times" id="play-times"></span> lượt
                     </div>
                 </div>
             </div>
-            <div class="guide-text" id="guide-text">
-                Ẩn dưới những viên kẹo này là <span>100k</span> <br>
-                Nhấn vào một viên bất kì để mở
-            </div>
-            <div class="play-times-indicator">
-                <div class="wrapper">
-                    Bạn hiện có <span class="play-times" id="play-times"></span> lượt
-                </div>
-            </div>
         </div>
+        
        <!-- <div class="order-button" id="order-button" onClick="redirectToFacebook()">Thêm lượt</div> -->
         <style>
 
@@ -136,14 +141,23 @@
             }
 
             body{
-                background: #FF7600;
-                background-image: url('src/images/optimized/tinified/background.png');
-                background-position: bottom;
-                background-size: contain;
-                background-repeat: no-repeat;
                 font-family: anton;
                 margin: 0;
                 position: relative;
+            }
+
+            .app{
+                height: 100%;
+                position: relative;
+                width: 100%;
+            }
+
+            .loading-screen{
+                background: white;
+                height: 100%;
+                position: absolute;
+                width: 100%;
+                z-index: 2;
             }
 
             .background-header{
@@ -164,6 +178,11 @@
 
             .app-container{
                 align-items: center;
+                background: #FF7600;
+                background-image: url('src/images/optimized/tinified/background.png');
+                background-position: bottom;
+                background-size: contain;
+                background-repeat: no-repeat;
                 height: 100%;
                 display: flex;
                 flex-direction: column;
@@ -180,6 +199,7 @@
                 margin: 0 auto;
                 margin-bottom: 5%;
                 width: 60%;
+                z-index: 1;
             }
 
             .guide-text{
