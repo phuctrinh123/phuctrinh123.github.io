@@ -54,7 +54,7 @@ let prizes = {
     2 : {img: "src/images/optimized/prize-2.png", name: "Dưới viên kẹo này là 25k. Bạn có muốn nhận nó không?"},
     3 : {img: "src/images/optimized/prize-3.png", name: "Dưới viên kẹo này là 50k. Bạn có muốn nhận nó không?"},
     4 : {img: "src/images/optimized/prize-4.png", name: "Dưới viên kẹo này là 100k. Bạn có muốn nhận nó không?"},
-    5 : {img: "src/images/optimized/prize-5.png", name: "Wow, voucher mua 1 tặng 1. Bạn có muốn nhận nó không?"},
+    5 : {img: "src/images/optimized/prize-5.png", name: "Bạn được tặng thêm 1 ly khi mua. Bạn có muốn nhận nó không?"},
 }
 let prizeMapWithBlock = [];
 var prizeChecker = [];
