@@ -250,7 +250,7 @@ function boardInit (){
     playTimeIndicator.innerHTML = playTimes;
 
     for (let i = 1; i <= totalBlock; i++) {
-        let randomPrize = randomNumber(27);
+        let randomPrize = randomNumber(9);
         var prize =  "";
         console.log(randomPrize);
         if((typeof (prizes[randomPrize]) != "undefined") && (!prizeMapWithBlock.includes(randomPrize))){
