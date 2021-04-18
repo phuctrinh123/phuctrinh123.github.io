@@ -35,6 +35,7 @@ let res = [
     "src/images/optimized/tinified/prize-2.png",
     "src/images/optimized/tinified/prize-3.png",
     "src/images/optimized/tinified/prize-4.png",
+    "src/images/optimized/tinified/prize-5.png",
     "src/images/optimized/tinified/popup-base.png",
     "src/images/optimized/tinified/glow-effect.png",
     "src/images/optimized/tinified/cancel-button.png",
@@ -53,6 +54,7 @@ let prizes = {
     2 : {img: "src/images/optimized/prize-2.png", name: "25k"},
     3 : {img: "src/images/optimized/prize-3.png", name: "50k"},
     4 : {img: "src/images/optimized/prize-4.png", name: "100k"},
+    5 : {img: "src/images/optimized/prize-5.png", name: "thêm 1 ly LUPU khi order"},
 }
 let prizeMapWithBlock = [];
 var prizeChecker = [];
