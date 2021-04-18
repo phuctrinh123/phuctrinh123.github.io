@@ -50,11 +50,11 @@ let viewportHeight = window.screen.height;
 let image = document.getElementsByTagName('img');
 let totalBlock =  9;
 let prizes = {
-    1 : {img: "src/images/optimized/prize-1.png", name: "5k"},
-    2 : {img: "src/images/optimized/prize-2.png", name: "25k"},
-    3 : {img: "src/images/optimized/prize-3.png", name: "50k"},
-    4 : {img: "src/images/optimized/prize-4.png", name: "100k"},
-    5 : {img: "src/images/optimized/prize-5.png", name: "thêm 1 ly LUPU khi order"},
+    1 : {img: "src/images/optimized/prize-1.png", name: "Dưới viên kẹo này là 5k. Bạn có muốn nhận nó không?"},
+    2 : {img: "src/images/optimized/prize-2.png", name: "Dưới viên kẹo này là 25k. Bạn có muốn nhận nó không?"},
+    3 : {img: "src/images/optimized/prize-3.png", name: "Dưới viên kẹo này là 50k. Bạn có muốn nhận nó không?"},
+    4 : {img: "src/images/optimized/prize-4.png", name: "Dưới viên kẹo này là 100k. Bạn có muốn nhận nó không?"},
+    5 : {img: "src/images/optimized/prize-5.png", name: "Wow, voucher mua 1 tặng 1. Bạn có muốn nhận nó không?"},
 }
 let prizeMapWithBlock = [];
 var prizeChecker = [];
@@ -176,7 +176,7 @@ function userConfirm(){
                 selectedBlockDisplayer.append(tmpDiv);
                 _selectedBlock.style.display = "none";
                 glowEffect.className += " show";
-                popupContent.innerHTML = `Chúc mừng, bạn đã nhận được ${prizes[prizeMapWithBlock[selectingBlockIndex]].name}. Bạn có muốn nhận phần quà này không?`;
+                popupContent.innerHTML = `${prizes[prizeMapWithBlock[selectingBlockIndex]].name}`;
                 confirmPopup.className += " show";
                 notifyUserState = 1;
             }else{
