@@ -61,7 +61,8 @@ var prizeChecker = [];
 var allLoaded =  false;
 var selectingBlock = null;
 var selectingBlockIndex = 0;
-var playTimes = 3;
+let playTimes = 9;
+let precision = 6;
 var notifyUserState = 0;
 
 let blockDescription = [
@@ -250,7 +251,7 @@ function boardInit (){
     playTimeIndicator.innerHTML = playTimes;
 
     for (let i = 1; i <= totalBlock; i++) {
-        let randomPrize = randomNumber(5);
+        let randomPrize = randomNumber(precision);
         var prize =  "";
         console.log(randomPrize);
         if((typeof (prizes[randomPrize]) != "undefined") && (!prizeMapWithBlock.includes(randomPrize))){
