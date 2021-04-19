@@ -137,16 +137,18 @@ function blockTap(index,blockWidth = 0, blockHeight = 0){
         }else{
             var selectedBlockDisplayer = document.getElementById("selected-block");
             var _selectedBlock = document.getElementById("_selectedBlock");
-            // var tmpDiv = document.createElement("div");
+            var tmpDiv = document.createElement("div");
 
-            // tmpDiv.innerHTML = `<img 
-            //     src="src/images/optimized/tinified/block-${selectingBlockIndex}-wrong.png" 
-            //     alt="lupu giải thưởng"
-            //     width= "100%"
-            //     height= "100%"
-            // />`;
-            // selectedBlockDisplayer.append(tmpDiv);
-            // _selectedBlock.style.display = "none";
+            tmpDiv.className = "block show selected";
+            tmpDiv.innerHTML = `<img 
+                src="src/images/optimized/tinified/block-${selectingBlockIndex}-wrong.png" 
+                alt="lupu giải thưởng"
+                width= "100%"
+                height= "100%"
+                style="height: 100% !important; width:100% !important;"
+            />`;
+            selectedBlockDisplayer.append(tmpDiv);
+            _selectedBlock.style.display = "none";
             popupContent.innerHTML = `Tiếc quá, dưới viên kẹo này chẳng có gì cả. Bạn có muốn tiếp tục không?`;
             confirmPopup.className += " show";
             notifyUserState = 1;
