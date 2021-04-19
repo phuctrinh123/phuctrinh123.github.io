@@ -61,8 +61,8 @@ var prizeChecker = [];
 var allLoaded =  false;
 var selectingBlock = null;
 var selectingBlockIndex = 0;
-let playTimes = 9;
-let precision = 6;
+let playTimes = 3;
+let precision = 27;
 var notifyUserState = 0;
 
 let blockDescription = [
