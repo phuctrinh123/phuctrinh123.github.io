@@ -166,7 +166,7 @@ function blockTap(index,blockWidth = 0, blockHeight = 0){
 
         tmpDiv.className = "block show selected";
         tmpDiv.innerHTML = `<img 
-            src="src/images/optimized/tinified/block-${selectingBlockIndex}-wrong.png" 
+            src="src/images/optimized/tinified/block-${index}-wrong.png" 
             alt="lupu giải thưởng"
             width= "100%"
             height= "100%"
@@ -174,7 +174,6 @@ function blockTap(index,blockWidth = 0, blockHeight = 0){
         />`;
         selectedBlockDisplayer.innerHTML = "";
         selectedBlockDisplayer.append(tmpDiv);
-        _selectedBlock.style.display = "none";
         popupContent.innerHTML = "Bạn có muốn đặt ngay một ly trà mật rừng hoặc phin sữa để mở viên kẹo này không?"
         cancelButton.style.display = "block";
         confirmButton.style.backgroundImage = `url("src/images/optimized/tinified/confirm-button.png")`;
