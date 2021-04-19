@@ -172,6 +172,9 @@ function blockTap(index,blockWidth = 0, blockHeight = 0){
         selectedBlockDisplayer.innerHTML = ""; 
         selectedBlockDisplayer.appendChild(displayBlockOnPopup);
         popupContent.innerHTML = "Bạn có muốn đặt ngay một ly trà mật rừng hoặc phin sữa để mở viên kẹo này không?"
+        cancelButton.style.display = "block";
+        confirmButton.style.backgroundImage = `url("src/images/optimized/tinified/confirm-button.png")`;
+        confirmButton.style.right = "10%";
         confirmPopup.className += " show";
         playTimeIndicator.innerHTML = 0;
         playTimes -= 1;
