@@ -36,7 +36,6 @@ let res = [
     "src/images/optimized/tinified/prize-3.png",
     "src/images/optimized/tinified/prize-4.png",
     "src/images/optimized/tinified/prize-5.png",
-    "src/images/optimized/tinified/prize-6.png",
     "src/images/optimized/tinified/popup-base.png",
     "src/images/optimized/tinified/glow-effect.png",
     "src/images/optimized/tinified/cancel-button.png",
@@ -56,7 +55,6 @@ let prizes = {
     3 : {img: "src/images/optimized/prize-3.png", name: "Dưới viên kẹo này là 50k. Bạn có muốn nhận nó không?"},
     4 : {img: "src/images/optimized/prize-4.png", name: "Dưới viên kẹo này là 100k. Bạn có muốn nhận nó không?"},
     5 : {img: "src/images/optimized/prize-5.png", name: "Bạn được tặng thêm 1 ly khi mua. Bạn có muốn nhận nó không?"},
-    6 : {img: "src/images/optimized/prize-6.png", name: "Bạn được tặng 1 chiếc áo thun LUPU. Bạn có muốn nhận nó không?"},
 }
 let prizeMapWithBlock = [];
 var prizeChecker = [];
@@ -64,7 +62,7 @@ var allLoaded =  false;
 var selectingBlock = null;
 var selectingBlockIndex = 0;
 let playTimes = 3;
-let precision = 12;
+let precision = 27;
 var notifyUserState = 0;
 
 let blockDescription = [
@@ -94,7 +92,6 @@ function blockTap(index,blockWidth = 0, blockHeight = 0){
     var confirmPopup = document.getElementById("confirm-select-popup");
     var popupContent = document.getElementById('content');
     var selectedBlockDisplayer = document.getElementById("selected-block");
-    var playTimeIndicator = document.getElementById("play-times");
     var displayBlockOnPopup = null;
 
     if(playTimes > 0){
@@ -110,49 +107,8 @@ function blockTap(index,blockWidth = 0, blockHeight = 0){
         selectedBlockDisplayer.style.height = blockHeight;
         selectedBlockDisplayer.innerHTML = `<div class="glow-effect" id="glow-effect"></div>`;
         selectedBlockDisplayer.appendChild(displayBlockOnPopup);
-        selectingBlock.className = "block hide";
-      
-        if(prizeMapWithBlock[selectingBlockIndex] != 0){
-            var selectedBlockDisplayer = document.getElementById("selected-block");
-            var _selectedBlock = document.getElementById("_selectedBlock");
-            var glowEffect = document.getElementById('glow-effect');
-            var tmpDiv = document.createElement("div");
-            let prize = document.getElementById(`prize-${selectingBlockIndex}`);
-            
-            tmpDiv.innerHTML = `<img 
-                src="${prizes[prizeMapWithBlock[selectingBlockIndex]].img}" 
-                alt="lupu giải thưởng"
-                width= "100%"
-                height= "100%"
-            />`;
-            selectedBlockDisplayer.append(tmpDiv);
-            _selectedBlock.style.display = "none";
-            glowEffect.className += " show";
-            prize? prize.className += " show" : "";
-            popupContent.innerHTML = `${prizes[prizeMapWithBlock[selectingBlockIndex]].name}`;
-            confirmPopup.className += " show";
-            notifyUserState = 1;
-            playTimeIndicator.innerHTML = playTimes - 1;
-            playTimes -= 1;
-        }else{
-            var selectedBlockDisplayer = document.getElementById("selected-block");
-            var _selectedBlock = document.getElementById("_selectedBlock");
-            var tmpDiv = document.createElement("div");
-
-            tmpDiv.innerHTML = `<img 
-                src="src/images/optimized/tinified/block-${selectingBlockIndex}-wrong.png" 
-                alt="lupu giải thưởng"
-                width= "100%"
-                height= "100%"
-            />`;
-            selectedBlockDisplayer.append(tmpDiv);
-            _selectedBlock.style.display = "none";
-            popupContent.innerHTML = `Tiếc quá, dưới viên kẹo này chẳng có gì cả. Bạn có muốn tiếp tục không?`;
-            confirmPopup.className += " show";
-            notifyUserState = 1;
-            playTimeIndicator.innerHTML = playTimes - 1;
-            playTimes -= 1;
-        }
+        popupContent.innerHTML = "Bạn có chắc chắn muốn mở viên kẹo này chứ? Bạn sẽ không thể hồi lại đâu nhé."
+        confirmPopup.className += " show";
     }else{
         displayBlockOnPopup = block.cloneNode(true);
         displayBlockOnPopup.style.transform = "scale(1)";
