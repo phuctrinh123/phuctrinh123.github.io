@@ -132,7 +132,7 @@ function blockTap(index,blockWidth = 0, blockHeight = 0){
             popupContent.innerHTML = `${prizes[prizeMapWithBlock[selectingBlockIndex]].name}`;
             confirmPopup.className += " show";
             notifyUserState = 1;
-            playTimeIndicator.innerHTML = playTimes - 1;
+            playTimeIndicator.innerHTML = playTimes > 0 ? playTimes - 1 : 0;
             playTimes -= 1;
         }else{
             var selectedBlockDisplayer = document.getElementById("selected-block");
@@ -150,7 +150,7 @@ function blockTap(index,blockWidth = 0, blockHeight = 0){
             popupContent.innerHTML = `Tiếc quá, dưới viên kẹo này chẳng có gì cả. Bạn có muốn tiếp tục không?`;
             confirmPopup.className += " show";
             notifyUserState = 1;
-            playTimeIndicator.innerHTML = playTimes - 1;
+            playTimeIndicator.innerHTML = playTimes > 0 ? playTimes - 1 : 0;
             playTimes -= 1;
         }
     }else{
@@ -164,6 +164,8 @@ function blockTap(index,blockWidth = 0, blockHeight = 0){
         selectedBlockDisplayer.appendChild(displayBlockOnPopup);
         popupContent.innerHTML = "Bạn có muốn đặt ngay một ly trà mật rừng hoặc phin sữa để mở viên kẹo này không?"
         confirmPopup.className += " show";
+        playTimeIndicator.innerHTML = 0;
+        playTimes -= 1;
     }
 }
 
