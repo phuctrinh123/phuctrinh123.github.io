@@ -114,7 +114,6 @@ function blockTap(index,blockWidth = 0, blockHeight = 0){
         selectingBlock.className = "block hide";
       
         if(prizeMapWithBlock[selectingBlockIndex] != 0){
-            var selectedBlockDisplayer = document.getElementById("selected-block");
             var _selectedBlock = document.getElementById("_selectedBlock");
             var glowEffect = document.getElementById('glow-effect');
             var tmpDiv = document.createElement("div");
@@ -139,7 +138,6 @@ function blockTap(index,blockWidth = 0, blockHeight = 0){
             playTimeIndicator.innerHTML = playTimes > 0 ? playTimes - 1 : 0;
             playTimes -= 1;
         }else{
-            var selectedBlockDisplayer = document.getElementById("selected-block");
             var _selectedBlock = document.getElementById("_selectedBlock");
             var tmpDiv = document.createElement("div");
 
@@ -163,14 +161,20 @@ function blockTap(index,blockWidth = 0, blockHeight = 0){
             playTimes -= 1;
         }
     }else{
-        displayBlockOnPopup = block.cloneNode(true);
-        displayBlockOnPopup.style.transform = "scale(1)";
-        displayBlockOnPopup.style.margin = "0";
-        displayBlockOnPopup.className = "block show selected";
-        selectedBlockDisplayer.style.width = blockWidth;
-        selectedBlockDisplayer.style.height = blockHeight;
-        selectedBlockDisplayer.innerHTML = ""; 
-        selectedBlockDisplayer.appendChild(displayBlockOnPopup);
+        var _selectedBlock = document.getElementById("_selectedBlock");
+        var tmpDiv = document.createElement("div");
+
+        tmpDiv.className = "block show selected";
+        tmpDiv.innerHTML = `<img 
+            src="src/images/optimized/tinified/block-${selectingBlockIndex}-wrong.png" 
+            alt="lupu giải thưởng"
+            width= "100%"
+            height= "100%"
+            style="height: 100% !important; width:100% !important;"
+        />`;
+        selectedBlockDisplayer.innerHTML = "";
+        selectedBlockDisplayer.append(tmpDiv);
+        _selectedBlock.style.display = "none";
         popupContent.innerHTML = "Bạn có muốn đặt ngay một ly trà mật rừng hoặc phin sữa để mở viên kẹo này không?"
         cancelButton.style.display = "block";
         confirmButton.style.backgroundImage = `url("src/images/optimized/tinified/confirm-button.png")`;
