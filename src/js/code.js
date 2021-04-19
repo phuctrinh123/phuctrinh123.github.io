@@ -255,10 +255,9 @@ function userConfirm(){
             if(playTimes == 0) {
                 guideText.innerHTML = "Những viên kẹo còn lại biết cách giúp bạn có thêm lượt đấy";
             }
-            else if (playTimes == -1){
-                window.location.href = " http://m.me/lupucoffee";
-            }
             confirmPopup.className = "popup";
+        }  else if (playTimes == -1){
+            window.location.href = " http://m.me/lupucoffee";
         }
     }
    
