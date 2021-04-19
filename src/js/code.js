@@ -169,12 +169,21 @@ function blockTap(index,blockWidth = 0, blockHeight = 0){
 
 function hidePopup(){
     var confirmPopup = document.getElementById("confirm-select-popup");
+    var guideText = document.getElementById("guide-text");
+    let prize = document.getElementById(`prize-${selectingBlockIndex}`);
     confirmPopup.className = "popup";
     if(notifyUserState == 0){
         if(playTimes > 0){
             setTimeout(()=>{ selectingBlock.className = "block normal show";},300)
         }
     }else{
+        if (prize) {
+            prize.className = "";2
+            selectingBlock.className = "block normal show";
+        }
+        if(playTimes == 0) {
+            guideText.innerHTML = "Những viên kẹo còn lại biết cách giúp bạn có thêm lượt đấy"
+        }
         notifyUserState = 0;
     }
    
@@ -242,7 +251,15 @@ function userConfirm(){
             }
         },200)
     }else{
-        hidePopup();
+        if(playTimes > -1){
+            if(playTimes == 0) {
+                guideText.innerHTML = "Những viên kẹo còn lại biết cách giúp bạn có thêm lượt đấy";
+            }
+            else if (playTimes == -1){
+                window.location.href = " http://m.me/lupucoffee";
+            }
+            confirmPopup.className = "popup";
+        }
     }
    
     
