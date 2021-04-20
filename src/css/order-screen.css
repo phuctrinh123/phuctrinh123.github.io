@@ -33,3 +33,14 @@
     top: 0%;
     transition: top 0.2s ease-in-out;
 }
+
+.order-popup{
+    background-image: url(../../src/images/optimized/tinified/order-popup.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 63%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+}

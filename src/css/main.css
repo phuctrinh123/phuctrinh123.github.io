@@ -131,6 +131,13 @@ body{
     width: 100%;
 }
 
+.app-container{
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+}
+
 
 
 .game-logo{
