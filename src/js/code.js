@@ -219,6 +219,9 @@ function userConfirm(){
     let block = byID("block-wrapper-"+selectingBlockIndex);
     var orderScreen = byID("order-screen");
     var mainScreen = byID("main-screen");
+    var popupBackground = byID("popup-background");
+    var popupBottomBackground = byID("popup-bottom-background");
+
     if(playTimes > -1){
         if(playTimes == 0) {
             guideText.innerHTML = "Những viên kẹo còn lại biết cách giúp bạn có thêm lượt đấy";
@@ -229,6 +232,10 @@ function userConfirm(){
         confirmPopup.className = "popup";
         orderScreen.className += " show";
         mainScreen.style.filter = "blur(5px)";
+        setTimeout(function(){
+            popupBackground.className += " show";
+            popupBottomBackground += " show";
+        },250)
         // window.location.href = " http://m.me/lupucoffee";
     }
 }
