@@ -116,7 +116,7 @@ body{
     width: 100%;
 }
 
-.app-container{
+.app-container, .app-container > .wrapper{
     align-items: center;
     background: #FF7600;
     background-image: url('../../src/images/optimized/tinified/background.png');
@@ -130,6 +130,8 @@ body{
     position: relative;
     width: 100%;
 }
+
+
 
 .game-logo{
     background-image: url('../../src/images/optimized/tinified/game-logo.png');

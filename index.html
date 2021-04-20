@@ -4,10 +4,11 @@
         <title>Sinh nhật Lupu Coffee</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="Lupu Coffee, cà phê ngon, phin sữa, trà mật rừng, giao tận nơi">
-        <link rel="stylesheet" href="src/css/main-minified.css">
+        <link rel="stylesheet" href="src/css/main.css">
         <link rel="stylesheet" href="src/css/loading-screen-minified.css">
         <link rel="stylesheet" href="src/css/board-minified.css">
         <link rel="stylesheet" href="src/css/popup-minified.css">
+        <link rel="stylesheet" href="src/css/order-screen.css">
     </head>
     <body>
         <div class="app">
@@ -20,30 +21,37 @@
                 </div>
             </div>
             <div class="app-container">
-                <div class="background-header" id="background-header">
-                    <img src="src/images/background-header.png" width="100%" height="100%" alt="sinh nhật lupu coffee"/>
-                </div>
-                <div class="game-logo" id="game-logo"></div>
-                <div class="game-board" id="game-board">
-                    <div class="board-shadow" id="game-board-shadow"></div>
-                    <div class="board" id="board">
+                <div class="wrapper" id="main-screen">
+                    <div class="background-header" id="background-header">
+                        <img src="src/images/background-header.png" width="100%" height="100%" alt="sinh nhật lupu coffee"/>
                     </div>
-                    <div id="confirm-select-popup" class="popup">
-                        <div class="wrapper">
-                            <div class="selected-block" id="selected-block"></div>
-                            <div class="content" id="content">Bạn có chắc chắn muốn mở viên kẹo này chứ? Bạn sẽ không thể hồi lại đâu nhé.</div>
-                            <div id="cancel-button" class="popup-button" onclick="hidePopup()"></div>
-                            <div id="confirm-button" class="popup-button" onclick="userConfirm()"></div>
+                    <div class="game-logo" id="game-logo"></div>
+                    <div class="game-board" id="game-board">
+                        <div class="board-shadow" id="game-board-shadow"></div>
+                        <div class="board" id="board">
+                        </div>
+                        <div id="confirm-select-popup" class="popup">
+                            <div class="wrapper">
+                                <div class="selected-block" id="selected-block"></div>
+                                <div class="content" id="content">Bạn có chắc chắn muốn mở viên kẹo này chứ? Bạn sẽ không thể hồi lại đâu nhé.</div>
+                                <div id="cancel-button" class="popup-button" onclick="hidePopup()"></div>
+                                <div id="confirm-button" class="popup-button" onclick="userConfirm()"></div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="guide-text" id="guide-text">
-                    Ẩn dưới những viên kẹo này là <span>100k</span> <br>
-                    Nhấn vào một viên bất kì để mở
-                </div>
-                <div class="play-times-indicator">
+                    <div class="guide-text" id="guide-text">
+                        Ẩn dưới những viên kẹo này là <span>100k</span> <br>
+                        Nhấn vào một viên bất kì để mở
+                    </div>
+                    <div class="play-times-indicator">
+                        <div class="wrapper">
+                            Bạn hiện có <span class="play-times" id="play-times"></span> lượt
+                        </div>
+                    </div>
+                </div>    
+                <div class="order-screen" id="order-screen">
                     <div class="wrapper">
-                        Bạn hiện có <span class="play-times" id="play-times"></span> lượt
+                        <div class="order-screen-background"></div>
                     </div>
                 </div>
             </div>

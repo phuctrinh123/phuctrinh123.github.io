@@ -42,6 +42,7 @@ const resource = [
     "src/images/optimized/tinified/cancel-button.png",
     "src/images/optimized/tinified/confirm-button.png",
     "src/images/optimized/tinified/continue-button.png",
+    "src/images/optimized/tinified/background-order.png",
 ]
 // end
 
@@ -55,7 +56,7 @@ function byID(name = "" ){
 let viewportWidth = window.screen.width;
 let viewportHeight = window.screen.height;
 let image = document.getElementsByTagName('img');
-let totalBlock =  9;
+let totalBlock = 9;
 let prizes = {
     1 : {img: "src/images/optimized/prize-1.png", type:"money", name: "Dưới viên kẹo này là 5k. Bạn có muốn nhận nó không?"},
     2 : {img: "src/images/optimized/prize-2.png", type:"money", name: "Dưới viên kẹo này là 25k. Bạn có muốn nhận nó không?"},
@@ -69,8 +70,8 @@ var prizeChecker = [];
 var allLoaded =  false;
 var selectingBlock = null;
 var selectingBlockIndex = 0;
-let playTimes = 9;
-let precision = 12;
+let playTimes = 3;
+let precision = 9;
 var notifyUserState = 0;
 
 let blockDescription = [
@@ -214,6 +215,8 @@ function userConfirm(){
     var confirmPopup = document.getElementById("confirm-select-popup");
     var guideText = document.getElementById("guide-text");
     let block = byID("block-wrapper-"+selectingBlockIndex);
+    var orderScreen = byID("order-screen");
+    var mainScreen = byID("main-screen");
     if(playTimes > -1){
         if(playTimes == 0) {
             guideText.innerHTML = "Những viên kẹo còn lại biết cách giúp bạn có thêm lượt đấy";
@@ -221,7 +224,10 @@ function userConfirm(){
         block.setAttribute("onClick","");
         confirmPopup.className = "popup";
     }  else if (playTimes == -1){
-        window.location.href = " http://m.me/lupucoffee";
+        confirmPopup.className = "popup";
+        orderScreen.className += " show";
+        mainScreen.style.filter = "blur(5px)";
+        // window.location.href = " http://m.me/lupucoffee";
     }
 }
 
