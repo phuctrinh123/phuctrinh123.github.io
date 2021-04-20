@@ -69,7 +69,7 @@ var prizeChecker = [];
 var allLoaded =  false;
 var selectingBlock = null;
 var selectingBlockIndex = 0;
-let playTimes = 3;
+let playTimes = 9;
 let precision = 12;
 var notifyUserState = 0;
 
@@ -275,20 +275,42 @@ function boardInit (){
     for (let i = 1; i <= totalBlock; i++) {
         let randomPrize = randomNumber(precision);
         var prize =  "";
-        console.log(randomPrize);
-        if((moneyPrizeApplied != 1) || (materialPrizeApplied != 1)){
-            if((typeof (prizes[randomPrize]) != "undefined") && (!prizeMapWithBlock.includes(randomPrize))){
-                prize = `<img 
-                    id="prize-${i}"
-                    src="${prizes[randomPrize].img}" 
-                    alt="${blockDescription[i]}"
-                    width= "${blockSize}px"
-                    height= "${blockSize}px"
-                />`;
-                prizeMapWithBlock[i] = randomPrize;
-                if(prizes[randomPrize].type == "money"){moneyPrizeApplied = 1;}
-                if(prizes[randomPrize].type == "material"){materialPrizeApplied = 1;}
+        // console.log(randomPrize);
+        if((typeof (prizes[randomPrize]) != "undefined") && (!prizeMapWithBlock.includes(randomPrize))){  
+            if(prizes[randomPrize].type == "money"){
+                if(moneyPrizeApplied != 1){
+                    prize = `<img 
+                        id="prize-${i}"
+                        src="${prizes[randomPrize].img}" 
+                        alt="${blockDescription[i]}"
+                        width= "${blockSize}px"
+                        height= "${blockSize}px"
+                    />`;
+                    prizeMapWithBlock[i] = randomPrize;
+                    moneyPrizeApplied = 1;
+                }
+                else{
+                    prizeMapWithBlock[i] = 0; 
+                }
             }
+
+            if(prizes[randomPrize].type == "material"){
+                if(materialPrizeApplied != 1){
+                    prize = `<img 
+                        id="prize-${i}"
+                        src="${prizes[randomPrize].img}" 
+                        alt="${blockDescription[i]}"
+                        width= "${blockSize}px"
+                        height= "${blockSize}px"
+                    />`;
+                    prizeMapWithBlock[i] = randomPrize;
+                    materialPrizeApplied = 1;
+                }
+                else{
+                    prizeMapWithBlock[i] = 0; 
+                }
+            }
+           
         }else{
             prizeMapWithBlock[i] = 0;
         }
