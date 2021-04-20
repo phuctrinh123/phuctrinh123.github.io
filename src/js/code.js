@@ -234,7 +234,7 @@ function userConfirm(){
         mainScreen.style.filter = "blur(5px)";
         setTimeout(function(){
             popupBackground.className += " show";
-            popupBottomBackground += " show";
+            popupBottomBackground.className += " show";
         },250)
         // window.location.href = " http://m.me/lupucoffee";
     }
