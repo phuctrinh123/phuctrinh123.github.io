@@ -17,6 +17,18 @@
     width: 100%;
 }
 
+.order-screen-background-bottom{
+    background-image: url(../../src/images/optimized/tinified/background-order-bottom.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    bottom:0;
+    height: 53%;
+    opacity: 0.9;
+    position: absolute;
+    width: 100%;
+}
+
+
 .order-screen.show{
     top: 0%;
     transition: top 0.2s ease-in-out;
