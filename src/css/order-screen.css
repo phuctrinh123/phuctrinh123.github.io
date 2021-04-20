@@ -11,6 +11,7 @@
     background-image: url(../../src/images/optimized/tinified/background-order.png);
     background-size: cover;
     background-repeat: no-repeat;
+    filter: blur(5px);
     height: 100%;
     opacity: 0.9;
     position: absolute;
@@ -22,6 +23,7 @@
     background-size: cover;
     background-repeat: no-repeat;
     bottom:0;
+    filter: blur(5px);
     height: 53%;
     opacity: 0.9;
     position: absolute;
@@ -35,7 +37,7 @@
 }
 
 .order-popup{
-    height: 65%;
+    height: 70%;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
