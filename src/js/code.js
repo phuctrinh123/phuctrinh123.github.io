@@ -44,6 +44,7 @@ const resource = [
     "src/images/optimized/tinified/continue-button.png",
     "src/images/optimized/tinified/background-order.png",
     "src/images/optimized/tinified/background-order-bottom.png",
+    "src/images/optimized/tinified/order-popup.png",
 ]
 // end
 

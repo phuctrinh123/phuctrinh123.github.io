@@ -35,12 +35,13 @@
 }
 
 .order-popup{
-    background-image: url(../../src/images/optimized/tinified/order-popup.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 63%;
+    height: 56%;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     width: 100%;
+}
+
+#order-popup-background{
+    max-width: 100%;
 }
