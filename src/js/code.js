@@ -57,12 +57,12 @@ let viewportHeight = window.screen.height;
 let image = document.getElementsByTagName('img');
 let totalBlock =  9;
 let prizes = {
-    1 : {img: "src/images/optimized/prize-1.png", name: "Dưới viên kẹo này là 5k. Bạn có muốn nhận nó không?"},
-    2 : {img: "src/images/optimized/prize-2.png", name: "Dưới viên kẹo này là 25k. Bạn có muốn nhận nó không?"},
-    3 : {img: "src/images/optimized/prize-3.png", name: "Dưới viên kẹo này là 50k. Bạn có muốn nhận nó không?"},
-    4 : {img: "src/images/optimized/prize-4.png", name: "Dưới viên kẹo này là 100k. Bạn có muốn nhận nó không?"},
-    5 : {img: "src/images/optimized/prize-5.png", name: "Bạn được tặng thêm 1 ly khi mua. Bạn có muốn nhận nó không?"},
-    6 : {img: "src/images/optimized/prize-6.png", name: "Bạn được tặng 1 chiếc áo thun LUPU. Bạn có muốn nhận nó không?"},
+    1 : {img: "src/images/optimized/prize-1.png", type:"money", name: "Dưới viên kẹo này là 5k. Bạn có muốn nhận nó không?"},
+    2 : {img: "src/images/optimized/prize-2.png", type:"money", name: "Dưới viên kẹo này là 25k. Bạn có muốn nhận nó không?"},
+    3 : {img: "src/images/optimized/prize-3.png", type:"money", name: "Dưới viên kẹo này là 50k. Bạn có muốn nhận nó không?"},
+    4 : {img: "src/images/optimized/prize-4.png", type:"money", name: "Dưới viên kẹo này là 100k. Bạn có muốn nhận nó không?"},
+    5 : {img: "src/images/optimized/prize-5.png", type:"material", name: "Bạn được tặng thêm 1 ly khi mua. Bạn có muốn nhận nó không?"},
+    6 : {img: "src/images/optimized/prize-6.png", type:"material", name: "Bạn được tặng 1 chiếc áo thun LUPU. Bạn có muốn nhận nó không?"},
 }
 let prizeMapWithBlock = [];
 var prizeChecker = [];
@@ -235,6 +235,8 @@ function boardInit (){
     var cancelButton = document.getElementById("cancel-button");
     var confirmButton = document.getElementById("confirm-button");
     var content = document.getElementById('content');
+    let moneyPrizeApplied = 0;
+    let materialPrizeApplied = 0;
     let boardWidth = /*board.offsetWidth;*/ viewportWidth;
     var htmlString = ""
     var rowCount = 0;
@@ -274,15 +276,19 @@ function boardInit (){
         let randomPrize = randomNumber(precision);
         var prize =  "";
         console.log(randomPrize);
-        if((typeof (prizes[randomPrize]) != "undefined") && (!prizeMapWithBlock.includes(randomPrize))){
-            prize = `<img 
-                id="prize-${i}"
-                src="${prizes[randomPrize].img}" 
-                alt="${blockDescription[i]}"
-                width= "${blockSize}px"
-                height= "${blockSize}px"
-            />`;
-            prizeMapWithBlock[i] = randomPrize;
+        if((moneyPrizeApplied != 1) || (materialPrizeApplied != 1)){
+            if((typeof (prizes[randomPrize]) != "undefined") && (!prizeMapWithBlock.includes(randomPrize))){
+                prize = `<img 
+                    id="prize-${i}"
+                    src="${prizes[randomPrize].img}" 
+                    alt="${blockDescription[i]}"
+                    width= "${blockSize}px"
+                    height= "${blockSize}px"
+                />`;
+                prizeMapWithBlock[i] = randomPrize;
+                if(prizes[randomPrize].type == "money"){moneyPrizeApplied = 1;}
+                if(prizes[randomPrize].type == "material"){materialPrizeApplied = 1;}
+            }
         }else{
             prizeMapWithBlock[i] = 0;
         }
