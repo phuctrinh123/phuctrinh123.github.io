@@ -1,5 +1,5 @@
 //resource defining
-let res = [
+const resource = [
     "src/images/optimized/tinified/background.png",
     "src/images/optimized/tinified/background-header.png",
     "src/images/optimized/tinified/game-logo.png",
@@ -45,6 +45,13 @@ let res = [
 ]
 // end
 
+// quick code
+function byID(name = "" ){
+    return document.getElementById(name);
+}
+
+//quick code
+
 let viewportWidth = window.screen.width;
 let viewportHeight = window.screen.height;
 let image = document.getElementsByTagName('img');
@@ -89,117 +96,114 @@ function redirectToFacebook(){
 }
 
 function blockTap(index,blockWidth = 0, blockHeight = 0){
-    var block = document.getElementById(`block-${index}`);
-    var confirmPopup = document.getElementById("confirm-select-popup");
-    var popupContent = document.getElementById('content');
-    var selectedBlockDisplayer = document.getElementById("selected-block");
-    var playTimeIndicator = document.getElementById("play-times");
-    var cancelButton = document.getElementById("cancel-button");
-    var confirmButton = document.getElementById("confirm-button");
-    var displayBlockOnPopup = null;
+    var block = byID(`block-${index}`);
+    var popup = byID("confirm-select-popup");
+    var popupContent = byID('content');
+    var popupBlockDisplayer = byID("selected-block"); // => display the selected block on popup
+    var popupCancelButton = byID("cancel-button");
+    var popupConfirmButton = byID("confirm-button");
+    var playTimeIndicator = byID("play-times");
 
     if(playTimes > 0){
+        let clonedBlock = block.cloneNode(true);
         selectingBlock = block;
         selectingBlockIndex = index;
-        displayBlockOnPopup = block.cloneNode(true);
-        displayBlockOnPopup.style.transform = "scale(1)";
-        displayBlockOnPopup.style.margin = "0";
-        displayBlockOnPopup.setAttribute("id", "_selectedBlock");
         block.className = "block show selected";
-        displayBlockOnPopup.className = " block show selected";
-        selectedBlockDisplayer.style.width = blockWidth;
-        selectedBlockDisplayer.style.height = blockHeight;
-        selectedBlockDisplayer.innerHTML = `<div class="glow-effect" id="glow-effect"></div>`;
-        selectedBlockDisplayer.appendChild(displayBlockOnPopup);
         selectingBlock.className = "block hide";
-      
+        clonedBlock.className = "block show selected";
+        clonedBlock.id = "_selectedBlock";
+        clonedBlock.style.margin = "0";
+        clonedBlock.style.transform = "scale(1)";
+        popupBlockDisplayer.innerHTML = '<div class="glow-effect" id="glow-effect"></div>';
+        popupBlockDisplayer.style.height = blockHeight;
+        popupBlockDisplayer.style.width = blockWidth;
+        popupBlockDisplayer.appendChild(clonedBlock);
+
         if(prizeMapWithBlock[selectingBlockIndex] != 0){
-            var _selectedBlock = document.getElementById("_selectedBlock");
-            var glowEffect = document.getElementById('glow-effect');
-            var tmpDiv = document.createElement("div");
-            let prize = document.getElementById(`prize-${selectingBlockIndex}`);
-            
-            tmpDiv.innerHTML = `<img 
+            var blockDisplayedInDisplayer = byID("_selectedBlock");
+            var glowEffect = byID("glow-effect");
+            let prize = byID(`prize-${selectingBlockIndex}`); //prize in the selected block
+            let prizeContainer = document.createElement("div");
+
+            prizeContainer.innerHTML = `<img 
                 src="${prizes[prizeMapWithBlock[selectingBlockIndex]].img}" 
                 alt="lupu giải thưởng"
                 width= "100%"
                 height= "100%"
             />`;
-            selectedBlockDisplayer.append(tmpDiv);
-            _selectedBlock.style.display = "none";
+            popupBlockDisplayer.append(prizeContainer);
+            blockDisplayedInDisplayer .style.display = "none";
             glowEffect.className += " show";
-            prize? prize.className += " show" : "";
+            prize? prize.className += "show" : "";
             popupContent.innerHTML = `${prizes[prizeMapWithBlock[selectingBlockIndex]].name}`;
-            cancelButton.style.display = "block";
-            confirmButton.style.backgroundImage = `url("src/images/optimized/tinified/confirm-button.png")`;
-            confirmButton.style.right = "10%";
-            confirmPopup.className += " show";
+            popupCancelButton.style.display = "block";
+            popupConfirmButton. style.backgroundImage = `url("src/images/optimized/tinified/confirm-button.png")`;
+            popupConfirmButton.style.right = "10%";
+            popup.className += " show";
             notifyUserState = 1;
             playTimeIndicator.innerHTML = playTimes > 0 ? playTimes - 1 : 0;
             playTimes -= 1;
         }else{
-            var _selectedBlock = document.getElementById("_selectedBlock");
-            var tmpDiv = document.createElement("div");
-
-            tmpDiv.className = "block show selected";
-            tmpDiv.innerHTML = `<img 
+            let blockDisplayedInDisplayer = byID("_selectedBlock");
+            let blockContainer = document.createElement("div");
+            blockContainer.className = "block show selected";
+            blockContainer.innerHTML =  `<img 
                 src="src/images/optimized/tinified/block-${selectingBlockIndex}-wrong.png" 
                 alt="lupu giải thưởng"
                 width= "100%"
                 height= "100%"
                 style="height: 100% !important; width:100% !important;"
             />`;
-            selectedBlockDisplayer.append(tmpDiv);
-            _selectedBlock.style.display = "none";
+            popupBlockDisplayer.append(blockContainer);
+            blockDisplayedInDisplayer.style.display = "none";
             popupContent.innerHTML = `Tiếc quá, dưới viên kẹo này chẳng có gì cả. Bạn có muốn tiếp tục không?`;
-            cancelButton.style.display = "none";
-            confirmButton.style.right = "30%";
-            confirmButton.style.backgroundImage = `url("src/images/optimized/tinified/continue-button.png")`;
-            confirmPopup.className += " show";
+            popupCancelButton.style.display = "none";
+            popupConfirmButton.style.backgroundImage = `url("src/images/optimized/tinified/continue-button.png")`;
+            popupConfirmButton.style.right = "30%";
+            popup.className += " show";
             notifyUserState = 1;
             playTimeIndicator.innerHTML = playTimes > 0 ? playTimes - 1 : 0;
             playTimes -= 1;
         }
     }else{
-        var _selectedBlock = document.getElementById("_selectedBlock");
-        var tmpDiv = document.createElement("div");
-
-        tmpDiv.className = "block show selected";
-        tmpDiv.innerHTML = `<img 
+        let blockContainer = document.createElement("div");
+        blockContainer.className = "block show selected";
+        blockContainer.innerHTML = `<img 
             src="src/images/optimized/tinified/block-${index}-wrong.png" 
             alt="lupu giải thưởng"
             width= "100%"
             height= "100%"
             style="height: 100% !important; width:100% !important;"
         />`;
-        selectedBlockDisplayer.innerHTML = "";
-        selectedBlockDisplayer.append(tmpDiv);
+        popupBlockDisplayer.innerHTML = "";
+        popupBlockDisplayer.append(blockContainer);
         popupContent.innerHTML = "Bạn có muốn đặt ngay một ly trà mật rừng hoặc phin sữa để mở viên kẹo này không?"
-        cancelButton.style.display = "block";
-        confirmButton.style.backgroundImage = `url("src/images/optimized/tinified/confirm-button.png")`;
-        confirmButton.style.right = "10%";
-        confirmPopup.className += " show";
+        popupCancelButton.style.display = "block";
+        popupConfirmButton.style.backgroundImage = `url("src/images/optimized/tinified/confirm-button.png")`;
+        popupConfirmButton.style.right = "10%";
+        popup.className += " show";
         playTimeIndicator.innerHTML = 0;
         playTimes -= 1;
     }
 }
 
 function hidePopup(){
-    var confirmPopup = document.getElementById("confirm-select-popup");
-    var guideText = document.getElementById("guide-text");
-    let prize = document.getElementById(`prize-${selectingBlockIndex}`);
+    var confirmPopup = byID("confirm-select-popup");
+    var guideText = byID("guide-text");
+    let prize = byID(`prize-${selectingBlockIndex}`);
     confirmPopup.className = "popup";
     if(notifyUserState == 0){
         if(playTimes > 0){
             setTimeout(()=>{ selectingBlock.className = "block normal show";},300)
         }
     }else{
-        if (prize) {
-            prize.className = "";2
-            selectingBlock.className = "block normal show";
-        }
         if(playTimes == 0) {
             guideText.innerHTML = "Những viên kẹo còn lại biết cách giúp bạn có thêm lượt đấy"
+        }else if (playTimes > 0){
+            if (prize) {
+                prize.className = "";
+                selectingBlock.className = "block normal show";
+            }
         }
         notifyUserState = 0;
     }
@@ -208,78 +212,15 @@ function hidePopup(){
 
 function userConfirm(){
     var confirmPopup = document.getElementById("confirm-select-popup");
-    var playTimeIndicator = document.getElementById("play-times");
     var guideText = document.getElementById("guide-text");
-    var popupContent = document.getElementById('content');
-    var glowEffect = document.getElementById('glow-effect');
-    let prize = document.getElementById(`prize-${selectingBlockIndex}`);
-
-    if(notifyUserState == 0){
-        // if(playTimes - 1 == 0) {
-        //     playTimeIndicator.innerHTML = playTimes - 1;
-        //     playTimes -= 1;
-        //     guideText.innerHTML = "Những viên kẹo còn lại biết cách giúp bạn có thêm lượt đấy"
-        // }
-        // else if (playTimes == 0){
-        //     window.location.href = " http://m.me/lupucoffee";
-        // }
-        // else{
-        //     playTimeIndicator.innerHTML = playTimes - 1;
-        //     playTimes -= 1;
-        // }
-    
-        // confirmPopup.className = "popup";
-        // prize? prize.className += " show" : "";
-        // setTimeout(()=>{ 
-        //     selectingBlock.className = "block hide";
-        //     if(prizeMapWithBlock[selectingBlockIndex] != 0){
-        //         var selectedBlockDisplayer = document.getElementById("selected-block");
-        //         var _selectedBlock = document.getElementById("_selectedBlock");
-        //         var tmpDiv = document.createElement("div");
-    
-        //         tmpDiv.innerHTML = `<img 
-        //             src="${prizes[prizeMapWithBlock[selectingBlockIndex]].img}" 
-        //             alt="lupu giải thưởng"
-        //             width= "100%"
-        //             height= "100%"
-        //         />`;
-        //         selectedBlockDisplayer.append(tmpDiv);
-        //         _selectedBlock.style.display = "none";
-        //         glowEffect.className += " show";
-        //         popupContent.innerHTML = `${prizes[prizeMapWithBlock[selectingBlockIndex]].name}`;
-        //         confirmPopup.className += " show";
-        //         notifyUserState = 1;
-        //     }else{
-        //         var selectedBlockDisplayer = document.getElementById("selected-block");
-        //         var _selectedBlock = document.getElementById("_selectedBlock");
-        //         var tmpDiv = document.createElement("div");
-    
-        //         tmpDiv.innerHTML = `<img 
-        //             src="src/images/optimized/tinified/block-${selectingBlockIndex}-wrong.png" 
-        //             alt="lupu giải thưởng"
-        //             width= "100%"
-        //             height= "100%"
-        //         />`;
-        //         selectedBlockDisplayer.append(tmpDiv);
-        //         _selectedBlock.style.display = "none";
-        //         popupContent.innerHTML = `Tiếc quá, dưới viên kẹo này chẳng có gì cả. Bạn có muốn tiếp tục không?`;
-        //         confirmPopup.className += " show";
-        //         notifyUserState = 1;
-        //     }
-        // },200)
-    }else{
-        if(playTimes > -1){
-            if(playTimes == 0) {
-                guideText.innerHTML = "Những viên kẹo còn lại biết cách giúp bạn có thêm lượt đấy";
-            }
-            confirmPopup.className = "popup";
-        }  else if (playTimes == -1){
-            window.location.href = " http://m.me/lupucoffee";
+    if(playTimes > -1){
+        if(playTimes == 0) {
+            guideText.innerHTML = "Những viên kẹo còn lại biết cách giúp bạn có thêm lượt đấy";
         }
+        confirmPopup.className = "popup";
+    }  else if (playTimes == -1){
+        window.location.href = " http://m.me/lupucoffee";
     }
-   
-    
-
 }
 
 function boardInit (){
@@ -399,10 +340,10 @@ var realtimeCheck = setInterval(()=>{
     let boardWidth = board.offsetWidth;
     let progressBar = document.getElementById("progress-bar");
     var imageLoader = document.getElementById("image-loader");
-    for(let i = 0; i < res.length; i++){
-        imageLoader.setAttribute("src",res[i]);
+    for(let i = 0; i < resource.length; i++){
+        imageLoader.setAttribute("src",resource[i]);
         if(imageLoader.complete && imageLoader.naturalHeight !== 0){
-            progressBar.style.width =  boardWidth*0.872*(i/res.length);
+            progressBar.style.width =  boardWidth*0.872*(i/resource.length);
             allLoaded = true;
         }else{
             allLoaded = false;
@@ -432,3 +373,4 @@ window.addEventListener("load", event => {
     },1300)
 
 });
+
