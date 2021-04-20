@@ -213,10 +213,12 @@ function hidePopup(){
 function userConfirm(){
     var confirmPopup = document.getElementById("confirm-select-popup");
     var guideText = document.getElementById("guide-text");
+    let block = byID("block-wrapper-"+selectingBlockIndex);
     if(playTimes > -1){
         if(playTimes == 0) {
             guideText.innerHTML = "Những viên kẹo còn lại biết cách giúp bạn có thêm lượt đấy";
         }
+        block.setAttribute("onClick","");
         confirmPopup.className = "popup";
     }  else if (playTimes == -1){
         window.location.href = " http://m.me/lupucoffee";
@@ -288,6 +290,7 @@ function boardInit (){
         htmlString += `
         <div
             class="block-wrapper"
+            id = "block-wrapper-${i}"
             style="
                 width:${blockSize}px;
                 height: ${blockSize}px;
