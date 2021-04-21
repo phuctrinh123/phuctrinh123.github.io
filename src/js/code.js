@@ -212,7 +212,7 @@ function blockTap(index,blockWidth = 0, blockHeight = 0){
         popupBlockDisplayer.innerHTML = "";
         popupBlockDisplayer.append(blockContainer);
         if(shareFacebook != 0){
-            popupContent.innerHTML = "Bạn có muốn thử 1 ly trà mật rừng / phin sữa nâu không?<br>(+1 lượt/ly)"
+            popupContent.innerHTML = "Bạn có muốn thử 1 ly trà mật rừng hoặc phin sữa nâu không?<br>(+1 lượt/ly)"
             popupCancelButton.style.display = "block";
             popupConfirmButton.style.backgroundImage = `url("src/images/optimized/tinified/confirm-button.png")`;
             popupConfirmButton.style.right = "10%";
