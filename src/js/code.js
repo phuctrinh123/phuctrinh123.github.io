@@ -231,6 +231,7 @@ function userConfirm(){
     let block = byID("block-wrapper-"+selectingBlockIndex);
     var orderScreen = byID("order-screen");
     var mainScreen = byID("main-screen");
+    var tooltip = byID("tooltips");
 
     if(playTimes > -1){
         if(playTimes == 0) {
@@ -242,6 +243,10 @@ function userConfirm(){
         confirmPopup.className = "popup";
         orderScreen.className += " show";
         mainScreen.style.filter = "blur(5px)";
+        setTimeout(function(){
+            tooltip.style.display = "none";
+        },1500);
+
         // window.location.href = " http://m.me/lupucoffee";
     }
 }

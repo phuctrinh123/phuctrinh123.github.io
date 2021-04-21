@@ -162,3 +162,12 @@
     margin-top: 5%;
 }
 
+.tooltips{
+    background: rgba(0,0,0,0.8);
+    border-radius: 3vw;
+    color: white;
+    position: absolute;
+    padding: 5vw;
+    top: 50%;
+    transform: translateY(-50%);
+}
