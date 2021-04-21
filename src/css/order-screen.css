@@ -103,3 +103,46 @@
     padding: 2vw;
     text-align: center;
 }
+
+.product{
+    display: flex;
+    height: 100%;
+    padding-top: 6%;
+    width: 100%;
+}
+
+.product > .left-col{
+    display: flex;
+    flex: 1;
+    height: 100%;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.product > .left-col > img{
+    max-height: 90%;
+}
+
+.product > .right-col{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    height: 100%;
+    justify-content: center;
+}
+
+.product > .right-col > p {
+    margin: 0;
+}
+
+.product > .right-col > p:first-child{
+    color: #ffb75f;
+    font-size: 6vw;
+}
+
+.product > .right-col > p:last-child{
+    color: #ffd392;
+    font-size: 5vw;
+}
+
