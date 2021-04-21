@@ -42,11 +42,53 @@
 .order-popup{
     height: 70%;
     position: absolute;
+    left: 50%;
     top: 50%;
-    transform: translateY(-50%);
+    transform: translate(-50%, -50%);
     width: 100%;
 }
 
 #order-popup-background{
     max-width: 100%;
+    position: absolute;
+}
+
+.order-popup-content{
+    height: 55%;
+    left: 50%;
+    margin-top: 5%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    width: 76%;
+}
+
+.button-group{
+    align-items: center;
+    display: flex;
+    height: 20%;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.order-popup-button{
+   
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    height: 145%;
+    width: 50%;
+}
+
+#order-popup-cancel-button{
+    background-image: url(../../src/images/optimized/tinified/back-button.png);
+}
+
+#order-popup-order-button{
+    background-image: url(../../src/images/optimized/tinified/order-button.png);
+}
+
+.drinks-list{
+    height:86%;
+    width: 100%;
 }

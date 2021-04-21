@@ -106,7 +106,7 @@ function blockTap(index,blockWidth = 0, blockHeight = 0){
     var popupCancelButton = byID("cancel-button");
     var popupConfirmButton = byID("confirm-button");
     var playTimeIndicator = byID("play-times");
-
+    console.log(playTimes);
     if(playTimes > 0){
         let clonedBlock = block.cloneNode(true);
         selectingBlock = block;
@@ -213,6 +213,21 @@ function hidePopup(){
    
 }
 
+function returnToBoard(){
+    var orderScreen = byID("order-screen");
+    var mainScreen = byID("main-screen");
+    var popupBackground = byID("popup-background");
+    var popupBottomBackground = byID("popup-bottom-background");
+
+    orderScreen.className = "order-screen";
+    mainScreen.style.filter = "none";
+
+    setTimeout(function(){ 
+        popupBackground.className = "order-screen-background";
+        popupBottomBackground.className = "order-screen-background-bottom";
+    },60)
+}
+
 function userConfirm(){
     var confirmPopup = document.getElementById("confirm-select-popup");
     var guideText = document.getElementById("guide-text");
@@ -228,14 +243,14 @@ function userConfirm(){
         }
         block.setAttribute("onClick","");
         confirmPopup.className = "popup";
-    }  else if (playTimes == -1){
+    }  else if (playTimes < 0){
         confirmPopup.className = "popup";
         orderScreen.className += " show";
         mainScreen.style.filter = "blur(5px)";
         setTimeout(function(){
             popupBackground.className += " show";
             popupBottomBackground.className += " show";
-        },250)
+        },100);
         // window.location.href = " http://m.me/lupucoffee";
     }
 }
@@ -250,6 +265,7 @@ function boardInit (){
     var cancelButton = document.getElementById("cancel-button");
     var confirmButton = document.getElementById("confirm-button");
     var content = document.getElementById('content');
+    var orderPopup = byID("order-popup");
     let moneyPrizeApplied = 0;
     let materialPrizeApplied = 0;
     let boardWidth = /*board.offsetWidth;*/ viewportWidth;
@@ -284,6 +300,9 @@ function boardInit (){
     cancelButton.style.height = popupButtonSizeH;
     confirmButton.style.width = popupButtonSizeW;
     confirmButton.style.height = popupButtonSizeH;
+
+    orderPopup.style.width = boardSize;
+    orderPopup.style.height = boardSize/0.8333;
 
     playTimeIndicator.innerHTML = playTimes;
 
