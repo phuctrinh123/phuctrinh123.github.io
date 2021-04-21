@@ -77,8 +77,8 @@ var prizeChecker = [];
 var allLoaded =  false;
 var selectingBlock = null;
 var selectingBlockIndex = 0;
-let playTimes = 3;
-let precision = 9;
+let playTimes = 9;
+let precision = 18;
 var notifyUserState = 0;
 var shareFacebook = 0;
 
