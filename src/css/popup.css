@@ -4,6 +4,7 @@
     background-image: url('../../src/images/optimized/tinified/popup-base.png');
     background-size: cover;
     left:  50%;
+    /* overflow:hidden; */
     position: absolute;
     top: 50%;
     transform: translate(-50%,-50%) scale(0);
@@ -41,6 +42,7 @@
 }
 
 .content{
+    margin-left: -2.5%;
     position: absolute;
 }
 

@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="src/css/main.css">
         <link rel="stylesheet" href="src/css/loading-screen-minified.css">
         <link rel="stylesheet" href="src/css/board-minified.css">
-        <link rel="stylesheet" href="src/css/popup-minified.css">
+        <link rel="stylesheet" href="src/css/popup.css">
         <link rel="stylesheet" href="src/css/order-screen.css">
     </head>
     <body>
@@ -38,7 +38,7 @@
                         <div id="confirm-select-popup" class="popup">
                             <div class="wrapper">
                                 <div class="selected-block" id="selected-block"></div>
-                                <div class="content" id="content">Bạn có chắc chắn muốn mở viên kẹo này chứ? Bạn sẽ không thể hồi lại đâu nhé.</div>
+                                <div class="content" id="content">Bạn có chắc chắn muốn mở viên kẹo này chứ? Bạn sẽ không thể hồi lại đâu nhé.</div>   
                                 <div id="cancel-button" class="popup-button" onclick="hidePopup()"></div>
                                 <div id="confirm-button" class="popup-button" onclick="userConfirm()"></div>
                             </div>
@@ -106,6 +106,8 @@
                 </div>
             </div>
         </div>
+        <div id="fb-root"></div>
+        <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v10.0&appId=124124633037576&autoLogAppEvents=1" nonce="EknkgzAJ"></script>
         <script src="src/js/code.js"></script>
     </body>
 </html>

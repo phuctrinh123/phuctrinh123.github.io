@@ -42,6 +42,7 @@ const resource = [
     "src/images/optimized/tinified/cancel-button.png",
     "src/images/optimized/tinified/confirm-button.png",
     "src/images/optimized/tinified/continue-button.png",
+    "src/images/optimized/tinified/share-button.png",
     "src/images/optimized/tinified/background-order.png",
     "src/images/optimized/tinified/background-order-bottom.png",
     "src/images/optimized/tinified/order-popup.png",
@@ -79,6 +80,7 @@ var selectingBlockIndex = 0;
 let playTimes = 3;
 let precision = 9;
 var notifyUserState = 0;
+var shareFacebook = 0;
 
 let blockDescription = [
     "",
@@ -95,6 +97,18 @@ let blockDescription = [
 
 function randomNumber(max) {
     return Math.floor(Math.random() * max);
+}
+
+function shareFacebookClick(){
+    var popup = byID("confirm-select-popup");
+    FB.ui({
+        method: 'share',
+        href: 'http://lupucoffee.com/',
+      }, function(response){
+        shareFacebook = 1;
+        popup.className = "popup";
+        console.log("click on share");
+      });  
 }
   
 
@@ -146,6 +160,7 @@ function blockTap(index,blockWidth = 0, blockHeight = 0){
             popupCancelButton.style.display = "block";
             popupConfirmButton. style.backgroundImage = `url("src/images/optimized/tinified/confirm-button.png")`;
             popupConfirmButton.style.right = "10%";
+            popupConfirmButton.setAttribute("onclick", "userConfirm()");
             popup.className += " show";
             notifyUserState = 1;
             playTimeIndicator.innerHTML = playTimes > 0 ? playTimes - 1 : 0;
@@ -167,6 +182,7 @@ function blockTap(index,blockWidth = 0, blockHeight = 0){
             popupCancelButton.style.display = "none";
             popupConfirmButton.style.backgroundImage = `url("src/images/optimized/tinified/continue-button.png")`;
             popupConfirmButton.style.right = "30%";
+            popupConfirmButton.setAttribute("onclick", "userConfirm()");
             popup.className += " show";
             notifyUserState = 1;
             playTimeIndicator.innerHTML = playTimes > 0 ? playTimes - 1 : 0;
@@ -184,10 +200,22 @@ function blockTap(index,blockWidth = 0, blockHeight = 0){
         />`;
         popupBlockDisplayer.innerHTML = "";
         popupBlockDisplayer.append(blockContainer);
-        popupContent.innerHTML = "Bạn có muốn thử 1 ly trà mật rừng / phin sữa nâu không?<br>(+1 lượt/ly)"
-        popupCancelButton.style.display = "block";
-        popupConfirmButton.style.backgroundImage = `url("src/images/optimized/tinified/confirm-button.png")`;
-        popupConfirmButton.style.right = "10%";
+        if(shareFacebook != 0){
+            popupContent.innerHTML = "Bạn có muốn thử 1 ly trà mật rừng / phin sữa nâu không?<br>(+1 lượt/ly)"
+            popupCancelButton.style.display = "block";
+            popupConfirmButton.style.backgroundImage = `url("src/images/optimized/tinified/confirm-button.png")`;
+            popupConfirmButton.style.right = "10%";
+            popupConfirmButton.setAttribute("onclick", "userConfirm()");
+        }
+        else{
+            popupContent.innerHTML = `Nhấn vào nút share bên dưới để mở viên kẹo này. 100k đang chờ đợi bạn.`
+            popupCancelButton.style.display = "none";
+            popupConfirmButton.style.backgroundImage = `url("src/images/optimized/tinified/share-button.png")`;
+            popupConfirmButton.style.right = "30%";
+            popupConfirmButton.setAttribute("onclick", "shareFacebookClick()");
+
+        }
+        
         popup.className += " show";
         playTimeIndicator.innerHTML = 0;
         playTimes -= 1;
