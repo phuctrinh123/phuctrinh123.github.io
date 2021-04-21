@@ -216,7 +216,7 @@ function hidePopup(){
 function returnToBoard(){
     var orderScreen = byID("order-screen");
     var mainScreen = byID("main-screen");
-    
+
     orderScreen.className = "order-screen";
     mainScreen.style.filter = "none";
 }
@@ -288,8 +288,8 @@ function boardInit (){
     confirmButton.style.width = popupButtonSizeW;
     confirmButton.style.height = popupButtonSizeH;
 
-    orderPopup.style.width = boardSize;
-    orderPopup.style.height = boardSize/0.8333;
+    orderPopup.style.width = boardWidth;
+    orderPopup.style.height = boardWidth/0.8333;
 
     playTimeIndicator.innerHTML = playTimes;
 
