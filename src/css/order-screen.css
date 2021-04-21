@@ -139,10 +139,17 @@
 .product > .right-col > p:first-child{
     color: #ffb75f;
     font-size: 6vw;
+    margin-top: -10%;
+}
+
+.product > .right-col > p:nth-child(2){
+    color: #ffd392;
+    font-size: 5vw;
 }
 
 .product > .right-col > p:last-child{
-    color: #ffd392;
-    font-size: 5vw;
+    color: #ffe3b9;
+    font-size: 4vw;
+    margin-top: 5%;
 }
 
