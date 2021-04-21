@@ -101,12 +101,15 @@ function randomNumber(max) {
 
 function shareFacebookClick(){
     var popup = byID("confirm-select-popup");
+    var playTimeIndicator = byID("play-times");
     FB.ui({
         method: 'share',
         href: 'http://lupucoffee.com/',
       }, function(response){
         shareFacebook = 1;
         popup.className = "popup";
+        playTimes = 1;
+        playTimeIndicator.innerHTML = playTimes;
         console.log("click on share");
       });  
 }
