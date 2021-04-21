@@ -184,7 +184,7 @@ function blockTap(index,blockWidth = 0, blockHeight = 0){
         />`;
         popupBlockDisplayer.innerHTML = "";
         popupBlockDisplayer.append(blockContainer);
-        popupContent.innerHTML = "Bạn có muốn đặt ngay một ly trà mật rừng hoặc phin sữa để mở viên kẹo này không?"
+        popupContent.innerHTML = "Bạn có muốn thử 1 ly trà mật rừng / phin sữa nâu không? (+2 lượt/ly)"
         popupCancelButton.style.display = "block";
         popupConfirmButton.style.backgroundImage = `url("src/images/optimized/tinified/confirm-button.png")`;
         popupConfirmButton.style.right = "10%";
