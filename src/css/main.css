@@ -118,7 +118,7 @@ body{
 
 .app-container, .app-container > .wrapper{
     align-items: center;
-    background: #FF7600;
+    background: #c8eea4;
     background-image: url('../../src/images/optimized/tinified/background.png');
     background-position: bottom;
     background-size: contain;

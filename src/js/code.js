@@ -216,16 +216,9 @@ function hidePopup(){
 function returnToBoard(){
     var orderScreen = byID("order-screen");
     var mainScreen = byID("main-screen");
-    var popupBackground = byID("popup-background");
-    var popupBottomBackground = byID("popup-bottom-background");
-
+    
     orderScreen.className = "order-screen";
     mainScreen.style.filter = "none";
-
-    setTimeout(function(){ 
-        popupBackground.className = "order-screen-background";
-        popupBottomBackground.className = "order-screen-background-bottom";
-    },60)
 }
 
 function userConfirm(){
@@ -234,8 +227,6 @@ function userConfirm(){
     let block = byID("block-wrapper-"+selectingBlockIndex);
     var orderScreen = byID("order-screen");
     var mainScreen = byID("main-screen");
-    var popupBackground = byID("popup-background");
-    var popupBottomBackground = byID("popup-bottom-background");
 
     if(playTimes > -1){
         if(playTimes == 0) {
@@ -247,10 +238,6 @@ function userConfirm(){
         confirmPopup.className = "popup";
         orderScreen.className += " show";
         mainScreen.style.filter = "blur(5px)";
-        setTimeout(function(){
-            popupBackground.className += " show";
-            popupBottomBackground.className += " show";
-        },100);
         // window.location.href = " http://m.me/lupucoffee";
     }
 }
