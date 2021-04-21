@@ -37,6 +37,10 @@ const resource = [
     "src/images/optimized/tinified/prize-4.png",
     "src/images/optimized/tinified/prize-5.png",
     "src/images/optimized/tinified/prize-6.png",
+    "src/images/optimized/tinified/prize-7.png",
+    "src/images/optimized/tinified/prize-8.png",
+    "src/images/optimized/tinified/prize-9.png",
+    "src/images/optimized/tinified/prize-10.png",
     "src/images/optimized/tinified/popup-base.png",
     "src/images/optimized/tinified/glow-effect.png",
     "src/images/optimized/tinified/cancel-button.png",
@@ -65,19 +69,23 @@ let viewportHeight = window.screen.height;
 let image = document.getElementsByTagName('img');
 let totalBlock = 9;
 let prizes = {
-    1 : {img: "src/images/optimized/prize-1.png", type:"money", name: "Dưới viên kẹo này là 5k. Bạn có muốn nhận nó không?"},
-    2 : {img: "src/images/optimized/prize-2.png", type:"money", name: "Dưới viên kẹo này là 25k. Bạn có muốn nhận nó không?"},
-    3 : {img: "src/images/optimized/prize-3.png", type:"money", name: "Dưới viên kẹo này là 50k. Bạn có muốn nhận nó không?"},
-    4 : {img: "src/images/optimized/prize-4.png", type:"money", name: "Dưới viên kẹo này là 100k. Bạn có muốn nhận nó không?"},
-    5 : {img: "src/images/optimized/prize-5.png", type:"material", name: "Bạn được tặng thêm 1 ly khi mua. Bạn có muốn nhận nó không?"},
-    6 : {img: "src/images/optimized/prize-6.png", type:"material", name: "Bạn được tặng 1 chiếc áo thun LUPU. Bạn có muốn nhận nó không?"},
+    1 : {img: "src/images/optimized/tinified/prize-1.png", type:"money", name: "Dưới viên kẹo này là 5k. Bạn có muốn nhận nó không?"},
+    2 : {img: "src/images/optimized/tinified/prize-2.png", type:"money", name: "Dưới viên kẹo này là 25k. Bạn có muốn nhận nó không?"},
+    3 : {img: "src/images/optimized/tinified/prize-3.png", type:"money", name: "Dưới viên kẹo này là 50k. Bạn có muốn nhận nó không?"},
+    4 : {img: "src/images/optimized/tinified/prize-4.png", type:"money", name: "Dưới viên kẹo này là 100k. Bạn có muốn nhận nó không?"},
+    5 : {img: "src/images/optimized/tinified/prize-5.png", type:"material", name: "Bạn được tặng thêm 1 ly khi mua. Bạn có muốn nhận nó không?"},
+    6 : {img: "src/images/optimized/tinified/prize-6.png", type:"material", name: "Bạn được tặng 1 chiếc áo thun LUPU. Bạn có muốn nhận nó không?"},
+    7 : {img: "src/images/optimized/tinified/prize-7.png", type:"sale", name: "Bạn được giảm 50%. Bạn có muốn nhận nó không?"},
+    8 : {img: "src/images/optimized/tinified/prize-8.png", type:"sale", name: "Bạn được giảm 20%. Bạn có muốn nhận nó không?"},
+    9 : {img: "src/images/optimized/tinified/prize-9.png", type:"sale", name: "Bạn được giảm 30%. Bạn có muốn nhận nó không?"},
+    10 : {img: "src/images/optimized/tinified/prize-10.png", type:"sale", name: "Bạn được giảm 40%. Bạn có muốn nhận nó không?"},
 }
 let prizeMapWithBlock = [];
 var prizeChecker = [];
 var allLoaded =  false;
 var selectingBlock = null;
 var selectingBlockIndex = 0;
-let playTimes = 9;
+let playTimes = 5;
 let precision = 18;
 var notifyUserState = 0;
 var shareFacebook = 0;
@@ -321,8 +329,8 @@ function boardInit (){
     
     confirmPopup.style.width = boardSize;
     confirmPopup.style.height = boardSize;
-    content.style.width = boardWidth*0.6;
-    content.style.height = (boardWidth*0.6)*0.5;
+    content.style.width = boardWidth*0.65;
+    content.style.height = (boardWidth*0.65)*0.5;
     cancelButton.style.width = popupButtonSizeW;
     cancelButton.style.height = popupButtonSizeH;
     confirmButton.style.width = popupButtonSizeW;
@@ -356,6 +364,23 @@ function boardInit (){
             }
 
             if(prizes[randomPrize].type == "material"){
+                if(materialPrizeApplied != 1){
+                    prize = `<img 
+                        id="prize-${i}"
+                        src="${prizes[randomPrize].img}" 
+                        alt="${blockDescription[i]}"
+                        width= "${blockSize}px"
+                        height= "${blockSize}px"
+                    />`;
+                    prizeMapWithBlock[i] = randomPrize;
+                    materialPrizeApplied = 1;
+                }
+                else{
+                    prizeMapWithBlock[i] = 0; 
+                }
+            }
+
+            if(prizes[randomPrize].type == "sale"){
                 if(materialPrizeApplied != 1){
                     prize = `<img 
                         id="prize-${i}"
