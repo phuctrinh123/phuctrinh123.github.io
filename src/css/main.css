@@ -121,7 +121,7 @@ body{
     background: #c8eea4;
     background-image: url('../../src/images/optimized/tinified/background.png');
     background-position: bottom;
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
     height: 100%;
     display: flex;
