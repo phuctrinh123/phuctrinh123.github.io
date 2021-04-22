@@ -415,7 +415,7 @@ function boardInit (){
     let popupButtonSizeW = boardWidth*0.35;
     let popupButtonSizeH = (boardWidth*0.35)*0.5;
 
-    body.style.fontSize = Math.round(viewportWidth*14.5/320) + "px";
+    body.style.fontSize = Math.round(viewportHeight*13/568) + "px";
 
     app.style.width = boardWidth;
     app.style.height = viewportHeight;
