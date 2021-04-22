@@ -68,8 +68,8 @@ function byID(name = "" ){
 
 //quick code
 
-let viewportWidth = ((window.screen.width < 500) && (window.screen.width/window.screen.height)) ? window.screen.width : 320 ;
-let viewportHeight = ((window.screen.width < 500) && (window.screen.width/window.screen.height)) ? window.screen.height : 568 ;
+let viewportWidth = ((window.innerWidth < 500) && (window.innerWidth/window.innerHeight)) ? window.innerWidth : 320 ;
+let viewportHeight = ((window.innerWidth < 500) && (window.innerWidth/window.innerHeight)) ? window.innerHeight : 568 ;
 let image = document.getElementsByTagName('img');
 let totalBlock = 9;
 let prizes = {
