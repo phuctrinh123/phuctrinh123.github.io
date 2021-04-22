@@ -68,7 +68,7 @@ function byID(name = "" ){
 let viewportWidth = window.screen.width;
 let viewportHeight = window.screen.height;
 let image = document.getElementsByTagName('img');
-let totalBlock = 5;
+let totalBlock = 9;
 let prizes = {
     1 : {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
     3 : {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
@@ -105,7 +105,7 @@ var prizeChecker = [];
 var allLoaded =  false;
 var selectingBlock = null;
 var selectingBlockIndex = 0;
-let playTimes = 9;
+let playTimes = 5;
 let precision = 27;
 var notifyUserState = 0;
 var shareFacebook = 0;
