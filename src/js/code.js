@@ -435,55 +435,55 @@ function boardInit (){
         var prize =  "";
         // console.log(randomPrize);
         if((typeof (prizes[randomPrize]) != "undefined") && (!prizeMapWithBlock.includes(randomPrize))){  
-            if(prizes[randomPrize].type == "money"){
-                if(moneyPrizeApplied != 1){
-                    prize = `<img 
-                        id="prize-${i}"
-                        src="${prizes[randomPrize].img}" 
-                        alt="${blockDescription[i]}"
-                        width= "${blockSize}px"
-                        height= "${blockSize}px"
-                    />`;
-                    prizeMapWithBlock[i] = randomPrize;
-                    moneyPrizeApplied = 1;
-                }
-                else{
-                    prizeMapWithBlock[i] = 0; 
-                }
-            }
-            else if(prizes[randomPrize].type == "material"){
-                if(materialPrizeApplied != 1){
-                    prize = `<img 
-                        id="prize-${i}"
-                        src="${prizes[randomPrize].img}" 
-                        alt="${blockDescription[i]}"
-                        width= "${blockSize}px"
-                        height= "${blockSize}px"
-                    />`;
-                    prizeMapWithBlock[i] = randomPrize;
-                    materialPrizeApplied = 1;
-                }
-                else{
-                    prizeMapWithBlock[i] = 0; 
-                }
-            }
-            else if(prizes[randomPrize].type == "sale"){
-                if(salePrizeApplied != 1){
-                    prize = `<img 
-                        id="prize-${i}"
-                        src="${prizes[randomPrize].img}" 
-                        alt="${blockDescription[i]}"
-                        width= "${blockSize}px"
-                        height= "${blockSize}px"
-                    />`;
-                    prizeMapWithBlock[i] = randomPrize;
-                    salePrizeApplied = 1;
-                }
-                else{
-                    prizeMapWithBlock[i] = 0; 
-                }
-            }
-            else{
+            // if(prizes[randomPrize].type == "money"){
+            //     if(moneyPrizeApplied != 1){
+            //         prize = `<img 
+            //             id="prize-${i}"
+            //             src="${prizes[randomPrize].img}" 
+            //             alt="${blockDescription[i]}"
+            //             width= "${blockSize}px"
+            //             height= "${blockSize}px"
+            //         />`;
+            //         prizeMapWithBlock[i] = randomPrize;
+            //         moneyPrizeApplied = 1;
+            //     }
+            //     else{
+            //         prizeMapWithBlock[i] = 0; 
+            //     }
+            // }
+            // else if(prizes[randomPrize].type == "material"){
+            //     if(materialPrizeApplied != 1){
+            //         prize = `<img 
+            //             id="prize-${i}"
+            //             src="${prizes[randomPrize].img}" 
+            //             alt="${blockDescription[i]}"
+            //             width= "${blockSize}px"
+            //             height= "${blockSize}px"
+            //         />`;
+            //         prizeMapWithBlock[i] = randomPrize;
+            //         materialPrizeApplied = 1;
+            //     }
+            //     else{
+            //         prizeMapWithBlock[i] = 0; 
+            //     }
+            // }
+            // else if(prizes[randomPrize].type == "sale"){
+            //     if(salePrizeApplied != 1){
+            //         prize = `<img 
+            //             id="prize-${i}"
+            //             src="${prizes[randomPrize].img}" 
+            //             alt="${blockDescription[i]}"
+            //             width= "${blockSize}px"
+            //             height= "${blockSize}px"
+            //         />`;
+            //         prizeMapWithBlock[i] = randomPrize;
+            //         salePrizeApplied = 1;
+            //     }
+            //     else{
+            //         prizeMapWithBlock[i] = 0; 
+            //     }
+            // }
+            // else{
                 prize = `<img 
                     id="prize-${i}"
                     src="${prizes[randomPrize].img}" 
@@ -492,7 +492,7 @@ function boardInit (){
                     height= "${blockSize}px"
                 />`;
                 prizeMapWithBlock[i] = randomPrize;
-            }
+            // }
            
         }else{
             prizeMapWithBlock[i] = 0;
