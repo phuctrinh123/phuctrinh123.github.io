@@ -68,8 +68,8 @@ function byID(name = "" ){
 
 //quick code
 
-let viewportWidth = window.screen.width;
-let viewportHeight = window.screen.height;
+let viewportWidth = ((window.screen.width < 500) && (window.screen.width/window.screen.height)) ? window.screen.width : 320 ;
+let viewportHeight = ((window.screen.width < 500) && (window.screen.width/window.screen.height)) ? window.screen.height : 568 ;
 let image = document.getElementsByTagName('img');
 let totalBlock = 9;
 let prizes = {
@@ -388,6 +388,8 @@ function userConfirm(){
 }
 
 function boardInit (){
+    var app = byID("app");
+    var body = document.body;
     var loadingBar = document.getElementById("loading-bar");
     var progressBar = document.getElementById("progress-bar");
     var gameBoardShadow =  document.getElementById("game-board-shadow");
@@ -412,6 +414,11 @@ function boardInit (){
     let blockSize = Math.floor(boardWidth/3) - Math.floor(boardWidth*25/375);
     let popupButtonSizeW = boardWidth*0.35;
     let popupButtonSizeH = (boardWidth*0.35)*0.5;
+
+    body.style.fontSize = Math.round(viewportWidth*14.5/320) + "px";
+
+    app.style.width = boardWidth;
+    app.style.height = viewportHeight;
 
     loadingBar.style.width =  boardWidth*0.9;
     loadingBar.style.height = (boardWidth*0.9)*0.25;

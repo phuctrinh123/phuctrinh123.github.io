@@ -105,11 +105,14 @@
 
 .order-popup-guide-text{
     background: rgba(255,233,188,1);
-    border-radius: 3vw;
+    /*border-radius: 3vw;*/
+    border-radius: 0.8em;
     color: #772c00;
-    font-size: 3.5vw;
+    /*font-size: 3.5vw;*/
+    font-size: 0.8em;
     margin-top: 17%;
-    padding: 2vw;
+    /*padding: 2vw;*/
+    padding: 0.5em;
     text-align: center;
 }
 
@@ -147,27 +150,33 @@
 
 .product > .right-col > p:first-child{
     color: #ffb75f;
-    font-size: 6vw;
+    /*font-size: 6vw;*/
+    font-size: 1.4em;
     margin-top: -10%;
 }
 
 .product > .right-col > p:nth-child(2){
     color: #ffd392;
-    font-size: 5vw;
+    /*font-size: 5vw;*/
+    font-size: 1.16em;
 }
 
 .product > .right-col > p:last-child{
     color: #ffe3b9;
-    font-size: 4vw;
+    /*font-size: 4vw;*/
+    font-size:  0.93em;
     margin-top: 5%;
 }
 
 .tooltips{
     background: rgba(0,0,0,0.8);
-    border-radius: 3vw;
+    /*border-radius: 3vw;*/
+    border-radius: 1em;
     color: white;
     position: absolute;
-    padding: 5vw;
+    /*padding: 5vw;*/
+    padding: 0.8em;
     top: 50%;
     transform: translateY(-50%);
+    width: 87%;
 }

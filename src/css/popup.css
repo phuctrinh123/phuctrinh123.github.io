@@ -48,7 +48,8 @@
 
 #content{
     color: white;
-    font-size: 4.5vw;
+    /* font-size: 4.5vw; */
+    font-size: 1em;
     bottom: 22%;
     left: 18%;
     
