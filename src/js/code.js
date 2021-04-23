@@ -3,6 +3,9 @@ const resource = [
     "src/images/optimized/tinified/background.png",
     "src/images/optimized/tinified/background-header.png",
     "src/images/optimized/tinified/game-logo.png",
+    "src/images/optimized/tinified/play-button.png",
+    "src/images/optimized/tinified/term-button.png",
+    "src/images/optimized/tinified/policy-button.png",
     "src/images/optimized/tinified/board.png",
     "src/images/optimizedtinified//block-1.png",
     "src/images/optimized/tinified/block-1-right.png",
@@ -194,6 +197,20 @@ let blockDescription = [
 
 function randomNumber(max) {
     return Math.floor(Math.random() * max);
+}
+
+function playGame(){
+    var menu = byID("game-menu");
+    var board = byID("game-board");
+    var playTimeIndicator = byID("play-times-indicator");
+    var guideText = byID("guide-text");
+    menu.className += " hide";
+    board.className += " show";
+    guideText.className += " show";
+    playTimeIndicator.className += " show";
+    setTimeout(function(){
+        menu.style.zIndex = -1000;
+    },200)
 }
 
 function shareFacebookClick(){
@@ -392,6 +409,7 @@ function boardInit (){
     var body = document.body;
     var loadingBar = document.getElementById("loading-bar");
     var progressBar = document.getElementById("progress-bar");
+    var menu = byID("game-menu");
     var gameBoardShadow =  document.getElementById("game-board-shadow");
     var board = document.getElementById("board");
     var playTimeIndicator = document.getElementById("play-times");
@@ -425,6 +443,10 @@ function boardInit (){
 
     progressBar.style.width =  0;
     progressBar.style.height = (boardWidth*0.75)*0.115;
+
+    menu.style.width = boardShadowSize;
+    menu.style.height = boardShadowSize *1.5;
+    menu.style.marginTop= boardShadowSize/4;
 
     gameBoardShadow.style.width = boardShadowSize;
     gameBoardShadow.style.height = boardShadowSize;

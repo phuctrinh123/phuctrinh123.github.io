@@ -101,6 +101,7 @@ body{
 }
 
 .app{
+    background:  #4b4b4b;
     height: 100%;
     position: relative;
     margin: 0 auto;
@@ -161,10 +162,17 @@ body{
     margin: 5vw auto; */
     font-size: 1em;
     margin: 1.1em auto;
+    opacity: 0;
     position: relative;
+    transition: opacity 0.2s ease-in-out;
     text-align: center;
     vertical-align: middle;
     width: 65%;
+}
+
+.guide-text.show{
+    opacity: 1;
+    transition: opacity 0.2s ease-in-out;
 }
 
 .guide-text > span{
@@ -183,9 +191,16 @@ body{
     height: 2.5em;
     line-height:  2.5em;
     margin: 0 auto;
+    opacity: 0;
     position: relative;
+    transition: opacity 0.2s ease-in-out;
     text-align: center;
     width: 40%;
+}
+
+.play-times-indicator.show{
+    opacity: 1;
+    transition: opacity 0.2s ease-in-out;
 }
 
 .play-times{
