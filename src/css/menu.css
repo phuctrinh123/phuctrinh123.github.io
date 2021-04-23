@@ -19,10 +19,10 @@
 .menu-button{
     align-items: center;
     display: flex;
-    height: 80px;
+    height: 55px;
     justify-content: center;
     margin-bottom: 3%;
-    width: 100%;
+    width: 60%;
 }
 
 .menu-button > img{
