@@ -32,10 +32,10 @@
 .menu-button{
     align-items: center;
     display: flex;
-    height: 5em;
+    height: 4.5em;
     justify-content: center;
     margin-bottom: 3%;
-    width: 75%;
+    width: 65%;
 }
 
 .menu-button > img{
