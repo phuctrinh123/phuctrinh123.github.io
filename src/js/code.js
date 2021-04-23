@@ -76,7 +76,7 @@ let screenHeight = window.screen.height;
 let isMobile = window.screen.width < 500 ? true : false;
 let viewportWidth =  isMobile ? screenWidth: 320 ;
 var body = document.body;
-body.style.fontSize = Math.round(screenWidth*13/320) + "px";
+body.style.fontSize = Math.round(isMobile ==  true ? screenWidth*13/320 : 13) + "px";
 
 let image = document.getElementsByTagName('img');
 let totalBlock = 9;
