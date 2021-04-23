@@ -80,6 +80,9 @@ let viewportHeight = isMobile ? window.innerHeight : 568 ;
 let diaglog = byID("dialog");
 diaglog.innerHTML = viewportWidth  + "/" + viewportHeight;
 
+var body = document.body;
+body.style.fontSize = Math.round(viewportHeight*13/568) + "px";
+
 let image = document.getElementsByTagName('img');
 let totalBlock = 9;
 let prizes = {
@@ -413,7 +416,6 @@ function userConfirm(){
 
 function boardInit (){
     var app = byID("app");
-    var body = document.body;
     var loadingBar = document.getElementById("loading-bar");
     var progressBar = document.getElementById("progress-bar");
     var menu = byID("game-menu");
@@ -439,8 +441,6 @@ function boardInit (){
     let blockSize = Math.floor(boardWidth/3) - Math.floor(boardWidth*25/375);
     let popupButtonSizeW = boardWidth*0.35;
     let popupButtonSizeH = (boardWidth*0.35)*0.5;
-
-    body.style.fontSize = Math.round(viewportHeight*13/568) + "px";
 
     app.style.width = boardWidth;
     app.style.height = viewportHeight;
