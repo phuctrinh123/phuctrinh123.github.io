@@ -73,7 +73,8 @@ function byID(name = "" ){
 
 let viewportWidth = ((window.innerWidth < 500) && (window.innerWidth/window.innerHeight)) ? window.innerWidth : 320 ;
 let viewportHeight = ((window.innerWidth < 500) && (window.innerWidth/window.innerHeight)) ? window.innerHeight : 568 ;
-alert(viewportWidth  +"/" +viewportHeight);
+let diaglog = byID("dialog");
+diaglog.innerHTML = viewportWidth  + "/" + viewportHeight;
 
 let image = document.getElementsByTagName('img');
 let totalBlock = 9;
