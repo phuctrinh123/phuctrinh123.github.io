@@ -11,6 +11,19 @@
     transform: translate(-50%,-50%);
 }
 
+.menu-background{
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    z-index: -10;
+}
+
+.menu-background > img{
+    margin-top: 20%;
+    max-width: 100%;
+    max-height: 100%;
+}
+
 .game-menu.hide{
     opacity: 0;
     transition: opacity 0.2s ease-in-out;
@@ -41,5 +54,5 @@
 .game-menu > p:nth-of-type(2){
     font-size: 2em;
     margin: 0;
-    margin-bottom: 9%;
+    margin-bottom: 13%;
 }

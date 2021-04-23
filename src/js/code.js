@@ -3,6 +3,7 @@ const resource = [
     "src/images/optimized/tinified/background.png",
     "src/images/optimized/tinified/background-header.png",
     "src/images/optimized/tinified/game-logo.png",
+    "src/images/optimized/tinified/menu-background.png",
     "src/images/optimized/tinified/play-button.png",
     "src/images/optimized/tinified/term-button.png",
     "src/images/optimized/tinified/policy-button.png",
