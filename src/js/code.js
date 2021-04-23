@@ -71,8 +71,12 @@ function byID(name = "" ){
 
 //quick code
 
-let viewportWidth = ((window.innerWidth < 500) && (window.innerWidth/window.innerHeight)) ? window.innerWidth : 320 ;
-let viewportHeight = ((window.innerWidth < 500) && (window.innerWidth/window.innerHeight)) ? window.innerHeight : 568 ;
+let screenWidth = window.screen.width;
+let screenHeight = window.screen.height;
+let isMobile = window.screen.width < 500 ? true : false;
+
+let viewportWidth =  isMobile ? window.innerWidth : 320 ;
+let viewportHeight = isMobile ? window.innerHeight : 568 ;
 let diaglog = byID("dialog");
 diaglog.innerHTML = viewportWidth  + "/" + viewportHeight;
 
