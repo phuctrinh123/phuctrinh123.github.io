@@ -74,14 +74,9 @@ function byID(name = "" ){
 let screenWidth = window.screen.width;
 let screenHeight = window.screen.height;
 let isMobile = window.screen.width < 500 ? true : false;
-
-let viewportWidth =  isMobile ? window.innerWidth : 320 ;
-let viewportHeight = isMobile ? window.innerHeight : 568 ;
-let diaglog = byID("dialog");
-diaglog.innerHTML = viewportWidth  + "/" + viewportHeight;
-
+let viewportWidth =  isMobile ? screenWidth: 320 ;
 var body = document.body;
-body.style.fontSize = Math.round(viewportHeight*13/568) + "px";
+body.style.fontSize = Math.round(screenWidth*13/320) + "px";
 
 let image = document.getElementsByTagName('img');
 let totalBlock = 9;
@@ -443,7 +438,7 @@ function boardInit (){
     let popupButtonSizeH = (boardWidth*0.35)*0.5;
 
     app.style.width = boardWidth;
-    app.style.height = viewportHeight;
+    app.style.height = isMobile ? "100%" : "568px";
 
     loadingBar.style.width =  boardWidth*0.9;
     loadingBar.style.height = (boardWidth*0.9)*0.25;
