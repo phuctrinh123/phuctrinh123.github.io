@@ -233,6 +233,7 @@ function shareFacebookClick(){
         let blockContainer = document.createElement("div");
         shareFacebook = 1;
         // popup.className = "popup";
+        blockContainer.className = "block show selected";
         blockContainer.innerHTML = `<img 
             src="src/images/optimized/tinified/add-plays.png" 
             alt="lupu giải thưởng"
