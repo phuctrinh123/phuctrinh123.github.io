@@ -49,6 +49,7 @@ const resource = [
     "src/images/optimized/tinified/prize-12.png",
     "src/images/optimized/tinified/prize-13.png",
     "src/images/optimized/tinified/more-plays.png",
+    "src/images/optimized/tinified/add-plays.png",
     "src/images/optimized/tinified/popup-base.png",
     "src/images/optimized/tinified/glow-effect.png",
     "src/images/optimized/tinified/cancel-button.png",
@@ -221,13 +222,29 @@ function playGame(){
 
 function shareFacebookClick(){
     var popup = byID("confirm-select-popup");
+    var popupBlockDisplayer = byID("selected-block");
+    var popupContent = byID('content');
+    var popupConfirmButton = byID("confirm-button");
     var playTimeIndicator = byID("play-times");
     FB.ui({
         method: 'share',
         href: 'http://lupucoffee.com/',
       }, function(response){
+        let blockContainer = document.createElement("div");
         shareFacebook = 1;
-        popup.className = "popup";
+        // popup.className = "popup";
+        blockContainer.innerHTML = `<img 
+            src="src/images/optimized/tinified/add-plays.png" 
+            alt="lupu giải thưởng"
+            width= "100%"
+            height= "100%"
+            style="height: 100% !important; width:100% !important;"
+        />`;
+        popupContent.innerHTML = "Bạn vừa nhận thêm một lượt chơi từ việc chia sẻ facebook, mở kẹo tiếp thôi";
+        popupConfirmButton.style.backgroundImage = `url("src/images/optimized/tinified/continue-button.png")`;
+        popupConfirmButton.setAttribute("onclick", "userConfirm()");
+        popupBlockDisplayer.innerHTML = "";
+        popupBlockDisplayer.append(blockContainer);
         playTimes = 1;
         playTimeIndicator.innerHTML = playTimes;
         console.log("click on share");
