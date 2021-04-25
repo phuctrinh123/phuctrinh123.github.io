@@ -84,109 +84,89 @@ body.style.fontSize = Math.round(isMobile ==  true ? screenWidth*13/320 : 13) + 
 let image = document.getElementsByTagName('img');
 let totalBlock = 9;
 let prizes = {
-    // 1 : {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
-    // 3 : {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
-    // 5 : {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
-    // 7 : {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
-    // 9 : {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
-    // 11 : {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
-    // 13 : {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
-    // 17 : {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
-    // 16 : {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
-    // 19 : {img: "src/images/optimized/tinified/prize-3.png", type:"money", name: "Dưới viên kẹo này là 50k. Bạn có muốn nhận nó không?"},
-    // 20 : {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
-    // 21 : {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
-    // 22 : {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
-    // 23 : {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
-    // 24 : {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
-    // 25 : {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
-    // 26 : {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
-    // 27 : {img: "src/images/optimized/tinified/prize-4.png", type:"money", name: "Dưới viên kẹo này là 100k. Bạn có muốn nhận nó không?"},
-    // 2 : {img: "src/images/optimized/tinified/prize-1.png", type:"money", name: "Dưới viên kẹo này là 5k. Bạn có muốn nhận nó không?"},
-    // 12 : {img: "src/images/optimized/tinified/prize-2.png", type:"money", name: "Dưới viên kẹo này là 25k. Bạn có muốn nhận nó không?"},
-    // 15 : {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
-    // 18 : {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
-    // 2 : {img: "src/images/optimized/tinified/prize-5.png", type:"material", name: "Bạn được tặng thêm 1 ly khi mua. Bạn có muốn nhận nó không?"},
-    // 6 : {img: "src/images/optimized/tinified/prize-6.png", type:"material", name: "Bạn được tặng 1 chiếc áo thun LUPU. Bạn có muốn nhận nó không?"},
-    // 14 : {img: "src/images/optimized/tinified/prize-7.png", type:"sale", name: "Bạn được giảm 50%. Bạn có muốn nhận nó không?"},
-    // 8 : {img: "src/images/optimized/tinified/prize-8.png", type:"sale", name: "Bạn được giảm 20%. Bạn có muốn nhận nó không?"},
-    // 4 : {img: "src/images/optimized/tinified/prize-9.png", type:"sale", name: "Bạn được giảm 30%. Bạn có muốn nhận nó không?"},
-    // 10 : {img: "src/images/optimized/tinified/prize-10.png", type:"sale", name: "Bạn được giảm 40%. Bạn có muốn nhận nó không?"},
-    1 : {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
-    2 : {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
-    3 : {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
-    4 : {img: "src/images/optimized/tinified/prize-12.png", type:"sale", name: "Bạn được voucher giảm 10%. Bạn có muốn nhận nó không?"},
-    // 5 : {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
-    // 6 : {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
-    // 7 : {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
-    12 : {img: "src/images/optimized/tinified/prize-1.png", type:"money", name: "Dưới viện kẹo này là 5k. Bạn có muốn nhận nó không?"},
-    13 : {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
-    14: {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
-    15 : {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
-
-    23 : {img: "src/images/optimized/tinified/prize-8.png", type:"sale", name: "Bạn được voucher giảm 20%. Bạn có muốn nhận nó không?"},
-    24 : {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
-    25: {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
-    26 : {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
-
-    34 : {img: "src/images/optimized/tinified/prize-13.png", type:"money", name: "Dưới viên kẹo này là 10k. Bạn có muốn nhận nó không?"},
-    35 : {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
-    36: {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
-    37 : {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
-
-    45 : {img: "src/images/optimized/tinified/prize-12.png", type:"sale", name: "Bạn được voucher giảm 10%. Bạn có muốn nhận nó không?"},
-    46 : {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
-    47: {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
-    48 : {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
-
-    56 : {img: "src/images/optimized/tinified/prize-5.png", type:"material", name: "Bạn được tặng thêm 1 ly khi mua từ 2 ly. Bạn có muốn nhận nó không?"},
-    57 : {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
-    58: {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
-    59 : {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
-
-    67 : {img: "src/images/optimized/tinified/prize-6.png", type:"material", name: "Bạn được tặng 1 chiếc áo thun LUPU. Bạn có muốn nhận nó không?"},
-    68 : {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
-    69: {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
-    70 : {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
-
-    78 : {img: "src/images/optimized/tinified/prize-2.png", type:"money", name: "Dưới viên kẹo này là 25k. Bạn có muốn nhận nó không?"},
-    79 : {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
-    80: {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
-    81 : {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
-
-    89 : {img: "src/images/optimized/tinified/prize-9.png", type:"sale", name: "Bạn được giảm 30%. Bạn có muốn nhận nó không?"},
-    90 : {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
-    91: {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
-    92 : {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
-
-    100 : {img: "src/images/optimized/tinified/prize-3.png", type:"money", name: "Dưới viên kẹo này là 50k. Bạn có muốn nhận nó không?"},
-    101 : {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
-    102: {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
-    103 : {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
-
-    111 : {img: "src/images/optimized/tinified/prize-10.png", type:"sale", name: "Bạn được giảm 40%. Bạn có muốn nhận nó không?"},
-    112 : {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
-    113: {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
-    114 : {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
-
-    122 : {img: "src/images/optimized/tinified/prize-7.png", type:"sale", name: "Bạn được giảm 50%. Bạn có muốn nhận nó không?"},
-    123 : {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
-    124: {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
-    125 : {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
-
-    133 : {img: "src/images/optimized/tinified/prize-4.png", type:"money", name: "Dưới viên kẹo này là 100k. Bạn có muốn nhận nó không?"},
-    134 : {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
-    135: {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
-    136 : {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
-
+    1: {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "May quá dưới viên kẹo này chỉ có 1k thôi bạn ơi!"},
+    2: {img: "src/images/optimized/tinified/prize-1.png", type:"many", name: "May quá dưới viên kẹo này chỉ có 5k thôi bạn ơi!"},
+    3: {img: "src/images/optimized/tinified/prize-13.png", type:"many", name: "May quá dưới viên kẹo này chỉ có 10k thôi bạn ơi!"},
+    4: {img: "src/images/optimized/tinified/prize-2.png", type:"many", name: "Ồ dưới viên kẹo này có 25k nà!"},
+    5: {img: "src/images/optimized/tinified/prize-3.png", type:"many", name: "Hmm, dưới viên kẹo này có 50k. Hơi tiếc nhỉ!"},
+    6: {img: "src/images/optimized/tinified/prize-4.png", type:"many", name: "Oops! Dưới viên kẹo này là 100k. Hụt rồi!"},
+    7: {img: "src/images/optimized/tinified/prize-14.png", type:"many", name: "Ối, viên kẹo này có giá 200k đấy bạn ơi!"},
+    8: {img: "src/images/optimized/tinified/prize-15.png", type:"many", name: "Hu hu, 300k đã bay màu!"},
+    9: {img: "src/images/optimized/tinified/prize-16.png", type:"many", name: "Thôi xong, 400k đã không cánh mà bay."},
 }
-let prizeMapWithBlock = [];
-var prizeChecker = [];
+// let prizes = {
+
+//     1 : {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
+//     2 : {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
+//     3 : {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
+//     4 : {img: "src/images/optimized/tinified/prize-12.png", type:"sale", name: "Bạn được voucher giảm 10%. Bạn có muốn nhận nó không?"},
+
+//     12 : {img: "src/images/optimized/tinified/prize-1.png", type:"money", name: "Dưới viện kẹo này là 5k. Bạn có muốn nhận nó không?"},
+//     13 : {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
+//     14: {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
+//     15 : {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
+
+//     23 : {img: "src/images/optimized/tinified/prize-8.png", type:"sale", name: "Bạn được voucher giảm 20%. Bạn có muốn nhận nó không?"},
+//     24 : {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
+//     25: {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
+//     26 : {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
+
+//     34 : {img: "src/images/optimized/tinified/prize-13.png", type:"money", name: "Dưới viên kẹo này là 10k. Bạn có muốn nhận nó không?"},
+//     35 : {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
+//     36: {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
+//     37 : {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
+
+//     45 : {img: "src/images/optimized/tinified/prize-12.png", type:"sale", name: "Bạn được voucher giảm 10%. Bạn có muốn nhận nó không?"},
+//     46 : {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
+//     47: {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
+//     48 : {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
+
+//     56 : {img: "src/images/optimized/tinified/prize-5.png", type:"material", name: "Bạn được tặng thêm 1 ly khi mua từ 2 ly. Bạn có muốn nhận nó không?"},
+//     57 : {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
+//     58: {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
+//     59 : {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
+
+//     67 : {img: "src/images/optimized/tinified/prize-6.png", type:"material", name: "Bạn được tặng 1 chiếc áo thun LUPU. Bạn có muốn nhận nó không?"},
+//     68 : {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
+//     69: {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
+//     70 : {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
+
+//     78 : {img: "src/images/optimized/tinified/prize-2.png", type:"money", name: "Dưới viên kẹo này là 25k. Bạn có muốn nhận nó không?"},
+//     79 : {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
+//     80: {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
+//     81 : {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
+
+//     89 : {img: "src/images/optimized/tinified/prize-9.png", type:"sale", name: "Bạn được giảm 30%. Bạn có muốn nhận nó không?"},
+//     90 : {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
+//     91: {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
+//     92 : {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
+
+//     100 : {img: "src/images/optimized/tinified/prize-3.png", type:"money", name: "Dưới viên kẹo này là 50k. Bạn có muốn nhận nó không?"},
+//     101 : {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
+//     102: {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
+//     103 : {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
+
+//     111 : {img: "src/images/optimized/tinified/prize-10.png", type:"sale", name: "Bạn được giảm 40%. Bạn có muốn nhận nó không?"},
+//     112 : {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
+//     113: {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
+//     114 : {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
+
+//     122 : {img: "src/images/optimized/tinified/prize-7.png", type:"sale", name: "Bạn được giảm 50%. Bạn có muốn nhận nó không?"},
+//     123 : {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
+//     124: {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
+//     125 : {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
+
+//     133 : {img: "src/images/optimized/tinified/prize-4.png", type:"money", name: "Dưới viên kẹo này là 100k. Bạn có muốn nhận nó không?"},
+//     134 : {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
+//     135: {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
+//     136 : {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
+// }
+let prizeMapWithBlock = [0];
 var allLoaded =  false;
 var selectingBlock = null;
 var selectingBlockIndex = 0;
 let playTimes = 5;
-let precision = 136;
+let precision = 10;
 var notifyUserState = 0;
 var shareFacebook = 0;
 
@@ -206,6 +186,24 @@ let blockDescription = [
 function randomNumber(max) {
     return Math.floor(Math.random() * max);
 }
+
+function shufflePrize(){
+    let randomPrize = randomNumber(precision);
+    if(prizeMapWithBlock.length != Object.keys(prizes).length + 1){
+        if(!prizeMapWithBlock.includes(randomPrize) && (randomPrize != 0)){
+            prizeMapWithBlock.push(randomPrize);
+        }
+    }else{
+        clearInterval(generatePrizeMap);
+        boardInit();
+    }
+}
+
+let generatePrizeMap = setInterval(() => {
+    shufflePrize();
+    // console.log(Object.keys(prizes).length );
+    // console.log(prizeMapWithBlock);
+}, 0);
 
 function hideBUP(){
     var bup = byID("before-u-play");
@@ -500,10 +498,10 @@ function boardInit (){
     playTimeIndicator.innerHTML = playTimes;
 
     for (let i = 1; i <= totalBlock; i++) {
-        let randomPrize = randomNumber(precision);
+        // let randomPrize = randomNumber(precision);
         var prize =  "";
         // console.log(randomPrize);
-        if((typeof (prizes[randomPrize]) != "undefined") && (!prizeMapWithBlock.includes(randomPrize))){  
+        // if((typeof (prizes[randomPrize]) != "undefined") && (!prizeMapWithBlock.includes(randomPrize))){  
             // if(prizes[randomPrize].type == "money"){
             //     if(moneyPrizeApplied != 1){
             //         prize = `<img 
@@ -553,19 +551,22 @@ function boardInit (){
             //     }
             // }
             // else{
+                console.log("loop:"+i);
+                console.log(prizeMapWithBlock);
+                console.log("--");
                 prize = `<img 
                     id="prize-${i}"
-                    src="${prizes[randomPrize].img}" 
+                    src="${prizes[prizeMapWithBlock[i]].img}" 
                     alt="${blockDescription[i]}"
                     width= "${blockSize}px"
                     height= "${blockSize}px"
                 />`;
-                prizeMapWithBlock[i] = randomPrize;
+                // prizeMapWithBlock[i] = randomPrize;
             // }
            
-        }else{
-            prizeMapWithBlock[i] = 0;
-        }
+        // }else{
+        //     prizeMapWithBlock[i] = 0;
+        // }
 
         htmlString += `
         <div
@@ -612,7 +613,8 @@ function boardInit (){
     }
 }
 
-boardInit();
+shufflePrize();
+
 
  //         
 
@@ -632,28 +634,29 @@ var realtimeCheck = setInterval(()=>{
             allLoaded = false;
         }
     } 
-    if(allLoaded == true) clearInterval(realtimeCheck);
+    if((allLoaded == true) && (prizeMapWithBlock.length == Object.keys(prizes).length + 1)) clearInterval(realtimeCheck);
 },60)
 
 // check if all assets loaded
 window.addEventListener("load", event => {
-    var board = document.getElementById("board");
-    var loadingScreen = document.getElementById("loading-screen");
-    var boardShadow = document.getElementById("game-board-shadow");
-    loadingScreen.className = "loading-screen";
-    board.className += " show";
-    boardShadow.className += " show";
-    for(let i = 1; i <= totalBlock; i++){
-        var block = document.getElementById(`block-${i}`);
-        block.className += " show shake";
-    }
-    setTimeout(()=>{
+    if((allLoaded == true) && (prizeMapWithBlock.length == Object.keys(prizes).length + 1)){
+        var board = document.getElementById("board");
+        var loadingScreen = document.getElementById("loading-screen");
+        var boardShadow = document.getElementById("game-board-shadow");
+        loadingScreen.className = "loading-screen";
+        board.className += " show";
+        boardShadow.className += " show";
         for(let i = 1; i <= totalBlock; i++){
             var block = document.getElementById(`block-${i}`);
-            block.className = "block normal show";
+            block.className += " show shake";
         }
-        loadingScreen.style.display = "none";
-    },1300)
-
+        setTimeout(()=>{
+            for(let i = 1; i <= totalBlock; i++){
+                var block = document.getElementById(`block-${i}`);
+                block.className = "block normal show";
+            }
+            loadingScreen.style.display = "none";
+        },1300)
+    }
 });
 
