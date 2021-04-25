@@ -168,6 +168,7 @@ var selectingBlock = null;
 var selectingBlockIndex = 0;
 let playTimes = 6;
 let precision = 10;
+let round = 1;
 let round2PlayTime = 1;
 var notifyUserState = 0;
 var shareFacebook = 0;
@@ -492,7 +493,7 @@ function userConfirm(){
 
     if(playTimes > -1){
         if(playTimes == 0) {
-            guideText.innerHTML = "Chọn một trong 3 viên kẹo đã bị tráo đổi giá trị";
+            guideText.innerHTML = "Vòng 2: chọn một trong 3 viên kẹo đã bị tráo đổi giá trị";
         }
         block.setAttribute("onClick","");
         confirmPopup.className = "popup";
