@@ -84,15 +84,15 @@ body.style.fontSize = Math.round(isMobile ==  true ? screenWidth*13/320 : 13) + 
 let image = document.getElementsByTagName('img');
 let totalBlock = 9;
 let prizes = {
-    1: {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "May quá dưới viên kẹo này chỉ có 1k thôi bạn ơi!"},
-    2: {img: "src/images/optimized/tinified/prize-1.png", type:"many", name: "May quá dưới viên kẹo này chỉ có 5k thôi bạn ơi!"},
-    3: {img: "src/images/optimized/tinified/prize-13.png", type:"many", name: "May quá dưới viên kẹo này chỉ có 10k thôi bạn ơi!"},
-    4: {img: "src/images/optimized/tinified/prize-2.png", type:"many", name: "Ồ dưới viên kẹo này có 25k nà!"},
-    5: {img: "src/images/optimized/tinified/prize-3.png", type:"many", name: "Hmm, dưới viên kẹo này có 50k. Hơi tiếc nhỉ!"},
-    6: {img: "src/images/optimized/tinified/prize-4.png", type:"many", name: "Oops! Dưới viên kẹo này là 100k. Hụt rồi!"},
-    7: {img: "src/images/optimized/tinified/prize-14.png", type:"many", name: "Ối, viên kẹo này có giá 200k đấy bạn ơi!"},
-    8: {img: "src/images/optimized/tinified/prize-15.png", type:"many", name: "Hu hu, 300k đã bay màu!"},
-    9: {img: "src/images/optimized/tinified/prize-16.png", type:"many", name: "Thôi xong, 400k đã không cánh mà bay."},
+    1: {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "May quá dưới viên kẹo này chỉ có 1k thôi bạn ơi!", value:1},
+    2: {img: "src/images/optimized/tinified/prize-1.png", type:"many", name: "May quá dưới viên kẹo này chỉ có 5k thôi bạn ơi!", value:5},
+    3: {img: "src/images/optimized/tinified/prize-13.png", type:"many", name: "May quá dưới viên kẹo này chỉ có 10k thôi bạn ơi!", value:10},
+    4: {img: "src/images/optimized/tinified/prize-2.png", type:"many", name: "Ồ dưới viên kẹo này có 25k nà!", value:25},
+    5: {img: "src/images/optimized/tinified/prize-3.png", type:"many", name: "Hmm, dưới viên kẹo này có 50k. Hơi tiếc nhỉ!", value:50},
+    6: {img: "src/images/optimized/tinified/prize-4.png", type:"many", name: "Oops! Dưới viên kẹo này là 100k. Hụt rồi!", value:100},
+    7: {img: "src/images/optimized/tinified/prize-14.png", type:"many", name: "Ối, viên kẹo này có giá 200k đấy bạn ơi!", value:200},
+    8: {img: "src/images/optimized/tinified/prize-15.png", type:"many", name: "Hu hu, 300k đã bay màu!", value:300},
+    9: {img: "src/images/optimized/tinified/prize-16.png", type:"many", name: "Thôi xong, 400k đã không cánh mà bay.", value:400},
 }
 // let prizes = {
 
@@ -162,10 +162,11 @@ let prizes = {
 //     136 : {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
 // }
 let prizeMapWithBlock = [0];
+var openedBlock = [];
 var allLoaded =  false;
 var selectingBlock = null;
 var selectingBlockIndex = 0;
-let playTimes = 5;
+let playTimes = 6;
 let precision = 10;
 var notifyUserState = 0;
 var shareFacebook = 0;
@@ -205,9 +206,19 @@ let generatePrizeMap = setInterval(() => {
     // console.log(prizeMapWithBlock);
 }, 0);
 
-function hideBUP(){
+function hideBUP(callback = null, delay = null){
     var bup = byID("before-u-play");
     bup.className = "before-u-play";
+    if(callback){
+      if(delay){
+          setTimeout(() => {
+            callback();
+          }, delay);
+      }else{
+        callback();
+      }
+       
+    }
 }
 
 function playGame(){
@@ -265,6 +276,49 @@ function redirectToFacebook(){
     window.location.href = "https://www.facebook.com/lupucoffee";
 }
 
+function hideAllPrize(){
+    for(let i = 0; i< openedBlock.length; i++){
+        let prizeElem = byID(`prize-${openedBlock[i]}`);
+        prizeElem.className = "";
+    }
+    setTimeout(() => {
+        let beforeUPlay = byID("before-u-play");
+        let bupTitle = byID("bup-title");
+        let bupText = byID("bup-text");
+        let bupButton = byID("bup-agree-button");
+        bupTitle.innerHTML = "Vòng 2";
+        bupText.innerHTML = `LUPU sẽ giữ lại viên kẹo có giá trị cao nhất, 2 viên còn lại sẽ không có gì. Giá trị của ba viên này sẽ bị hoán đổi cho nhau. Bạn chỉ được chọn 1 viên trong 3 viên này. Chúc bạn may mắn.`;
+        bupButton.setAttribute("onclick","hideBUP(showAllPrize,1000)");
+        beforeUPlay.className += " show";
+    }, 1000);
+    
+}
+
+function showAllPrize(){
+    let maxValue = 0;
+    let maxBlockIndex = null;
+    for(let i = 1; i <= totalBlock; i++){
+        if(!openedBlock.includes(i)){
+            let prize = byID(`prize-${i}`);
+            if(parseInt(prize.getAttribute("data-value")) > maxValue){
+                console.log(prize.getAttribute("data-value"));
+                maxValue = prize.getAttribute("data-value");
+                maxBlockIndex = i;
+            }
+        }
+    }
+    let prize = byID(`prize-${maxBlockIndex}`);
+    let block = byID(`block-${maxBlockIndex}`);
+    block.className = "block hide";
+    prize.className += " show";
+
+    setTimeout(() => {
+        block.className = "block show";
+    prize.className = "";
+    }, 1500);
+
+}
+
 function blockTap(index,blockWidth = 0, blockHeight = 0){
     var block = byID(`block-${index}`);
     var popup = byID("confirm-select-popup");
@@ -273,7 +327,7 @@ function blockTap(index,blockWidth = 0, blockHeight = 0){
     var popupCancelButton = byID("cancel-button");
     var popupConfirmButton = byID("confirm-button");
     var playTimeIndicator = byID("play-times");
-    console.log(playTimes);
+    // console.log(playTimes);
     if(playTimes > 0){
         let clonedBlock = block.cloneNode(true);
         selectingBlock = block;
@@ -314,6 +368,13 @@ function blockTap(index,blockWidth = 0, blockHeight = 0){
             notifyUserState = 1;
             playTimeIndicator.innerHTML = playTimes > 0 ? playTimes - 1 : 0;
             playTimes -= 1;
+            openedBlock.push(index);
+            if(playTimes == 0){
+                setTimeout(() => {
+                    hideAllPrize();
+                }, 1500);
+            }
+
         }else{
             let blockDisplayedInDisplayer = byID("_selectedBlock");
             let blockContainer = document.createElement("div");
@@ -551,12 +612,13 @@ function boardInit (){
             //     }
             // }
             // else{
-                console.log("loop:"+i);
-                console.log(prizeMapWithBlock);
-                console.log("--");
+                // console.log("loop:"+i);
+                // console.log(prizeMapWithBlock);
+                // console.log("--");
                 prize = `<img 
                     id="prize-${i}"
                     src="${prizes[prizeMapWithBlock[i]].img}" 
+                    data-value="${prizes[prizeMapWithBlock[i]].value}"
                     alt="${blockDescription[i]}"
                     width= "${blockSize}px"
                     height= "${blockSize}px"
