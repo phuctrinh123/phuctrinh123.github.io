@@ -203,6 +203,22 @@ body{
     transition: opacity 0.2s ease-in-out;
 }
 
+#round1-content{
+    display: none;
+}
+
+#round1-content.show{
+    display: block;
+}
+
+#round2-content{
+    display: none;
+}
+
+#round2-content.show{
+    display: block;
+}
+
 .play-times{
     color:#FF7600;
 }

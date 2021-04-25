@@ -168,6 +168,7 @@ var selectingBlock = null;
 var selectingBlockIndex = 0;
 let playTimes = 6;
 let precision = 10;
+let round2PlayTime = 1;
 var notifyUserState = 0;
 var shareFacebook = 0;
 
@@ -286,10 +287,17 @@ function hideAllPrize(){
         let bupTitle = byID("bup-title");
         let bupText = byID("bup-text");
         let bupButton = byID("bup-agree-button");
+        let round1Content = byID("round1-content");
+        let round2Content = byID("round2-content");
+        let round2PlayTimeIndicator = byID("round2-play-times");
         bupTitle.innerHTML = "Vòng 2";
         bupText.innerHTML = `LUPU sẽ giữ lại viên kẹo có giá trị cao nhất, 2 viên còn lại sẽ không có gì. Giá trị của ba viên này sẽ bị hoán đổi cho nhau. Bạn chỉ được chọn 1 viên trong 3 viên này. Chúc bạn may mắn.`;
         bupButton.setAttribute("onclick","hideBUP(showAllPrize,1000)");
+        round2PlayTimeIndicator.innerHTML = round2PlayTime;
         beforeUPlay.className += " show";
+        round1Content.className = "";
+        round2Content.className += "show";
+
     }, 1000);
     
 }
@@ -435,7 +443,6 @@ function blockTap(index,blockWidth = 0, blockHeight = 0){
             // popupConfirmButton.setAttribute("onclick", "shareFacebookClick()");
 
         // }
-
         popupBlockDisplayer.innerHTML = "";
         popupBlockDisplayer.append(blockContainer);
         popup.className += " show";
@@ -485,7 +492,7 @@ function userConfirm(){
 
     if(playTimes > -1){
         if(playTimes == 0) {
-            guideText.innerHTML = "Những viên kẹo còn lại biết cách giúp bạn có thêm lượt đấy";
+            guideText.innerHTML = "Vòng 2: chọn một trong 3 viên kẹo đã bị tráo đổi giá trị";
         }
         block.setAttribute("onClick","");
         confirmPopup.className = "popup";
