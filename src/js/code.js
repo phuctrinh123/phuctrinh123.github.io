@@ -360,9 +360,13 @@ function blockTap(index,blockWidth = 0, blockHeight = 0){
             glowEffect.className += " show";
             prize? prize.className += "show" : "";
             popupContent.innerHTML = `${prizes[prizeMapWithBlock[selectingBlockIndex]].name}`;
-            popupCancelButton.style.display = "block";
-            popupConfirmButton. style.backgroundImage = `url("src/images/optimized/tinified/confirm-button.png")`;
-            popupConfirmButton.style.right = "10%";
+            // popupCancelButton.style.display = "block";
+            // popupConfirmButton. style.backgroundImage = `url("src/images/optimized/tinified/confirm-button.png")`;
+            // popupConfirmButton.style.right = "10%";
+            // popupConfirmButton.setAttribute("onclick", "userConfirm()");
+            popupCancelButton.style.display = "none";
+            popupConfirmButton.style.backgroundImage = `url("src/images/optimized/tinified/continue-button.png")`;
+            popupConfirmButton.style.right = "30%";
             popupConfirmButton.setAttribute("onclick", "userConfirm()");
             popup.className += " show";
             notifyUserState = 1;
