@@ -7,6 +7,7 @@ const resource = [
     "src/images/optimized/tinified/play-button.png",
     "src/images/optimized/tinified/term-button.png",
     "src/images/optimized/tinified/policy-button.png",
+    "src/images/optimized/tinified/before-u-play.png",
     "src/images/optimized/tinified/board.png",
     "src/images/optimizedtinified//block-1.png",
     "src/images/optimized/tinified/block-1-right.png",
@@ -206,6 +207,11 @@ function randomNumber(max) {
     return Math.floor(Math.random() * max);
 }
 
+function hideBUP(){
+    var bup = byID("before-u-play");
+    bup.className = "before-u-play";
+}
+
 function playGame(){
     var menu = byID("game-menu");
     var board = byID("game-board");
@@ -217,6 +223,10 @@ function playGame(){
     playTimeIndicator.className += " show";
     setTimeout(function(){
         menu.style.zIndex = -1000;
+        setTimeout(()=>{
+            let beforeUPlay = byID("before-u-play");
+            beforeUPlay.className += " show";
+        }, 500);
     },200)
 }
 

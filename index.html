@@ -13,7 +13,7 @@
         <link rel="stylesheet" href="src/css/loading-screen-minified.css">
         <link rel="stylesheet" href="src/css/menu.css">
         <link rel="stylesheet" href="src/css/board-minified.css">
-        <link rel="stylesheet" href="src/css/popup-minified.css">
+        <link rel="stylesheet" href="src/css/popup.css">
         <link rel="stylesheet" href="src/css/order-screen-minified.css">
     </head>
     <body>
@@ -44,6 +44,16 @@
                                 <div id="confirm-button" class="popup-button" onclick="userConfirm()"></div>
                             </div>
                         </div>
+                        <div class="before-u-play" id="before-u-play">
+                            <img src="src/images/optimized/tinified/before-u-play.png"  alt="lupu coffee"/>
+                            <div class="bup-content" id="bup-content">
+                                <h2 id="bup-title">Vòng 1</h2>
+                                <p id="bup-text">Ẩn dưới những viên kẹo này là những mệnh giá ngẫu nhiên từ 25k - 200k. Bạn sẽ phải loại bỏ đi 6 viên kẹo bằng cách nhấn vào chúng. Khi chỉ còn 3 viên bạn sẽ sang vòng tiếp theo. Nên cân nhắc trước khi chọn nhé!  </p>
+                                <div id="bup-agree-button" class="bup-agree-button" onclick="hideBUP()">
+                                    <img src="src/images/optimized/tinified/agree-button.png" alt="lupu coffee"/>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="guide-text" id="guide-text">
                         Ẩn dưới những viên kẹo này là <span>100k</span> <br>
@@ -56,7 +66,7 @@
                     </div>
                     <div class="game-menu" id="game-menu">
                         <div class="menu-background">
-                            <img src="src/images/optimized/tinified/menu-background.png"/>
+                            <img src="src/images/optimized/tinified/menu-background.png" alt="lupu coffee"/>
                         </div>
                         <!-- <p>Uống cùng LUPU nhận ngay tiền mặt lên đến</p>
                         <p>10.000.000 VNĐ</p> -->

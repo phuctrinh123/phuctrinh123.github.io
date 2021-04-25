@@ -54,3 +54,56 @@
     left: 18%;
     
 }
+
+.before-u-play{
+    height: 100%;
+    position: absolute;
+    top:0;
+    transform: scale(0);
+    transition: transform 0.2s ease-in-out;
+    width: 100%;
+}
+
+.before-u-play.show{
+    transform: scale(1);
+    transition: transform 0.2s ease-in-out;
+}
+
+.before-u-play > img{
+    max-width: 100%;
+    position: absolute;
+    top:0;
+}
+
+.bup-content{
+    box-sizing: border-box;
+    position: relative;
+    text-align: center;
+    padding: 1em;
+}
+
+.bup-content > h2{
+    color:#ffd577;
+    margin-bottom: 0;
+}
+
+.bup-content > p{
+    box-sizing: border-box;
+    color:wheat;
+    margin: 0;
+    padding: 1em;
+    text-align: left;
+}
+
+.bup-agree-button{
+    align-items: center;
+    display: flex;
+    height: 4em;
+    margin: 0 auto;
+    width: 60%;
+}
+
+
+.bup-agree-button > img{
+    max-width: 100%;
+}

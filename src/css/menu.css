@@ -39,7 +39,7 @@
 }
 
 .menu-button:nth-child(2){
-    margin-top: 17%;
+    margin-top: 22%;
 }
 
 .menu-button > img{
@@ -64,5 +64,5 @@
 .copyright{
     color: rgb(255, 231, 199);
     font-size: 0.8em;
-    margin-top: 43% !important;
+    margin-top: 40% !important;
 }
