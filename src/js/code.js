@@ -406,35 +406,35 @@ function blockTap(index,blockWidth = 0, blockHeight = 0){
         let blockContainer = document.createElement("div");
         blockContainer.className = "block show selected";
        
-        if(shareFacebook != 0){
+        // if(shareFacebook != 0){
             blockContainer.innerHTML = `<img 
-                src="src/images/optimized/tinified/block-${index}-wrong.png" 
+                src="src/images/optimized/tinified/block-${index}.png" 
                 alt="lupu giải thưởng"
                 width= "100%"
                 height= "100%"
                 style="height: 100% !important; width:100% !important;"
             />`;
-            popupContent.innerHTML = "Bạn có muốn thử 1 ly trà mật rừng hoặc phin sữa nâu không?<br>(+1 lượt/ly)"
+            popupContent.innerHTML = "Bạn có muốn thử 1 ly trà mật rừng hoặc phin sữa nâu không để mở viên kẹo này không?"
             popupCancelButton.style.display = "block";
             popupConfirmButton.style.backgroundImage = `url("src/images/optimized/tinified/confirm-button.png")`;
             popupConfirmButton.style.right = "10%";
             popupConfirmButton.setAttribute("onclick", "userConfirm()");
-        }
-        else{
-            blockContainer.innerHTML = `<img 
-                src="src/images/optimized/tinified/more-plays.png" 
-                alt="lupu giải thưởng"
-                width= "100%"
-                height= "100%"
-                style="height: 100% !important; width:100% !important;"
-            />`;
-            popupContent.innerHTML = `Nhấn vào nút share bên dưới để nhận thêm lượt chơi. 100k đang chờ đợi bạn.`
-            popupCancelButton.style.display = "none";
-            popupConfirmButton.style.backgroundImage = `url("src/images/optimized/tinified/share-button.png")`;
-            popupConfirmButton.style.right = "30%";
-            popupConfirmButton.setAttribute("onclick", "shareFacebookClick()");
+        // }
+        // else{
+            // blockContainer.innerHTML = `<img 
+            //     src="src/images/optimized/tinified/more-plays.png" 
+            //     alt="lupu giải thưởng"
+            //     width= "100%"
+            //     height= "100%"
+            //     style="height: 100% !important; width:100% !important;"
+            // />`;
+            // popupContent.innerHTML = `Nhấn vào nút share bên dưới để nhận thêm lượt chơi. 100k đang chờ đợi bạn.`
+            // popupCancelButton.style.display = "none";
+            // popupConfirmButton.style.backgroundImage = `url("src/images/optimized/tinified/share-button.png")`;
+            // popupConfirmButton.style.right = "30%";
+            // popupConfirmButton.setAttribute("onclick", "shareFacebookClick()");
 
-        }
+        // }
 
         popupBlockDisplayer.innerHTML = "";
         popupBlockDisplayer.append(blockContainer);
