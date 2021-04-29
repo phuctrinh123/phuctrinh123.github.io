@@ -1,0 +1,288 @@
+@keyframes popIn {
+    0%{ transform: scale(0);}
+    15%{ transform: scale(1.2);}
+    30%{ transform: scale(0.8);}
+    50%{ transform: scale(1.1);}
+    75%{ transform: scale(0.9);}
+    100%{ transform: scale(1);}
+}
+
+@keyframes fadeIn {
+    0%{ opacity: 0;}
+    100%{ opacity: 1;}
+}
+
+@keyframes fadeOut {
+    0%{ opacity: 1;}
+    100%{ opacity: 0;}
+}
+
+@keyframes fadeScaleIn {
+    0%{ opacity: 1; transform: translateX(-50%) scale(0);}
+    15%{ opacity: 1; transform: translateX(-50%) scale(1);}
+    100%{ opacity: 0; transform: translateX(-50%) scale(2);}
+}
+
+@keyframes scaleIn {
+    0%{transform:scale(0);}
+    100%{transform:scale(1);}
+}
+
+
+@keyframes scaleOut {
+    0%{transform:scale(1);}
+    100%{transform:scale(0);}
+}
+
+
+@keyframes popOut {
+    0%{ transform: scale(1);}
+    50%{ transform: scale(1.2);}
+    100%{ transform: scale(0);}
+}
+
+
+@font-face {
+    font-family: anton;
+    src: url(../../src/fonts/Anton-Regular.ttf);
+}
+
+body{
+    align-items: center;
+    display: flex;
+    font-family: anton;
+    justify-content: center;
+    margin: 0;
+    position: relative;
+}
+
+.board{
+    background-image: url('../../src/images/optimized/tinified/board.png');
+    background-size: contain;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin:0 auto;
+    opacity: 0;
+    position: relative;
+    padding: 0.7em;
+}
+
+.board.show{
+    animation:  fadeIn 1s ease-in-out forwards;
+    -webkit-animation:  fadeIn 1s ease-in-out forwards;
+}
+
+.board > .board-shadow{
+    align-self: center;
+    box-shadow: 0em 3em 6em rgba(0,0,0,0.5);
+    border-radius: 0.8em;
+    display: flex;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    z-index: -10;
+}
+
+.board > .block{
+    align-items: center;
+    display: flex;
+    height: calc(100%/3.1);
+    justify-content: center;
+    margin: auto;
+    position: relative;
+    transform: scale(0);
+    width: calc(100%/3.1);
+}
+
+.board > .block.show{
+    animation:  popIn 1s ease-in-out forwards;
+    -webkit-animation:  popIn 1s ease-in-out forwards;
+}
+
+.board > .block.show-revert{
+    transform: scale(1);
+}
+
+.board > .block.show-revert> .candy{
+    transform: scale(0);
+    animation:  popIn 0.5s ease-in-out 0.2s forwards;
+    -webkit-animation:  popIn 0.5s ease-in-out 0.2s forwards;
+}
+
+.board > .block.show-revert> img{
+    transform: scale(1);
+    animation:  popOut 0.5s ease-in-out  forwards;
+    -webkit-animation:  popOut 0.5s ease-in-out  forwards;
+}
+
+
+.board > .block.hide{
+    animation:  popOut 0.5s ease-in-out forwards;
+    -webkit-animation:  popOut 0.5s ease-in-out forwards;
+}
+
+.board > .block.show-prize > .candy{
+    animation:  popOut 0.5s ease-in-out forwards;
+    -webkit-animation:  popOut 0.5s ease-in-out forwards;
+}
+
+.board > .block.show-prize > img{
+    animation:  popIn 0.5s ease-in-out 0.2s forwards;
+    -webkit-animation:  popIn 0.5s ease-in-out 0.2s forwards;
+}
+
+
+.board > .block:nth-child(2), 
+.board > .block:nth-child(5), 
+.board > .block:nth-child(8){
+    height: calc(100%/2.95);
+    width: calc(100%/2.95);
+}
+
+.board > .block > .candy {
+    align-items: center;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    width: 100%;
+}
+
+
+.board > .block > img, .board > .block > .candy > img{
+    height: 100%;
+    width: 100%;
+}
+
+
+.board > .block > img{
+    position: absolute;
+    transform: scale(0);
+    z-index: -1;
+}
+
+.board > .block:nth-child(1) > .candy > img, 
+.board > .block:nth-child(2) > .candy > img, 
+.board > .block:nth-child(3) > .candy > img{
+   margin-top: -0.5em;
+}
+
+
+.board > .block:nth-child(1) > .candy > img, 
+.board > .block:nth-child(4) > .candy > img, 
+.board > .block:nth-child(7) > .candy > img{
+   margin-right: 0.4em;
+}
+
+.board > .block:nth-child(2) > .candy > img, 
+.board > .block:nth-child(5) > .candy > img, 
+.board > .block:nth-child(8) > .candy > img{
+    height: 95%;
+    width: 95%;
+}
+
+.board > .block:nth-child(3) > .candy > img, 
+.board > .block:nth-child(6) > .candy > img, 
+.board > .block:nth-child(9) > .candy > img{
+   margin-left: 0.2em;
+}
+
+/* ----------------------round---------------------------------- */
+
+.round-label{
+    align-self: center;
+    display: flex;
+    height: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translateX(-50%) scale(0);
+    width: 50%;
+    z-index: -10;
+}
+
+.round-label.show{
+    animation:  fadeScaleIn 1.5s ease-in-out forwards;
+    -webkit-animation:  fadeScaleIn 1.5s ease-in-out forwards;
+    z-index: 10;
+}
+
+.round-label > img{
+    height: 100%;
+    width: 100%;
+}
+
+/* ----------------------popup---------------------------------- */
+
+.board > .popup{
+    height: 100%;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    top:0;
+    transform: scale(0);
+    width: 100%;
+}
+
+.board > .popup.show{
+    animation:  fadeIn 0.5s ease-in-out forwards;
+    -webkit-animation:  fadeIn 0.5s ease-in-out forwards;
+    transform: scale(1);
+}
+
+.board > .popup.show > .wrapper > .content{
+    animation:  fadeIn 0.5s ease-in-out 0.3s forwards;
+    -webkit-animation:  fadeIn 0.5s ease-in-out 0.3s forwards;
+}
+
+.board > .popup.hide{
+    animation:  fadeOut 0.4s ease-in-out forwards;
+    -webkit-animation:  fadeOut 0.4s ease-in-out forwards;
+}
+
+.board > .popup > .wrapper{
+    height: 100%;
+    position: relative;
+    width: 100%;
+}
+
+.board > .popup > .wrapper > img{
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top:0;
+    width: 100%;
+}
+
+.board > .popup > .wrapper > .content{
+    height: 100%;
+    opacity: 0;
+    position: relative;
+    width: 100%;
+}
+
+.board > .popup > .wrapper > .content > div{
+    align-items: center;
+    display: flex;
+    height: 7em;
+    justify-content: center;
+    width: 100%;
+}
+
+.board > .popup > .wrapper > .content > div > img{
+    max-height: 100%;
+}
+
+.board > .popup > .wrapper > .content > p{
+    color:wheat;
+    margin-top: -1em;
+    padding: 0 2em;
+    
+}
+
+.board > .popup > .wrapper > .content > .button{
+    height: 5em;
+}
+
+

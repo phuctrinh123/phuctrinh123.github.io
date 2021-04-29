@@ -1,0 +1,136 @@
+<!-- <!DOCTYPE html> -->
+<html lang="vi">
+    <head>
+        <title>Uống cùng LUPU trúng ngay 10.000.000VNĐ</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Sảng khoái cùng LUPU với những cốc phin sữa nâu và trà mật rừng cực chất. Giải thưởng 10.000.000 VND đang chờ bạn.">
+        <meta property="og:url"           content="https://lupucoffee.com/" />
+        <meta property="og:type"          content="website" />
+        <meta property="og:title"         content="Uống cùng LUPU trúng ngay 10.000.000VNĐ" />
+        <meta property="og:description"   content="Sảng khoái cùng LUPU với những cốc phin sữa nâu và trà mật rừng cực chất. Giải thưởng 10.000.000 VND đang chờ bạn." />
+        <meta property="og:image"         content="https://lupucoffee.com/src/images/optimized/tinified/website-thumbnail_.png" />
+        <link rel="stylesheet" href="src/css/main.css">
+        <link rel="stylesheet" href="src/css/loading-screen-minified.css">
+        <link rel="stylesheet" href="src/css/menu.css">
+        <link rel="stylesheet" href="src/css/board-minified.css">
+        <link rel="stylesheet" href="src/css/popup.css">
+        <link rel="stylesheet" href="src/css/order-screen-minified.css">
+    </head>
+    <body>
+        <div class="app" id="app">
+            <div class="loading-screen show" id="loading-screen">
+                <div class="loading-bar show" id="loading-bar">
+                    <div class="wrapper">
+                        <div class="progress-bar" id="progress-bar"></div>
+                        <img id="image-loader" src="" width="1px" height="1px" alt="lupu coffee"/>
+                    </div>
+                </div>
+            </div>
+            <div class="app-container">
+                <div class="wrapper" id="main-screen">
+                    <div class="background-header" id="background-header">
+                        <img src="src/images/optimized/tinified/background-header.png" width="100%" height="100%" alt="sinh nhật lupu coffee"/>
+                    </div>
+                    <div class="game-logo" id="game-logo"></div>
+                    <div class="game-board" id="game-board">
+                        <div class="board-shadow" id="game-board-shadow"></div>
+                        <div class="board" id="board">
+                        </div>
+                        <div id="confirm-select-popup" class="popup">
+                            <div class="wrapper">
+                                <div class="selected-block" id="selected-block"></div>
+                                <div class="content" id="content">Bạn có chắc chắn muốn mở viên kẹo này chứ? Bạn sẽ không thể hồi lại đâu nhé.</div>   
+                                <div id="cancel-button" class="popup-button" onclick="hidePopup()"></div>
+                                <div id="confirm-button" class="popup-button" onclick="userConfirm()"></div>
+                            </div>
+                        </div>
+                        <div class="before-u-play" id="before-u-play">
+                            <img src="src/images/optimized/tinified/before-u-play.png"  alt="lupu coffee"/>
+                            <div class="bup-content" id="bup-content">
+                                <h2 id="bup-title">Vòng 1</h2>
+                                <p id="bup-text">Ẩn dưới những viên kẹo này là những mệnh giá ngẫu nhiên từ 1k - 400k. Bạn sẽ phải loại bỏ đi 6 viên kẹo bằng cách nhấn vào chúng. Khi chỉ còn 3 viên bạn sẽ sang vòng tiếp theo. Nên cân nhắc trước khi chọn nhé!  </p>
+                                <div id="bup-agree-button" class="bup-agree-button" onclick="hideBUP()">
+                                    <img src="src/images/optimized/tinified/agree-button.png" alt="lupu coffee"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="guide-text" id="guide-text">
+                        Bạn sẽ phải bỏ đi 6 viên kẹo chỉ để lại 3. Nhấn vào 1 viên bất kì để bỏ.
+                    </div>
+                    <div class="play-times-indicator" id="play-times-indicator">
+                        <div class="wrapper">
+                            <div id="round1-content" class="show">Còn <span class="play-times" id="play-times"></span> viên phải bỏ</div>
+                            <div id="round2-content">Bạn có <span class="play-times" id="round2-play-times"></span> lượt chơi</div>
+                        </div>
+                    </div>
+                    <div class="game-menu" id="game-menu">
+                        <div class="menu-background">
+                            <img src="src/images/optimized/tinified/menu-background.png" alt="lupu coffee"/>
+                        </div>
+                        <!-- <p>Uống cùng LUPU nhận ngay tiền mặt lên đến</p>
+                        <p>10.000.000 VNĐ</p> -->
+                        <div class="menu-button" onclick="playGame()"><img src="src/images/optimized/tinified/play-button.png"/></div>
+                        <div class="menu-button"><img src="src/images/optimized/tinified/term-button.png"/></div>
+                        <div class="menu-button"><img src="src/images/optimized/tinified/policy-button.png"/></div>
+                        <p class="copyright">Một sản phẩm của đội ngũ LUPU Coffee</p>
+                    </div>
+                </div>    
+                <div class="order-screen" id="order-screen">
+                    <div class="wrapper">
+                        <div class="order-screen-background" id="popup-background"></div>
+                        <div class="order-screen-background-bottom" id="popup-bottom-background"></div>
+                        <div class="order-popup" id="order-popup">
+                            <div class="wrapper">
+                                <img id="order-popup-background" src="src/images/optimized/tinified/order-popup.png" alt="lupu menu">
+                                <div class="order-popup-content">
+                                    <div class="wrapper">
+                                        <div class="drinks-list">
+                                            <div class="list">
+                                                <div class="product">
+                                                    <div class="left-col">
+                                                        <img src="src/images/optimized/tinified/product-1.png" alt="trà mật rừng LUPU lupu"/>
+                                                    </div>
+                                                    <div class="right-col">
+                                                        <p>Trà Mật Rừng</p>
+                                                        <p>Chỉ 29k size L</p>
+                                                        <p>Hương vị chỉ có tại LUPU, đừng bỏ qua nhé!</p>
+                                                    </div>
+                                                </div>
+                                                <div style="width: 100px; height: 100%;"></div>
+                                                <div class="product">
+                                                    <div class="left-col">
+                                                        <img src="src/images/optimized/tinified/product-2.png" alt="trà mật rừng LUPU lupu"/>
+                                                    </div>
+                                                    <div class="right-col">
+                                                        <p>Phin sữa nâu</p>
+                                                        <p>Chỉ 29k size L</p>
+                                                        <p>Gồm 3 vị đặc trưng đang chờ bạn!</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tooltips" id="tooltips">
+                                                Quẹt sang phải để xem thêm bạn nhé!
+                                            </div>
+                                        </div>
+                                        <div class="button-group">
+                                            <div class="order-popup-button" id="order-popup-cancel-button" onclick="returnToBoard()"></div>
+                                            <div class="order-popup-button" id="order-popup-order-button"></div>
+                                        </div>
+                                        <div class="order-popup-guide-text">
+                                            Bạn sẽ được chuyển đến inbox của LUPU khi nhấn <span style="color:#FF7600;">Gọi nước</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <div id="dialog" style="position:absolute; top:0; left: 0; background: black; border-radius: 5px; padding: 5px; color: white;"></div> -->
+        <div id="fb-root"></div>
+        <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v10.0&appId=124124633037576&autoLogAppEvents=1" nonce="EknkgzAJ"></script>
+        <script src="src/js/code.js"></script>
+    </body>
+</html>
