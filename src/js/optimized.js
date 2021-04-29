@@ -90,7 +90,7 @@ const _precision = 10;
 
 
 let prizeInBlock = [];
-let _openedBlock = [];
+let openedBlock = [];
 let unopenBlock = [];
 let blockHasPrize = null;
 let maxValueBlock = null;
@@ -292,8 +292,8 @@ showBlock = (i = 1)=>{
 }
 
 hideBlocks = ()=>{
-    for(let i = 0; i < _openedBlock.length; i++){
-        let block = document.getElementById(`block-${_openedBlock[i]}`);
+    for(let i = 0; i < openedBlock.length; i++){
+        let block = document.getElementById(`block-${openedBlock[i]}`);
         block.className += " hide";
     }
 }
@@ -301,7 +301,7 @@ hideBlocks = ()=>{
 round1LogicTap = (index)=>{
     let targetBlock = document.getElementById(`block-${index}`);
     showPrize(index);
-    _openedBlock.push(index);
+    openedBlock.push(index);
     openTimes --;
     console.log(openTimes);
     targetBlock.setAttribute("onlick","");
@@ -326,7 +326,7 @@ round1LogicTap = (index)=>{
 
 round2LogicTap = (index)=>{
     showPrize(index);
-    _openedBlock.push(index);
+    openedBlock.push(index);
     openTimes --;
     showPopup();
 

@@ -162,14 +162,14 @@ let prizes = {
 //     136 : {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "Dưới viên kẹo này là 1k. Bạn có muốn nhận nó không?"},
 // }
 let prizeMapWithBlock = [0];
-var openedBlock = [];
+// var openedBlock = [];
 var allLoaded =  false;
-var selectingBlock = null;
-var selectingBlockIndex = 0;
+// var selectingBlock = null;
+// var selectingBlockIndex = 0;
 let playTimes = 6;
-let precision = 10;
-let round2PlayTime = 1;
-var notifyUserState = 0;
+// let precision = 10;
+// let round2PlayTime = 1;
+// var notifyUserState = 0;
 var shareFacebook = 0;
 var clickOnPlay = 0;
 
@@ -209,20 +209,20 @@ function randomNumber(max) {
 // }, 0);
 
 
-function hideBUP(callback = null, delay = null){
-    var bup = byID("before-u-play");
-    bup.className = "before-u-play";
-    if(callback){
-      if(delay){
-          setTimeout(() => {
-            callback();
-          }, delay);
-      }else{
-        callback();
-      }
+// function hideBUP(callback = null, delay = null){
+//     var bup = byID("before-u-play");
+//     bup.className = "before-u-play";
+//     if(callback){
+//       if(delay){
+//           setTimeout(() => {
+//             callback();
+//           }, delay);
+//       }else{
+//         callback();
+//       }
        
-    }
-}
+//     }
+// }
 
 function playGame(){
     var menu = byID("game-menu");
@@ -454,28 +454,28 @@ function redirectToFacebook(){
 //     }
 // }
 
-function hidePopup(){
-    var confirmPopup = byID("confirm-select-popup");
-    var guideText = byID("guide-text");
-    let prize = byID(`prize-${selectingBlockIndex}`);
-    confirmPopup.className = "popup";
-    if(notifyUserState == 0){
-        if(playTimes > 0){
-            setTimeout(()=>{ selectingBlock.className = "block normal show";},300)
-        }
-    }else{
-        if(playTimes == 0) {
-            guideText.innerHTML = "Những viên kẹo còn lại biết cách giúp bạn có thêm lượt đấy"
-        }else if (playTimes > 0){
-            if (prize) {
-                prize.className = "";
-                selectingBlock.className = "block normal show";
-            }
-        }
-        notifyUserState = 0;
-    }
+// function hidePopup(){
+//     var confirmPopup = byID("confirm-select-popup");
+//     var guideText = byID("guide-text");
+//     let prize = byID(`prize-${selectingBlockIndex}`);
+//     confirmPopup.className = "popup";
+//     if(notifyUserState == 0){
+//         if(playTimes > 0){
+//             setTimeout(()=>{ selectingBlock.className = "block normal show";},300)
+//         }
+//     }else{
+//         if(playTimes == 0) {
+//             guideText.innerHTML = "Những viên kẹo còn lại biết cách giúp bạn có thêm lượt đấy"
+//         }else if (playTimes > 0){
+//             if (prize) {
+//                 prize.className = "";
+//                 selectingBlock.className = "block normal show";
+//             }
+//         }
+//         notifyUserState = 0;
+//     }
    
-}
+// }
 
 function returnToBoard(){
     var orderScreen = byID("order-screen");
