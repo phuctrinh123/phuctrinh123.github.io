@@ -189,23 +189,24 @@ function randomNumber(max) {
     return Math.floor(Math.random() * max);
 }
 
-function shufflePrize(){
-    let randomPrize = randomNumber(precision);
-    if(prizeMapWithBlock.length != Object.keys(prizes).length + 1){
-        if(!prizeMapWithBlock.includes(randomPrize) && (randomPrize != 0)){
-            prizeMapWithBlock.push(randomPrize);
-        }
-    }else{
-        clearInterval(generatePrizeMap);
-        boardInit();
-    }
-}
+// function shufflePrize(){
+//     let randomPrize = randomNumber(precision);
+//     if(prizeMapWithBlock.length != Object.keys(prizes).length + 1){
+//         if(!prizeMapWithBlock.includes(randomPrize) && (randomPrize != 0)){
+//             prizeMapWithBlock.push(randomPrize);
+//         }
+//     }else{
+//         clearInterval(generatePrizeMap);
+//         boardInit();
+//     }
+// }
 
-let generatePrizeMap = setInterval(() => {
-    shufflePrize();
-    // console.log(Object.keys(prizes).length );
-    // console.log(prizeMapWithBlock);
-}, 0);
+// let generatePrizeMap = setInterval(() => {
+//     shufflePrize();
+//     // console.log(Object.keys(prizes).length );
+//     // console.log(prizeMapWithBlock);
+// }, 0);
+
 
 function hideBUP(callback = null, delay = null){
     var bup = byID("before-u-play");
@@ -233,10 +234,10 @@ function playGame(){
     playTimeIndicator.className += " show";
     setTimeout(function(){
         menu.style.zIndex = -1000;
-        setTimeout(()=>{
-            let beforeUPlay = byID("before-u-play");
-            beforeUPlay.className += " show";
-        }, 500);
+        // setTimeout(()=>{
+        //     let beforeUPlay = byID("before-u-play");
+        //     beforeUPlay.className += " show";
+        // }, 500);
     },200)
 }
 
@@ -277,179 +278,179 @@ function redirectToFacebook(){
     window.location.href = "https://www.facebook.com/lupucoffee";
 }
 
-function hideAllPrize(){
-    for(let i = 0; i< openedBlock.length; i++){
-        let prizeElem = byID(`prize-${openedBlock[i]}`);
-        prizeElem.className = "";
-    }
-    setTimeout(() => {
-        let beforeUPlay = byID("before-u-play");
-        let bupTitle = byID("bup-title");
-        let bupText = byID("bup-text");
-        let bupButton = byID("bup-agree-button");
-        let round1Content = byID("round1-content");
-        let round2Content = byID("round2-content");
-        let round2PlayTimeIndicator = byID("round2-play-times");
-        bupTitle.innerHTML = "Vòng 2";
-        bupText.innerHTML = `LUPU sẽ giữ lại viên kẹo có giá trị cao nhất, 2 viên còn lại sẽ không có gì. Giá trị của ba viên này sẽ bị hoán đổi cho nhau. Bạn chỉ được chọn 1 viên trong 3 viên này. Chúc bạn may mắn.`;
-        bupButton.setAttribute("onclick","hideBUP(showAllPrize,1000)");
-        round2PlayTimeIndicator.innerHTML = round2PlayTime;
-        beforeUPlay.className += " show";
-        round1Content.className = "";
-        round2Content.className += "show";
+// function hideAllPrize(){
+//     for(let i = 0; i< openedBlock.length; i++){
+//         let prizeElem = byID(`prize-${openedBlock[i]}`);
+//         prizeElem.className = "";
+//     }
+//     setTimeout(() => {
+//         let beforeUPlay = byID("before-u-play");
+//         let bupTitle = byID("bup-title");
+//         let bupText = byID("bup-text");
+//         let bupButton = byID("bup-agree-button");
+//         let round1Content = byID("round1-content");
+//         let round2Content = byID("round2-content");
+//         let round2PlayTimeIndicator = byID("round2-play-times");
+//         bupTitle.innerHTML = "Vòng 2";
+//         bupText.innerHTML = `LUPU sẽ giữ lại viên kẹo có giá trị cao nhất, 2 viên còn lại sẽ không có gì. Giá trị của ba viên này sẽ bị hoán đổi cho nhau. Bạn chỉ được chọn 1 viên trong 3 viên này. Chúc bạn may mắn.`;
+//         bupButton.setAttribute("onclick","hideBUP(showAllPrize,1000)");
+//         round2PlayTimeIndicator.innerHTML = round2PlayTime;
+//         beforeUPlay.className += " show";
+//         round1Content.className = "";
+//         round2Content.className += "show";
 
-    }, 1000);
+//     }, 1000);
     
-}
+// }
 
-function showAllPrize(){
-    let maxValue = 0;
-    let maxBlockIndex = null;
-    for(let i = 1; i <= totalBlock; i++){
-        if(!openedBlock.includes(i)){
-            let prize = byID(`prize-${i}`);
-            if(parseInt(prize.getAttribute("data-value")) > maxValue){
-                console.log(prize.getAttribute("data-value"));
-                maxValue = prize.getAttribute("data-value");
-                maxBlockIndex = i;
-            }
-        }
-    }
-    let prize = byID(`prize-${maxBlockIndex}`);
-    let block = byID(`block-${maxBlockIndex}`);
-    block.className = "block hide";
-    prize.className += " show";
+// function showAllPrize(){
+//     let maxValue = 0;
+//     let maxBlockIndex = null;
+//     for(let i = 1; i <= totalBlock; i++){
+//         if(!openedBlock.includes(i)){
+//             let prize = byID(`prize-${i}`);
+//             if(parseInt(prize.getAttribute("data-value")) > maxValue){
+//                 console.log(prize.getAttribute("data-value"));
+//                 maxValue = prize.getAttribute("data-value");
+//                 maxBlockIndex = i;
+//             }
+//         }
+//     }
+//     let prize = byID(`prize-${maxBlockIndex}`);
+//     let block = byID(`block-${maxBlockIndex}`);
+//     block.className = "block hide";
+//     prize.className += " show";
 
-    setTimeout(() => {
-        block.className = "block show";
-    prize.className = "";
-    }, 1500);
+//     setTimeout(() => {
+//         block.className = "block show";
+//     prize.className = "";
+//     }, 1500);
 
-}
+// }
 
-function blockTap(index,blockWidth = 0, blockHeight = 0){
-    var block = byID(`block-${index}`);
-    var popup = byID("confirm-select-popup");
-    var popupContent = byID('content');
-    var popupBlockDisplayer = byID("selected-block"); // => display the selected block on popup
-    var popupCancelButton = byID("cancel-button");
-    var popupConfirmButton = byID("confirm-button");
-    var playTimeIndicator = byID("play-times");
-    // console.log(playTimes);
-    if(playTimes > 0){
-        let clonedBlock = block.cloneNode(true);
-        selectingBlock = block;
-        selectingBlockIndex = index;
-        block.className = "block show selected";
-        selectingBlock.className = "block hide";
-        clonedBlock.className = "block show selected";
-        clonedBlock.id = "_selectedBlock";
-        clonedBlock.style.margin = "0";
-        clonedBlock.style.transform = "scale(1)";
-        popupBlockDisplayer.innerHTML = '<div class="glow-effect" id="glow-effect"></div>';
-        popupBlockDisplayer.style.height = blockHeight;
-        popupBlockDisplayer.style.width = blockWidth;
-        popupBlockDisplayer.appendChild(clonedBlock);
+// function blockTap(index,blockWidth = 0, blockHeight = 0){
+//     var block = byID(`block-${index}`);
+//     var popup = byID("confirm-select-popup");
+//     var popupContent = byID('content');
+//     var popupBlockDisplayer = byID("selected-block"); // => display the selected block on popup
+//     var popupCancelButton = byID("cancel-button");
+//     var popupConfirmButton = byID("confirm-button");
+//     var playTimeIndicator = byID("play-times");
+//     // console.log(playTimes);
+//     if(playTimes > 0){
+//         let clonedBlock = block.cloneNode(true);
+//         selectingBlock = block;
+//         selectingBlockIndex = index;
+//         block.className = "block show selected";
+//         selectingBlock.className = "block hide";
+//         clonedBlock.className = "block show selected";
+//         clonedBlock.id = "_selectedBlock";
+//         clonedBlock.style.margin = "0";
+//         clonedBlock.style.transform = "scale(1)";
+//         popupBlockDisplayer.innerHTML = '<div class="glow-effect" id="glow-effect"></div>';
+//         popupBlockDisplayer.style.height = blockHeight;
+//         popupBlockDisplayer.style.width = blockWidth;
+//         popupBlockDisplayer.appendChild(clonedBlock);
 
-        if(prizeMapWithBlock[selectingBlockIndex] != 0){
-            var blockDisplayedInDisplayer = byID("_selectedBlock");
-            var glowEffect = byID("glow-effect");
-            let prize = byID(`prize-${selectingBlockIndex}`); //prize in the selected block
-            let prizeContainer = document.createElement("div");
+//         if(prizeMapWithBlock[selectingBlockIndex] != 0){
+//             var blockDisplayedInDisplayer = byID("_selectedBlock");
+//             var glowEffect = byID("glow-effect");
+//             let prize = byID(`prize-${selectingBlockIndex}`); //prize in the selected block
+//             let prizeContainer = document.createElement("div");
 
-            prizeContainer.innerHTML = `<img 
-                src="${prizes[prizeMapWithBlock[selectingBlockIndex]].img}" 
-                alt="lupu giải thưởng"
-                width= "100%"
-                height= "100%"
-            />`;
-            popupBlockDisplayer.append(prizeContainer);
-            blockDisplayedInDisplayer .style.display = "none";
-            glowEffect.className += " show";
-            prize? prize.className += "show" : "";
-            popupContent.innerHTML = `${prizes[prizeMapWithBlock[selectingBlockIndex]].name}`;
-            // popupCancelButton.style.display = "block";
-            // popupConfirmButton. style.backgroundImage = `url("src/images/optimized/tinified/confirm-button.png")`;
-            // popupConfirmButton.style.right = "10%";
-            // popupConfirmButton.setAttribute("onclick", "userConfirm()");
-            popupCancelButton.style.display = "none";
-            popupConfirmButton.style.backgroundImage = `url("src/images/optimized/tinified/continue-button.png")`;
-            popupConfirmButton.style.right = "30%";
-            popupConfirmButton.setAttribute("onclick", "userConfirm()");
-            popup.className += " show";
-            notifyUserState = 1;
-            playTimeIndicator.innerHTML = playTimes > 0 ? playTimes - 1 : 0;
-            playTimes -= 1;
-            openedBlock.push(index);
-            if(playTimes == 0){
-                setTimeout(() => {
-                    hideAllPrize();
-                }, 1500);
-            }
+//             prizeContainer.innerHTML = `<img 
+//                 src="${prizes[prizeMapWithBlock[selectingBlockIndex]].img}" 
+//                 alt="lupu giải thưởng"
+//                 width= "100%"
+//                 height= "100%"
+//             />`;
+//             popupBlockDisplayer.append(prizeContainer);
+//             blockDisplayedInDisplayer .style.display = "none";
+//             glowEffect.className += " show";
+//             prize? prize.className += "show" : "";
+//             popupContent.innerHTML = `${prizes[prizeMapWithBlock[selectingBlockIndex]].name}`;
+//             // popupCancelButton.style.display = "block";
+//             // popupConfirmButton. style.backgroundImage = `url("src/images/optimized/tinified/confirm-button.png")`;
+//             // popupConfirmButton.style.right = "10%";
+//             // popupConfirmButton.setAttribute("onclick", "userConfirm()");
+//             popupCancelButton.style.display = "none";
+//             popupConfirmButton.style.backgroundImage = `url("src/images/optimized/tinified/continue-button.png")`;
+//             popupConfirmButton.style.right = "30%";
+//             popupConfirmButton.setAttribute("onclick", "userConfirm()");
+//             popup.className += " show";
+//             notifyUserState = 1;
+//             playTimeIndicator.innerHTML = playTimes > 0 ? playTimes - 1 : 0;
+//             playTimes -= 1;
+//             openedBlock.push(index);
+//             if(playTimes == 0){
+//                 setTimeout(() => {
+//                     hideAllPrize();
+//                 }, 1500);
+//             }
 
-        }else{
-            let blockDisplayedInDisplayer = byID("_selectedBlock");
-            let blockContainer = document.createElement("div");
-            blockContainer.className = "block show selected";
-            blockContainer.innerHTML =  `<img 
-                src="src/images/optimized/tinified/block-${selectingBlockIndex}-wrong.png" 
-                alt="lupu giải thưởng"
-                width= "100%"
-                height= "100%"
-                style="height: 100% !important; width:100% !important;"
-            />`;
-            popupBlockDisplayer.append(blockContainer);
-            blockDisplayedInDisplayer.style.display = "none";
-            popupContent.innerHTML = `Tiếc quá, dưới viên kẹo này chẳng có gì cả. Bạn có muốn tiếp tục không?`;
-            popupCancelButton.style.display = "none";
-            popupConfirmButton.style.backgroundImage = `url("src/images/optimized/tinified/continue-button.png")`;
-            popupConfirmButton.style.right = "30%";
-            popupConfirmButton.setAttribute("onclick", "userConfirm()");
-            popup.className += " show";
-            notifyUserState = 1;
-            playTimeIndicator.innerHTML = playTimes > 0 ? playTimes - 1 : 0;
-            playTimes -= 1;
-        }
-    }else{
-        let blockContainer = document.createElement("div");
-        blockContainer.className = "block show selected";
+//         }else{
+//             let blockDisplayedInDisplayer = byID("_selectedBlock");
+//             let blockContainer = document.createElement("div");
+//             blockContainer.className = "block show selected";
+//             blockContainer.innerHTML =  `<img 
+//                 src="src/images/optimized/tinified/block-${selectingBlockIndex}-wrong.png" 
+//                 alt="lupu giải thưởng"
+//                 width= "100%"
+//                 height= "100%"
+//                 style="height: 100% !important; width:100% !important;"
+//             />`;
+//             popupBlockDisplayer.append(blockContainer);
+//             blockDisplayedInDisplayer.style.display = "none";
+//             popupContent.innerHTML = `Tiếc quá, dưới viên kẹo này chẳng có gì cả. Bạn có muốn tiếp tục không?`;
+//             popupCancelButton.style.display = "none";
+//             popupConfirmButton.style.backgroundImage = `url("src/images/optimized/tinified/continue-button.png")`;
+//             popupConfirmButton.style.right = "30%";
+//             popupConfirmButton.setAttribute("onclick", "userConfirm()");
+//             popup.className += " show";
+//             notifyUserState = 1;
+//             playTimeIndicator.innerHTML = playTimes > 0 ? playTimes - 1 : 0;
+//             playTimes -= 1;
+//         }
+//     }else{
+//         let blockContainer = document.createElement("div");
+//         blockContainer.className = "block show selected";
        
-        // if(shareFacebook != 0){
-            blockContainer.innerHTML = `<img 
-                src="src/images/optimized/tinified/block-${index}.png" 
-                alt="lupu giải thưởng"
-                width= "100%"
-                height= "100%"
-                style="height: 100% !important; width:100% !important;"
-            />`;
-            popupContent.innerHTML = "Bạn có muốn thử 1 ly trà mật rừng hoặc phin sữa nâu không để mở viên kẹo này không?"
-            popupCancelButton.style.display = "block";
-            popupConfirmButton.style.backgroundImage = `url("src/images/optimized/tinified/confirm-button.png")`;
-            popupConfirmButton.style.right = "10%";
-            popupConfirmButton.setAttribute("onclick", "userConfirm()");
-        // }
-        // else{
-            // blockContainer.innerHTML = `<img 
-            //     src="src/images/optimized/tinified/more-plays.png" 
-            //     alt="lupu giải thưởng"
-            //     width= "100%"
-            //     height= "100%"
-            //     style="height: 100% !important; width:100% !important;"
-            // />`;
-            // popupContent.innerHTML = `Nhấn vào nút share bên dưới để nhận thêm lượt chơi. 100k đang chờ đợi bạn.`
-            // popupCancelButton.style.display = "none";
-            // popupConfirmButton.style.backgroundImage = `url("src/images/optimized/tinified/share-button.png")`;
-            // popupConfirmButton.style.right = "30%";
-            // popupConfirmButton.setAttribute("onclick", "shareFacebookClick()");
+//         // if(shareFacebook != 0){
+//             blockContainer.innerHTML = `<img 
+//                 src="src/images/optimized/tinified/block-${index}.png" 
+//                 alt="lupu giải thưởng"
+//                 width= "100%"
+//                 height= "100%"
+//                 style="height: 100% !important; width:100% !important;"
+//             />`;
+//             popupContent.innerHTML = "Bạn có muốn thử 1 ly trà mật rừng hoặc phin sữa nâu không để mở viên kẹo này không?"
+//             popupCancelButton.style.display = "block";
+//             popupConfirmButton.style.backgroundImage = `url("src/images/optimized/tinified/confirm-button.png")`;
+//             popupConfirmButton.style.right = "10%";
+//             popupConfirmButton.setAttribute("onclick", "userConfirm()");
+//         // }
+//         // else{
+//             // blockContainer.innerHTML = `<img 
+//             //     src="src/images/optimized/tinified/more-plays.png" 
+//             //     alt="lupu giải thưởng"
+//             //     width= "100%"
+//             //     height= "100%"
+//             //     style="height: 100% !important; width:100% !important;"
+//             // />`;
+//             // popupContent.innerHTML = `Nhấn vào nút share bên dưới để nhận thêm lượt chơi. 100k đang chờ đợi bạn.`
+//             // popupCancelButton.style.display = "none";
+//             // popupConfirmButton.style.backgroundImage = `url("src/images/optimized/tinified/share-button.png")`;
+//             // popupConfirmButton.style.right = "30%";
+//             // popupConfirmButton.setAttribute("onclick", "shareFacebookClick()");
 
-        // }
-        popupBlockDisplayer.innerHTML = "";
-        popupBlockDisplayer.append(blockContainer);
-        popup.className += " show";
-        playTimeIndicator.innerHTML = 0;
-        playTimes -= 1;
-    }
-}
+//         // }
+//         popupBlockDisplayer.innerHTML = "";
+//         popupBlockDisplayer.append(blockContainer);
+//         popup.className += " show";
+//         playTimeIndicator.innerHTML = 0;
+//         playTimes -= 1;
+//     }
+// }
 
 function hidePopup(){
     var confirmPopup = byID("confirm-select-popup");
@@ -482,31 +483,31 @@ function returnToBoard(){
     mainScreen.style.filter = "none";
 }
 
-function userConfirm(){
-    var confirmPopup = document.getElementById("confirm-select-popup");
-    var guideText = document.getElementById("guide-text");
-    let block = byID("block-wrapper-"+selectingBlockIndex);
-    var orderScreen = byID("order-screen");
-    var mainScreen = byID("main-screen");
-    var tooltip = byID("tooltips");
+// function userConfirm(){
+//     var confirmPopup = document.getElementById("confirm-select-popup");
+//     var guideText = document.getElementById("guide-text");
+//     let block = byID("block-wrapper-"+selectingBlockIndex);
+//     var orderScreen = byID("order-screen");
+//     var mainScreen = byID("main-screen");
+//     var tooltip = byID("tooltips");
 
-    if(playTimes > -1){
-        if(playTimes == 0) {
-            guideText.innerHTML = "Chọn một trong 3 viên kẹo đã bị tráo đổi giá trị";
-        }
-        block.setAttribute("onClick","");
-        confirmPopup.className = "popup";
-    }  else if (playTimes < 0){
-        confirmPopup.className = "popup";
-        orderScreen.className += " show";
-        mainScreen.style.filter = "blur(5px)";
-        setTimeout(function(){
-            tooltip.style.display = "none";
-        },1500);
+//     if(playTimes > -1){
+//         if(playTimes == 0) {
+//             guideText.innerHTML = "Chọn một trong 3 viên kẹo đã bị tráo đổi giá trị";
+//         }
+//         block.setAttribute("onClick","");
+//         confirmPopup.className = "popup";
+//     }  else if (playTimes < 0){
+//         confirmPopup.className = "popup";
+//         orderScreen.className += " show";
+//         mainScreen.style.filter = "blur(5px)";
+//         setTimeout(function(){
+//             tooltip.style.display = "none";
+//         },1500);
 
-        // window.location.href = " http://m.me/lupucoffee";
-    }
-}
+//         // window.location.href = " http://m.me/lupucoffee";
+//     }
+// }
 
 function boardInit (){
     var app = byID("app");
@@ -521,9 +522,6 @@ function boardInit (){
     var confirmButton = document.getElementById("confirm-button");
     var content = document.getElementById('content');
     var orderPopup = byID("order-popup");
-    let moneyPrizeApplied = 0;
-    let materialPrizeApplied = 0;
-    let salePrizeApplied = 0;
     let boardWidth = /*board.offsetWidth;*/ viewportWidth;
     var htmlString = ""
     var rowCount = 0;
@@ -549,10 +547,10 @@ function boardInit (){
     menu.style.height = boardShadowSize *1.5;
     menu.style.marginTop= boardShadowSize/4;
 
-    gameBoardShadow.style.width = boardShadowSize;
-    gameBoardShadow.style.height = boardShadowSize;
-    board.style.width = boardSize;
-    board.style.height = boardSize;
+    // gameBoardShadow.style.width = boardShadowSize;
+    // gameBoardShadow.style.height = boardShadowSize;
+    // board.style.width = boardSize;
+    // board.style.height = boardSize;
 
     
     confirmPopup.style.width = boardSize;
@@ -569,126 +567,126 @@ function boardInit (){
 
     playTimeIndicator.innerHTML = playTimes;
 
-    for (let i = 1; i <= totalBlock; i++) {
-        // let randomPrize = randomNumber(precision);
-        var prize =  "";
-        // console.log(randomPrize);
-        // if((typeof (prizes[randomPrize]) != "undefined") && (!prizeMapWithBlock.includes(randomPrize))){  
-            // if(prizes[randomPrize].type == "money"){
-            //     if(moneyPrizeApplied != 1){
-            //         prize = `<img 
-            //             id="prize-${i}"
-            //             src="${prizes[randomPrize].img}" 
-            //             alt="${blockDescription[i]}"
-            //             width= "${blockSize}px"
-            //             height= "${blockSize}px"
-            //         />`;
-            //         prizeMapWithBlock[i] = randomPrize;
-            //         moneyPrizeApplied = 1;
-            //     }
-            //     else{
-            //         prizeMapWithBlock[i] = 0; 
-            //     }
-            // }
-            // else if(prizes[randomPrize].type == "material"){
-            //     if(materialPrizeApplied != 1){
-            //         prize = `<img 
-            //             id="prize-${i}"
-            //             src="${prizes[randomPrize].img}" 
-            //             alt="${blockDescription[i]}"
-            //             width= "${blockSize}px"
-            //             height= "${blockSize}px"
-            //         />`;
-            //         prizeMapWithBlock[i] = randomPrize;
-            //         materialPrizeApplied = 1;
-            //     }
-            //     else{
-            //         prizeMapWithBlock[i] = 0; 
-            //     }
-            // }
-            // else if(prizes[randomPrize].type == "sale"){
-            //     if(salePrizeApplied != 1){
-            //         prize = `<img 
-            //             id="prize-${i}"
-            //             src="${prizes[randomPrize].img}" 
-            //             alt="${blockDescription[i]}"
-            //             width= "${blockSize}px"
-            //             height= "${blockSize}px"
-            //         />`;
-            //         prizeMapWithBlock[i] = randomPrize;
-            //         salePrizeApplied = 1;
-            //     }
-            //     else{
-            //         prizeMapWithBlock[i] = 0; 
-            //     }
-            // }
-            // else{
-                // console.log("loop:"+i);
-                // console.log(prizeMapWithBlock);
-                // console.log("--");
-                prize = `<img 
-                    id="prize-${i}"
-                    src="${prizes[prizeMapWithBlock[i]].img}" 
-                    data-value="${prizes[prizeMapWithBlock[i]].value}"
-                    alt="${blockDescription[i]}"
-                    width= "${blockSize}px"
-                    height= "${blockSize}px"
-                />`;
-                // prizeMapWithBlock[i] = randomPrize;
-            // }
+    // for (let i = 1; i <= totalBlock; i++) {
+    //     // let randomPrize = randomNumber(precision);
+    //     var prize =  "";
+    //     // console.log(randomPrize);
+    //     // if((typeof (prizes[randomPrize]) != "undefined") && (!prizeMapWithBlock.includes(randomPrize))){  
+    //         // if(prizes[randomPrize].type == "money"){
+    //         //     if(moneyPrizeApplied != 1){
+    //         //         prize = `<img 
+    //         //             id="prize-${i}"
+    //         //             src="${prizes[randomPrize].img}" 
+    //         //             alt="${blockDescription[i]}"
+    //         //             width= "${blockSize}px"
+    //         //             height= "${blockSize}px"
+    //         //         />`;
+    //         //         prizeMapWithBlock[i] = randomPrize;
+    //         //         moneyPrizeApplied = 1;
+    //         //     }
+    //         //     else{
+    //         //         prizeMapWithBlock[i] = 0; 
+    //         //     }
+    //         // }
+    //         // else if(prizes[randomPrize].type == "material"){
+    //         //     if(materialPrizeApplied != 1){
+    //         //         prize = `<img 
+    //         //             id="prize-${i}"
+    //         //             src="${prizes[randomPrize].img}" 
+    //         //             alt="${blockDescription[i]}"
+    //         //             width= "${blockSize}px"
+    //         //             height= "${blockSize}px"
+    //         //         />`;
+    //         //         prizeMapWithBlock[i] = randomPrize;
+    //         //         materialPrizeApplied = 1;
+    //         //     }
+    //         //     else{
+    //         //         prizeMapWithBlock[i] = 0; 
+    //         //     }
+    //         // }
+    //         // else if(prizes[randomPrize].type == "sale"){
+    //         //     if(salePrizeApplied != 1){
+    //         //         prize = `<img 
+    //         //             id="prize-${i}"
+    //         //             src="${prizes[randomPrize].img}" 
+    //         //             alt="${blockDescription[i]}"
+    //         //             width= "${blockSize}px"
+    //         //             height= "${blockSize}px"
+    //         //         />`;
+    //         //         prizeMapWithBlock[i] = randomPrize;
+    //         //         salePrizeApplied = 1;
+    //         //     }
+    //         //     else{
+    //         //         prizeMapWithBlock[i] = 0; 
+    //         //     }
+    //         // }
+    //         // else{
+    //             // console.log("loop:"+i);
+    //             // console.log(prizeMapWithBlock);
+    //             // console.log("--");
+    //             prize = `<img 
+    //                 id="prize-${i}"
+    //                 src="${prizes[prizeMapWithBlock[i]].img}" 
+    //                 data-value="${prizes[prizeMapWithBlock[i]].value}"
+    //                 alt="${blockDescription[i]}"
+    //                 width= "${blockSize}px"
+    //                 height= "${blockSize}px"
+    //             />`;
+    //             // prizeMapWithBlock[i] = randomPrize;
+    //         // }
            
-        // }else{
-        //     prizeMapWithBlock[i] = 0;
-        // }
+    //     // }else{
+    //     //     prizeMapWithBlock[i] = 0;
+    //     // }
 
-        htmlString += `
-        <div
-            class="block-wrapper"
-            id = "block-wrapper-${i}"
-            style="
-                width:${blockSize}px;
-                height: ${blockSize}px;
-                margin-top: ${/*rowCount > 0 ? Math.floor(boardWidth*10/375) + "px" : 0*/ ""};
-                margin-left: ${(i - (rowCount*3))%2 == 0 ? Math.floor(boardWidth*10/375) + "px" : i%3 == 0 ? Math.floor(boardWidth*10/375) +"px" : "0px"};
-            "
-            onClick= "blockTap(${i},${blockSize}, ${blockSize} )"
-        >\n    
-            ${prize}
-            <div 
-                class="block normal" 
-                id="block-${i}" 
-            > \n
-                <img 
-                    src="src/images/optimized/tinified/block-${i}.png" 
-                    alt="${blockDescription[i]}"
-                    width= "${blockSize}px"
-                    height= "${blockSize}px"
-                 />
-                <img 
-                    src="src/images/optimized/tinified/block-${i}-right.png" 
-                    alt="${blockDescription[i]}"
-                    width= "${blockSize}px"
-                    height= "${blockSize}px"
-                />
-            </div> \n
-        </div>    
-        `;  
+    //     htmlString += `
+    //     <div
+    //         class="block-wrapper"
+    //         id = "block-wrapper-${i}"
+    //         style="
+    //             width:${blockSize}px;
+    //             height: ${blockSize}px;
+    //             margin-top: ${/*rowCount > 0 ? Math.floor(boardWidth*10/375) + "px" : 0*/ ""};
+    //             margin-left: ${(i - (rowCount*3))%2 == 0 ? Math.floor(boardWidth*10/375) + "px" : i%3 == 0 ? Math.floor(boardWidth*10/375) +"px" : "0px"};
+    //         "
+    //         onClick= "blockTap(${i},${blockSize}, ${blockSize} )"
+    //     >\n    
+    //         ${prize}
+    //         <div 
+    //             class="block normal" 
+    //             id="block-${i}" 
+    //         > \n
+    //             <img 
+    //                 src="src/images/optimized/tinified/block-${i}.png" 
+    //                 alt="${blockDescription[i]}"
+    //                 width= "${blockSize}px"
+    //                 height= "${blockSize}px"
+    //              />
+    //             <img 
+    //                 src="src/images/optimized/tinified/block-${i}-right.png" 
+    //                 alt="${blockDescription[i]}"
+    //                 width= "${blockSize}px"
+    //                 height= "${blockSize}px"
+    //             />
+    //         </div> \n
+    //     </div>    
+    //     `;  
 
-        if (i%3 == 0){
-            var row = document.createElement("div");
-            row.innerHTML = htmlString;    
-            row.className = "row";
-            if(rowCount == 0){row.style.marginTop = (boardWidth*(-3))/375; }
-            board.append(row);  
-            htmlString = "";
-            rowCount += 1;
-        }        
-    }
+    //     if (i%3 == 0){
+    //         var row = document.createElement("div");
+    //         row.innerHTML = htmlString;    
+    //         row.className = "row";
+    //         if(rowCount == 0){row.style.marginTop = (boardWidth*(-3))/375; }
+    //         board.append(row);  
+    //         htmlString = "";
+    //         rowCount += 1;
+    //     }        
+    // }
 }
 
-shufflePrize();
+// shufflePrize();
 
-
+boardInit();
  //         
 
 // bind event to each image to realtime check loaded or not
@@ -707,29 +705,30 @@ var realtimeCheck = setInterval(()=>{
             allLoaded = false;
         }
     } 
-    if((allLoaded == true) && (prizeMapWithBlock.length == Object.keys(prizes).length + 1)) clearInterval(realtimeCheck);
+    if(allLoaded == true) clearInterval(realtimeCheck);
 },60)
 
 // check if all assets loaded
 window.addEventListener("load", event => {
-    if((allLoaded == true) && (prizeMapWithBlock.length == Object.keys(prizes).length + 1)){
+    if(allLoaded == true){
         var board = document.getElementById("board");
         var loadingScreen = document.getElementById("loading-screen");
-        var boardShadow = document.getElementById("game-board-shadow");
+        // var boardShadow = document.getElementById("game-board-shadow");
         loadingScreen.className = "loading-screen";
         board.className += " show";
-        boardShadow.className += " show";
-        for(let i = 1; i <= totalBlock; i++){
-            var block = document.getElementById(`block-${i}`);
-            block.className += " show shake";
-        }
-        setTimeout(()=>{
-            for(let i = 1; i <= totalBlock; i++){
-                var block = document.getElementById(`block-${i}`);
-                block.className = "block normal show";
-            }
-            loadingScreen.style.display = "none";
-        },1300)
+        loadingScreen.style.display = "none";
+        // boardShadow.className += " show";
+        // for(let i = 1; i <= totalBlock; i++){
+        //     var block = document.getElementById(`block-${i}`);
+        //     block.className += " show shake";
+        // }
+        // setTimeout(()=>{
+        //     for(let i = 1; i <= totalBlock; i++){
+        //         var block = document.getElementById(`block-${i}`);
+        //         block.className = "block normal show";
+        //     }
+        //     loadingScreen.style.display = "none";
+        // },1300)
     }
 });
 

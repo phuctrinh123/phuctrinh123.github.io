@@ -68,29 +68,29 @@ const resouceList = [
     "src/images/optimized/tinified/product-2.png"
 ];
 
-let prizes = {
-    1: {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "May quá dưới viên kẹo này chỉ có 1k thôi bạn ơi!", value:1},
-    2: {img: "src/images/optimized/tinified/prize-1.png", type:"many", name: "May quá dưới viên kẹo này chỉ có 5k thôi bạn ơi!", value:5},
-    3: {img: "src/images/optimized/tinified/prize-13.png", type:"many", name: "May quá dưới viên kẹo này chỉ có 10k thôi bạn ơi!", value:10},
-    4: {img: "src/images/optimized/tinified/prize-2.png", type:"many", name: "Ồ dưới viên kẹo này có 25k nà!", value:25},
-    5: {img: "src/images/optimized/tinified/prize-3.png", type:"many", name: "Hmm, dưới viên kẹo này có 50k. Hơi tiếc nhỉ!", value:50},
-    6: {img: "src/images/optimized/tinified/prize-4.png", type:"many", name: "Oops! Dưới viên kẹo này là 100k. Hụt rồi!", value:100},
-    7: {img: "src/images/optimized/tinified/prize-14.png", type:"many", name: "Ối, viên kẹo này có giá 200k đấy bạn ơi!", value:200},
-    8: {img: "src/images/optimized/tinified/prize-15.png", type:"many", name: "Hu hu, 300k đã bay màu!", value:300},
-    9: {img: "src/images/optimized/tinified/prize-16.png", type:"many", name: "Thôi xong, 400k đã không cánh mà bay.", value:400},
-};
+// let prizes = {
+//     1: {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "May quá dưới viên kẹo này chỉ có 1k thôi bạn ơi!", value:1},
+//     2: {img: "src/images/optimized/tinified/prize-1.png", type:"many", name: "May quá dưới viên kẹo này chỉ có 5k thôi bạn ơi!", value:5},
+//     3: {img: "src/images/optimized/tinified/prize-13.png", type:"many", name: "May quá dưới viên kẹo này chỉ có 10k thôi bạn ơi!", value:10},
+//     4: {img: "src/images/optimized/tinified/prize-2.png", type:"many", name: "Ồ dưới viên kẹo này có 25k nà!", value:25},
+//     5: {img: "src/images/optimized/tinified/prize-3.png", type:"many", name: "Hmm, dưới viên kẹo này có 50k. Hơi tiếc nhỉ!", value:50},
+//     6: {img: "src/images/optimized/tinified/prize-4.png", type:"many", name: "Oops! Dưới viên kẹo này là 100k. Hụt rồi!", value:100},
+//     7: {img: "src/images/optimized/tinified/prize-14.png", type:"many", name: "Ối, viên kẹo này có giá 200k đấy bạn ơi!", value:200},
+//     8: {img: "src/images/optimized/tinified/prize-15.png", type:"many", name: "Hu hu, 300k đã bay màu!", value:300},
+//     9: {img: "src/images/optimized/tinified/prize-16.png", type:"many", name: "Thôi xong, 400k đã không cánh mà bay.", value:400},
+// };
 
-const screenWidth = window.screen.width;
-const screenHeight = window.screen.height;
-const isMobile = window.screen.width < 500 ? true : false;
-const viewportWidth =  isMobile ? screenWidth: 320 ;
-const totalBlock = 9;
-const boardWidth =  viewportWidth - 60;
-const precision = 10;
+const _screenWidth = window.screen.width;
+const _screenHeight = window.screen.height;
+const _isMobile = window.screen.width < 500 ? true : false;
+const _viewportWidth =  _isMobile ? _screenWidth: 320 ;
+const _totalBlock = 9;
+const _boardWidth =  _viewportWidth - 60;
+const _precision = 10;
 
 
 let prizeInBlock = [];
-let openedBlock = [];
+let _openedBlock = [];
 let unopenBlock = [];
 let blockHasPrize = null;
 let maxValueBlock = null;
@@ -99,7 +99,7 @@ let round = 1;
 let openTimes = 6;
 
 // DOM element
-const body  = document.body;
+const _body  = document.body;
 const board = document.getElementById("board");
 
 
@@ -108,7 +108,7 @@ randomNumber = max => {
 }
 
 shufflePrize = ()=>{
-    let randomPrize = randomNumber(precision);
+    let randomPrize = randomNumber(_precision);
     if(prizeInBlock.length != Object.keys(prizes).length){
         if(!prizeInBlock.includes(randomPrize) && (randomPrize != 0)){
             prizeInBlock.push(randomPrize);
@@ -122,7 +122,7 @@ shufflePrize = ()=>{
 
 getNotYetOpenedBlock = ()=>{
     let notOpenedBlock = [];
-    for(let i = 1; i <=  totalBlock; i++){
+    for(let i = 1; i <=  _totalBlock; i++){
         if(!openedBlock.includes(i)) notOpenedBlock.push(i);
     }
     return notOpenedBlock;
@@ -274,7 +274,7 @@ showBlock = (i = 1)=>{
         let block = document.getElementById(`block-${i}`);
         block.className += " show";
         i++;
-        if(i <= totalBlock){
+        if(i <= _totalBlock){
             showBlock(i);
         }else{
             const round1Label = document.getElementById("round-1");
@@ -292,8 +292,8 @@ showBlock = (i = 1)=>{
 }
 
 hideBlocks = ()=>{
-    for(let i = 0; i < openedBlock.length; i++){
-        let block = document.getElementById(`block-${openedBlock[i]}`);
+    for(let i = 0; i < _openedBlock.length; i++){
+        let block = document.getElementById(`block-${_openedBlock[i]}`);
         block.className += " hide";
     }
 }
@@ -301,7 +301,7 @@ hideBlocks = ()=>{
 round1LogicTap = (index)=>{
     let targetBlock = document.getElementById(`block-${index}`);
     showPrize(index);
-    openedBlock.push(index);
+    _openedBlock.push(index);
     openTimes --;
     console.log(openTimes);
     targetBlock.setAttribute("onlick","");
@@ -326,7 +326,7 @@ round1LogicTap = (index)=>{
 
 round2LogicTap = (index)=>{
     showPrize(index);
-    openedBlock.push(index);
+    _openedBlock.push(index);
     openTimes --;
     showPopup();
 
@@ -345,7 +345,7 @@ blockTap = (index)=>{
 
 createBoard = ()=>{
     let html = "";
-    for(let i = 1; i <= totalBlock; i++){html += createBlock(i, prizeInBlock[i-1]);}
+    for(let i = 1; i <= _totalBlock; i++){html += createBlock(i, prizeInBlock[i-1]);}
     html += '<div class="round-label" id="round-1"><img src="src/images/optimized/tinified/round-1.png" alt="lupu coffee"/></div>';
     html += '<div class="round-label" id="round-2"><img src="src/images/optimized/tinified/round-2.png" alt="lupu coffee"/></div>';
     html += '<div class="board-shadow"></div>';
@@ -368,7 +368,7 @@ var generatePrizeMap = setInterval(() => {shufflePrize();}, 60);
 
 // init logic when page load
 body.onload = ()=>{
-    body.style.fontSize = Math.round(isMobile ==  true ? screenWidth*13/320 : 13) + "px";
-    board.style.width = boardWidth;
-    board.style.height = boardWidth;
+    body.style.fontSize = Math.round(_isMobile ==  true ? _screenWidth*13/320 : 13) + "px";
+    board.style.width = _boardWidth;
+    board.style.height = _boardWidth;
 }
