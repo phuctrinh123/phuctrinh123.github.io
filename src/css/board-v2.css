@@ -64,17 +64,26 @@ body{
 }
 
 .app > img{
-    max-width: 60%;
+    max-width: 40%;
     margin-bottom: 1em;
 }
 
 .app > h1{
+    font-size: 1.2em;
     margin: 0;
     margin-bottom: 0.8em;
 }
 
 .app > h4{
+    font-size: 1em;
     margin:0;
+    padding: 0 3em;
+    text-align: center;
+}
+
+.app > p{
+    font-size: 0.85em;
+    margin-top: 3em;
     padding: 0 2em;
     text-align: center;
 }
