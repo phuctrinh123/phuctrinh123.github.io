@@ -56,6 +56,29 @@ body{
     position: relative;
 }
 
+.app{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.app > img{
+    max-width: 60%;
+    margin-bottom: 1em;
+}
+
+.app > h1{
+    margin: 0;
+    margin-bottom: 0.8em;
+}
+
+.app > h4{
+    margin:0;
+    padding: 0 2em;
+    text-align: center;
+}
+
 .board{
     background-image: url('../../src/images/optimized/tinified/board.png');
     background-size: contain;
