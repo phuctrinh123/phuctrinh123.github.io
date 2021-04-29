@@ -152,6 +152,7 @@ removePrize = (index)=>{
 // popup
 hidePopup = ()=>{
     let popup = document.getElementById("popup");
+    let content = document.getElementById("popup-content");
     popup.className += " hide";
     if(round == 2){
         let unopenBlock = getNotYetOpenedBlock();
@@ -179,17 +180,18 @@ hidePopup = ()=>{
                     },200);
                 },1500)
             },2000)
-
-           
         }else{
             blockHasPrize.className = "block show";
             setTimeout(()=>{
                 blockHasPrize.className += " show-prize";
+                setTimeout(()=>{
+                    let popupButton= document.getElementById("popup-button");
+                    popupButton.setAttribute("src","src/images/optimized/tinified/agree-order-button.png")
+                    content.innerHTML = `Bạn có muốn chọn lại không? Chỉ cần đặt một ly Trà Mật Rừng hoặc Phin Sữa Nâu chỉ 29k của LUPU là bạn đã có thể tiếp tục ván này rồi. ${prizes[maxValuePrizeIndex].value}k đang chờ bạn.`;
+                    popup.className += " show";
+                },1500);
             },1000);
-            
-           
         }
-       
     }
     setTimeout(()=>{
         popup.className = "popup";
@@ -204,17 +206,20 @@ showPopup = ()=>{
     let unopenBlock = getNotYetOpenedBlock();
     if(round == 2){
         if(openTimes == 0){
-            setTimeout(()=>{
-                let randomBlock = randomNumber(1);
-                blockHasPrize = document.getElementById(`block-${unopenBlock[randomBlock]}`);
-                blockHasPrize.innerHTML += `<img 
-                    alt="lupu coffee"
-                    id="block-${maxValueBlock}-prize"
-                    src="${prizes[maxValuePrizeIndex].img}" 
-                />`;
-            },500);
             label.setAttribute("src","src/images/optimized/tinified/round-2.png");
             content.innerHTML = "Tiếc quá, bạn đã chọn không đúng rồi. Bây giờ LUPU sẽ cho bạn thấy phần thường của bạn nằm ở viên kẹo nào nhé"; 
+            setTimeout(()=>{ 
+                 popup.className += " show";
+                 setTimeout(()=>{
+                    let randomBlock = randomNumber(2);
+                    blockHasPrize = document.getElementById(`block-${unopenBlock[randomBlock]}`);
+                    blockHasPrize.innerHTML += `<img 
+                        alt="lupu coffee"
+                        id="block-${maxValueBlock}-prize"
+                        src="${prizes[maxValuePrizeIndex].img}" 
+                    />`;
+                },500);
+            },1000);
         }else{
             let maxValue = 0;
             let blockIndex = null;
@@ -231,9 +236,9 @@ showPopup = ()=>{
             maxValueBlock = blockIndex;
             maxValuePrizeIndex = prizeIndex;
             label.setAttribute("src","src/images/optimized/tinified/round-2.png");
-            content.innerHTML = "LUPU sẽ giữ lại viên kẹo có giá trị cao nhất, 2 viên còn lại sẽ không có gì. Giá trị của ba viên này sẽ bị hoán đổi cho nhau. Bạn chỉ được chọn 1 viên trong 3 viên này. Chúc bạn may mắn.";
+            content.innerHTML = "Hai trong ba viên kẹo này sẽ bị thay thế bởi những viên kẹo rỗng. Viên có giá trị cao nhất sẽ được giữ lại. Tuy nhiên giá trị của chúng sẽ hoán đổi cho nhau. Bạn chỉ được chọn 1 trong 3.";
+            popup.className += " show";
         }
-        popup.className += " show";
     }else{
         popup.className += " show";
     }
@@ -294,9 +299,12 @@ hideBlocks = ()=>{
 }
 
 round1LogicTap = (index)=>{
+    let targetBlock = document.getElementById(`block-${index}`);
     showPrize(index);
     openedBlock.push(index);
     openTimes --;
+    console.log(openTimes);
+    targetBlock.setAttribute("onlick","");
     if(openTimes == 0){
         setTimeout(()=>{
             hideBlocks();
@@ -347,7 +355,7 @@ createBoard = ()=>{
                     <div class="content">
                         <div class="img-holder"><img id="popup-label" src="src/images/optimized/tinified/round-1.png" alt ="lupu coffee"/></div>
                         <p id="popup-content"> Dưới mỗi viên kẹo là các mệnh giá gồm 1k, 5k, 10k, 25k, 50k, 100k, 200k, 300k và 400k. Bạn sẽ phải bỏ đi 6 viên kẹo (chỉ giữ lại 3) bằng cách nhấn vào chúng. Cân nhắc trước khi chọn nhé ! </p>
-                        <div class="button" onclick="hidePopup()"><img  src="src/images/optimized/tinified/agree-button.png" alt ="lupu coffee"/></div>
+                        <div class="button" onclick="hidePopup()"><img id="popup-button" src="src/images/optimized/tinified/agree-button.png" alt ="lupu coffee"/></div>
                     </div>
                 </div>
             </div>`;
