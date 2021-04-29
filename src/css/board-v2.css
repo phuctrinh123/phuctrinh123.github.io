@@ -134,6 +134,10 @@ body{
     -webkit-animation:  popIn 0.5s ease-in-out 0.2s forwards;
 }
 
+.board > .block > img.hide{
+    animation:  popOut 0.5s ease-in-out forwards;
+    -webkit-animation:  popOut 0.5s ease-in-out forwards;
+}
 
 .board > .block:nth-child(2), 
 .board > .block:nth-child(5), 

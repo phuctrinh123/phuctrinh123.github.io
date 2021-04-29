@@ -161,15 +161,23 @@ hidePopup = ()=>{
             }
 
             setTimeout(()=>{
+
                 for(let i = 0; i< unopenBlock.length; i++){
-                    hidePrize(unopenBlock[i]);
+                    let prizeElem = document.getElementById(`block-${unopenBlock[i]}-prize`);
+                    if (unopenBlock[i] != maxValueBlock){
+                        prizeElem.className = "hide";
+                    }
                 }
                 setTimeout(()=>{
                     for(let i = 0; i< unopenBlock.length; i++){
-                        removePrize(unopenBlock[i]);
+                        hidePrize(unopenBlock[i]);
                     }
-                },200);
-                
+                    setTimeout(()=>{
+                        for(let i = 0; i< unopenBlock.length; i++){
+                            removePrize(unopenBlock[i]);
+                        }
+                    },200);
+                },1500)
             },2000)
 
            
@@ -212,7 +220,6 @@ showPopup = ()=>{
             let blockIndex = null;
             let prizeIndex =  null;
             for(let i = 0; i < unopenBlock.length; i++){
-                console.log(`block-${unopenBlock[i]}-prize`);
                 let prizeElem = document.getElementById(`block-${unopenBlock[i]}-prize`);
                 if(parseInt(prizeElem.dataset.value) > maxValue ){
                     maxValue = parseInt(prizeElem.dataset.value);
@@ -223,7 +230,6 @@ showPopup = ()=>{
             }
             maxValueBlock = blockIndex;
             maxValuePrizeIndex = prizeIndex;
-            console.log(maxValueBlock + " " + maxValuePrizeIndex);
             label.setAttribute("src","src/images/optimized/tinified/round-2.png");
             content.innerHTML = "LUPU sẽ giữ lại viên kẹo có giá trị cao nhất, 2 viên còn lại sẽ không có gì. Giá trị của ba viên này sẽ bị hoán đổi cho nhau. Bạn chỉ được chọn 1 viên trong 3 viên này. Chúc bạn may mắn.";
         }
