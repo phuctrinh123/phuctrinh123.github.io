@@ -364,7 +364,7 @@ createBoard = ()=>{
 }
 
 //realtime logic
-var generatePrizeMap = setInterval(() => {shufflePrize();}, 60);
+var generatePrizeMap = setInterval(() => {if(clickOnPlay == 1) shufflePrize();}, 60);
 
 // init logic when page load
 body.onload = ()=>{

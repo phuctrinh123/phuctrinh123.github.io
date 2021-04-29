@@ -171,6 +171,7 @@ let precision = 10;
 let round2PlayTime = 1;
 var notifyUserState = 0;
 var shareFacebook = 0;
+var clickOnPlay = 0;
 
 let blockDescription = [
     "",
@@ -232,6 +233,7 @@ function playGame(){
     board.className += " show";
     guideText.className += " show";
     playTimeIndicator.className += " show";
+    clickOnPlay = 1;
     setTimeout(function(){
         menu.style.zIndex = -1000;
         // setTimeout(()=>{
