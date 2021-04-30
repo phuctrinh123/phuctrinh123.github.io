@@ -240,7 +240,13 @@ function loadResource(index){
             }
         },0)
     }else{
-        allLoaded = true;
+        var board = document.getElementById("board");
+        var loadingScreen = document.getElementById("loading-screen");
+        guideText.className = "guide-text";
+        playTimesIndicator.className = "play-times-indicator";
+        loadingScreen.className = "loading-screen";
+        board.className += " show";
+        loadingScreen.style.display = "none";
     }
 }
 
@@ -735,28 +741,28 @@ loadResource(0);
 
 
 // check if all assets loaded
-window.addEventListener("load", event => {
-    if(allLoaded == true){
-        var board = document.getElementById("board");
-        var loadingScreen = document.getElementById("loading-screen");
-        // var boardShadow = document.getElementById("game-board-shadow");
-        guideText.className = "guide-text";
-        playTimesIndicator.className = "play-times-indicator";
-        loadingScreen.className = "loading-screen";
-        board.className += " show";
-        loadingScreen.style.display = "none";
-        // boardShadow.className += " show";
-        // for(let i = 1; i <= totalBlock; i++){
-        //     var block = document.getElementById(`block-${i}`);
-        //     block.className += " show shake";
-        // }
-        // setTimeout(()=>{
-        //     for(let i = 1; i <= totalBlock; i++){
-        //         var block = document.getElementById(`block-${i}`);
-        //         block.className = "block normal show";
-        //     }
-        //     loadingScreen.style.display = "none";
-        // },1300)
-    }
-});
+// window.addEventListener("load", event => {
+//     if(allLoaded == true){
+//         var board = document.getElementById("board");
+//         var loadingScreen = document.getElementById("loading-screen");
+//         // var boardShadow = document.getElementById("game-board-shadow");
+//         guideText.className = "guide-text";
+//         playTimesIndicator.className = "play-times-indicator";
+//         loadingScreen.className = "loading-screen";
+//         board.className += " show";
+//         loadingScreen.style.display = "none";
+//         // boardShadow.className += " show";
+//         // for(let i = 1; i <= totalBlock; i++){
+//         //     var block = document.getElementById(`block-${i}`);
+//         //     block.className += " show shake";
+//         // }
+//         // setTimeout(()=>{
+//         //     for(let i = 1; i <= totalBlock; i++){
+//         //         var block = document.getElementById(`block-${i}`);
+//         //         block.className = "block normal show";
+//         //     }
+//         //     loadingScreen.style.display = "none";
+//         // },1300)
+//     }
+// });
 
