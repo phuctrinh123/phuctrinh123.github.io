@@ -183,9 +183,11 @@ hidePopup = ()=>{
                         for(let i = 0; i< unopenBlock.length; i++){
                             removePrize(unopenBlock[i]);
                         }
+                        setTimeout(()=>{
+                            guideText.className += " show";
+                            playTimesIndicator.className += " show";
+                        },500);  
                     },200);
-                    guideText.className += " show";
-                    playTimesIndicator.className += " show";
                 },1500)
             },2000)
         }else{
@@ -200,11 +202,14 @@ hidePopup = ()=>{
                 },1500);
             },1000);
         }
+    }else{
+        setTimeout(()=>{
+            guideText.className += " show";
+            playTimesIndicator.className += " show";
+        },500);  
     }
     setTimeout(()=>{
         popup.className = "popup";
-        guideText.className += " show";
-        playTimesIndicator.className += " show";
     },1000)
 }
 
