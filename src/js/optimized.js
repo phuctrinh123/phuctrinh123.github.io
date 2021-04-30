@@ -101,6 +101,12 @@ let openTimes = 6;
 // DOM element
 const _body  = document.body;
 const board = document.getElementById("board");
+let guideText = document.getElementById("guide-text");
+let playTimesIndicator = document.getElementById("play-times-indicator");
+let round1Indicator = document.getElementById("round1-content");
+let round1IndicatorContent = document.getElementById("play-times");
+let round2Indicator = document.getElementById("round2-content");
+let round2IndicatorContent = document.getElementById("round2-play-times");
 
 
 randomNumber = max => {
@@ -178,6 +184,8 @@ hidePopup = ()=>{
                             removePrize(unopenBlock[i]);
                         }
                     },200);
+                    guideText.className += " show";
+                    playTimesIndicator.className += " show";
                 },1500)
             },2000)
         }else{
@@ -195,7 +203,8 @@ hidePopup = ()=>{
     }
     setTimeout(()=>{
         popup.className = "popup";
-        
+        guideText.className += " show";
+        playTimesIndicator.className += " show";
     },1000)
 }
 
@@ -300,11 +309,6 @@ hideBlocks = ()=>{
 
 round1LogicTap = (index)=>{
     let targetBlock = document.getElementById(`block-${index}`);
-    let round1Indicator = document.getElementById("round1-content");
-    let round1IndicatorContent = document.getElementById("play-times");
-    let round2Indicator = document.getElementById("round2-content");
-    let round2IndicatorContent = document.getElementById("round2-play-times");
-    let guideText = document.getElementById("guide-text");
     showPrize(index);
     openedBlock.push(index);
     openTimes --;
@@ -322,10 +326,13 @@ round1LogicTap = (index)=>{
                     round = 2;
                     openTimes = 1;
                     setTimeout(()=>{
+                        guideText.className = "guide-text";
+                        playTimesIndicator.className = "play-times-indicator";
                         round1Indicator.className="";
                         round2IndicatorContent.innerHTML = openTimes;
                         round2Indicator.className = "show";
                         guideText.innerHTML = "Ba viên kẹo này đã bị hoán đổi giá trị cho nhau. Bạn chỉ được chọn 1 trong 3.";
+                        
                         showPopup();
                     },200);
                 },1500)

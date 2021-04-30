@@ -227,12 +227,12 @@ function randomNumber(max) {
 function playGame(){
     var menu = byID("game-menu");
     var board = byID("game-board");
-    var playTimeIndicator = byID("play-times-indicator");
-    var guideText = byID("guide-text");
+    // var playTimeIndicator = byID("play-times-indicator");
+    // var guideText = byID("guide-text");
     menu.className += " hide";
     board.className += " show";
-    guideText.className += " show";
-    playTimeIndicator.className += " show";
+    // guideText.className += " show";
+    // playTimeIndicator.className += " show";
     clickOnPlay = 1;
     setTimeout(function(){
         menu.style.zIndex = -1000;
@@ -716,6 +716,8 @@ window.addEventListener("load", event => {
         var board = document.getElementById("board");
         var loadingScreen = document.getElementById("loading-screen");
         // var boardShadow = document.getElementById("game-board-shadow");
+        guideText.className = "guide-text";
+        playTimesIndicator.className = "play-times-indicator";
         loadingScreen.className = "loading-screen";
         board.className += " show";
         loadingScreen.style.display = "none";
