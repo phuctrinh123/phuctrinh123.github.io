@@ -34,7 +34,8 @@
 #progress-bar{
     background-image: url('../../src/images/optimized/tinified/progress-bar.png');
     background-size: cover;
-    left: 8%;
+    left: 8.5%;
+    margin-top: -1;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);

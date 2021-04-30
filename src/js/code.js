@@ -9,7 +9,7 @@ const resource = [
     "src/images/optimized/tinified/policy-button.png",
     "src/images/optimized/tinified/before-u-play.png",
     "src/images/optimized/tinified/board.png",
-    "src/images/optimizedtinified//block-1.png",
+    "src/images/optimized/tinified/block-1.png",
     "src/images/optimized/tinified/block-1-right.png",
     "src/images/optimized/tinified/block-1-wrong.png",
     "src/images/optimized/tinified/block-2.png",
@@ -49,6 +49,8 @@ const resource = [
     "src/images/optimized/tinified/prize-11.png",
     "src/images/optimized/tinified/prize-12.png",
     "src/images/optimized/tinified/prize-13.png",
+    "src/images/optimized/tinified/round-1.png",
+    "src/images/optimized/tinified/round-2.png",
     "src/images/optimized/tinified/more-plays.png",
     "src/images/optimized/tinified/add-plays.png",
     "src/images/optimized/tinified/popup-base.png",
@@ -63,7 +65,7 @@ const resource = [
     "src/images/optimized/tinified/back-button.png",
     "src/images/optimized/tinified/order-button.png",
     "src/images/optimized/tinified/product-1.png",
-    "src/images/optimized/tinified/product-2.png",
+    "src/images/optimized/tinified/product-2.png"
 ]
 // end
 
@@ -223,6 +225,24 @@ function randomNumber(max) {
        
 //     }
 // }
+
+function loadResource(index){
+    if(index < resource.length){
+        let imageLoader = document.getElementById("image-loader");
+        let progressBar = document.getElementById("progress-bar");
+        imageLoader.setAttribute("src",resource[index]);
+        setTimeout(()=>{
+            if(imageLoader.complete && imageLoader.naturalHeight !== 0){
+                progressBar.style.width =  viewportWidth*0.757*(index/resource.length);
+                loadResource(index+1);
+            }else{
+                loadResource(index);
+            }
+        },0)
+    }else{
+        allLoaded = true;
+    }
+}
 
 function playGame(){
     var menu = byID("game-menu");
@@ -543,7 +563,7 @@ function boardInit (){
     loadingBar.style.height = (boardWidth*0.9)*0.25;
 
     progressBar.style.width =  0;
-    progressBar.style.height = (boardWidth*0.75)*0.115;
+    progressBar.style.height = (boardWidth*0.75)*0.15;
 
     menu.style.width = boardShadowSize;
     menu.style.height = boardShadowSize *1.5;
@@ -689,26 +709,30 @@ function boardInit (){
 // shufflePrize();
 
 boardInit();
+loadResource(0);
  //         
 
 // bind event to each image to realtime check loaded or not
 
-var realtimeCheck = setInterval(()=>{
-    let board = document.getElementById("board");
-    let boardWidth = board.offsetWidth;
-    let progressBar = document.getElementById("progress-bar");
-    var imageLoader = document.getElementById("image-loader");
-    for(let i = 0; i < resource.length; i++){
-        imageLoader.setAttribute("src",resource[i]);
-        if(imageLoader.complete && imageLoader.naturalHeight !== 0){
-            progressBar.style.width =  boardWidth*0.872*(i/resource.length);
-            allLoaded = true;
-        }else{
-            allLoaded = false;
-        }
-    } 
-    if(allLoaded == true) clearInterval(realtimeCheck);
-},60)
+// var realtimeCheck = setInterval(()=>{
+//     let board = document.getElementById("board");
+//     let boardWidth = board.offsetWidth;
+//     let progressBar = document.getElementById("progress-bar");
+//     var imageLoader = document.getElementById("image-loader");
+//     for(let i = 0; i < resource.length; i++){
+//         imageLoader.setAttribute("src",resource[i]);
+//         if(imageLoader.complete && imageLoader.naturalHeight !== 0){
+//             progressBar.style.width =  boardWidth*0.872*(i/resource.length);
+//             allLoaded = true;
+//         }else{
+//             allLoaded = false;
+//         }
+//     } 
+//     console.log(allLoaded);
+//     if(allLoaded == true) clearInterval(realtimeCheck);
+// },60)
+
+
 
 // check if all assets loaded
 window.addEventListener("load", event => {
