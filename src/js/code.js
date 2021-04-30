@@ -551,6 +551,7 @@ function boardInit (){
     var content = document.getElementById('content');
     var orderPopup = byID("order-popup");
     let boardWidth = /*board.offsetWidth;*/ viewportWidth;
+    var logo = byID("game-logo");
     var htmlString = ""
     var rowCount = 0;
   
@@ -570,6 +571,9 @@ function boardInit (){
 
     progressBar.style.width =  0;
     progressBar.style.height = (boardWidth*0.75)*0.15;
+
+    logo.style.height = screenHeight*0.17;
+    logo.style.width = (screenHeight*0.17)*1.5;
 
     menu.style.width = boardShadowSize;
     menu.style.height = boardShadowSize *1.5;
