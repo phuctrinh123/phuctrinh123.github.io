@@ -146,13 +146,13 @@ body{
 
 
 .game-logo{
+    aspect-ratio: 1.5;
     background-image: url('../../src/images/optimized/tinified/game-logo.png');
     background-size: cover;
     background-position: center;
-    height: 120px;
+    height: 17%;
     margin: 0 auto;
     margin-bottom: 5%;
-    width: 60%;
     z-index: 1;
 }
 
