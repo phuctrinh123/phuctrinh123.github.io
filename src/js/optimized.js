@@ -335,9 +335,11 @@ round1LogicTap = (index)=>{
 }
 
 round2LogicTap = (index)=>{
+    let round2IndicatorContent = document.getElementById("round2-play-times");
     showPrize(index);
     openedBlock.push(index);
     openTimes --;
+    round2IndicatorContent.innerHTML = openTimes;
     showPopup();
 
 }
