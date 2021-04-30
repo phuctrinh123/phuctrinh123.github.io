@@ -300,9 +300,15 @@ hideBlocks = ()=>{
 
 round1LogicTap = (index)=>{
     let targetBlock = document.getElementById(`block-${index}`);
+    let round1Indicator = document.getElementById("round1-content");
+    let round1IndicatorContent = document.getElementById("play-times");
+    let round2Indicator = document.getElementById("round2-content");
+    let round2IndicatorContent = document.getElementById("round2-play-times");
+    let guideText = document.getElementById("guide-text");
     showPrize(index);
     openedBlock.push(index);
     openTimes --;
+    round1IndicatorContent.innerHTML = openTimes;
     console.log(openTimes);
     targetBlock.setAttribute("onlick","");
     if(openTimes == 0){
@@ -316,6 +322,10 @@ round1LogicTap = (index)=>{
                     round = 2;
                     openTimes = 1;
                     setTimeout(()=>{
+                        round1Indicator.className="";
+                        round2IndicatorContent.innerHTML = openTimes;
+                        round2Indicator.className = "show";
+                        guideText.innerHTML = "Ba viên kẹo này đã bị hoán đổi giá trị cho nhau. Bạn chỉ được chọn 1 trong 3.";
                         showPopup();
                     },200);
                 },1500)
