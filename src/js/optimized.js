@@ -325,15 +325,14 @@ round1LogicTap = (index)=>{
                     round2Label.className = "round-label";
                     round = 2;
                     openTimes = 1;
+                    guideText.className = "guide-text";
+                    playTimesIndicator.className = "play-times-indicator";
                     setTimeout(()=>{
-                        guideText.className = "guide-text";
-                        playTimesIndicator.className = "play-times-indicator";
+                        showPopup();
                         round1Indicator.className="";
                         round2IndicatorContent.innerHTML = openTimes;
                         round2Indicator.className = "show";
                         guideText.innerHTML = "Ba viên kẹo này đã bị hoán đổi giá trị cho nhau. Bạn chỉ được chọn 1 trong 3.";
-                        
-                        showPopup();
                     },200);
                 },1500)
             },1000);
