@@ -196,6 +196,8 @@ hidePopup = ()=>{
                 blockHasPrize.className += " show-prize";
                 setTimeout(()=>{
                     let popupButton= document.getElementById("popup-button");
+                    let label = document.getElementById("popup-label");
+                    label.setAttribute("src","src/images/optimized/tinified/out-of-plays.png");
                     popupButton.setAttribute("src","src/images/optimized/tinified/agree-order-button.png")
                     content.innerHTML = `Bạn có muốn chọn lại không? Chỉ cần đặt một ly Trà Mật Rừng hoặc Phin Sữa Nâu chỉ 29k của LUPU là bạn đã có thể tiếp tục ván này rồi. ${prizes[maxValuePrizeIndex].value}k đang chờ bạn.`;
                     popup.className += " show";
@@ -220,8 +222,8 @@ showPopup = ()=>{
     let unopenBlock = getNotYetOpenedBlock();
     if(round == 2){
         if(openTimes == 0){
-            label.setAttribute("src","src/images/optimized/tinified/round-2.png");
-            content.innerHTML = "Tiếc quá, bạn đã chọn không đúng rồi. Bây giờ LUPU sẽ cho bạn thấy phần thường của bạn nằm ở viên kẹo nào nhé"; 
+            label.setAttribute("src","src/images/optimized/tinified/sorry.png");
+            content.innerHTML = "Bạn đã chọn không đúng rồi. Bây giờ LUPU sẽ cho bạn thấy phần thường của bạn nằm ở viên kẹo nào nhé"; 
             setTimeout(()=>{ 
                  popup.className += " show";
                  setTimeout(()=>{

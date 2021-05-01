@@ -52,6 +52,8 @@ const resource = [
     "src/images/optimized/tinified/round-1.png",
     "src/images/optimized/tinified/round-2.png",
     "src/images/optimized/tinified/more-plays.png",
+    "src/images/optimized/tinified/sorry.png",
+    "src/images/optimized/tinified/out-of-plays.png",
     "src/images/optimized/tinified/add-plays.png",
     "src/images/optimized/tinified/popup-base.png",
     "src/images/optimized/tinified/glow-effect.png",
