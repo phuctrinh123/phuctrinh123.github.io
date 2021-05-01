@@ -574,8 +574,8 @@ function boardInit (){
     progressBar.style.width =  0;
     progressBar.style.height = (boardWidth*0.75)*0.15;
 
-    logo.style.height = screenHeight*0.17;
-    logo.style.width = (screenHeight*0.17)*1.5;
+    logo.style.height = screenHeight*0.14;
+    logo.style.width = (screenHeight*0.14)*1.5;
 
     menu.style.width = boardShadowSize;
     menu.style.height = boardShadowSize *1.5;
