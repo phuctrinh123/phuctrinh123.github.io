@@ -340,6 +340,10 @@ body{
     display: flex;
 }
 
+.board > .popup > .wrapper > .content > div.products > .frame > .wrapper > img{
+    max-height: 100%;
+}
+
 .board > .popup > .wrapper > .content > div > img{
     max-height: 100%;
 }
