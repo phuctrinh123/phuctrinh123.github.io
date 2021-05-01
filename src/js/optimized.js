@@ -197,6 +197,8 @@ hidePopup = ()=>{
                 setTimeout(()=>{
                     let popupButton= document.getElementById("popup-button");
                     let label = document.getElementById("popup-label");
+                    guideText.className = "guide-text";
+                    playTimesIndicator.className = "play-times-indicator";
                     label.setAttribute("src","src/images/optimized/tinified/out-of-plays.png");
                     popupButton.setAttribute("src","src/images/optimized/tinified/agree-order-button.png")
                     content.innerHTML = `Bạn có muốn chọn lại không? Chỉ cần đặt một ly Trà Mật Rừng hoặc Phin Sữa Nâu chỉ 29k của LUPU là bạn đã có thể tiếp tục ván này rồi. ${prizes[maxValuePrizeIndex].value}k đang chờ bạn.`;
