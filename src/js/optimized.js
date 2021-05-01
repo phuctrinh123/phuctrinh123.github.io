@@ -250,7 +250,7 @@ showPopup = ()=>{
             maxValueBlock = blockIndex;
             maxValuePrizeIndex = prizeIndex;
             label.setAttribute("src","src/images/optimized/tinified/round-2.png");
-            content.innerHTML = "Hai trong ba viên kẹo này sẽ bị thay thế bởi những viên kẹo rỗng. Viên có giá trị cao nhất sẽ được giữ lại. Tuy nhiên giá trị của chúng sẽ hoán đổi cho nhau. Bạn chỉ được chọn 1 trong 3.";
+            content.innerHTML = "Hai trong ba viên kẹo còn lại sẽ bị thay thế bởi những viên kẹo rỗng. Viên có giá trị cao nhất sẽ được giữ lại. Tuy nhiên giá trị của chúng sẽ hoán đổi cho nhau. Bạn chỉ được chọn 1 trong 3.";
             popup.className += " show";
         }
     }else{
