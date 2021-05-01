@@ -198,6 +198,7 @@ hidePopup = ()=>{
                     setTimeout(()=>{
                         let popupButton= document.getElementById("popup-button");
                         let label = document.getElementById("popup-label");
+                        let tooltip = document.getElementById("tooltip");
                         guideText.className = "guide-text";
                         playTimesIndicator.className = "play-times-indicator";
                         label.setAttribute("src","src/images/optimized/tinified/out-of-plays.png");
@@ -205,6 +206,15 @@ hidePopup = ()=>{
                         content.innerHTML = `Bạn có muốn chọn lại không? Chỉ cần đặt một ly Trà Mật Rừng hoặc Phin Sữa Nâu chỉ 29k của LUPU là bạn đã có thể tiếp tục ván này rồi. ${prizes[maxValuePrizeIndex].value}k đang chờ bạn.`;
                         popup.className += " show";
                         buyingPhase = 1;
+                        setTimeout(()=>{
+                            tooltip.className += " show";
+                            setTimeout(()=>{
+                                tooltip.className += " hide";
+                                setTimeout(()=>{
+                                    tooltip.className = "tooltips";
+                                },500);
+                            },1500);
+                        },2000);
                     },1500);
                 },1000);
             }else{
@@ -397,7 +407,15 @@ createBoard = ()=>{
                         <p id="popup-content"> Dưới mỗi viên kẹo là các mệnh giá gồm 1k, 5k, 10k, 25k, 50k, 100k, 200k, 300k và 400k. Bạn sẽ phải bỏ đi 6 viên kẹo (chỉ giữ lại 3) bằng cách nhấn vào chúng. Cân nhắc trước khi chọn nhé ! </p>
                         <div class="button" onclick="hidePopup()"><img id="popup-button" src="src/images/optimized/tinified/agree-button.png" alt ="lupu coffee"/></div>
                         <div class="products" id="products">
-                            <img src="src/images/optimized/tinified/product-2.png"/>
+                            <div class="frame">
+                                <div class="wrapper">
+                                    <img src="src/images/optimized/tinified/product-2.png"/>
+                                    <img src="src/images/optimized/tinified/product-1.png"/>
+                                    <div class="tooltips" id="tooltip">
+                                        Quẹt sang phải để xem thêm bạn nhé!
+                                    </div>
+                                </div>
+                            </div> 
                         </div>
                     </div>
                 </div>

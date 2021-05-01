@@ -14,7 +14,7 @@
         <link rel="stylesheet" href="src/css/menu.css">
         <link rel="stylesheet" href="src/css/board-minified.css">
         <link rel="stylesheet" href="src/css/popup.css">
-        <link rel="stylesheet" href="src/css/order-screen-minified.css">
+        <link rel="stylesheet" href="src/css/order-screen.css">
         <link rel="stylesheet" href="src/css/board-v2.css">
     </head>
     <body>
@@ -68,7 +68,7 @@
                         </div>
                         <div class="buying-info" id="buying-info">
                             <p>Bạn sẽ được đưa đến inbox của LUPU khi nhấn vào nút "Đặt nước" bên dưới.</p>
-                            <div id="order-button" class="order-button" onclick="">
+                            <div id="order-button" class="order-button" onclick="redirectToFacebook()">
                                 <img src="src/images/optimized/tinified/order-button.png" alt="lupu coffee"/>
                             </div>
                         </div>
@@ -119,9 +119,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="tooltips" id="tooltips">
-                                                Quẹt sang phải để xem thêm bạn nhé!
-                                            </div>
+                                           
                                         </div>
                                         <div class="button-group">
                                             <div class="order-popup-button" id="order-popup-cancel-button" onclick="returnToBoard()"></div>

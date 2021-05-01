@@ -305,7 +305,7 @@ function shareFacebookClick(){
   
 
 function redirectToFacebook(){
-    window.location.href = "https://www.facebook.com/lupucoffee";
+    window.location.href = "https://m.me/lupucoffee";
 }
 
 // function hideAllPrize(){

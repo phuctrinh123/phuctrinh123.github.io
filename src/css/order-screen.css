@@ -168,15 +168,3 @@
     margin-top: 5%;
 }
 
-.tooltips{
-    background: rgba(0,0,0,0.8);
-    /*border-radius: 3vw;*/
-    border-radius: 1em;
-    color: white;
-    position: absolute;
-    /*padding: 5vw;*/
-    padding: 0.8em;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 87%;
-}
