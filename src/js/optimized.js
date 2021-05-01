@@ -97,6 +97,7 @@ let maxValueBlock = null;
 let maxValuePrizeIndex = null;
 let round = 1;
 let openTimes = 6;
+let buyingPhase = 0;
 
 // DOM element
 const _body  = document.body;
@@ -159,7 +160,6 @@ removePrize = (index)=>{
 hidePopup = ()=>{
     let popup = document.getElementById("popup");
     let content = document.getElementById("popup-content");
-    popup.className += " hide";
     if(round == 2){
         let unopenBlock = getNotYetOpenedBlock();
         if(openTimes > 0){
@@ -191,20 +191,26 @@ hidePopup = ()=>{
                 },1500)
             },2000)
         }else{
-            blockHasPrize.className = "block show";
-            setTimeout(()=>{
-                blockHasPrize.className += " show-prize";
+            if(buyingPhase != 1){
+                blockHasPrize.className = "block show";
                 setTimeout(()=>{
-                    let popupButton= document.getElementById("popup-button");
-                    let label = document.getElementById("popup-label");
-                    guideText.className = "guide-text";
-                    playTimesIndicator.className = "play-times-indicator";
-                    label.setAttribute("src","src/images/optimized/tinified/out-of-plays.png");
-                    popupButton.setAttribute("src","src/images/optimized/tinified/agree-order-button.png")
-                    content.innerHTML = `Bạn có muốn chọn lại không? Chỉ cần đặt một ly Trà Mật Rừng hoặc Phin Sữa Nâu chỉ 29k của LUPU là bạn đã có thể tiếp tục ván này rồi. ${prizes[maxValuePrizeIndex].value}k đang chờ bạn.`;
-                    popup.className += " show";
-                },1500);
-            },1000);
+                    blockHasPrize.className += " show-prize";
+                    setTimeout(()=>{
+                        let popupButton= document.getElementById("popup-button");
+                        let label = document.getElementById("popup-label");
+                        guideText.className = "guide-text";
+                        playTimesIndicator.className = "play-times-indicator";
+                        label.setAttribute("src","src/images/optimized/tinified/out-of-plays.png");
+                        popupButton.setAttribute("src","src/images/optimized/tinified/agree-order-button.png")
+                        content.innerHTML = `Bạn có muốn chọn lại không? Chỉ cần đặt một ly Trà Mật Rừng hoặc Phin Sữa Nâu chỉ 29k của LUPU là bạn đã có thể tiếp tục ván này rồi. ${prizes[maxValuePrizeIndex].value}k đang chờ bạn.`;
+                        popup.className += " show";
+                        buyingPhase = 1;
+                    },1500);
+                },1000);
+            }else{
+                let products = document.getElementById("products");
+                products.className += " show";
+            }
         }
     }else{
         setTimeout(()=>{
@@ -212,9 +218,14 @@ hidePopup = ()=>{
             playTimesIndicator.className += " show";
         },500);  
     }
-    setTimeout(()=>{
-        popup.className = "popup";
-    },1000)
+
+    if(buyingPhase != 1){
+        popup.className += " hide";
+        setTimeout(()=>{
+            popup.className = "popup";
+        },1000);
+    }
+   
 }
 
 showPopup = ()=>{
@@ -383,6 +394,9 @@ createBoard = ()=>{
                         <div class="img-holder"><img id="popup-label" src="src/images/optimized/tinified/round-1.png" alt ="lupu coffee"/></div>
                         <p id="popup-content"> Dưới mỗi viên kẹo là các mệnh giá gồm 1k, 5k, 10k, 25k, 50k, 100k, 200k, 300k và 400k. Bạn sẽ phải bỏ đi 6 viên kẹo (chỉ giữ lại 3) bằng cách nhấn vào chúng. Cân nhắc trước khi chọn nhé ! </p>
                         <div class="button" onclick="hidePopup()"><img id="popup-button" src="src/images/optimized/tinified/agree-button.png" alt ="lupu coffee"/></div>
+                        <div class="products" id="products">
+                            <img src="src/images/optimized/tinified/product-2.png"/>
+                        </div>
                     </div>
                 </div>
             </div>`;

@@ -307,6 +307,25 @@ body{
     width: 100%;
 }
 
+.board > .popup > .wrapper > .content > div.products{
+    box-sizing: border-box;
+    border-radius: 1em;
+    height: 100%;
+    top: 0;
+    overflow: hidden;
+    opacity: 0;
+    padding: 0.5em;
+    position: absolute;
+    width: 100%;
+    z-index: -10; 
+}
+
+.board > .popup > .wrapper > .content > div.products.show{
+    animation:  fadeIn 0.5s ease-in-out 0s forwards;
+    -webkit-animation:  fadeIn 0.5s ease-in-out 0s forwards;
+    z-index: 10;
+}
+
 .board > .popup > .wrapper > .content > div > img{
     max-height: 100%;
 }
