@@ -342,3 +342,41 @@ body{
 }
 
 
+/* ----------------------from another file---------------------------------- */
+
+.buying-info{
+    /* background: tan; */
+    height: 100%;
+    opacity: 0;
+    position: absolute;
+    top:0;
+    width: 100%;
+    z-index: -10;
+}
+
+.buying-info.show{
+    animation:  fadeIn 0.5s ease-in-out 0s forwards;
+    -webkit-animation:  fadeIn 0.5s ease-in-out 0s forwards;
+    z-index: 10;
+}
+
+.buying-info > p{
+    color: white;
+    margin: 1.1em auto;
+    text-align: center;
+    width: 65%;
+}
+
+.order-button{
+    align-items: center;
+    display: flex;
+    height: 2em;
+    justify-content: center;
+    margin: 0 auto;
+    width: 40%;
+}
+
+.order-button > img{
+    max-width: 100%;
+}
+

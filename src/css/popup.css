@@ -95,16 +95,3 @@
     text-align: left;
 }
 
-.bup-agree-button{
-    align-items: center;
-    display: flex;
-    height: 4em;
-    margin: 0 auto;
-    width: 60%;
-}
-
-
-.bup-agree-button > img{
-    max-width: 100%;
-}
-

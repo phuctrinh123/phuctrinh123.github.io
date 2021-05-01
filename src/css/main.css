@@ -156,6 +156,11 @@ body{
     z-index: 1;
 }
 
+.info-and-interaction{
+    position: relative;
+    width: 100%;
+}
+
 .guide-text{
     color: #c7eaff;
     /* font-size: 4vw;
@@ -223,7 +228,7 @@ body{
     color:#FF7600;
 }
 
-.order-button{
+/* .order-button{
     border: 2px solid white;
     border-radius: 100px;
     background: rgb(241,105,1);
@@ -232,4 +237,7 @@ body{
     font-family:  anton;
     margin: 5% auto;
     text-align: center;
-}
+} */
+
+
+

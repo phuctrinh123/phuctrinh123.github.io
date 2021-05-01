@@ -209,7 +209,9 @@ hidePopup = ()=>{
                 },1000);
             }else{
                 let products = document.getElementById("products");
+                let buyingInfo = document.getElementById("buying-info");
                 products.className += " show";
+                buyingInfo.className += " show";
             }
         }
     }else{

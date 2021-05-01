@@ -547,11 +547,11 @@ function boardInit (){
     var gameBoardShadow =  document.getElementById("game-board-shadow");
     var board = document.getElementById("board");
     var playTimeIndicator = document.getElementById("play-times");
-    var confirmPopup = document.getElementById("confirm-select-popup");
-    var cancelButton = document.getElementById("cancel-button");
-    var confirmButton = document.getElementById("confirm-button");
+    // var confirmPopup = document.getElementById("confirm-select-popup");
+    // var cancelButton = document.getElementById("cancel-button");
+    // var confirmButton = document.getElementById("confirm-button");
     var content = document.getElementById('content');
-    var orderPopup = byID("order-popup");
+    // var orderPopup = byID("order-popup");
     let boardWidth = /*board.offsetWidth;*/ viewportWidth;
     var logo = byID("game-logo");
     var htmlString = ""
@@ -587,17 +587,17 @@ function boardInit (){
     // board.style.height = boardSize;
 
     
-    confirmPopup.style.width = boardSize;
-    confirmPopup.style.height = boardSize;
-    content.style.width = boardWidth*0.65;
-    content.style.height = (boardWidth*0.65)*0.5;
-    cancelButton.style.width = popupButtonSizeW;
-    cancelButton.style.height = popupButtonSizeH;
-    confirmButton.style.width = popupButtonSizeW;
-    confirmButton.style.height = popupButtonSizeH;
+    // confirmPopup.style.width = boardSize;
+    // confirmPopup.style.height = boardSize;
+    // content.style.width = boardWidth*0.65;
+    // content.style.height = (boardWidth*0.65)*0.5;
+    // cancelButton.style.width = popupButtonSizeW;
+    // cancelButton.style.height = popupButtonSizeH;
+    // confirmButton.style.width = popupButtonSizeW;
+    // confirmButton.style.height = popupButtonSizeH;
 
-    orderPopup.style.width = boardWidth;
-    orderPopup.style.height = boardWidth/0.8333;
+    // orderPopup.style.width = boardWidth;
+    // orderPopup.style.height = boardWidth/0.8333;
 
     playTimeIndicator.innerHTML = playTimes;
 
