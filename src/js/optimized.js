@@ -211,6 +211,8 @@ hidePopup = ()=>{
                             setTimeout(()=>{
                                 tooltip.className += " hide";
                                 setTimeout(()=>{
+                                    let slider = document.getElementById("slider");
+                                    slider.className += " show";
                                     tooltip.className = "tooltips";
                                 },500);
                             },1500);
@@ -408,7 +410,7 @@ createBoard = ()=>{
                         <div class="button" onclick="hidePopup()"><img id="popup-button" src="src/images/optimized/tinified/agree-button.png" alt ="lupu coffee"/></div>
                         <div class="products" id="products">
                             <div class="frame">
-                                <div class="wrapper">
+                                <div class="wrapper" id="slider">
                                     <img src="src/images/optimized/tinified/product-2.png"/>
                                     <img src="src/images/optimized/tinified/product-1.png"/>
                                     <div class="tooltips" id="tooltip">
