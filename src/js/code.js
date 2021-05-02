@@ -268,7 +268,12 @@ function playGame(){
         //     let beforeUPlay = byID("before-u-play");
         //     beforeUPlay.className += " show";
         // }, 500);
-    },200)
+    },200);
+    gtag("event","Tap",{
+        'event_category': 'Tap on button',
+        'event_label': 'Play button',
+        'value': 'pressed'
+    });
 }
 
 function shareFacebookClick(){
