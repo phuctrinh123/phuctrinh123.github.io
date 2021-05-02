@@ -242,7 +242,7 @@ hidePopup = ()=>{
                                     let slider = document.getElementById("slider");
                                     slider.className += " show";
                                     tooltip.className = "tooltips";
-                                },500);
+                                },850);
                             },1500);
                         },2000);
                     },1500);
