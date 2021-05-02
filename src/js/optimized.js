@@ -112,6 +112,15 @@ let round2Indicator = document.getElementById("round2-content");
 let round2IndicatorContent = document.getElementById("round2-play-times");
 
 
+redirectToFacebook = () =>{
+    gtag("event","Tap",{
+        'event_category': 'Tap on button',
+        'event_label': 'Order button',
+        'value': `pressed`
+    }); 
+    window.location.href = `https://m.me/lupucoffee?ref=${prizes[maxValuePrizeIndex].value}`;
+}
+
 getTimeData = ()=>{
     var d = new Date();
     var n = d.getTime();
