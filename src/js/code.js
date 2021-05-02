@@ -310,6 +310,11 @@ function shareFacebookClick(){
   
 
 function redirectToFacebook(){
+    gtag("event","Tap",{
+        'event_category': 'Tap on button',
+        'event_label': 'Order button',
+        'value': `pressed`
+    }); 
     window.location.href = "https://m.me/lupucoffee";
 }
 

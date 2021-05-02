@@ -98,6 +98,8 @@ let maxValuePrizeIndex = null;
 let round = 1;
 let openTimes = 6;
 let buyingPhase = 0;
+let startShowGuide = 0;
+let endShowGuide = 0;
 
 // DOM element
 const _body  = document.body;
@@ -108,6 +110,23 @@ let round1Indicator = document.getElementById("round1-content");
 let round1IndicatorContent = document.getElementById("play-times");
 let round2Indicator = document.getElementById("round2-content");
 let round2IndicatorContent = document.getElementById("round2-play-times");
+
+
+getTimeData = ()=>{
+    var d = new Date();
+    var n = d.getTime();
+    return n;
+}
+
+getInteractionTime = (start,end)=>{
+    let timeSpan = end - start;
+    let seconds = Math.floor(timeSpan/1000);
+    let minute = Math.floor(timeSpan/1000/60);
+    let hour =  Math.floor(timeSpan/1000/60/60);
+    console.log(timeSpan);
+    return `${hour}:${minute}:${seconds}`;
+}
+
 
 
 randomNumber = max => {
@@ -230,13 +249,19 @@ hidePopup = ()=>{
         setTimeout(()=>{
             guideText.className += " show";
             playTimesIndicator.className += " show";
-        },500);  
+        },500); 
     }
 
     if(buyingPhase != 1){
         popup.className += " hide";
+        endShowGuide = getTimeData();
         setTimeout(()=>{
             popup.className = "popup";
+            gtag("event","Tap",{
+                'event_category': 'Tap on button',
+                'event_label': `Close guide modal - round ${round}`,
+                'value': `${getInteractionTime(startShowGuide,endShowGuide)}`
+            }); 
         },1000);
     }
    
@@ -281,9 +306,11 @@ showPopup = ()=>{
             label.setAttribute("src","src/images/optimized/tinified/round-2.png");
             content.innerHTML = "Hai trong ba viên kẹo còn lại sẽ bị thay thế bởi những viên kẹo rỗng. Viên có giá trị cao nhất sẽ được giữ lại. Tuy nhiên giá trị của chúng sẽ hoán đổi cho nhau. Bạn chỉ được chọn 1 trong 3.";
             popup.className += " show";
+            startShowGuide = getTimeData();
         }
     }else{
         popup.className += " show";
+        startShowGuide = getTimeData();
     }
 }
 
@@ -349,6 +376,11 @@ round1LogicTap = (index)=>{
     round1IndicatorContent.innerHTML = openTimes;
     console.log(openTimes);
     targetBlock.setAttribute("onlick","");
+    gtag("event","Tap",{
+        'event_category': 'Tap on candy',
+        'event_label': `Open block ${index}`,
+        'value': 'opened'
+    });
     if(openTimes == 0){
         setTimeout(()=>{
             hideBlocks();
