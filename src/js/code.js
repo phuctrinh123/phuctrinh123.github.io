@@ -748,6 +748,8 @@ loadResource(0);
 // });
 
 window.addEventListener("load", event => {
+    var localStorage = window.localStorage;
+    const plays = localStorage.getItem('plays');
     var board = document.getElementById("board");
     var loadingScreen = document.getElementById("loading-screen");
     guideText.className = "guide-text";
@@ -755,5 +757,9 @@ window.addEventListener("load", event => {
     loadingScreen.className = "loading-screen";
     board.className += " show";
     loadingScreen.style.display = "none";
+    if(!plays){
+        localStorage.setItem('plays',1);
+    }
+
 });
 

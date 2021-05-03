@@ -95,8 +95,8 @@ let unopenBlock = [];
 let blockHasPrize = null;
 let maxValueBlock = null;
 let maxValuePrizeIndex = null;
-let round = 1;
-let openTimes = 6;
+let round = window.localStorage.getItem('plays')!= 0 ? 1 : 2;
+let openTimes = window.localStorage.getItem('plays')!= 0 ? 6 : 0;
 let buyingPhase = 0;
 let startShowGuide = 0;
 let endShowGuide = 0;
@@ -237,6 +237,7 @@ hidePopup = ()=>{
                     setTimeout(()=>{
                         let popupButton= document.getElementById("popup-button");
                         let label = document.getElementById("popup-label");
+                        let localStorage = window.localStorage;
                         guideText.className = "guide-text";
                         playTimesIndicator.className = "play-times-indicator";
                         label.setAttribute("src","src/images/optimized/tinified/out-of-plays.png");
@@ -244,6 +245,7 @@ hidePopup = ()=>{
                         content.innerHTML = `Bạn có muốn chơi lại không? Chỉ cần đặt một ly Trà Mật Rừng hoặc Phin Sữa Nâu của LUPU bạn sẽ có thêm 1 lượt chơi. Ngoài ra bạn sẽ được LUPU tặng 10k và giảm đến 50% cho ly thứ 2. `;
                         // popup.className += " show";
                         buyingPhase = 1;
+                        localStorage.setItem('plays',0);
                         showPopup();
                         
                     },1500);
@@ -482,7 +484,20 @@ createBoard = ()=>{
                 </div>
             </div>`;
     board.innerHTML = html;
-    showBlock();
+    if (window.localStorage.getItem('plays')!= 0){
+        showBlock();
+    }else{
+        let popupButton= document.getElementById("popup-button");
+        let content = document.getElementById("popup-content");
+        let label = document.getElementById("popup-label");
+        guideText.className = "guide-text";
+        playTimesIndicator.className = "play-times-indicator";
+        label.setAttribute("src","src/images/optimized/tinified/out-of-plays.png");
+        popupButton.setAttribute("src","src/images/optimized/tinified/agree-order-button.png")
+        content.innerHTML = `Bạn có muốn chơi lại không? Chỉ cần đặt một ly Trà Mật Rừng hoặc Phin Sữa Nâu của LUPU bạn sẽ có thêm 1 lượt chơi. Ngoài ra bạn sẽ được LUPU tặng 10k và giảm đến 50% cho ly thứ 2. `;
+        buyingPhase = 1;
+        showPopup();
+    }
 }
 
 //realtime logic
