@@ -237,25 +237,15 @@ hidePopup = ()=>{
                     setTimeout(()=>{
                         let popupButton= document.getElementById("popup-button");
                         let label = document.getElementById("popup-label");
-                        let tooltip = document.getElementById("tooltip");
                         guideText.className = "guide-text";
                         playTimesIndicator.className = "play-times-indicator";
                         label.setAttribute("src","src/images/optimized/tinified/out-of-plays.png");
                         popupButton.setAttribute("src","src/images/optimized/tinified/agree-order-button.png")
                         content.innerHTML = `Bạn có muốn chơi lại không? Chỉ cần đặt một ly Trà Mật Rừng hoặc Phin Sữa Nâu chỉ 29k của LUPU bạn sẽ có thêm 1 lượt chơi`;
-                        popup.className += " show";
+                        // popup.className += " show";
                         buyingPhase = 1;
-                        setTimeout(()=>{
-                            tooltip.className += " show";
-                            setTimeout(()=>{
-                                tooltip.className += " hide";
-                                setTimeout(()=>{
-                                    let slider = document.getElementById("slider");
-                                    slider.className += " show";
-                                    tooltip.className = "tooltips";
-                                },850);
-                            },1500);
-                        },2000);
+                        showPopup();
+                        
                     },1500);
                 },1000);
             }else{
@@ -294,20 +284,37 @@ showPopup = ()=>{
     let unopenBlock = getNotYetOpenedBlock();
     if(round == 2){
         if(openTimes == 0){
-            label.setAttribute("src","src/images/optimized/tinified/sorry.png");
-            content.innerHTML = "Bạn đã chọn không đúng rồi. Bây giờ LUPU sẽ cho bạn thấy phần thường của bạn nằm ở viên kẹo nào nhé"; 
-            setTimeout(()=>{ 
-                 popup.className += " show";
-                 setTimeout(()=>{
-                    let randomBlock = randomNumber(2);
-                    blockHasPrize = document.getElementById(`block-${unopenBlock[randomBlock]}`);
-                    blockHasPrize.innerHTML += `<img 
-                        alt="lupu coffee"
-                        id="block-${maxValueBlock}-prize"
-                        src="${prizes[maxValuePrizeIndex].img}" 
-                    />`;
-                },500);
-            },1000);
+            if(buyingPhase != 1){
+                label.setAttribute("src","src/images/optimized/tinified/sorry.png");
+                content.innerHTML = "Bạn đã chọn không đúng rồi. Bây giờ LUPU sẽ cho bạn thấy phần thường của bạn nằm ở viên kẹo nào nhé"; 
+                setTimeout(()=>{ 
+                     popup.className += " show";
+                     setTimeout(()=>{
+                        let randomBlock = randomNumber(2);
+                        blockHasPrize = document.getElementById(`block-${unopenBlock[randomBlock]}`);
+                        blockHasPrize.innerHTML += `<img 
+                            alt="lupu coffee"
+                            id="block-${maxValueBlock}-prize"
+                            src="${prizes[maxValuePrizeIndex].img}" 
+                        />`;
+                    },500);
+                },1000);
+            }
+            else{
+                let tooltip = document.getElementById("tooltip");
+                popup.className += " show";
+                setTimeout(()=>{
+                    tooltip.className += " show";
+                    setTimeout(()=>{
+                        tooltip.className += " hide";
+                        // setTimeout(()=>{
+                        //     let slider = document.getElementById("slider");
+                        //     slider.className += " show";
+                        //     tooltip.className = "tooltips";
+                        // },850);
+                    },1500);
+                },2500);
+            }
         }else{
             let maxValue = 0;
             let blockIndex = null;
