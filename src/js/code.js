@@ -7,35 +7,37 @@ const resource = [
     "src/images/optimized/tinified/play-button.png",
     "src/images/optimized/tinified/term-button.png",
     "src/images/optimized/tinified/policy-button.png",
-    "src/images/optimized/tinified/before-u-play.png",
+    // "src/images/optimized/tinified/before-u-play.png",
     "src/images/optimized/tinified/board.png",
     "src/images/optimized/tinified/block-1.png",
-    "src/images/optimized/tinified/block-1-right.png",
-    "src/images/optimized/tinified/block-1-wrong.png",
+    // "src/images/optimized/tinified/block-1-right.png",
+    // "src/images/optimized/tinified/block-1-wrong.png",
     "src/images/optimized/tinified/block-2.png",
-    "src/images/optimized/tinified/block-2-right.png",
-    "src/images/optimized/tinified/block-2-wrong.png",
+    // "src/images/optimized/tinified/block-2-right.png",
+    // "src/images/optimized/tinified/block-2-wrong.png",
     "src/images/optimized/tinified/block-3.png",
-    "src/images/optimized/tinified/block-3-right.png",
-    "src/images/optimized/tinified/block-3-wrong.png",
+    // "src/images/optimized/tinified/block-3-right.png",
+    // "src/images/optimized/tinified/block-3-wrong.png",
     "src/images/optimized/tinified/block-4.png",
-    "src/images/optimized/tinified/block-4-right.png",
-    "src/images/optimized/tinified/block-4-wrong.png",
+    // "src/images/optimized/tinified/block-4-right.png",
+    // "src/images/optimized/tinified/block-4-wrong.png",
     "src/images/optimized/tinified/block-5.png",
-    "src/images/optimized/tinified/block-5-right.png",
-    "src/images/optimized/tinified/block-5-wrong.png",
+    // "src/images/optimized/tinified/block-5-right.png",
+    // "src/images/optimized/tinified/block-5-wrong.png",
     "src/images/optimized/tinified/block-6.png",
-    "src/images/optimized/tinified/block-6-right.png",
-    "src/images/optimized/tinified/block-6-wrong.png",
+    // "src/images/optimized/tinified/block-6-right.png",
+    // "src/images/optimized/tinified/block-6-wrong.png",
     "src/images/optimized/tinified/block-7.png",
-    "src/images/optimized/tinified/block-7-right.png",
-    "src/images/optimized/tinified/block-7-wrong.png",
+    // "src/images/optimized/tinified/block-7-right.png",
+    // "src/images/optimized/tinified/block-7-wrong.png",
     "src/images/optimized/tinified/block-8.png",
-    "src/images/optimized/tinified/block-8-right.png",
-    "src/images/optimized/tinified/block-8-wrong.png",
+    // "src/images/optimized/tinified/block-8-right.png",
+    // "src/images/optimized/tinified/block-8-wrong.png",
     "src/images/optimized/tinified/block-9.png",
-    "src/images/optimized/tinified/block-9-right.png",
-    "src/images/optimized/tinified/block-9-wrong.png",
+    // "src/images/optimized/tinified/block-9-right.png",
+    // "src/images/optimized/tinified/block-9-wrong.png",
+    "src/images/optimized/tinified/agree-button.png",
+    "src/images/optimized/tinified/agree-order-button.png",
     "src/images/optimized/tinified/prize-1.png",
     "src/images/optimized/tinified/prize-2.png",
     "src/images/optimized/tinified/prize-3.png",
@@ -51,20 +53,20 @@ const resource = [
     "src/images/optimized/tinified/prize-13.png",
     "src/images/optimized/tinified/round-1.png",
     "src/images/optimized/tinified/round-2.png",
-    "src/images/optimized/tinified/more-plays.png",
+    // "src/images/optimized/tinified/more-plays.png",
     "src/images/optimized/tinified/sorry.png",
     "src/images/optimized/tinified/out-of-plays.png",
-    "src/images/optimized/tinified/add-plays.png",
+    // "src/images/optimized/tinified/add-plays.png",
     "src/images/optimized/tinified/popup-base.png",
-    "src/images/optimized/tinified/glow-effect.png",
-    "src/images/optimized/tinified/cancel-button.png",
-    "src/images/optimized/tinified/confirm-button.png",
-    "src/images/optimized/tinified/continue-button.png",
-    "src/images/optimized/tinified/share-button.png",
-    "src/images/optimized/tinified/background-order.png",
-    "src/images/optimized/tinified/background-order-bottom.png",
-    "src/images/optimized/tinified/order-popup.png",
-    "src/images/optimized/tinified/back-button.png",
+    // "src/images/optimized/tinified/glow-effect.png",
+    // "src/images/optimized/tinified/cancel-button.png",
+    // "src/images/optimized/tinified/confirm-button.png",
+    // "src/images/optimized/tinified/continue-button.png",
+    // "src/images/optimized/tinified/share-button.png",
+    // "src/images/optimized/tinified/background-order.png",
+    // "src/images/optimized/tinified/background-order-bottom.png",
+    // "src/images/optimized/tinified/order-popup.png",
+    // "src/images/optimized/tinified/back-button.png",
     "src/images/optimized/tinified/order-button.png",
     "src/images/optimized/tinified/product-1.png",
     "src/images/optimized/tinified/product-2.png"
@@ -242,38 +244,8 @@ function loadResource(index){
             }
         },0)
     }else{
-        var board = document.getElementById("board");
-        var loadingScreen = document.getElementById("loading-screen");
-        guideText.className = "guide-text";
-        playTimesIndicator.className = "play-times-indicator";
-        loadingScreen.className = "loading-screen";
-        board.className += " show";
-        loadingScreen.style.display = "none";
+       
     }
-}
-
-function playGame(){
-    var menu = byID("game-menu");
-    var board = byID("game-board");
-    // var playTimeIndicator = byID("play-times-indicator");
-    // var guideText = byID("guide-text");
-    menu.className += " hide";
-    board.className += " show";
-    // guideText.className += " show";
-    // playTimeIndicator.className += " show";
-    clickOnPlay = 1;
-    setTimeout(function(){
-        menu.style.zIndex = -1000;
-        // setTimeout(()=>{
-        //     let beforeUPlay = byID("before-u-play");
-        //     beforeUPlay.className += " show";
-        // }, 500);
-    },200);
-    gtag("event","Tap",{
-        'event_category': 'Tap on button',
-        'event_label': 'Play button',
-        'value': 'pressed'
-    });
 }
 
 function shareFacebookClick(){
@@ -774,4 +746,14 @@ loadResource(0);
 //         // },1300)
 //     }
 // });
+
+window.addEventListener("load", event => {
+    var board = document.getElementById("board");
+    var loadingScreen = document.getElementById("loading-screen");
+    guideText.className = "guide-text";
+    playTimesIndicator.className = "play-times-indicator";
+    loadingScreen.className = "loading-screen";
+    board.className += " show";
+    loadingScreen.style.display = "none";
+});
 
