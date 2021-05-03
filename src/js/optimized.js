@@ -324,7 +324,7 @@ showPopup = ()=>{
             maxValueBlock = blockIndex;
             maxValuePrizeIndex = prizeIndex;
             label.setAttribute("src","src/images/optimized/tinified/round-2.png");
-            content.innerHTML = `LUPU sẽ giữ lại viên có giá ${prizes[maxValuePrizeIndex].value}k. Hai viên còn lại sẽ bị thay bằng những viên kẹo rỗng. 3 viên này sẽ bị hoán đổi cho nhau. `;
+            content.innerHTML = `LUPU sẽ giữ lại viên có giá ${prizes[maxValuePrizeIndex].value}k và hoán đổi giá trị với hai viên còn lại (được thay bằng những viên kẹo rỗng). Chúc bạn may mắn.`;
             popup.className += " show";
             startShowGuide = getTimeData();
         }
