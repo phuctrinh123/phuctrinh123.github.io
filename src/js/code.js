@@ -244,7 +244,13 @@ function loadResource(index){
             }
         },0)
     }else{
-       
+        var board = document.getElementById("board");
+        var loadingScreen = document.getElementById("loading-screen");
+        guideText.className = "guide-text";
+        playTimesIndicator.className = "play-times-indicator";
+        loadingScreen.className = "loading-screen";
+        board.className += " show";
+        loadingScreen.style.display = "none";
     }
 }
 
@@ -747,13 +753,7 @@ loadResource(0);
 //     }
 // });
 
-window.addEventListener("load", event => {
-    var board = document.getElementById("board");
-    var loadingScreen = document.getElementById("loading-screen");
-    guideText.className = "guide-text";
-    playTimesIndicator.className = "play-times-indicator";
-    loadingScreen.className = "loading-screen";
-    board.className += " show";
-    loadingScreen.style.display = "none";
-});
+// window.addEventListener("load", event => {
+ 
+// });
 
