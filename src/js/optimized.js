@@ -241,7 +241,7 @@ hidePopup = ()=>{
                         playTimesIndicator.className = "play-times-indicator";
                         label.setAttribute("src","src/images/optimized/tinified/out-of-plays.png");
                         popupButton.setAttribute("src","src/images/optimized/tinified/agree-order-button.png")
-                        content.innerHTML = `Bạn có muốn chơi lại không? Chỉ cần đặt một ly Trà Mật Rừng hoặc Phin Sữa Nâu của LUPU bạn sẽ có thêm 1 lượt chơi. Ngoài ra bạn sẽ được giảm đến 60% cho ly thứ 2.`;
+                        content.innerHTML = `Bạn có muốn chơi lại không? Chỉ cần đặt một ly Trà Mật Rừng hoặc Phin Sữa Nâu của LUPU bạn sẽ có thêm 1 lượt chơi. Ngoài ra bạn sẽ được tặng 5k và giảm đến 60% cho ly thứ 2.`;
                         // popup.className += " show";
                         buyingPhase = 1;
                         showPopup();
