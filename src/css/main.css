@@ -239,5 +239,14 @@ body{
     text-align: center;
 } */
 
+.slogan{
+    color:burlywood;
+    font-size: 0.85em;
+    margin-top: 3em;
+    margin-bottom: 1.95em;
+    padding: 0 3em;
+    text-align: center;
+    z-index: 1;
+}
 
 

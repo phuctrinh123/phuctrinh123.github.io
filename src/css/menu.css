@@ -39,16 +39,16 @@
 }
 
 .menu-button:nth-child(2){
-    margin-top: 22%;
+    margin-top: 34%;
 }
 
 .menu-button > img{
     max-width: 100%;
 }
 
-.game-menu > p{
+/* .game-menu > p{
     margin: 0
-}
+} */
 /* 
 .game-menu > p:nth-of-type(1){
     font-size: 1em;
@@ -64,5 +64,5 @@
 .copyright{
     color: rgb(255, 231, 199);
     font-size: 0.8em;
-    margin-top: 40% !important;
+    margin-top: 20% !important;
 }

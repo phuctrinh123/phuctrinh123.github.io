@@ -747,6 +747,10 @@ loadResource(0);
 //     }
 // });
 
+testCode = (string)=>{
+ alert (CryptoJS.AES.encrypt(string,"LUPUCOFFE"));
+}
+
 window.addEventListener("load", event => {
     var localStorage = window.localStorage;
     const plays = localStorage.getItem('plays');
@@ -760,6 +764,5 @@ window.addEventListener("load", event => {
     if(!plays){
         localStorage.setItem('plays',1);
     }
-
 });
 
