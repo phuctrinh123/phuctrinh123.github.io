@@ -118,6 +118,7 @@ shareFacebook = ()=>{
         href: 'http://lupucoffee.com/',
         }, function(response){
             var menu = byID("game-menu");
+            window.localStorage.setItem('shareFacebook', true);
             menu.className += " hide";
             magicKey();
             clickOnPlay = 1;
@@ -129,8 +130,19 @@ shareFacebook = ()=>{
 }
 
 playGame = ()=>{
-   let shareFacebookDiaglog = document.getElementById("facebook-share-dialog");
-   shareFacebookDiaglog .className += " show";
+    if(window.localStorage.getItem('shareFacebook') !=  true){
+        let shareFacebookDiaglog = document.getElementById("facebook-share-dialog");
+        shareFacebookDiaglog .className += " show";
+    }else{
+        var menu = byID("game-menu");
+        menu.className += " hide";
+        magicKey();
+        clickOnPlay = 1;
+        setTimeout(function(){
+            menu.style.zIndex = -1000;
+        },200);
+    }
+   
 }
 
 magicKey = ()=>{
