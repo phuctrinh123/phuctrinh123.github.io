@@ -213,16 +213,29 @@ randomNumber = max => {
     return Math.floor(Math.random() * max);
 }
 
+// shufflePrize = ()=>{
+//     let randomPrize = randomNumber(_precision);
+//     if(prizeInBlock.length != Object.keys(prizes).length){
+//         if(!prizeInBlock.includes(randomPrize) && (randomPrize != 0)){
+//             prizeInBlock.push(randomPrize);
+//         }
+//     }else{
+//         clearInterval(generatePrizeMap);
+//     }
+// }
+
 shufflePrize = ()=>{
-    let randomPrize = randomNumber(_precision);
-    if(prizeInBlock.length != Object.keys(prizes).length){
-        if(!prizeInBlock.includes(randomPrize) && (randomPrize != 0)){
-            prizeInBlock.push(randomPrize);
+    setTimeout(()=>{
+        let randomPrize = randomNumber(_precision);
+        if(prizeInBlock.length != Object.keys(prizes).length){
+            if(!prizeInBlock.includes(randomPrize) && (randomPrize != 0)){
+                prizeInBlock.push(randomPrize);
+            }
+            shufflePrize();
         }
-    }else{
-        clearInterval(generatePrizeMap);
-    }
-}      
+    },0);
+}
+
 
 getNotYetOpenedBlock = ()=>{
     let notOpenedBlock = [];
@@ -406,6 +419,7 @@ showPopup = ()=>{
 // blocks
 
 createBlock = (index = null, prizeIndex = null)=>{
+    console.log(prizeIndex);
     return`
         <div class="block" id="block-${index}" onclick="blockTap(${index})">   
             <img 
@@ -565,10 +579,11 @@ createBoard = ()=>{
 
 //realtime logic
 
-var generatePrizeMap = setInterval(() => {shufflePrize();}, 60);
+// var generatePrizeMap = setInterval(() => {shufflePrize();}, 60);
 // init logic when page load
 body.onload = (e)=>{
     body.style.fontSize = Math.round(_isMobile ==  true ? _screenWidth*13/320 : 13) + "px";
     board.style.width = _boardWidth;
     board.style.height = _boardWidth;
+    shufflePrize();
 }
