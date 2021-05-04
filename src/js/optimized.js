@@ -579,12 +579,12 @@ createBoard = ()=>{
 }
 
 //realtime logic
-
+shufflePrize();
 // var generatePrizeMap = setInterval(() => {shufflePrize();}, 60);
 // init logic when page load
 body.onload = (e)=>{
     body.style.fontSize = Math.round(_isMobile ==  true ? _screenWidth*13/320 : 13) + "px";
     board.style.width = _boardWidth;
     board.style.height = _boardWidth;
-    shufflePrize();
+    
 }
