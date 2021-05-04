@@ -230,6 +230,7 @@ shufflePrize = ()=>{
         if(prizeInBlock.length != Object.keys(prizes).length){
             if(!prizeInBlock.includes(randomPrize) && (randomPrize != 0)){
                 prizeInBlock.push(randomPrize);
+                console.log(randomPrize);
             }
             shufflePrize();
         }
