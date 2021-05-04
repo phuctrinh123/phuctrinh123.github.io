@@ -147,6 +147,28 @@
 
             gtag('config', 'G-4FERV1ECVJ');
         </script>
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-app.js"></script>
+        <!-- TODO: Add SDKs for Firebase products that you want to use
+            https://firebase.google.com/docs/web/setup#available-libraries -->
+        <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-firestore.js"></script>    
+        <!-- <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-analytics.js"></script> -->
+        <script>
+            // Your web app's Firebase configuration
+            // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+            var firebaseConfig = {
+                apiKey: "AIzaSyAbNgrBR8ctnpQNnBn-NQzEhjK4sM8dcNs",
+                authDomain: "lupu-minigame.firebaseapp.com",
+                projectId: "lupu-minigame",
+                storageBucket: "lupu-minigame.appspot.com",
+                messagingSenderId: "360441837558",
+                appId: "1:360441837558:web:55ecf5e6da93361d01f9d7",
+                measurementId: "G-3E3PWQ1V70"
+            };
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
+            // firebase.analytics();
+        </script>
         <script src="src/js/aes.js"></script>
         <script src="src/js/code.js"></script>
         <script src="src/js/optimized.js"></script>

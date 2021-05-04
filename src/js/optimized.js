@@ -113,46 +113,68 @@ let round2IndicatorContent = document.getElementById("round2-play-times");
 
 playGame = ()=>{
     var menu = byID("game-menu");
-    var board = byID("game-board");
-
     menu.className += " hide";
     magicKey();
-    createBoard();
-    board.className += " show";
     clickOnPlay = 1;
-    
     setTimeout(function(){
         menu.style.zIndex = -1000;
     },200);
 }
 
 magicKey = ()=>{
+    let db = firebase.firestore();
     var url_string = window.location.href;
     var url = new URL(url_string);
     var keyCode = url.searchParams.get("code");
+    var board = byID("game-board");
     if (keyCode){
         if(!window.localStorage.getItem(keyCode)){
-            let decrypt = CryptoJS.AES.decrypt(keyCode,"LUPUCOFFE");
-            let string = decrypt.toString(CryptoJS.enc.Utf8);
-            if(string.includes("add 1 play")){window.localStorage.setItem('plays',1); round = 1; openTimes = 6; }
-            else if (string.includes("add 2 play")){window.localStorage.setItem('plays', 2); round = 1; openTimes = 6;}
-            else if (string.includes("add 3 play")){window.localStorage.setItem('plays', 3); round = 1; openTimes = 6;}
-            else if (string.includes("add 4 play")){window.localStorage.setItem('plays', 4); round = 1; openTimes = 6;}
-            else if (string.includes("add 5 play")){window.localStorage.setItem('plays', 5); round = 1; openTimes = 6;}
-            else if (string.includes("add 6 play")){window.localStorage.setItem('plays', 6); round = 1; openTimes = 6;}
-            else if (string.includes("add 7 play")){window.localStorage.setItem('plays', 7); round = 1; openTimes = 6;}
-            else if (string.includes("add 8 play")){window.localStorage.setItem('plays', 8); round = 1; openTimes = 6;}
-            else if (string.includes("add 9 play")){window.localStorage.setItem('plays', 9); round = 1; openTimes = 6;}
-            else if (string.includes("add 10 play")){window.localStorage.setItem('plays', 10); round = 1; openTimes = 6;}
-            else if (string.includes("add 11 play")){window.localStorage.setItem('plays', 11); round = 1; openTimes = 6;}
-            else if (string.includes("add 12 play")){window.localStorage.setItem('plays', 12); round = 1; openTimes = 6;}
-            else if (string.includes("add 13 play")){window.localStorage.setItem('plays', 13); round = 1; openTimes = 6;}
-            else if (string.includes("add 14 play")){window.localStorage.setItem('plays', 14); round = 1; openTimes = 6;}
-            else if (string.includes("add 15 play")){window.localStorage.setItem('plays', 15); round = 1; openTimes = 6;}
-            else if (string.includes("add 16 play")){window.localStorage.setItem('plays', 16); round = 1; openTimes = 6;}
-            else if (string.includes("add 17 play")){window.localStorage.setItem('plays', 17); round = 1; openTimes = 6;}
-            else if (string.includes("add 18 play")){window.localStorage.setItem('plays', 18); round = 1; openTimes = 6;}
-            window.localStorage.setItem(keyCode,false);
+            let docRef =  db.collection("codes").doc(keyCode);
+            docRef.get().then((doc) => {
+                if(!doc.data()){
+                    let decrypt = CryptoJS.AES.decrypt(keyCode,"LUPUCOFFE");
+                    let string = decrypt.toString(CryptoJS.enc.Utf8);
+                    if(string.includes("add 1 play")){window.localStorage.setItem('plays',1); round = 1; openTimes = 6; }
+                    else if (string.includes("add 2 play")){window.localStorage.setItem('plays', 2); round = 1; openTimes = 6;}
+                    else if (string.includes("add 3 play")){window.localStorage.setItem('plays', 3); round = 1; openTimes = 6;}
+                    else if (string.includes("add 4 play")){window.localStorage.setItem('plays', 4); round = 1; openTimes = 6;}
+                    else if (string.includes("add 5 play")){window.localStorage.setItem('plays', 5); round = 1; openTimes = 6;}
+                    else if (string.includes("add 6 play")){window.localStorage.setItem('plays', 6); round = 1; openTimes = 6;}
+                    else if (string.includes("add 7 play")){window.localStorage.setItem('plays', 7); round = 1; openTimes = 6;}
+                    else if (string.includes("add 8 play")){window.localStorage.setItem('plays', 8); round = 1; openTimes = 6;}
+                    else if (string.includes("add 9 play")){window.localStorage.setItem('plays', 9); round = 1; openTimes = 6;}
+                    else if (string.includes("add 10 play")){window.localStorage.setItem('plays', 10); round = 1; openTimes = 6;}
+                    else if (string.includes("add 11 play")){window.localStorage.setItem('plays', 11); round = 1; openTimes = 6;}
+                    else if (string.includes("add 12 play")){window.localStorage.setItem('plays', 12); round = 1; openTimes = 6;}
+                    else if (string.includes("add 13 play")){window.localStorage.setItem('plays', 13); round = 1; openTimes = 6;}
+                    else if (string.includes("add 14 play")){window.localStorage.setItem('plays', 14); round = 1; openTimes = 6;}
+                    else if (string.includes("add 15 play")){window.localStorage.setItem('plays', 15); round = 1; openTimes = 6;}
+                    else if (string.includes("add 16 play")){window.localStorage.setItem('plays', 16); round = 1; openTimes = 6;}
+                    else if (string.includes("add 17 play")){window.localStorage.setItem('plays', 17); round = 1; openTimes = 6;}
+                    else if (string.includes("add 18 play")){window.localStorage.setItem('plays', 18); round = 1; openTimes = 6;}
+                    window.localStorage.setItem(keyCode,false);
+                    db.collection("codes").doc(keyCode).set({
+                        status: false,
+                    })
+                    .then(() => {
+                        console.log("Document successfully written!");
+                    })
+                    .catch((error) => {
+                        console.error("Error writing document: ", error);
+                    });
+                    createBoard();
+                    board.className += " show";
+                }else{
+                    round = 2;
+                    openTimes = 0;
+                    window.localStorage.setItem('plays',0);
+                    createBoard();
+                    board.className += " show";
+                    console.log("out of plays firestore");
+                }
+            });
+        }else{
+            console.log("out of plays");
         }
     } 
 }
@@ -365,7 +387,7 @@ showPopup = ()=>{
             maxValueBlock = blockIndex;
             maxValuePrizeIndex = prizeIndex;
             label.setAttribute("src","src/images/optimized/tinified/round-2.png");
-            content.innerHTML = `LUPU sẽ giữ lại viên có giá ${prizes[maxValuePrizeIndex].value}k và hoán đổi giá trị với hai viên còn lại (được thay bằng những viên kẹo rỗng). Chúc bạn may mắn.`;
+            content.innerHTML = `LUPU sẽ giữ lại viên có giá ${prizes[maxValuePrizeIndex].value}k và hoán đổi giá trị với hai viên còn lại (2 viên rỗng). Chúc bạn may mắn.`;
             popup.className += " show";
             startShowGuide = getTimeData();
         }
