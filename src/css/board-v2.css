@@ -496,3 +496,81 @@ body{
     animation:  slide 3s ease-in-out 0s infinite ;
     -webkit-animation:  slide 3s ease-in-out 0s infinite;
 } */
+
+.share-facebook-dialog{
+    background: burlywood;
+    border-radius: 0.8em;
+    height: 69%;
+    opacity: 0;
+    position: absolute;
+    top: 5%;
+    width: 79%;
+    z-index: -10;
+    
+}
+
+.share-facebook-dialog.show{
+    animation:  fadeIn 0.5s ease-in-out 0s forwards;
+    -webkit-animation:  fadeIn 0.5s ease-in-out 0s forwards;
+    z-index: 10;
+}
+
+
+.share-facebook-dialog > .wrapper > img{
+    height: 100%;
+    position: absolute;
+    top:0;
+    width: 100%;
+    z-index: -1;
+}
+
+.share-facebook-dialog > .wrapper > .diaglog-content{
+    box-sizing: border-box;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    padding: 1.25em;
+    width: 100%;
+}
+
+.share-facebook-dialog > .wrapper > .diaglog-content > .warm-up-prize{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    position: relative;
+    width: 45%;
+}
+
+.share-facebook-dialog > .wrapper > .diaglog-content > .warm-up-prize > img{
+    max-width: 100%;
+}
+
+.share-facebook-dialog > .wrapper > .diaglog-content > .warm-up-prize > img:first-child{
+    animation:  rotate 8s linear 0s infinite ;
+    -webkit-animation:  rotate 8s linear 0s infinite ;
+    opacity: 0.8;
+}
+
+
+.share-facebook-dialog > .wrapper > .diaglog-content > .warm-up-prize > img:last-child{
+    position: absolute;
+}
+
+.share-facebook-dialog > .wrapper > .diaglog-content > p{
+    color: burlywood;
+    margin-top: 0;
+}
+
+.share-facebook-dialog > .wrapper > .diaglog-content > .button{
+    align-items: center;
+    display: flex;
+    height: 5em;
+    justify-content: center;
+    margin: 0 auto;
+    width: 65%;
+}
+
+.share-facebook-dialog > .wrapper > .diaglog-content > .button > img{
+    max-width: 100%;
+}

@@ -7,6 +7,7 @@ const resource = [
     "src/images/optimized/tinified/play-button.png",
     "src/images/optimized/tinified/term-button.png",
     "src/images/optimized/tinified/policy-button.png",
+    "src/images/optimized/tinified/wooden-background.png",
     // "src/images/optimized/tinified/before-u-play.png",
     "src/images/optimized/tinified/board.png",
     "src/images/optimized/tinified/block-1.png",
@@ -259,37 +260,37 @@ function loadResource(index){
     }
 }
 
-function shareFacebookClick(){
-    var popup = byID("confirm-select-popup");
-    var popupBlockDisplayer = byID("selected-block");
-    var popupContent = byID('content');
-    var popupConfirmButton = byID("confirm-button");
-    var playTimeIndicator = byID("play-times");
-    FB.ui({
-        method: 'share',
-        href: 'http://lupucoffee.com/',
-      }, function(response){
-        let blockContainer = document.createElement("div");
-        shareFacebook = 1;
-        // popup.className = "popup";
-        blockContainer.className = "block show selected";
-        blockContainer.innerHTML = `<img 
-            src="src/images/optimized/tinified/add-plays.png" 
-            alt="lupu giải thưởng"
-            width= "100%"
-            height= "100%"
-            style="height: 100% !important; width:100% !important;"
-        />`;
-        popupContent.innerHTML = "Bạn vừa nhận thêm một lượt chơi từ việc chia sẻ facebook, mở kẹo tiếp thôi";
-        popupConfirmButton.style.backgroundImage = `url("src/images/optimized/tinified/continue-button.png")`;
-        popupConfirmButton.setAttribute("onclick", "userConfirm()");
-        popupBlockDisplayer.innerHTML = "";
-        popupBlockDisplayer.append(blockContainer);
-        playTimes = 1;
-        playTimeIndicator.innerHTML = playTimes;
-        console.log("click on share");
-      });  
-}
+// function shareFacebookClick(){
+//     var popup = byID("confirm-select-popup");
+//     var popupBlockDisplayer = byID("selected-block");
+//     var popupContent = byID('content');
+//     var popupConfirmButton = byID("confirm-button");
+//     var playTimeIndicator = byID("play-times");
+//     FB.ui({
+//         method: 'share',
+//         href: 'http://lupucoffee.com/',
+//       }, function(response){
+//         let blockContainer = document.createElement("div");
+//         shareFacebook = 1;
+//         // popup.className = "popup";
+//         blockContainer.className = "block show selected";
+//         blockContainer.innerHTML = `<img 
+//             src="src/images/optimized/tinified/add-plays.png" 
+//             alt="lupu giải thưởng"
+//             width= "100%"
+//             height= "100%"
+//             style="height: 100% !important; width:100% !important;"
+//         />`;
+//         popupContent.innerHTML = "Bạn vừa nhận thêm một lượt chơi từ việc chia sẻ facebook, mở kẹo tiếp thôi";
+//         popupConfirmButton.style.backgroundImage = `url("src/images/optimized/tinified/continue-button.png")`;
+//         popupConfirmButton.setAttribute("onclick", "userConfirm()");
+//         popupBlockDisplayer.innerHTML = "";
+//         popupBlockDisplayer.append(blockContainer);
+//         playTimes = 1;
+//         playTimeIndicator.innerHTML = playTimes;
+//         console.log("click on share");
+//       });  
+// }
   
 
 

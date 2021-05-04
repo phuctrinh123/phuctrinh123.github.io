@@ -112,14 +112,25 @@ let round1IndicatorContent = document.getElementById("play-times");
 let round2Indicator = document.getElementById("round2-content");
 let round2IndicatorContent = document.getElementById("round2-play-times");
 
+shareFacebook = ()=>{
+    FB.ui({
+        method: 'share',
+        href: 'http://lupucoffee.com/',
+        }, function(response){
+            var menu = byID("game-menu");
+            menu.className += " hide";
+            magicKey();
+            clickOnPlay = 1;
+            setTimeout(function(){
+                menu.style.zIndex = -1000;
+            },200);
+        }
+    );
+}
+
 playGame = ()=>{
-    var menu = byID("game-menu");
-    menu.className += " hide";
-    magicKey();
-    clickOnPlay = 1;
-    setTimeout(function(){
-        menu.style.zIndex = -1000;
-    },200);
+   let shareFacebookDiaglog = document.getElementById("facebook-share-dialog");
+   shareFacebookDiaglog .className += " show";
 }
 
 magicKey = ()=>{
