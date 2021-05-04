@@ -100,6 +100,7 @@ let openTimes = window.localStorage.getItem('plays')!= 0 ? 6 : 0;
 let buyingPhase = 0;
 let startShowGuide = 0;
 let endShowGuide = 0;
+let isCheat = false;
 
 // DOM element
 const _body  = document.body;
@@ -168,12 +169,15 @@ magicKey = ()=>{
                     round = 2;
                     openTimes = 0;
                     window.localStorage.setItem('plays',0);
+                    isCheat = true;
                     createBoard();
                     board.className += " show";
                     console.log("out of plays firestore");
                 }
             });
         }else{
+            createBoard();
+            board.className += " show";
             console.log("out of plays");
         }
     } 
@@ -548,7 +552,12 @@ createBoard = ()=>{
         playTimesIndicator.className = "play-times-indicator";
         label.setAttribute("src","src/images/optimized/tinified/out-of-plays.png");
         popupButton.setAttribute("src","src/images/optimized/tinified/agree-order-button.png")
-        content.innerHTML = `Bạn đã hết lượt rồi? Chỉ cần đặt một ly Trà Mật Rừng hoặc Phin Sữa Nâu của LUPU bạn sẽ có thêm 1 lượt chơi. Ngoài ra bạn sẽ được LUPU tặng 10k và giảm đến 50% cho ly thứ 2. `;
+        if(!isCheat){
+            content.innerHTML = `Bạn đã hết lượt rồi? Chỉ cần đặt một ly Trà Mật Rừng hoặc Phin Sữa Nâu của LUPU bạn sẽ có thêm 1 lượt chơi. Ngoài ra bạn sẽ được LUPU tặng 10k và giảm đến 50% cho ly thứ 2. `;
+        }else{
+            content.innerHTML = 'Mã code này đã được sử dụng. Đặt ngay một ly Trà Mật Rừng hoặc Phin Sữa Nâu của LUPU bạn sẽ có thêm 1 lượt chơi. Ngoài ra bạn sẽ được LUPU tặng 10k và giảm đến 50% cho ly thứ 2.'
+        }
+     
         buyingPhase = 1;
         showPopup();
     }
