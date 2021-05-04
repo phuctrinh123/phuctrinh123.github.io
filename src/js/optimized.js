@@ -180,6 +180,9 @@ magicKey = ()=>{
             board.className += " show";
             console.log("out of plays");
         }
+    }else{
+        createBoard();
+        board.className += " show";
     } 
 }
 
