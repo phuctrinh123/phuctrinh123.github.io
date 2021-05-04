@@ -192,7 +192,12 @@ redirectToFacebook = () =>{
     //     'event_label': 'Order button',
     //     'value': `pressed`
     // }); 
-    window.location.href = `https://m.me/lupucoffee?ref=${prizes[maxValuePrizeIndex].value}`;
+    if(maxValuePrizeIndex){
+        window.location.href = `https://m.me/lupucoffee?ref=${prizes[maxValuePrizeIndex].value}`;
+    }else{
+        window.location.href = `https://m.me/lupucoffee?ref=minigameorder`;
+    }
+    
 }
 
 getTimeData = ()=>{
