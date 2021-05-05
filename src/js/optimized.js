@@ -158,6 +158,19 @@ closeTerms = ()=>{
     },350);
 }
 
+showPolicy= ()=>{
+    let termDialog = document.getElementById("policy-dialog");
+    termDialog.className += " show";
+}
+
+closePolicy= ()=>{
+    let termDialog = document.getElementById("policy-dialog");
+    termDialog.className += " hide";
+    setTimeout(()=>{
+        termDialog.className = "share-facebook-dialog";
+    },350);
+}
+
 magicKey = ()=>{
     let db = firebase.firestore();
     var url_string = window.location.href;
