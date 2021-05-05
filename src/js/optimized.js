@@ -102,6 +102,7 @@ let outOfPlay = false;
 let startShowGuide = 0;
 let endShowGuide = 0;
 let isCheat = false;
+let normalPrizeValue = 0;
 
 // DOM element
 const _body  = document.body;
@@ -386,7 +387,20 @@ hidePopup = ()=>{
                         for(let i = 0; i< unopenBlock.length; i++){
                             removePrize(unopenBlock[i]);
                         }
+
                         setTimeout(()=>{
+                            let randomBlock = randomNumber(3);
+                            let randomPrize = randomNumber(4)
+                            console.log(randomBlock);
+                            console.log(randomPrize);
+                            blockHasPrize = document.getElementById(`block-${unopenBlock[randomBlock]}`);
+                            blockHasPrize.innerHTML += `<img 
+                                alt="lupu coffee"
+                                id="block-${unopenBlock[randomBlock]}-prize"
+                                src="${prizes[randomPrize == 0 ? 1 : randomPrize].img}" 
+                                data-value= ${prizes[randomPrize == 0 ? 1 : randomPrize].value}
+                            />`;
+                            unopenBlock.splice(unopenBlock.indexOf(unopenBlock[randomBlock]), 1);
                             guideText.className += " show";
                             playTimesIndicator.className += " show";
                         },500);  
@@ -406,7 +420,7 @@ hidePopup = ()=>{
                         playTimesIndicator.className = "play-times-indicator";
                         label.setAttribute("src","src/images/optimized/tinified/out-of-plays.png");
                         popupButton.setAttribute("src","src/images/optimized/tinified/agree-order-button.png")
-                        content.innerHTML = `Bạn có muốn chơi lại không? Chỉ cần đặt một ly Trà Mật Rừng hoặc Phin Sữa Nâu của LUPU bạn sẽ có thêm 1 lượt chơi. Ngoài ra bạn sẽ được LUPU tặng thêm 5k và giảm đến 50% cho ly thứ 2. `;
+                        content.innerHTML = `Bạn có muốn chơi lại không? Chỉ cần đặt một ly Trà Mật Rừng hoặc Phin Sữa Nâu của LUPU bạn sẽ có thêm 1 lượt chơi. Ngoài ra bạn đã có ${5 + normalPrizeValue}k, LUPU tặng bạn thêm 5k và giảm đến 50% cho ly thứ 2. `;
                         // popup.className += " show";
                         buyingPhase = 1;
                         localStorage.setItem('plays',0);
@@ -509,7 +523,7 @@ showPopup = ()=>{
             maxValueBlock = blockIndex;
             maxValuePrizeIndex = prizeIndex;
             label.setAttribute("src","src/images/optimized/tinified/round-2.png");
-            content.innerHTML = `LUPU sẽ giữ lại viên có giá ${prizes[maxValuePrizeIndex].value}k và hoán đổi giá trị với hai viên còn lại (2 viên rỗng). Chúc bạn may mắn.`;
+            content.innerHTML = `LUPU sẽ giữ lại viên có giá ${prizes[maxValuePrizeIndex].value}k và hoán đổi giá trị với hai viên còn lại (1 viên rỗng, 1 viên có mệnh giá ngẫu nhiên). Chúc bạn may mắn.`;
             popup.className += " show";
             startShowGuide = getTimeData();
             gtag("event","Game Rounds",{
@@ -620,6 +634,10 @@ round1LogicTap = (index)=>{
 
 round2LogicTap = (index)=>{
     let round2IndicatorContent = document.getElementById("round2-play-times");
+    let prize = document.getElementById(`block-${index}-prize`);
+    if(prize){
+        normalPrizeValue = parseInt(prize.getAttribute("data-value"));
+    }
     showPrize(index);
     openedBlock.push(index);
     openTimes --;

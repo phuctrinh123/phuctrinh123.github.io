@@ -49,7 +49,7 @@ const resource = [
     "src/images/optimized/tinified/prize-8.png",
     "src/images/optimized/tinified/prize-9.png",
     "src/images/optimized/tinified/prize-10.png",
-    "src/images/optimized/tinified/prize-11.png",
+    "src/images/optimized/tinified/prize-0.png",
     "src/images/optimized/tinified/prize-12.png",
     "src/images/optimized/tinified/prize-13.png",
     "src/images/optimized/tinified/round-1.png",
@@ -91,7 +91,7 @@ body.style.fontSize = Math.round(isMobile ==  true ? screenWidth*13/320 : 13) + 
 let image = document.getElementsByTagName('img');
 let totalBlock = 9;
 let prizes = {
-    1: {img: "src/images/optimized/tinified/prize-11.png", type:"many", name: "May quá dưới viên kẹo này chỉ có 1k thôi bạn ơi!", value:1},
+    1: {img: "src/images/optimized/tinified/prize-0.png", type:"many", name: "May quá dưới viên kẹo này chỉ có 1k thôi bạn ơi!", value:1},
     2: {img: "src/images/optimized/tinified/prize-1.png", type:"many", name: "May quá dưới viên kẹo này chỉ có 5k thôi bạn ơi!", value:5},
     3: {img: "src/images/optimized/tinified/prize-13.png", type:"many", name: "May quá dưới viên kẹo này chỉ có 10k thôi bạn ơi!", value:10},
     4: {img: "src/images/optimized/tinified/prize-2.png", type:"many", name: "Ồ dưới viên kẹo này có 25k nà!", value:25},
