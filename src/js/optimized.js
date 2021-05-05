@@ -145,6 +145,19 @@ playGame = ()=>{
    
 }
 
+showTerms = ()=>{
+    let termDialog = document.getElementById("term-dialog");
+    termDialog.className += " show";
+}
+
+closeTerms = ()=>{
+    let termDialog = document.getElementById("term-dialog");
+    termDialog.className += " hide";
+    setTimeout(()=>{
+        termDialog.className = "share-facebook-dialog";
+    },350);
+}
+
 magicKey = ()=>{
     let db = firebase.firestore();
     var url_string = window.location.href;

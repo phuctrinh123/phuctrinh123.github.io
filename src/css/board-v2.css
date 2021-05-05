@@ -515,6 +515,13 @@ body{
     z-index: 10;
 }
 
+.share-facebook-dialog.show.hide{
+    animation:  fadeOut 0.5s ease-in-out 0s forwards;
+    -webkit-animation:  fadeOut 0.5s ease-in-out 0s forwards;
+    z-index: 10;
+}
+
+
 
 .share-facebook-dialog > .wrapper > img{
     height: 100%;
@@ -560,6 +567,7 @@ body{
 .share-facebook-dialog > .wrapper > .diaglog-content > p{
     color: burlywood;
     margin-top: 0;
+    margin-bottom: 0;
 }
 
 .share-facebook-dialog > .wrapper > .diaglog-content > .button{
