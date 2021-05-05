@@ -423,7 +423,7 @@ hidePopup = ()=>{
                         playTimesIndicator.className = "play-times-indicator";
                         label.setAttribute("src","src/images/optimized/tinified/out-of-plays.png");
                         popupButton.setAttribute("src","src/images/optimized/tinified/agree-order-button.png")
-                        content.innerHTML = `Bạn có muốn chơi lại không? Chỉ cần đặt một ly Trà Mật Rừng hoặc Phin Sữa Nâu của LUPU bạn sẽ có thêm 1 lượt chơi. Ngoài ra bạn đã có ${5 + normalPrizeValue}k, LUPU tặng bạn thêm 5k + tăng gấp đôi thể tích khi order 2 ly. `;
+                        content.innerHTML = `Bạn có muốn chơi lại không? Chỉ cần đặt một ly Trà Mật Rừng hoặc Phin Sữa Nâu của LUPU bạn sẽ có thêm 1 lượt chơi. Bạn hiện có ${5 + normalPrizeValue}k, LUPU giảm thêm 20% cho ly thứ 2 nhé! `;
                         // popup.className += " show";
                         buyingPhase = 1;
                         localStorage.setItem('plays',0);
@@ -699,7 +699,7 @@ createBoard = ()=>{
         label.setAttribute("src","src/images/optimized/tinified/out-of-plays.png");
         popupButton.setAttribute("src","src/images/optimized/tinified/agree-order-button.png")
         if(!isCheat){
-            content.innerHTML = `Bạn đã hết lượt rồi? Chỉ cần đặt một ly Trà Mật Rừng hoặc Phin Sữa Nâu của LUPU bạn sẽ có thêm 1 lượt chơi. Ngoài ra bạn sẽ được LUPU tặng 10k và giảm đến 20% cho ly thứ 2. `;
+            content.innerHTML = `Bạn đã hết lượt rồi? Chỉ cần đặt một ly Trà Mật Rừng hoặc Phin Sữa Nâu của LUPU bạn sẽ có thêm 1 lượt chơi. LUPU tặng bạn 10k và giảm đến 20% cho ly thứ 2 nhé! `;
             gtag("event","User Type",{
                 'user_type': 'Out of plays'
             }); 
