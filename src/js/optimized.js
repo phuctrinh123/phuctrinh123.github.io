@@ -394,13 +394,14 @@ hidePopup = ()=>{
                                 let randomPrize = randomNumber(3)
                                 console.log(randomBlock);
                                 console.log(randomPrize);
-                                blockHasPrize = document.getElementById(`block-${unopenBlock[randomBlock]}`);
+                                let blockHasPrize = document.getElementById(`block-${unopenBlock[randomBlock]}`);
                                 blockHasPrize.innerHTML += `<img 
                                     alt="lupu coffee"
                                     id="block-${unopenBlock[randomBlock]}-prize"
                                     src="${prizes[randomPrize == 0 ? 1 : randomPrize].img}" 
                                     data-value= ${prizes[randomPrize == 0 ? 1 : randomPrize].value}
                                 />`;
+                                blockHasPrize.className = "block stay";
                                 unopenBlock.splice(unopenBlock.indexOf(unopenBlock[randomBlock]), 1);
                             },1000);
                            
