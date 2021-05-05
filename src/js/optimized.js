@@ -127,6 +127,9 @@ shareFacebook = ()=>{
             },200);
         }
     );
+    gtag("event","Tap On Button",{
+        'button_label': 'Share facebook'
+    }); 
 }
 
 playGame = ()=>{
@@ -142,12 +145,18 @@ playGame = ()=>{
             menu.style.zIndex = -1000;
         },200);
     }
+    gtag("event","Tap On Button",{
+        'button_label': 'Play'
+    }); 
    
 }
 
 showTerms = ()=>{
     let termDialog = document.getElementById("term-dialog");
     termDialog.className += " show";
+    gtag("event","Tap On Button",{
+        'button_label': 'Show terms'
+    }); 
 }
 
 closeTerms = ()=>{
@@ -156,11 +165,17 @@ closeTerms = ()=>{
     setTimeout(()=>{
         termDialog.className = "share-facebook-dialog";
     },350);
+    gtag("event","Tap On Button",{
+        'button_label': 'Close terms'
+    }); 
 }
 
 showPolicy= ()=>{
     let termDialog = document.getElementById("policy-dialog");
     termDialog.className += " show";
+    gtag("event","Tap On Button",{
+        'button_label': 'Show policy'
+    }); 
 }
 
 closePolicy= ()=>{
@@ -169,6 +184,9 @@ closePolicy= ()=>{
     setTimeout(()=>{
         termDialog.className = "share-facebook-dialog";
     },350);
+    gtag("event","Tap On Button",{
+        'button_label': 'Close policy'
+    }); 
 }
 
 magicKey = ()=>{
@@ -236,11 +254,9 @@ magicKey = ()=>{
 }
 
 redirectToFacebook = () =>{
-    // gtag("event","Tap",{
-    //     'event_category': 'Tap on button',
-    //     'event_label': 'Order button',
-    //     'value': `pressed`
-    // }); 
+    gtag("event","Tap On Button",{
+        'button_label': 'Order'
+    }); 
     if(maxValuePrizeIndex){
         window.location.href = `https://m.me/lupucoffee?ref=${prizes[maxValuePrizeIndex].value}`;
     }else{
@@ -375,8 +391,10 @@ hidePopup = ()=>{
                         // popup.className += " show";
                         buyingPhase = 1;
                         localStorage.setItem('plays',0);
-                        showPopup();
-                        
+                        showPopup();    
+                        gtag("event","Tap On Button",{
+                            'button_label': 'Agree to order'
+                        });
                     },1500);
                 },1000);
             }else{
@@ -384,6 +402,10 @@ hidePopup = ()=>{
                 let buyingInfo = document.getElementById("buying-info");
                 products.className += " show";
                 buyingInfo.className += " show";
+                endShowGuide = getTimeData();
+                gtag("event","Read Content",{
+                    'popup_n_time': getInteractionTime(startShowGuide,endShowGuide) < 3 ? `Buying < 3s` : `Buying > 3s`
+                });
             }
         }
     }else{
@@ -403,6 +425,9 @@ hidePopup = ()=>{
             //     'event_label': `Close guide modal - round ${round}`,
             //     'value': `${getInteractionTime(startShowGuide,endShowGuide)}`
             // }); 
+            gtag("event","Read Content",{
+                'popup_n_time': getInteractionTime(startShowGuide,endShowGuide) < 3 ? `Guide round ${round} < 3s` : `Guide round ${round} > 3s`
+            });
         },1000);
     }
    
@@ -445,6 +470,9 @@ showPopup = ()=>{
                         // },850);
                     },1500);
                 },2500);
+                gtag("event","Game Rounds",{
+                    'game_round': 'Buying'
+                }); 
             }
         }else{
             let maxValue = 0;
@@ -465,10 +493,16 @@ showPopup = ()=>{
             content.innerHTML = `LUPU sẽ giữ lại viên có giá ${prizes[maxValuePrizeIndex].value}k và hoán đổi giá trị với hai viên còn lại (2 viên rỗng). Chúc bạn may mắn.`;
             popup.className += " show";
             startShowGuide = getTimeData();
+            gtag("event","Game Rounds",{
+                'game_round': 'Round 2'
+            }); 
         }
     }else{
         popup.className += " show";
         startShowGuide = getTimeData();
+        gtag("event","Game Rounds",{
+            'game_round': 'Round 1'
+        }); 
     }
 }
 
