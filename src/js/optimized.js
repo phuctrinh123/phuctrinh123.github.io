@@ -139,7 +139,7 @@ shareFacebook = ()=>{
 }
 
 playGame = ()=>{
-    if(window.localStorage.getItem('shareFacebook') != "true"){
+    if(window.localStorage.getItem('shareFacebook') != "true" ){
         let shareFacebookDiaglog = document.getElementById("facebook-share-dialog");
         shareFacebookDiaglog .className += " show";
         startShowGuide = getTimeData();
