@@ -1,6 +1,10 @@
 .loading-screen{
+    align-items: center;
     background: #002249;
+    display: flex;
+    flex-direction: column;
     height: 100%;
+    justify-content: center;
     opacity: 0;
     position: absolute;
     transition: opacity 0.2s ease-in-out;
@@ -13,14 +17,24 @@
     transition: opacity 0.2s ease-in-out;
 }
 
+.loading-screen > img{
+    max-height: 15%;
+}
+
+.loading-screen > p{
+    color: lightblue;
+    line-height: 1.75em;
+    padding: 0 2.1em;
+}
+
 #loading-bar{
     background-image: url('../../src/images/optimized/tinified/loading-bar.png');
     background-size: cover;
-    left: 50%;
+    /* left: 50%; */
     opacity: 0;
-    position: absolute;
+    /* position: absolute; */
     top: 50%;
-    transform: translate(-50%,-50%);
+    /* transform: translate(-50%,-50%); */
     transition: opacity 0.2s ease-in-out;
     z-index: -10;
 }
