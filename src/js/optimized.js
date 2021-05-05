@@ -128,15 +128,20 @@ shareFacebook = ()=>{
             },200);
         }
     );
+    endShowGuide = getTimeData();
     gtag("event","Tap On Button",{
         'button_label': 'Share facebook'
     }); 
+    gtag("event","Read Content",{
+        'popup_n_time': getInteractionTime(startShowGuide,endShowGuide) < 3 ? `Share facebook < 3s` : `Share facebook > 3s`
+    });
 }
 
 playGame = ()=>{
     if(window.localStorage.getItem('shareFacebook') !=  true){
         let shareFacebookDiaglog = document.getElementById("facebook-share-dialog");
         shareFacebookDiaglog .className += " show";
+        startShowGuide = getTimeData();
     }else{
         var menu = byID("game-menu");
         menu.className += " hide";
