@@ -389,18 +389,21 @@ hidePopup = ()=>{
                         }
 
                         setTimeout(()=>{
-                            let randomBlock = randomNumber(3);
-                            let randomPrize = randomNumber(4)
-                            console.log(randomBlock);
-                            console.log(randomPrize);
-                            blockHasPrize = document.getElementById(`block-${unopenBlock[randomBlock]}`);
-                            blockHasPrize.innerHTML += `<img 
-                                alt="lupu coffee"
-                                id="block-${unopenBlock[randomBlock]}-prize"
-                                src="${prizes[randomPrize == 0 ? 1 : randomPrize].img}" 
-                                data-value= ${prizes[randomPrize == 0 ? 1 : randomPrize].value}
-                            />`;
-                            unopenBlock.splice(unopenBlock.indexOf(unopenBlock[randomBlock]), 1);
+                            setTimeout(()=>{
+                                let randomBlock = randomNumber(3);
+                                let randomPrize = randomNumber(4)
+                                console.log(randomBlock);
+                                console.log(randomPrize);
+                                blockHasPrize = document.getElementById(`block-${unopenBlock[randomBlock]}`);
+                                blockHasPrize.innerHTML += `<img 
+                                    alt="lupu coffee"
+                                    id="block-${unopenBlock[randomBlock]}-prize"
+                                    src="${prizes[randomPrize == 0 ? 1 : randomPrize].img}" 
+                                    data-value= ${prizes[randomPrize == 0 ? 1 : randomPrize].value}
+                                />`;
+                                unopenBlock.splice(unopenBlock.indexOf(unopenBlock[randomBlock]), 1);
+                            },500);
+                           
                             guideText.className += " show";
                             playTimesIndicator.className += " show";
                         },500);  
