@@ -98,6 +98,7 @@ let maxValuePrizeIndex = null;
 let round = window.localStorage.getItem('plays')!= 0 ? 1 : 2;
 let openTimes = window.localStorage.getItem('plays')!= 0 ? 6 : 0;
 let buyingPhase = 0;
+let outOfPlay = false;
 let startShowGuide = 0;
 let endShowGuide = 0;
 let isCheat = false;
@@ -254,9 +255,22 @@ magicKey = ()=>{
 }
 
 redirectToFacebook = () =>{
-    gtag("event","Tap On Button",{
-        'button_label': 'Order'
-    }); 
+    if((window.localStorage.getItem('plays') == 0)&&(outOfPlay == true)){
+        gtag("event","Tap On Button",{
+            'button_label': 'Order (out of plays)'
+        }); 
+        gtag("event","User Type",{
+            'user_type': 'Nice user (out of plays)'
+        }); 
+    }else if ((window.localStorage.getItem('plays') == 0)&&(outOfPlay == false)){
+        gtag("event","Tap On Button",{
+            'button_label': 'Order'
+        }); 
+        gtag("event","User Type",{
+            'user_type': 'Nice user'
+        }); 
+    }
+   
     if(maxValuePrizeIndex){
         window.location.href = `https://m.me/lupucoffee?ref=${prizes[maxValuePrizeIndex].value}`;
     }else{
@@ -660,10 +674,16 @@ createBoard = ()=>{
         popupButton.setAttribute("src","src/images/optimized/tinified/agree-order-button.png")
         if(!isCheat){
             content.innerHTML = `Bạn đã hết lượt rồi? Chỉ cần đặt một ly Trà Mật Rừng hoặc Phin Sữa Nâu của LUPU bạn sẽ có thêm 1 lượt chơi. Ngoài ra bạn sẽ được LUPU tặng 10k và giảm đến 50% cho ly thứ 2. `;
+            gtag("event","User Type",{
+                'user_type': 'Out of plays'
+            }); 
         }else{
             content.innerHTML = 'Mã code này đã được sử dụng. Đặt ngay một ly Trà Mật Rừng hoặc Phin Sữa Nâu của LUPU bạn sẽ có thêm 1 lượt chơi. Ngoài ra bạn sẽ được LUPU tặng 10k và giảm đến 50% cho ly thứ 2.'
+            gtag("event","User Type",{
+                'user_type': 'Cheated'
+            }); 
         }
-     
+        outOfPlay = true;
         buyingPhase = 1;
         showPopup();
     }
