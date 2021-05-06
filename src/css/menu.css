@@ -66,3 +66,13 @@
     font-size: 0.8em;
     margin-top: 15% !important;
 }
+
+.copyright.player-id{
+    border-radius: 1em;
+    background-color: rgba(222, 184, 135, 0.2);
+    padding: 0.5em 1em;
+}
+
+#player-id{
+    color:floralwhite;
+}
