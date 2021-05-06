@@ -114,6 +114,21 @@ let round1IndicatorContent = document.getElementById("play-times");
 let round2Indicator = document.getElementById("round2-content");
 let round2IndicatorContent = document.getElementById("round2-play-times");
 
+generatePlayerID = ()=>{
+    let playerIDDisplayer = document.getElementById("player-id");
+    if(!window.localStorage.getItem("playerID")){
+        let playerID = "";
+        for(let i = 0 ; i < 6; i++ ){
+            let random = randomNumber(10);
+            playerID += `${random}`;
+        }
+        window.localStorage.setItem("playerID", playerID);
+        playerIDDisplayer.innerHTML = playerID;
+    }else{
+        playerIDDisplayer.innerHTML = window.localStorage.getItem("playerID");
+    }
+}
+
 shareFacebook = ()=>{
     FB.ui({
         method: 'share',
@@ -725,5 +740,5 @@ body.onload = (e)=>{
     body.style.fontSize = Math.round(_isMobile ==  true ? _screenWidth*13/320 : 13) + "px";
     board.style.width = _boardWidth;
     board.style.height = _boardWidth;
-    
+    generatePlayerID();  
 }
