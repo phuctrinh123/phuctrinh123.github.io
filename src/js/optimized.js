@@ -117,7 +117,7 @@ let round2IndicatorContent = document.getElementById("round2-play-times");
 shareFacebook = ()=>{
     FB.ui({
         method: 'share',
-        href: 'http://lupucoffee.com/',
+        href: 'https://www.facebook.com/lupucoffee/posts/292938352304468',
         }, function(response){
             var menu = byID("game-menu");
             window.localStorage.setItem('shareFacebook', true);
