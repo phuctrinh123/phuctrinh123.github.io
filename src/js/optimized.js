@@ -132,7 +132,7 @@ generatePlayerID = ()=>{
 shareFacebook = ()=>{
     FB.ui({
         method: 'share',
-        href: 'https://www.facebook.com/lupucoffee/posts/292938352304468',
+        href: 'https://www.facebook.com/lupucoffee/posts/293387488926221',
         }, function(response){
             var menu = byID("game-menu");
             window.localStorage.setItem('shareFacebook', true);
@@ -435,11 +435,17 @@ hidePopup = ()=>{
                         let popupButton= document.getElementById("popup-button");
                         let label = document.getElementById("popup-label");
                         let localStorage = window.localStorage;
+                        let plusPrizeString = ``;
+                        if((normalPrizeValue > 0)&&(normalPrizeValue < 5)){
+                            plusPrizeString = `LUPU tặng thêm 4k, Tổng là 10k`;
+                        } else{
+                            plusPrizeString = `LUPU tặng thêm 5k, Tổng là 10k`;
+                        }
                         guideText.className = "guide-text";
                         playTimesIndicator.className = "play-times-indicator";
                         label.setAttribute("src","src/images/optimized/tinified/out-of-plays.png");
                         popupButton.setAttribute("src","src/images/optimized/tinified/agree-order-button.png")
-                        content.innerHTML = `Một ly Trà Mật Rừng hoặc Phin Sữa Nâu sẽ giúp bạn thêm lượt. LUPU tặng bạn ${10 + normalPrizeValue}k. Nếu bạn không sử dụng sẽ bị mất, bạn có muốn order không? `;
+                        content.innerHTML = `Một ly Trà Mật Rừng hoặc Phin Sữa Nâu sẽ giúp bạn thêm lượt. Bạn hiện có ${5 + normalPrizeValue}k. ${plusPrizeString} Nếu bạn không sử dụng sẽ bị mất, bạn có muốn order không? `;
                         // popup.className += " show";
                         buyingPhase = 1;
                         localStorage.setItem('plays',0);
@@ -716,12 +722,12 @@ createBoard = ()=>{
         label.setAttribute("src","src/images/optimized/tinified/out-of-plays.png");
         popupButton.setAttribute("src","src/images/optimized/tinified/agree-order-button.png")
         if(!isCheat){
-            content.innerHTML = `Bạn đã hết lượt rồi? Chỉ cần đặt một ly Trà Mật Rừng hoặc Phin Sữa Nâu của LUPU bạn sẽ có thêm 1 lượt chơi. LUPU tặng bạn 10k và giảm đến 20% cho ly thứ 2 nhé! `;
+            content.innerHTML = `Bạn đã hết lượt rồi? Chỉ cần đặt một ly Trà Mật Rừng hoặc Phin Sữa Nâu của LUPU bạn sẽ có thêm 1 lượt chơi. LUPU tặng bạn 5k và giảm đến 20% khi order nhé! `;
             gtag("event","User Type",{
                 'user_type': 'Out of plays'
             }); 
         }else{
-            content.innerHTML = 'Mã code này đã được sử dụng. Đặt ngay một ly Trà Mật Rừng hoặc Phin Sữa Nâu của LUPU bạn sẽ có thêm 1 lượt chơi. LUPU tặng bạn 10k và giảm đến 20% cho ly thứ 2 nhé!'
+            content.innerHTML = 'Mã code này đã được sử dụng. Đặt ngay một ly Trà Mật Rừng hoặc Phin Sữa Nâu của LUPU bạn sẽ có thêm 1 lượt chơi. LUPU tặng bạn 5k và giảm đến 20% khi order nhé!'
             gtag("event","User Type",{
                 'user_type': 'Cheated'
             }); 
