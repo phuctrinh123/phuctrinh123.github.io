@@ -116,6 +116,14 @@ let round2IndicatorContent = document.getElementById("round2-play-times");
 
 generatePlayerID = ()=>{
     let playerIDDisplayer = document.getElementById("player-id");
+    let db = firebase.firestore();
+    let today = new Date();
+    let dd = String(today.getDate()).padStart(2, '0');
+    let mm = String(today.getMonth() + 1).padStart(2, '0'); 
+    let yyyy = today.getFullYear();
+    let hours = today.getHours();
+    let minutes = today.getMinutes();
+    let seconds = today.getSeconds();
     if(!window.localStorage.getItem("playerID")){
         let playerID = "";
         for(let i = 0 ; i < 6; i++ ){
@@ -123,9 +131,32 @@ generatePlayerID = ()=>{
             playerID += `${random}`;
         }
         window.localStorage.setItem("playerID", playerID);
+        window.localStorage.setItem("playtimes", 1);
         playerIDDisplayer.innerHTML = playerID;
+        db.collection("player").doc(playerID).set({
+            joinDate: `${hours}:${minutes}:${seconds}-${dd}/${mm}/${yyyy}`,
+            playTimes: 1,
+        })
+        .then(() => {
+            console.log("Document successfully written!");
+        })
+        .catch((error) => {
+            console.error("Error writing document: ", error);
+        });
     }else{
         playerIDDisplayer.innerHTML = window.localStorage.getItem("playerID");
+        db.collection("player").doc(window.localStorage.getItem("playerID")).update({
+            lastTimeStartPlaying: `${hours}:${minutes}:${seconds}-${dd}/${mm}/${yyyy}`,
+            lastStatus: 'Chơi lần ' + (parseInt(window.localStorage.getItem("playtimes")) + 1) + '-' + (parseInt(window.localStorage.getItem('plays')) > 0 ? 'playable' : 'outOfPlay'),
+            playTimes: parseInt(window.localStorage.getItem("playtimes")) + 1
+        })
+        .then(() => {
+            console.log("Document successfully written!");
+        })
+        .catch((error) => {
+            console.error("Error writing document: ", error);
+        });
+        window.localStorage.setItem("playtimes", parseInt(window.localStorage.getItem("playtimes")) + 1);
     }
 }
 
@@ -436,6 +467,14 @@ hidePopup = ()=>{
                         let label = document.getElementById("popup-label");
                         let localStorage = window.localStorage;
                         let plusPrizeString = ``;
+                        let db = firebase.firestore();
+                        let today = new Date();
+                        let dd = String(today.getDate()).padStart(2, '0');
+                        let mm = String(today.getMonth() + 1).padStart(2, '0'); 
+                        let yyyy = today.getFullYear();
+                        let hours = today.getHours();
+                        let minutes = today.getMinutes();
+                        let seconds = today.getSeconds();
                         if((normalPrizeValue > 0)&&(normalPrizeValue < 5)){
                             plusPrizeString = `LUPU tặng thêm 4k, Tổng là 10k`;
                         } else{
@@ -453,6 +492,16 @@ hidePopup = ()=>{
                         showPopup();    
                         gtag("event","Tap On Button",{
                             'button_label': 'Agree to order'
+                        });
+                        db.collection("player").doc(window.localStorage.getItem("playerID")).update({
+                            lastTimeFinishPlaying: `${hours}:${minutes}:${seconds}-${dd}/${mm}/${yyyy}`,
+                            prize: `Đã tặng 5k, lật trúng kẹo ${normalPrizeValue}k, ${plusPrizeString}`
+                        })
+                        .then(() => {
+                            console.log("Document successfully written!");
+                        })
+                        .catch((error) => {
+                            console.error("Error writing document: ", error);
                         });
                     },1500);
                 },1000);
